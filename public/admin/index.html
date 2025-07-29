@@ -1,0 +1,279 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="robots" content="noindex" />
+  <title>Fork Website CMS</title>
+  <script src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
+  <style>
+    :root {
+      --primary-color: #003A20;
+      --secondary-color: #90EE90;
+    }
+
+    #cms-loading {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: var(--primary-color);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      color: white;
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+      z-index: 9999;
+      transition: opacity 0.3s ease;
+    }
+
+    .loading-logo {
+      font-size: 48px;
+      font-weight: bold;
+      letter-spacing: 5px;
+      margin-bottom: 20px;
+      animation: pulse 2s ease-in-out infinite alternate;
+    }
+
+    .loading-text {
+      font-size: 16px;
+      letter-spacing: 2px;
+      opacity: 0.8;
+    }
+
+    .loading-spinner {
+      width: 40px;
+      height: 40px;
+      border: 3px solid rgba(255, 255, 255, 0.3);
+      border-top: 3px solid white;
+      border-radius: 50%;
+      animation: spin 1s linear infinite;
+      margin-top: 20px;
+    }
+
+    @keyframes pulse {
+      from { opacity: 1; }
+      to { opacity: 0.7; }
+    }
+
+    @keyframes spin {
+      0% { transform: rotate(0deg); }
+      100% { transform: rotate(360deg); }
+    }
+  </style>
+</head>
+<body>
+  <!-- ローディング画面 -->
+  <div id="cms-loading">
+    <div class="loading-logo">fork</div>
+    <div class="loading-text">管理画面を読み込み中...</div>
+    <div class="loading-spinner"></div>
+  </div>
+
+  <!-- Decap CMS -->
+  <script src="https://unpkg.com/decap-cms@^3.0.0/dist/decap-cms.js"></script>
+  
+  <script>
+    // 日本語対応
+    const ja = {
+      auth: {
+        login: "ログイン",
+        loggingIn: "ログイン中...",
+        loginWithGitHub: "GitHub でログイン",
+      },
+      app: {
+        header: {
+          content: "コンテンツ",
+          media: "メディア",
+          quickAdd: "クイック追加"
+        }
+      },
+      collection: {
+        sidebar: {
+          collections: "コレクション",
+          allCollections: "すべてのコレクション",
+          searchAll: "すべて検索"
+        },
+        collectionTop: {
+          sortBy: "並び替え",
+          viewAs: "表示形式",
+          newButton: "新規%{collectionLabel}",
+          ascending: "昇順",
+          descending: "降順"
+        }
+      },
+      editor: {
+        editorControl: {
+          field: {
+            optional: "オプション"
+          }
+        },
+        editorControlPane: {
+          widget: {
+            required: "%{fieldLabel}は必須です。",
+            regexPattern: "%{fieldLabel}が有効なパターンと一致しません。",
+            processing: "%{fieldLabel}を処理中。"
+          }
+        },
+        editor: {
+          onLeavePage: "このページを離れますか？",
+          onUpdatingWithUnsavedChangesTitle: "未保存の変更があります",
+          onUpdatingWithUnsavedChangesBody: "保存されていない変更があります。ステータスを更新する前に保存してください。",
+          onPublishing: "公開中...",
+          onUnpublishing: "非公開中...",
+          onDeleteWithUnsavedChangesTitle: "この未公開エントリを削除しますか？",
+          onDeleteWithUnsavedChangesBody: "この未公開エントリと未保存の変更をすべて削除しますか？",
+          loadingEntry: "エントリを読み込み中..."
+        },
+        editorToolbar: {
+          publishing: "公開中...",
+          publish: "公開",
+          published: "公開済み",
+          unpublish: "非公開",
+          duplicate: "複製",
+          unpublishing: "非公開中...",
+          deleteEntry: "エントリを削除",
+          saving: "保存中...",
+          save: "保存",
+          deleting: "削除中...",
+          updating: "更新中...",
+          backCollection: "%{collectionLabel}コレクションに戻る",
+          unsavedChanges: "未保存の変更",
+          changesSaved: "変更が保存されました",
+          draft: "下書き",
+          inReview: "レビュー中",
+          ready: "準備完了",
+          publishNow: "今すぐ公開"
+        },
+        editorWidgets: {
+          markdown: {
+            bold: "太字",
+            italic: "斜体",
+            code: "コード",
+            link: "リンク",
+            linkPrompt: "リンクのURLを入力",
+            headings: "見出し",
+            quote: "引用",
+            bulletedList: "箇条書き",
+            numberedList: "番号付きリスト",
+            addComponent: "コンポーネントを追加",
+            richText: "リッチテキスト",
+            markdown: "Markdown"
+          },
+          image: {
+            choose: "画像を選択",
+            chooseUrl: "URLから挿入",
+            replaceUrl: "URLで置換",
+            promptUrl: "画像のURLを入力",
+            chooseDifferent: "別の画像を選択",
+            remove: "画像を削除"
+          },
+          unknownControl: {
+            noControl: "'%{widget}'ウィジェットのコントロールがありません。"
+          },
+          unknownPreview: {
+            noPreview: "'%{widget}'ウィジェットのプレビューがありません。"
+          },
+          headingOptions: {
+            headingOne: "見出し 1",
+            headingTwo: "見出し 2",
+            headingThree: "見出し 3",
+            headingFour: "見出し 4",
+            headingFive: "見出し 5",
+            headingSix: "見出し 6"
+          },
+          datetime: {
+            now: "現在",
+            invalidDateTitle: "無効な日付",
+            invalidDateBody: "入力した日付が無効です。"
+          }
+        }
+      },
+      ui: {
+        common: {
+          yes: "はい",
+          no: "いいえ",
+          okay: "OK",
+          cancel: "キャンセル"
+        },
+        default: {
+          goBackToSite: "サイトに戻る"
+        },
+        errorBoundary: {
+          title: "エラー",
+          details: "エラーが発生しました",
+          reportIt: "GitHubで問題を報告してください。"
+        },
+        settingsDropdown: {
+          logOut: "ログアウト"
+        },
+        toast: {
+          onFailToLoadEntries: "エントリの読み込みに失敗しました: %{details}",
+          onFailToPersist: "エントリの保存に失敗しました: %{details}",
+          onFailToDelete: "エントリの削除に失敗しました: %{details}",
+          missingRequiredField: "必須フィールドが不足しています。保存する前に入力してください。",
+          entrySaved: "エントリが保存されました",
+          entryPublished: "エントリが公開されました",
+          entryUnpublished: "エントリが非公開になりました"
+        }
+      }
+    };
+
+    // Decap CMS初期化
+    if (typeof CMS !== 'undefined') {
+      CMS.registerLocale('ja', ja);
+      
+      // カスタムプレビューテンプレート
+      const ProjectPreview = ({ entry, widgetFor }) => {
+        const title = entry.getIn(['data', 'title']) || '';
+        const description = entry.getIn(['data', 'description']) || '';
+        const client = entry.getIn(['data', 'client']) || '';
+        const year = entry.getIn(['data', 'year']) || '';
+        
+        return `
+          <div style="font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; padding: 20px; max-width: 800px; margin: 0 auto;">
+            <h1 style="color: #003A20; font-size: 36px; margin-bottom: 10px; letter-spacing: 2px; font-weight: 300;">${title}</h1>
+            <p style="color: #666; font-size: 14px; margin-bottom: 20px; font-weight: 500;">${client} | ${year}</p>
+            <p style="font-size: 16px; line-height: 1.8; color: #555; margin-bottom: 20px;">${description}</p>
+            <div style="line-height: 1.8; color: #555;">${widgetFor('body')}</div>
+          </div>
+        `;
+      };
+
+      const NewsPreview = ({ entry, widgetFor }) => {
+        const title = entry.getIn(['data', 'title']) || '';
+        const date = entry.getIn(['data', 'date']);
+        const description = entry.getIn(['data', 'description']) || '';
+        
+        const formattedDate = date ? new Date(date).toLocaleDateString('ja-JP') : '';
+        
+        return `
+          <div style="font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; padding: 20px; max-width: 800px; margin: 0 auto;">
+            <h1 style="color: #003A20; font-size: 36px; margin-bottom: 10px; letter-spacing: 2px; font-weight: 300;">${title}</h1>
+            <p style="color: #666; font-size: 14px; margin-bottom: 20px;">${formattedDate}</p>
+            <p style="font-size: 16px; line-height: 1.8; color: #555; margin-bottom: 20px; font-weight: 500;">${description}</p>
+            <div style="line-height: 1.8; color: #555;">${widgetFor('body')}</div>
+          </div>
+        `;
+      };
+
+      // プレビューテンプレートを登録
+      CMS.registerPreviewTemplate('projects', ProjectPreview);
+      CMS.registerPreviewTemplate('news', NewsPreview);
+      
+      // 初期化完了後にローディング画面を非表示
+      setTimeout(() => {
+        const loading = document.getElementById('cms-loading');
+        if (loading) {
+          loading.style.opacity = '0';
+          setTimeout(() => {
+            loading.style.display = 'none';
+          }, 300);
+        }
+      }, 1500);
+    }
+  </script>
+</body>
+</html>
