@@ -8,121 +8,46 @@ const Access = () => {
   const contentRef = useRef<HTMLDivElement>(null);
   const { isSticky } = useSectionSticky(sectionRef, contentRef);
 
-  const effortItems = [
-    "学童保育・fork toyama",
-    "カリキュラム・コンテンツ開発",
-    "子育て世帯のサポート",
-    "学童従事研修"
-  ];
-
   return (
-    <>
-      <style jsx>{`
-        .effort-bg {
-          background-color: #003705;
-        }
-        .section-container {
-          display: flex;
-          min-height: 100vh;
-        }
-        .left-column {
-          width: 66.666667%;
-          background-color: #003705;
-          position: relative;
-        }
-        .right-column {
-          width: 33.333333%;
-          background-color: #003705;
-        }
-        .sticky-header {
-          position: sticky;
-          top: 80px;
-          padding: 2rem 3rem;
-          background-color: #003705;
-          z-index: 20;
-          display: flex;
-          align-items: center;
-          justify-content: flex-end;
-          height: 100vh;
-        }
-        .vertical-title {
-          writing-mode: vertical-rl;
-          text-orientation: mixed;
-          color: white;
-          font-size: 1.5rem;
-          font-weight: 600;
-          line-height: 1.4;
-          letter-spacing: 0.1em;
-        }
-        .content-area {
-          padding: 4rem 2rem;
-          color: white;
-          min-height: 150vh;
-        }
-        .what-we-do {
-          font-size: 0.875rem;
-          margin-bottom: 2rem;
-          font-weight: 400;
-          color: #B4B4B4;
-        }
-        .description {
-          font-size: 0.875rem;
-          line-height: 1.8;
-          margin-bottom: 3rem;
-        }
-        .effort-list {
-          list-style: none;
-          padding: 0;
-          margin: 0;
-        }
-        .effort-item {
-          font-size: 0.875rem;
-          margin-bottom: 1rem;
-          padding-left: 2rem;
-          position: relative;
-        }
-        .effort-item::before {
-          content: attr(data-number);
-          position: absolute;
-          left: 0;
-          top: 0;
-          font-weight: 600;
-        }
-        @media (min-width: 1024px) {
-          .content-area {
-            padding: 4rem 4rem;
-          }
-          .vertical-title {
-            font-size: 1.75rem;
-          }
-        }
-      `}</style>
-
-      <section ref={sectionRef} id="effort-main" className="effort-bg relative">
-        <div className="section-container">
-          <div ref={contentRef} className="left-column">
-            <div className="content-area">
-              <div className="what-we-do">what we do</div>
-              <div className="description">
-                forkではミッションとして掲げる、子育ての「みん営」化実現のために、学童保育施設の運営をはじめとしたさまざまな事業に取り組んでいます。
+    <section ref={sectionRef} id="access-main" className="access-bg relative">
+      <div className="section-container">
+        <div ref={contentRef} className="left-column">
+          <div className="content-area">
+            <div className="section-category">ACCESS</div>
+            <div className="section-title">アクセス</div>
+            
+            <div className="access-info">
+              <div className="facility-name">fork toyama</div>
+              <div className="address">〒930-0289 富山県中新川郡舟橋村竹内325</div>
+              
+              <div className="company-info">
+                <div className="operator">学童保育運営：一般社団法人fork</div>
+                <div className="facility-management">施設運営・企画運用：トゥ神株式会社</div>
+                <div className="establishment">設立：2017年7月24日</div>
+                <div className="location">住所：東京都江東区永代1丁目20-8 河田ビル1階</div>
+                <div className="representative">代表者：代表取締役 岡山史樹</div>
               </div>
-              <ul className="effort-list">
-                <li className="effort-item" data-number="01.">学童保育・fork toyama</li>
-                <li className="effort-item" data-number="02.">カリキュラム・コンテンツ開発</li>
-                <li className="effort-item" data-number="03.">学童運営のサポート</li>
-                <li className="effort-item" data-number="04.">学童人事研修</li>
-              </ul>
-            </div>
-          </div>
-
-          <div className="right-column">
-            <div className="sticky-header">
-              <h1 className="vertical-title">とりくみ</h1>
             </div>
           </div>
         </div>
-      </section>
-    </>
+
+        <div className="right-column">
+          <div className="map-container">
+            <iframe 
+              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d565.4579975939349!2d137.30563961907245!3d36.705422524872!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x5ff797813d97aec1%3A0x51faecf143e2bb08!2sfork%20toyama!5e0!3m2!1sja!2sjp!4v1754876356107!5m2!1sja!2sjp"
+              width="100%"
+              height="100%"
+              style={{ border: 0 }}
+              allowFullScreen
+              loading="lazy"
+              referrerPolicy="no-referrer-when-downgrade"
+              title="fork toyama location"
+            ></iframe>
+            <div className="map-overlay"></div>
+          </div>
+        </div>
+      </div>
+    </section>
   );
 };
 

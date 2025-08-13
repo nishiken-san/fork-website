@@ -3,7 +3,7 @@
 import { useRef } from 'react';
 import { useSectionSticky } from '../../hooks/useSectionSticky';
 
-const Place = () => {
+const SupporterMainSection = () => {
   const sectionRef = useRef<HTMLDivElement>(null);
   const contentRef = useRef<HTMLDivElement>(null);
   const { isSticky } = useSectionSticky(sectionRef, contentRef);
@@ -126,4 +126,4 @@ const Place = () => {
   );
 };
 
-export default Place;
+export default SupporterMainSection;

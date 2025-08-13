@@ -1,0 +1,1169 @@
+/* ===========================================
+   Fork Toyama Sections Unified CSS
+   =========================================== */
+
+/* Common Section Styles */
+.natural-architecture-bg,
+.access-bg,
+.minnei-bg {
+  background-color: #E7EBE7;
+  min-height: 100vh;
+  padding: 4rem 0;
+}
+
+.natural-architecture-bg .section-container,
+.access-bg .section-container,
+.minnei-bg .section-container {
+  display: flex;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 2rem;
+  gap: 3rem;
+}
+
+.natural-architecture-bg .left-column,
+.access-bg .left-column,
+.minnei-bg .left-column {
+  flex: 1;
+  position: relative;
+  z-index: 10;
+}
+
+.natural-architecture-bg .content-area,
+.access-bg .content-area,
+.minnei-bg .content-area {
+  position: sticky;
+  top: 8rem;
+  padding: 2rem 0;
+}
+
+.natural-architecture-bg .section-category,
+.access-bg .section-category {
+  font-size: 0.9rem;
+  color: #003705;
+  margin-bottom: 0.5rem;
+  letter-spacing: 0.05em;
+  font-weight: 600;
+  text-decoration: underline;
+  text-underline-offset: 0.4em;
+}
+
+.minnei-bg .section-category {
+  font-size: 0.8rem;
+  color: #B4B4B4;
+  margin-bottom: 0.5rem;
+  letter-spacing: 0.05em;
+  font-weight: 400;
+  text-decoration: none;
+}
+
+.natural-architecture-bg .section-title,
+.access-bg .section-title,
+.minnei-bg .section-title {
+  font-size: 1.8rem;
+  font-weight: 600;
+  color: #003705;
+  margin-bottom: 2rem;
+  line-height: 1.4;
+}
+
+/* ===========================================
+   Natural Architecture Section
+   =========================================== */
+
+.natural-architecture-bg .section-number {
+  width: 60px;
+  height: 60px;
+  background-color: #003705;
+  color: #FFFFFF;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.5rem;
+  font-weight: bold;
+  margin-bottom: 2rem;
+}
+
+.natural-architecture-bg .description {
+  font-size: 0.95rem;
+  line-height: 1.8;
+  color: #003705;
+  letter-spacing: 0.02em;
+}
+
+.natural-architecture-bg .right-column {
+  flex: 2;
+  position: relative;
+}
+
+.natural-architecture-bg .images-container {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  padding: 1rem 0;
+}
+
+.natural-architecture-bg .mobile-photos {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+.natural-architecture-bg .image-block {
+  width: 100%;
+  overflow: hidden;
+  border-radius: 8px;
+  transition: transform 0.3s ease;
+}
+
+.natural-architecture-bg .image-block:hover {
+  transform: translateY(-5px);
+}
+
+.natural-architecture-bg .map-block {
+  height: 400px;
+  background: #E7EBE7;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 2px dashed #DDDDDD;
+}
+
+.natural-architecture-bg .photo-block {
+  height: 300px;
+  background: #E7EBE7;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 2px dashed #DDDDDD;
+}
+
+.natural-architecture-bg .responsive-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+}
+
+/* Placeholder text for images */
+.natural-architecture-bg .map-block::after {
+  content: "MAP";
+  color: #B4B4B4;
+  font-size: 2rem;
+  font-weight: bold;
+  position: absolute;
+}
+
+.natural-architecture-bg .photo-block:nth-child(2)::after {
+  content: "PIC1";
+  color: #B4B4B4;
+  font-size: 2rem;
+  font-weight: bold;
+  position: absolute;
+}
+
+.natural-architecture-bg .photo-block:nth-child(3)::after {
+  content: "PIC2";
+  color: #B4B4B4;
+  font-size: 2rem;
+  font-weight: bold;
+  position: absolute;
+}
+
+.natural-architecture-bg .photo-block:nth-child(4)::after {
+  content: "PIC3";
+  color: #B4B4B4;
+  font-size: 2rem;
+  font-weight: bold;
+  position: absolute;
+}
+
+/* Mobile Text Section (hidden on desktop) */
+.natural-architecture-bg .mobile-text-section {
+  display: none;
+}
+
+/* ===========================================
+   Access Section
+   =========================================== */
+
+.access-bg .access-info {
+  color: #003705;
+}
+
+.access-bg .facility-name {
+  font-size: 1.1rem;
+  font-weight: 600;
+  margin-bottom: 0.5rem;
+  color: #003705;
+}
+
+.access-bg .address {
+  font-size: 0.95rem;
+  margin-bottom: 2.5rem;
+  line-height: 1.6;
+  color: #003705;
+}
+
+.access-bg .company-info {
+  font-size: 0.9rem;
+  line-height: 1.8;
+  color: #003705;
+}
+
+.access-bg .company-info > div {
+  margin-bottom: 0.8rem;
+}
+
+.access-bg .right-column {
+  flex: 2;
+  position: relative;
+}
+
+.access-bg .map-container {
+  position: relative;
+  width: 100%;
+  height: 600px;
+  border-radius: 8px;
+  overflow: hidden;
+  background-color: #B4B4B4;
+}
+
+.access-bg .map-container iframe {
+  position: relative;
+  z-index: 1;
+}
+
+/* Green tone overlay for the map */
+.access-bg .map-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 55, 5, 0.3);
+  pointer-events: none;
+  z-index: 2;
+}
+
+/* ===========================================
+   Minnei5 Section
+   =========================================== */
+
+.minnei5-bg {
+  background-color: #E7EBE7;
+  min-height: 100vh;
+  padding: 4rem 0;
+}
+
+.minnei5-bg .section-container {
+  display: flex;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 2rem;
+  gap: 3rem;
+}
+
+.minnei5-bg .left-column {
+  flex: 1;
+  position: relative;
+  z-index: 10;
+}
+
+.minnei5-bg .content-area {
+  position: sticky;
+  top: 8rem;
+  padding: 2rem 0;
+}
+
+.minnei5-bg .section-category {
+  font-size: 0.8rem;
+  color: #B4B4B4;
+  margin-bottom: 0.5rem;
+  letter-spacing: 0.05em;
+  font-weight: 400;
+  text-decoration: none;
+}
+
+.minnei5-bg .section-title {
+  font-size: 1.8rem;
+  font-weight: 600;
+  color: #003705;
+  line-height: 1.4;
+}
+
+.minnei5-bg .right-column {
+  flex: 2;
+  position: relative;
+}
+
+.minnei5-bg .supporters-container {
+  padding: 2rem 0;
+}
+
+.minnei5-bg .supporters-text {
+  font-size: 0.9rem;
+  line-height: 1.8;
+  color: #003705;
+  letter-spacing: 0.02em;
+  word-wrap: break-word;
+  word-break: break-word;
+  overflow-wrap: break-word;
+}
+
+.minnei4-bg {
+  background-color: #E7EBE7;
+  min-height: 100vh;
+  padding: 4rem 0;
+}
+
+.minnei4-bg .section-container {
+  display: flex;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 2rem;
+  gap: 3rem;
+}
+
+.minnei4-bg .left-column {
+  flex: 1;
+  position: relative;
+  z-index: 10;
+}
+
+.minnei4-bg .content-area {
+  position: sticky;
+  top: 8rem;
+  padding: 2rem 0;
+}
+
+.minnei4-bg .section-category {
+  font-size: 0.8rem;
+  color: #B4B4B4;
+  margin-bottom: 0.5rem;
+  letter-spacing: 0.05em;
+  font-weight: 400;
+  text-decoration: none;
+}
+
+.minnei4-bg .section-title {
+  font-size: 1.8rem;
+  font-weight: 600;
+  color: #003705;
+  line-height: 1.4;
+}
+
+.minnei4-bg .right-column {
+  flex: 2;
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.minnei4-bg .price-container {
+  width: 100%;
+  padding: 3rem;
+  background-color: #FFFFFF;
+  border-radius: 8px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+}
+
+.minnei4-bg .plan-name {
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: #003705;
+  margin-bottom: 2rem;
+}
+
+.minnei4-bg .price-info {
+  display: flex;
+  align-items: baseline;
+  justify-content: center;
+  gap: 1rem;
+  margin-bottom: 3rem;
+}
+
+.minnei4-bg .price-label {
+  font-size: 1rem;
+  color: #003705;
+  font-weight: 500;
+}
+
+.minnei4-bg .price-amount {
+  font-size: 2rem;
+  font-weight: 700;
+  color: #003705;
+}
+
+.minnei4-bg .apply-button {
+  display: block;
+  width: 100%;
+  padding: 1.2rem 2rem;
+  background-color: #003705;
+  color: #FFFFFF;
+  text-decoration: none;
+  border: none;
+  border-radius: 4px;
+  font-size: 1rem;
+  font-weight: 600;
+  text-align: center;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  margin: 0 auto 2rem auto;
+  letter-spacing: 0.05em;
+}
+
+.minnei4-bg .apply-button:hover {
+  background-color: rgba(0, 55, 5, 0.9);
+  transform: translateY(-2px);
+}
+
+.minnei4-bg .apply-button:focus {
+  outline: 2px solid #003705;
+  outline-offset: 2px;
+}
+
+.minnei4-bg .price-options {
+  font-size: 0.9rem;
+  color: #B4B4B4;
+  line-height: 1.6;
+  letter-spacing: 0.02em;
+}
+
+.minnei3-bg {
+  background-color: #E7EBE7;
+  min-height: 100vh;
+  padding: 4rem 0;
+}
+
+.minnei3-bg .section-container {
+  display: flex;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 2rem;
+  gap: 3rem;
+}
+
+.minnei3-bg .left-column {
+  flex: 1;
+  position: relative;
+  z-index: 10;
+}
+
+.minnei3-bg .content-area {
+  position: sticky;
+  top: 8rem;
+  padding: 2rem 0;
+}
+
+.minnei3-bg .section-category {
+  font-size: 0.8rem;
+  color: #B4B4B4;
+  margin-bottom: 0.5rem;
+  letter-spacing: 0.05em;
+  font-weight: 400;
+  text-decoration: none;
+}
+
+.minnei3-bg .section-title {
+  font-size: 1.8rem;
+  font-weight: 600;
+  color: #003705;
+  line-height: 1.4;
+}
+
+.minnei3-bg .right-column {
+  flex: 2;
+  position: relative;
+}
+
+.minnei3-bg .voices-container {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  padding: 1rem 0;
+}
+
+.minnei3-bg .voice-card {
+  background-color: #FFFFFF;
+  border-radius: 8px;
+  padding: 2rem;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+}
+
+.minnei3-bg .voice-header {
+  margin-bottom: 1rem;
+}
+
+.minnei3-bg .voice-name {
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: #003705;
+  margin-bottom: 0.3rem;
+}
+
+.minnei3-bg .voice-occupation {
+  font-size: 0.9rem;
+  color: #003705;
+  font-weight: 400;
+}
+
+.minnei3-bg .voice-divider {
+  width: 100%;
+  height: 1px;
+  background-color: #003705;
+  margin-bottom: 1.5rem;
+}
+
+.minnei3-bg .voice-content {
+  font-size: 0.95rem;
+  line-height: 1.7;
+  color: #003705;
+  letter-spacing: 0.02em;
+}
+
+.minnei2-bg {
+  background-color: #E7EBE7;
+  min-height: 100vh;
+  padding: 4rem 0;
+}
+
+.minnei2-bg .section-container {
+  display: flex;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 2rem;
+  gap: 3rem;
+}
+
+.minnei2-bg .left-column {
+  flex: 1;
+  position: relative;
+  z-index: 10;
+}
+
+.minnei2-bg .content-area {
+  position: sticky;
+  top: 8rem;
+  padding: 2rem 0;
+}
+
+.minnei2-bg .section-category {
+  font-size: 0.8rem;
+  color: #B4B4B4;
+  margin-bottom: 0.5rem;
+  letter-spacing: 0.05em;
+  font-weight: 400;
+  text-decoration: none;
+}
+
+.minnei2-bg .section-title {
+  font-size: 1.8rem;
+  font-weight: 600;
+  color: #003705;
+  line-height: 1.4;
+}
+
+.minnei2-bg .right-column {
+  flex: 2;
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.minnei2-bg .benefits-container {
+  width: 100%;
+  padding: 3rem;
+  background-color: #FFFFFF;
+  border-radius: 8px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+}
+
+.minnei2-bg .benefits-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.minnei2-bg .benefit-item {
+  position: relative;
+  padding-left: 1.5rem;
+  margin-bottom: 1.2rem;
+  font-size: 0.95rem;
+  line-height: 1.6;
+  color: #003705;
+}
+
+.minnei2-bg .benefit-item::before {
+  content: "•";
+  position: absolute;
+  left: 0;
+  top: 0;
+  color: #003705;
+  font-weight: bold;
+  font-size: 1.2rem;
+}
+
+.minnei2-bg .benefit-item:last-child {
+  margin-bottom: 0;
+}
+
+.minnei2-bg .benefits-note {
+  margin-top: 1.5rem;
+  padding-left: 1.5rem;
+  font-size: 0.9rem;
+  color: #003705;
+  font-style: italic;
+}
+
+.minnei-bg .section-subtitle {
+  font-size: 1.1rem;
+  color: #003705;
+  margin-bottom: 0.5rem;
+  font-weight: 500;
+  display: none; /* 使用しない */
+}
+
+.minnei-bg .right-column {
+  flex: 2;
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.minnei-bg .content-wrapper {
+  width: 100%;
+  padding: 2rem 0;
+}
+
+.minnei-bg .description {
+  font-size: 0.95rem;
+  line-height: 1.8;
+  color: #003705;
+  margin-bottom: 3rem;
+  letter-spacing: 0.02em;
+}
+
+.minnei-bg .support-button {
+  width: 100%;
+  max-width: 400px;
+  padding: 1.2rem 2rem;
+  background-color: #003705;
+  color: #FFFFFF;
+  border: none;
+  border-radius: 4px;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  margin-bottom: 2rem;
+  letter-spacing: 0.05em;
+}
+
+.minnei-bg .support-button:hover {
+  background-color: rgba(0, 55, 5, 0.9);
+  transform: translateY(-2px);
+}
+
+.minnei-bg .support-button:focus {
+  outline: 2px solid #003705;
+  outline-offset: 2px;
+}
+
+.minnei-bg .corporate-link {
+  text-align: right;
+}
+
+.minnei-bg .link-text {
+  color: #003705;
+  text-decoration: none;
+  font-size: 0.9rem;
+  font-weight: 500;
+  border-bottom: 1px solid transparent;
+  transition: border-bottom-color 0.3s ease;
+}
+
+.minnei-bg .link-text:hover {
+  border-bottom-color: #003705;
+}
+
+/* ===========================================
+   Mobile Responsive - Common
+   =========================================== */
+
+/* Desktop: Show left column, hide mobile text section */
+@media (min-width: 769px) {
+  .natural-architecture-bg .left-column {
+    display: block;
+  }
+  
+  .natural-architecture-bg .mobile-text-section {
+    display: none;
+  }
+}
+
+/* Mobile Responsive */
+@media (max-width: 768px) {
+  .natural-architecture-bg,
+  .access-bg,
+  .minnei-bg {
+    padding: 2rem 0;
+  }
+  
+  .natural-architecture-bg .section-container,
+  .access-bg .section-container,
+  .minnei-bg .section-container {
+    flex-direction: column;
+    padding: 0 1rem;
+    gap: 2rem;
+  }
+  
+  .natural-architecture-bg .left-column,
+  .access-bg .left-column,
+  .minnei-bg .left-column {
+    flex: none;
+  }
+  
+  .natural-architecture-bg .content-area,
+  .access-bg .content-area,
+  .minnei-bg .content-area {
+    position: static;
+    padding: 1rem 0;
+  }
+  
+  .natural-architecture-bg .section-title,
+  .access-bg .section-title,
+  .minnei-bg .section-title {
+    font-size: 1.5rem;
+  }
+  
+  .natural-architecture-bg .right-column,
+  .access-bg .right-column,
+  .minnei-bg .right-column {
+    flex: none;
+  }
+
+  /* Natural Architecture Mobile */
+  .natural-architecture-bg .left-column {
+    display: none;
+  }
+  
+  .natural-architecture-bg .mobile-text-section {
+    display: block;
+    padding: 2rem 0;
+  }
+  
+  .natural-architecture-bg .mobile-text-section .content-area {
+    position: static;
+    padding: 0;
+  }
+  
+  .natural-architecture-bg .images-container {
+    gap: 1.5rem;
+  }
+  
+  .natural-architecture-bg .mobile-photos {
+    margin-top: 2rem;
+  }
+  
+  .natural-architecture-bg .description {
+    font-size: 0.9rem;
+  }
+  
+  .natural-architecture-bg .map-block {
+    height: 250px;
+  }
+  
+  .natural-architecture-bg .photo-block {
+    height: 200px;
+  }
+
+  /* Access Mobile */
+  .access-bg .facility-name {
+    font-size: 1rem;
+  }
+  
+  .access-bg .address {
+    font-size: 0.9rem;
+    margin-bottom: 2rem;
+  }
+  
+  .access-bg .company-info {
+    font-size: 0.85rem;
+  }
+  
+  .access-bg .map-container {
+    height: 300px;
+  }
+
+  /* Minnei5 Mobile */
+  .minnei5-bg {
+    padding: 2rem 0;
+  }
+  
+  .minnei5-bg .section-container {
+    flex-direction: column;
+    padding: 0 1rem;
+    gap: 2rem;
+  }
+  
+  .minnei5-bg .left-column {
+    flex: none;
+  }
+  
+  .minnei5-bg .content-area {
+    position: static;
+    padding: 1rem 0;
+  }
+  
+  .minnei5-bg .section-title {
+    font-size: 1.5rem;
+    margin-bottom: 2rem;
+  }
+  
+  .minnei5-bg .right-column {
+    flex: none;
+  }
+  
+  .minnei5-bg .supporters-container {
+    padding: 1rem 0;
+  }
+  
+  .minnei5-bg .supporters-text {
+    font-size: 0.85rem;
+    line-height: 1.7;
+  }
+
+  /* Minnei4 Mobile */
+  .minnei4-bg {
+    padding: 2rem 0;
+  }
+  
+  .minnei4-bg .section-container {
+    flex-direction: column;
+    padding: 0 1rem;
+    gap: 2rem;
+  }
+  
+  .minnei4-bg .left-column {
+    flex: none;
+  }
+  
+  .minnei4-bg .content-area {
+    position: static;
+    padding: 1rem 0;
+  }
+  
+  .minnei4-bg .section-title {
+    font-size: 1.5rem;
+    margin-bottom: 2rem;
+  }
+  
+  .minnei4-bg .right-column {
+    flex: none;
+    align-items: flex-start;
+  }
+  
+  .minnei4-bg .price-container {
+    padding: 2rem 1.5rem;
+  }
+  
+  .minnei4-bg .plan-name {
+    font-size: 1rem;
+    margin-bottom: 1.5rem;
+  }
+  
+  .minnei4-bg .price-info {
+    margin-bottom: 2rem;
+    gap: 0.8rem;
+  }
+  
+  .minnei4-bg .price-label {
+    font-size: 0.9rem;
+  }
+  
+  .minnei4-bg .price-amount {
+    font-size: 1.7rem;
+  }
+  
+  .minnei4-bg .apply-button {
+    width: 100%;
+    padding: 1rem 1.5rem;
+    font-size: 0.95rem;
+    margin: 0 auto 2rem auto;
+  }
+  
+  .minnei4-bg .price-options {
+    font-size: 0.85rem;
+  }
+
+  /* Minnei3 Mobile */
+  .minnei3-bg {
+    padding: 2rem 0;
+  }
+  
+  .minnei3-bg .section-container {
+    flex-direction: column;
+    padding: 0 1rem;
+    gap: 2rem;
+  }
+  
+  .minnei3-bg .left-column {
+    flex: none;
+  }
+  
+  .minnei3-bg .content-area {
+    position: static;
+    padding: 1rem 0;
+  }
+  
+  .minnei3-bg .section-title {
+    font-size: 1.5rem;
+    margin-bottom: 2rem;
+  }
+  
+  .minnei3-bg .right-column {
+    flex: none;
+  }
+  
+  .minnei3-bg .voices-container {
+    gap: 1.5rem;
+  }
+  
+  .minnei3-bg .voice-card {
+    padding: 1.5rem;
+  }
+  
+  .minnei3-bg .voice-name {
+    font-size: 1rem;
+  }
+  
+  .minnei3-bg .voice-occupation {
+    font-size: 0.85rem;
+  }
+  
+  .minnei3-bg .voice-content {
+    font-size: 0.9rem;
+  }
+
+  /* Minnei2 Mobile */
+  .minnei2-bg {
+    padding: 2rem 0;
+  }
+  
+  .minnei2-bg .section-container {
+    flex-direction: column;
+    padding: 0 1rem;
+    gap: 2rem;
+  }
+  
+  .minnei2-bg .left-column {
+    flex: none;
+  }
+  
+  .minnei2-bg .content-area {
+    position: static;
+    padding: 1rem 0;
+  }
+  
+  .minnei2-bg .section-title {
+    font-size: 1.5rem;
+    margin-bottom: 2rem;
+  }
+  
+  .minnei2-bg .right-column {
+    flex: none;
+    align-items: flex-start;
+  }
+  
+  .minnei2-bg .benefits-container {
+    padding: 2rem 1.5rem;
+  }
+  
+  .minnei2-bg .benefit-item {
+    font-size: 0.9rem;
+    margin-bottom: 1rem;
+  }
+  
+  .minnei2-bg .benefits-note {
+    font-size: 0.85rem;
+  }
+
+  /* Minnei Mobile */
+  .minnei-bg .section-title {
+    margin-bottom: 2rem;
+  }
+  
+  .minnei-bg .section-subtitle {
+    font-size: 1rem;
+  }
+  
+  .minnei-bg .right-column {
+    align-items: flex-start;
+  }
+  
+  .minnei-bg .content-wrapper {
+    padding: 1rem 0;
+  }
+  
+  .minnei-bg .description {
+    font-size: 0.9rem;
+    margin-bottom: 2rem;
+  }
+  
+  .minnei-bg .support-button {
+    max-width: none;
+    padding: 1rem 1.5rem;
+    font-size: 0.95rem;
+  }
+  
+  .minnei-bg .corporate-link {
+    text-align: left;
+  }
+  
+  .minnei-bg .link-text {
+    font-size: 0.85rem;
+  }
+}
+
+/* Small Mobile */
+@media (max-width: 480px) {
+  .natural-architecture-bg .section-number {
+    width: 50px;
+    height: 50px;
+    font-size: 1.2rem;
+  }
+  
+  .natural-architecture-bg .section-title,
+  .access-bg .section-title,
+  .minnei-bg .section-title {
+    font-size: 1.3rem;
+  }
+  
+  .natural-architecture-bg .description {
+    font-size: 0.85rem;
+    line-height: 1.7;
+  }
+  
+  .natural-architecture-bg .map-block {
+    height: 200px;
+  }
+  
+  .natural-architecture-bg .photo-block {
+    height: 180px;
+  }
+
+  /* Access Small Mobile */
+  .access-bg .facility-name {
+    font-size: 0.95rem;
+  }
+  
+  .access-bg .address {
+    font-size: 0.85rem;
+  }
+  
+  .access-bg .company-info {
+    font-size: 0.8rem;
+    line-height: 1.7;
+  }
+  
+  .access-bg .map-container {
+    height: 250px;
+  }
+
+  /* Minnei5 Small Mobile */
+  .minnei5-bg .section-title {
+    font-size: 1.3rem;
+  }
+  
+  .minnei5-bg .supporters-text {
+    font-size: 0.8rem;
+    line-height: 1.6;
+  }
+
+  /* Minnei4 Small Mobile */
+  .minnei4-bg .section-title {
+    font-size: 1.3rem;
+  }
+  
+  .minnei4-bg .price-container {
+    padding: 1.5rem 1rem;
+  }
+  
+  .minnei4-bg .plan-name {
+    font-size: 0.95rem;
+  }
+  
+  .minnei4-bg .price-label {
+    font-size: 0.85rem;
+  }
+  
+  .minnei4-bg .price-amount {
+    font-size: 1.5rem;
+  }
+  
+  .minnei4-bg .apply-button {
+    padding: 0.9rem 1.2rem;
+    font-size: 0.9rem;
+  }
+  
+  .minnei4-bg .price-options {
+    font-size: 0.8rem;
+  }
+
+  /* Minnei3 Small Mobile */
+  .minnei3-bg .section-title {
+    font-size: 1.3rem;
+  }
+  
+  .minnei3-bg .voice-card {
+    padding: 1.2rem;
+  }
+  
+  .minnei3-bg .voice-name {
+    font-size: 0.95rem;
+  }
+  
+  .minnei3-bg .voice-occupation {
+    font-size: 0.8rem;
+  }
+  
+  .minnei3-bg .voice-content {
+    font-size: 0.85rem;
+    line-height: 1.6;
+  }
+
+  /* Minnei2 Small Mobile */
+  .minnei2-bg .section-title {
+    font-size: 1.3rem;
+  }
+  
+  .minnei2-bg .benefits-container {
+    padding: 1.5rem 1rem;
+  }
+  
+  .minnei2-bg .benefit-item {
+    font-size: 0.85rem;
+    line-height: 1.5;
+  }
+  
+  .minnei2-bg .benefits-note {
+    font-size: 0.8rem;
+  }
+
+  /* Minnei Small Mobile */
+  .minnei-bg .section-subtitle {
+    font-size: 0.95rem;
+  }
+  
+  .minnei-bg .description {
+    font-size: 0.85rem;
+    line-height: 1.7;
+  }
+  
+  .minnei-bg .support-button {
+    padding: 0.9rem 1.2rem;
+    font-size: 0.9rem;
+  }
+}

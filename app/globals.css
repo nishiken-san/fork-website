@@ -145,3 +145,321 @@ textarea:focus {
     display: none !important;
   }
 }
+
+/* モバイルレスポンシブ問題の解決方法 */
+
+/* 1. 基本的なviewport設定（app/layout.tsxまたはpublic/index.htmlで設定） */
+/* <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no"> */
+
+/* 2. 改行問題の解決 */
+/* テキストの改行を適切に処理 */
+.text-responsive {
+  word-wrap: break-word;
+  word-break: break-word;
+  overflow-wrap: break-word;
+  hyphens: auto;
+  line-height: 1.6;
+}
+
+/* 日本語テキスト専用の改行処理 */
+.japanese-text {
+  word-break: keep-all;
+  overflow-wrap: break-word;
+  line-break: strict;
+  writing-mode: horizontal-tb;
+}
+
+/* 3. 画像拡大問題の解決 */
+/* 画像サイズを適切に制御 */
+.responsive-image {
+  width: 100%;
+  height: auto;
+  max-width: 100%;
+  object-fit: cover;
+  object-position: center;
+}
+
+/* パララックス画像の制御 */
+.parallax-mobile {
+  background-attachment: scroll; /* モバイルではfixedを無効化 */
+  background-size: cover;
+  background-position: center;
+  min-height: 50vh; /* モバイルでは高さを調整 */
+}
+
+/* 4. レイアウト構造の修正 */
+/* PC用の複雑なレイアウトをモバイルでは単純化 */
+@media (max-width: 768px) {
+  /* フレックスボックスレイアウトをスタック形式に */
+  .desktop-flex {
+    flex-direction: column !important;
+    width: 100% !important;
+  }
+  
+  /* 左右のカラムを全幅に */
+  .left-column,
+  .right-column {
+    width: 100% !important;
+    min-height: auto !important;
+  }
+  
+  /* Sticky要素をモバイルでは通常配置に */
+  .sticky-element {
+    position: static !important;
+    transform: none !important;
+    padding: 1rem !important;
+  }
+  
+  /* 縦書きテキストを横書きに変更 */
+  .vertical-text {
+    writing-mode: horizontal-tb !important;
+    text-orientation: mixed !important;
+    text-align: center !important;
+  }
+  
+  /* フォントサイズの調整 */
+  .large-title {
+    font-size: 2rem !important;
+  }
+  
+  .medium-title {
+    font-size: 1.5rem !important;
+  }
+  
+  /* パディングとマージンの調整 */
+  .section-padding {
+    padding: 2rem 1rem !important;
+  }
+  
+  /* 画像コンテナの制御 */
+  .image-container {
+    width: 100% !important;
+    height: auto !important;
+    max-height: 300px !important;
+  }
+}
+
+/* 5. さらに小さいスクリーンへの対応 */
+@media (max-width: 480px) {
+  .very-small-screen {
+    font-size: 0.875rem;
+    padding: 1rem 0.5rem;
+  }
+  
+  .button-mobile {
+    width: 100%;
+    padding: 0.75rem 1rem;
+    font-size: 0.875rem;
+  }
+}
+
+/* 6. パフォーマンス最適化 */
+/* 画像の遅延読み込みとサイズ最適化 */
+.lazy-image {
+  loading: lazy;
+  transform: translateZ(0); /* GPU加速 */
+  will-change: transform;
+}
+
+/* 7. アクセシビリティの改善 */
+/* タッチデバイス向けのタップ領域拡大 */
+.touch-target {
+  min-height: 44px;
+  min-width: 44px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* 8. デバッグ用スタイル（開発時のみ使用） */
+/* 画面サイズ確認用 */
+.debug-screen-size::before {
+  content: 'Mobile';
+  position: fixed;
+  top: 0;
+  right: 0;
+  background: red;
+  color: white;
+  padding: 5px;
+  z-index: 9999;
+  font-size: 12px;
+}
+
+@media (min-width: 769px) {
+  .debug-screen-size::before {
+    content: 'Desktop';
+    background: blue;
+  }
+}
+
+/* パララックス写真セクションのモバイル対応 */
+@media (max-width: 768px) {
+  /* セクション全体 */
+  .parallax-photo-section {
+    height: 40vh !important;
+    min-height: 300px !important;
+    max-height: 400px !important;
+    overflow: hidden;
+  }
+  
+  /* 背景画像コンテナ */
+  .parallax-photo-section .absolute.inset-0 {
+    height: 100% !important;
+    transform: none !important;
+    will-change: auto !important;
+  }
+  
+  /* 背景画像 */
+  .parallax-photo-section [style*="background-image"] {
+    background-attachment: scroll !important;
+    background-size: cover !important;
+    background-position: center center !important;
+    transform: none !important;
+  }
+  
+  /* パフォーマンス最適化 */
+  .parallax-photo-section * {
+    will-change: auto !important;
+    transform: none !important;
+  }
+}
+
+/* 小さなモバイル画面での追加調整 */
+@media (max-width: 480px) {
+  .parallax-photo-section {
+    height: 35vh !important;
+    min-height: 250px !important;
+    max-height: 300px !important;
+  }
+}
+
+/* 横向きモバイル対応 */
+@media (max-width: 768px) and (orientation: landscape) {
+  .parallax-photo-section {
+    height: 60vh !important;
+    min-height: 200px !important;
+    max-height: 350px !important;
+  }
+}
+
+/* Tailwind のユーティリティクラス上書き */
+@media (max-width: 768px) {
+  .h-screen {
+    height: 40vh !important;
+    min-height: 300px !important;
+    max-height: 400px !important;
+  }
+  
+  .h-\[130\%\] {
+    height: 100% !important;
+  }
+}
+
+/* 参考サイト風パララックス CSS */
+/* globals.css または専用CSSファイルに追加 */
+
+/* パララックスセクションの基本設定 */
+.kouriisland-parallax {
+  position: relative;
+  overflow: hidden;
+  will-change: scroll-position;
+}
+
+/* デスクトップ用パララックス */
+@media (min-width: 769px) {
+  .kouriisland-parallax {
+    height: 80vh;
+    min-height: 600px;
+    max-height: 900px;
+  }
+  
+  .kouriisland-parallax .parallax-bg {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 100%;
+    height: 120%;
+    transform-origin: center center;
+    will-change: transform;
+    backface-visibility: hidden;
+    perspective: 1000px;
+  }
+}
+
+/* モバイル用（パララックス無効化） */
+@media (max-width: 768px) {
+  .kouriisland-parallax {
+    height: 50vh !important;
+    min-height: 400px !important;
+    max-height: 500px !important;
+  }
+  
+  .kouriisland-parallax .parallax-bg {
+    position: static !important;
+    width: 100% !important;
+    height: 100% !important;
+    transform: none !important;
+    background-attachment: scroll !important;
+  }
+  
+  /* パフォーマンス最適化 */
+  .kouriisland-parallax * {
+    will-change: auto !important;
+    transform: none !important;
+  }
+}
+
+/* 小さなモバイル画面 */
+@media (max-width: 480px) {
+  .kouriisland-parallax {
+    height: 45vh !important;
+    min-height: 350px !important;
+    max-height: 400px !important;
+  }
+}
+
+/* 横向きモバイル */
+@media (max-width: 768px) and (orientation: landscape) {
+  .kouriisland-parallax {
+    height: 70vh !important;
+    min-height: 300px !important;
+    max-height: 450px !important;
+  }
+}
+
+/* スムーズなアニメーション */
+.parallax-smooth {
+  transition: transform 0.1s ease-out;
+}
+
+/* GPU加速 */
+.parallax-gpu {
+  transform: translate3d(0, 0, 0);
+  backface-visibility: hidden;
+  perspective: 1000px;
+}
+
+/* 画像の品質向上 */
+.parallax-image {
+  image-rendering: -webkit-optimize-contrast;
+  image-rendering: crisp-edges;
+  image-rendering: pixelated;
+}
+
+/* デバッグ用（開発時のみ使用） */
+.parallax-debug {
+  border: 2px solid rgba(255, 0, 0, 0.5);
+}
+
+.parallax-debug::after {
+  content: 'Parallax Active';
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  background: rgba(0, 0, 0, 0.7);
+  color: white;
+  padding: 5px 10px;
+  font-size: 12px;
+  z-index: 1000;
+}
+

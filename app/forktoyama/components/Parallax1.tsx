@@ -6,10 +6,16 @@ import { IMAGES } from '@/constants/images';
 
 const ParallaxPhotoSection1 = () => {
   const [scrollY, setScrollY] = useState(0);
+  const [isMobile, setIsMobile] = useState(false);
   const sectionRef = useRef<HTMLDivElement>(null);
   const [isInView, setIsInView] = useState(false);
 
   useEffect(() => {
+    // モバイル判定
+    const checkDevice = () => {
+      setIsMobile(window.innerWidth <= 768);
+    };
+
     const handleScroll = () => {
       setScrollY(window.scrollY);
     };
@@ -26,48 +32,86 @@ const ParallaxPhotoSection1 = () => {
       { threshold: 0.1 }
     );
 
+    // 初期チェック
+    checkDevice();
+
     if (sectionRef.current) {
       observer.observe(sectionRef.current);
     }
 
-    window.addEventListener('scroll', throttledHandleScroll, { passive: true });
+    // モバイルではスクロールイベントを無効化してパフォーマンス向上
+    if (!isMobile) {
+      window.addEventListener('scroll', throttledHandleScroll, { passive: true });
+    }
+    
+    window.addEventListener('resize', checkDevice);
     
     return () => {
       window.removeEventListener('scroll', throttledHandleScroll);
+      window.removeEventListener('resize', checkDevice);
       observer.disconnect();
     };
-  }, []);
+  }, [isMobile]);
 
-  // パララックス効果の計算（セクションが見えている時のみ）
-  const parallaxOffset = isInView ? scrollY * (-0.1) : 0; // 変位量を増やす
+  // パララックス効果の計算（デスクトップかつセクションが見えている時のみ）
+  const parallaxOffset = !isMobile && isInView ? scrollY * (-0.1) : 0;
+
+  // モバイル用のスタイル
+  const mobileStyle = {
+    height: isMobile ? '40vh' : '100vh',
+    minHeight: isMobile ? '300px' : '100vh',
+    maxHeight: isMobile ? '400px' : 'none',
+  };
+
+  // 背景画像のスタイル
+  const backgroundStyle = {
+    backgroundImage: `url('${IMAGES.about.teamPhoto}')`,
+    backgroundPosition: 'center center',
+    backgroundSize: 'cover',
+    backgroundRepeat: 'no-repeat',
+    // モバイルでは fixed を無効化
+    backgroundAttachment: isMobile ? 'scroll' : 'fixed',
+    transform: `translateY(${parallaxOffset}px)`,
+    willChange: isMobile ? 'auto' : 'transform',
+  };
 
   return (
     <section 
       ref={sectionRef}
-      className="relative h-screen overflow-hidden"
+      className="relative overflow-hidden"
+      style={mobileStyle}
     >
       {/* パララックス背景画像 */}
       <div 
-        className="absolute inset-0 w-full h-[130%]"
-        style={{
-          transform: `translateY(${parallaxOffset}px)`,
-          willChange: 'transform',
-        }}
+        className={`absolute inset-0 w-full ${isMobile ? 'h-full' : 'h-[130%]'}`}
+        style={backgroundStyle}
       >
-        {/* 背景画像 - 実際の画像に置き換えてください */}
-        <div 
-          className="w-full h-full bg-cover bg-center bg-no-repeat"
-          style={{
-            backgroundImage: `url('${IMAGES.about.teamPhoto}')`,
-            backgroundPosition: 'center center',
-            backgroundAttachment: 'fixed',
-          }}
-        />
+        {/* モバイル用の追加最適化 */}
+        {isMobile && (
+          <div 
+            className="w-full h-full bg-cover bg-center bg-no-repeat"
+            style={{
+              backgroundImage: `url('${IMAGES.about.teamPhoto}')`,
+              backgroundPosition: 'center center',
+              backgroundSize: 'cover',
+            }}
+          />
+        )}
+        
+        {/* デスクトップ用 */}
+        {!isMobile && (
+          <div 
+            className="w-full h-full bg-cover bg-center bg-no-repeat"
+            style={{
+              backgroundImage: `url('${IMAGES.about.teamPhoto}')`,
+              backgroundPosition: 'center center',
+              backgroundAttachment: 'fixed',
+            }}
+          />
+        )}
       </div>
 
-      
-
-      {/* グラデーションオーバーレイ（オプション） */}
+      {/* グラデーションオーバーレイ */}
       <div className="absolute inset-0 bg-gradient-to-b from-transparent via-transparent to-black/20 pointer-events-none" />
     </section>
   );

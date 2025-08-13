@@ -6,7 +6,7 @@ import Intro from './components/Intro';
 import Description from './components/Description';
 import Staff from './components/Staff';
 import Parallax2 from './components/Parallax2';
-import Place from './components/Place';
+import Facility from './components/Facility';
 import Structure from './components/Structure';
 import Noki from './components/Noki';
 import Collaboration from './components/Collaboration';
@@ -22,7 +22,7 @@ export default function Page() {
       <Description />
       <Staff />
       <Parallax2 />
-      <Place />
+      <Facility />
       <Structure />
       <Noki />
       <Collaboration />

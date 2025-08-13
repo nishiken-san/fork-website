@@ -13,7 +13,7 @@ const ForkTitleSection = () => {
           <div className="relative flex items-center justify-center">
             {/* 用意していただくfork文字画像 */}
             <img
-              src="/images/hero/fork-title.png"
+              src="/images/hero/fork-logo.png"
               alt="Fork"
               className="w-full max-w-4xl h-auto"
             />
