@@ -9,13 +9,13 @@ const HistorySection = () => {
   const { isSticky } = useSectionSticky(sectionRef, contentRef);
 
   const historyData = [
-    { year: '2021年', month: '11月', content: '村営で運営されてきた舟橋村の学童保育施設の運営体制が突如変更されることを受け、学童保育新設を構想。' },
-    { year: '2022年', month: '7月', content: '舟橋小学校から徒歩2分の古民家を活用しプレオープン。（登録児童数14名）' },
-    { year: '', month: '10月', content: 'クラウドファンディングで目標700万円を達成、867万円を集める。' },
-    { year: '2023年', month: '1月', content: '舟橋会館に一時的に場所を移して運営。' },
+    { year: '2021年', month: '11月', content: '村娯で運営されてきた放課後の学童保育施設の運営体制が刷新されることを受け、学童保育新設を構想。' },
+    { year: '2022年', month: '7月', content: '冷暖小学校から継続少数の古民家を活用してプレオープン。（登録児童14名）' },
+    { year: '', month: '10月', content: 'クラウドファンディングで目標700万円を達成。867万円を集める。' },
+    { year: '2023年', month: '1月', content: '定員会館に一時的に場所を移して運営。' },
     { year: '', month: '4月', content: 'カフェオープン' },
-    { year: '', month: '5月', content: '学童保育施設完成、正式オープン（登録児童40名）' },
-    { year: '2024年', month: '4月', content: '一般社団法人forkによる運営開始（登録児童54名）' }
+    { year: '', month: '5月', content: '学童保育施設完成、正式オープン（登録児童240名）' },
+    { year: '2024年', month: '4月', content: '一般社団法人forkによる運営開始（登録児童564名）' }
   ];
 
   return (
@@ -90,12 +90,11 @@ const HistorySection = () => {
           vertical-align: top;
         }
         .note-section {
-          background-color: white;
+          background-color: #F9F9F9;
           border: 2px solid #003705;
+          border-radius: 8px;
           padding: 1.5rem;
           margin-top: 2rem;
-          position: relative;
-          box-shadow: 4px 4px 0px #003705;
         }
         .note-label {
           color: #B4B4B4;
@@ -167,7 +166,7 @@ const HistorySection = () => {
                 </p>
                 <button 
                   className="note-button"
-                  onClick={() => window.open('https://note.com/forktoyama/n/n9c44750f387b', '_blank')}
+                  onClick={() => window.open('https://note.com/your-note-link', '_blank')}
                 >
                   noteを見る →
                 </button>

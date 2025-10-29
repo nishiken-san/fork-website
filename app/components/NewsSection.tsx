@@ -1,7 +1,8 @@
 // app/components/NewsSection.tsx
 'use client';
 
-import { useEffect, useState, useRef } from 'react';
+import { useRef } from 'react';
+import { useSectionSticky } from '../hooks/useSectionSticky';
 
 interface NewsItem {
   id: string;
@@ -12,161 +13,165 @@ interface NewsItem {
 }
 
 const NewsSection = () => {
-  const [isSticky, setIsSticky] = useState(false);
   const sectionRef = useRef<HTMLDivElement>(null);
-  const headerRef = useRef<HTMLDivElement>(null);
+  const contentRef = useRef<HTMLDivElement>(null);
+  const { isSticky } = useSectionSticky(sectionRef, contentRef);
 
   // サンプルデータ
   const newsItems: NewsItem[] = [
     {
       id: '1',
-      date: '2024.03.15',
-      title: 'WEBサイトリニューアルしました',
-      content: 'WEBサイトリニューアルしました。',
-      category: 'お知らせ'
+      date: '2024.01.01',
+      title: 'WEBサイトがリニューアルしました。WEBサイトがリニューアルしました。',
+      content: '',
+      category: 'fork toyama'
     },
     {
       id: '2',
-      date: '2024.03.10',
-      title: '今後の作品企画を発表しました',
-      content: '今後の作品企画を発表しました。',
-      category: 'お知らせ'
-    },
-    {
-      id: '3',
-      date: '2024.02.28',
-      title: 'プロジェクト実績を更新',
-      content: 'プロジェクト実績を更新しました。新しい取り組みについてご報告いたします。',
-      category: '記録'
-    },
-    {
-      id: '4',
-      date: '2024.02.15',
-      title: 'チームメンバー追加',
-      content: 'チームメンバーを追加しました。より充実したサービスを提供してまいります。',
-      category: '記録'
+      date: '2024.01.01',
+      title: '令和7年度の学童募集を開始しました。',
+      content: '',
+      category: 'fork toyama'
     }
   ];
 
-  useEffect(() => {
-    const handleScroll = () => {
-      if (sectionRef.current && headerRef.current) {
-        const sectionTop = sectionRef.current.offsetTop;
-        const sectionHeight = sectionRef.current.offsetHeight;
-        const headerHeight = headerRef.current.offsetHeight;
-        const scrollY = window.scrollY;
-        
-        // セクションに入ったら固定開始
-        const shouldStick = scrollY >= sectionTop - 100;
-        // セクションを出たら固定終了
-        const shouldUnstick = scrollY >= sectionTop + sectionHeight - headerHeight - 100;
-        
-        setIsSticky(shouldStick && !shouldUnstick);
-      }
-    };
-
-    window.addEventListener('scroll', handleScroll);
-    return () => window.removeEventListener('scroll', handleScroll);
-  }, []);
-
   return (
-    <section ref={sectionRef} className="relative bg-gray-50 py-20">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="grid lg:grid-cols-12 gap-8">
-          
-          {/* 左側: お知らせリンク（通常スクロール） */}
-          <div className="lg:col-span-3">
-            <div className="space-y-6">
-              <h2 className="text-2xl font-bold text-gray-900 mb-8">
-                最新情報
-              </h2>
+    <>
+      <style jsx>{`
+        .news-bg {
+          background-color: #E7E7E7;
+        }
+        .section-container {
+          display: flex;
+          min-height: 100vh;
+        }
+        .left-column {
+          width: 66.666667%;
+          background-color: #E7E7E7;
+        }
+        .right-column {
+          width: 33.333333%;
+          background-color: #E7E7E7;
+          position: relative;
+        }
+        .sticky-header {
+          position: sticky;
+          top: 80px;
+          padding: 2rem 3rem;
+          background-color: #E7E7E7;
+          z-index: 20;
+          display: flex;
+          flex-direction: column;
+          align-items: flex-end;
+        }
+        .section-title {
+          color: #003705;
+          font-size: 1.5rem;
+          font-weight: 700;
+          line-height: 1.8;
+          writing-mode: vertical-rl;
+          text-orientation: mixed;
+          letter-spacing: 0.3em;
+        }
+        .content-area {
+          padding: 4rem 4rem 4rem 2rem;
+          min-height: 100vh;
+        }
+        .section-header {
+          color: #666;
+          font-size: 0.875rem;
+          font-weight: 600;
+          margin-bottom: 3rem;
+          letter-spacing: 0.05em;
+        }
+        .news-item {
+          margin-bottom: 3rem;
+        }
+        .news-meta {
+          display: flex;
+          align-items: center;
+          gap: 1rem;
+          margin-bottom: 1rem;
+        }
+        .news-date {
+          color: #666;
+          font-size: 0.875rem;
+          font-weight: 600;
+        }
+        .news-category {
+          background-color: #D9D9D9;
+          color: #666;
+          padding: 0.25rem 1rem;
+          font-size: 0.75rem;
+          font-weight: 600;
+          border-radius: 4px;
+        }
+        .news-title {
+          color: #003705;
+          font-size: 1rem;
+          font-weight: 700;
+          line-height: 1.8;
+        }
+        .view-all-container {
+          display: flex;
+          justify-content: flex-end;
+          margin-top: 4rem;
+        }
+        .view-all-link {
+          color: #003705;
+          font-size: 0.875rem;
+          font-weight: 700;
+          text-decoration: underline;
+          display: inline-flex;
+          align-items: center;
+          gap: 0.5rem;
+        }
+        .view-all-link:hover {
+          opacity: 0.7;
+        }
+        @media (min-width: 1024px) {
+          .section-title {
+            font-size: 1.75rem;
+          }
+        }
+      `}</style>
+
+      <section ref={sectionRef} id="news" className="news-bg relative">
+        <div className="section-container">
+          {/* 左側: スクロールするニュース記事エリア */}
+          <div ref={contentRef} className="left-column">
+            <div className="content-area">
+              <div className="section-header">news, records</div>
               
-              <div className="space-y-4">
-                {newsItems.slice(0, 3).map((item) => (
-                  <div key={item.id} className="border-l-4 border-green-500 pl-4">
-                    <div className="text-sm text-gray-500 mb-1">{item.date}</div>
-                    <h3 className="text-base font-medium text-gray-900 hover:text-green-600 cursor-pointer transition-colors">
-                      {item.title}
-                    </h3>
+              {newsItems.map((item) => (
+                <article key={item.id} className="news-item">
+                  <div className="news-meta">
+                    <span className="news-date">{item.date}</span>
+                    <span className="news-category">{item.category}</span>
                   </div>
-                ))}
-              </div>
+                  <h3 className="news-title">{item.title}</h3>
+                </article>
+              ))}
               
-              <div className="pt-4">
-                <a 
-                  href="#" 
-                  className="text-green-600 hover:text-green-700 font-medium text-sm transition-colors"
-                >
-                  すべてのお知らせ →
+              
+            </div>
+          </div>
+
+          {/* 右側: 固定ヘッダー */}
+          <div className="right-column">
+            <div className="sticky-header">
+              <h2 className="section-title">お知らせ・記録</h2>
+            </div>
+
+            <div className="view-all-container">
+                <a href="/news" className="view-all-link">
+                  すべてのおしらせ ＝＞
                 </a>
               </div>
-            </div>
-          </div>
-          
-          {/* 右側: 固定表示エリア */}
-          <div className="lg:col-span-9">
-            <div className="relative">
-              
-              {/* 固定ヘッダー */}
-              <div 
-                ref={headerRef}
-                className={`bg-white border-b border-gray-200 transition-all duration-300 ${
-                  isSticky ? 'fixed top-20 left-0 right-0 z-30 shadow-md' : 'relative'
-                }`}
-                style={isSticky ? { width: '100%' } : {}}
-              >
-                <div className={`${isSticky ? 'max-w-7xl mx-auto px-4 sm:px-6 lg:px-8' : ''}`}>
-                  <div className={`${isSticky ? 'lg:ml-[25%]' : ''}`}>
-                    <div className="flex items-center py-6">
-                      {/* 縦書きの見出し */}
-                      <div className="flex items-center space-x-8">
-                        <h2 
-                          className="text-2xl font-bold text-gray-900 writing-mode-vertical-rl text-orientation-mixed"
-                          style={{ writingMode: 'vertical-rl', textOrientation: 'mixed' }}
-                        >
-                          お知らせ
-                        </h2>
-                        <div className="w-px h-12 bg-gray-300"></div>
-                        <h2 
-                          className="text-2xl font-bold text-gray-900 writing-mode-vertical-rl text-orientation-mixed"
-                          style={{ writingMode: 'vertical-rl', textOrientation: 'mixed' }}
-                        >
-                          記録
-                        </h2>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-              
-              {/* コンテンツエリア */}
-              <div className={`${isSticky ? 'pt-24' : ''}`}>
-                <div className="bg-white min-h-[800px] p-8">
-                  <div className="space-y-8">
-                    {newsItems.map((item) => (
-                      <article key={item.id} className="border-b border-gray-200 pb-8 last:border-b-0">
-                        <div className="flex items-center space-x-4 mb-4">
-                          <span className="text-sm text-gray-500">{item.date}</span>
-                          <span className="px-3 py-1 bg-green-100 text-green-800 text-xs font-medium rounded-full">
-                            {item.category}
-                          </span>
-                        </div>
-                        <h3 className="text-xl font-bold text-gray-900 mb-4">
-                          {item.title}
-                        </h3>
-                        <p className="text-gray-700 leading-relaxed">
-                          {item.content}
-                        </p>
-                      </article>
-                    ))}
-                  </div>
-                </div>
-              </div>
-            </div>
           </div>
         </div>
-      </div>
-    </section>
+      </section>
+    </>
   );
 };
 
