@@ -2,7 +2,6 @@
 'use client';
 
 import { useState, useEffect } from 'react';
-import Image from 'next/image';
 import MobileMenu from './MobileMenu';
 
 const Header = () => {
@@ -23,23 +22,22 @@ const Header = () => {
       <header className={`fixed top-0 left-0 right-0 z-40 transition-all duration-300 ${
         isScrolled ? 'bg-white/95 backdrop-blur-md shadow-sm' : 'bg-white'
       }`}>
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex items-center justify-between h-16 md:h-20">
+        <div className="h-16 md:h-20">
+          <div className="flex items-center justify-between h-full px-6 md:px-8">
             
             {/* Left Logo */}
-            <div className="flex-1">
+            <div className="flex items-center">
               <a href="/" className="block">
-                <div className="flex items-center">
-                  {/* Replace this with your actual logo image */}
-                  <span className="text-2xl md:text-3xl font-light tracking-widest text-gray-900 hover:text-gray-600 transition-colors">
-                    fork
-                  </span>
-                </div>
+                <img
+                  src="/images/logo/logo.png"
+                  alt="fork"
+                  className="h-8 md:h-10 w-auto hover:opacity-70 transition-opacity"
+                />
               </a>
             </div>
             
             {/* Right Menu Button */}
-            <div className="w-16 md:w-20 flex justify-end">
+            <div className="flex items-center">
               <button
                 onClick={() => setIsMenuOpen(true)}
                 className="flex items-center space-x-2 text-gray-900 hover:text-gray-600 transition-colors font-light text-sm tracking-wide uppercase"

@@ -1,76 +1,221 @@
 'use client';
 
-const SupportSection = () => {
+import { useRef, useState, useEffect } from 'react';
+
+interface Supporter {
+  name: string;
+  type: 'frenz' | 'partner';
+}
+
+const SupporterSection = () => {
+  const sectionRef = useRef<HTMLDivElement>(null);
+  const [supporters, setSupporters] = useState<Supporter[]>([]);
+  const [loading, setLoading] = useState(true);
+
+  // コンポーネントマウント時にデータ取得
+  useEffect(() => {
+    fetchSupporters();
+  }, []);
+
+  // APIからサポーター情報を取得
+  const fetchSupporters = async () => {
+    try {
+      const response = await fetch('/api/supporters/public');
+      if (response.ok) {
+        const data = await response.json();
+        setSupporters(data.supporters || []);
+      }
+      setLoading(false);
+    } catch (error) {
+      console.error('Error fetching supporters:', error);
+      setLoading(false);
+    }
+  };
+
+  // フレンズとパートナーに分類
+  const frenzSupporters = supporters.filter(s => s.type === 'frenz');
+  const partnerSupporters = supporters.filter(s => s.type === 'partner');
+
   return (
-    <section className="relative bg-green-50">
-      <div className="flex">
-        
-        {/* 左側カラム - 2/3幅 */}
-        <div className="w-2/3 bg-white">
-          <div className="min-h-screen p-8 lg:p-16 flex flex-col justify-center">
-            
-            {/* ヘッダー */}
-            <div className="mb-8">
-              <h2 className="text-3xl lg:text-4xl font-bold text-gray-900 mb-6">
-                サポート募集
-              </h2>
-              <p className="text-lg text-gray-700 leading-relaxed mb-8">
-                私たちの活動を支援してくださる方を募集しています。
-                様々な形でのサポートをお待ちしております。
+    <>
+      <style jsx>{`
+        .supporter-bg {
+          background-color: #003705;
+        }
+        .section-container {
+          display: flex;
+        }
+        .left-column {
+          width: 66.666667%;
+          background-color: #003705;
+        }
+        .right-column {
+          width: 33.333333%;
+          background-color: #003705;
+          position: relative;
+        }
+        .sticky-header {
+          position: sticky;
+          top: 80px;
+          padding: 2rem 3rem;
+          background-color: #003705;
+          z-index: 20;
+          display: flex;
+          flex-direction: column;
+          align-items: flex-end;
+        }
+        .section-title {
+          color: #FFFFFF;
+          font-size: 1.5rem;
+          font-weight: 700;
+          line-height: 1.8;
+          writing-mode: vertical-rl;
+          text-orientation: mixed;
+          letter-spacing: 0.3em;
+        }
+        .content-area {
+          padding: 4rem 4rem 4rem 2rem;
+        }
+        .section-label {
+          color: #FFFFFF;
+          font-size: 0.875rem;
+          font-weight: 400;
+          margin-bottom: 2rem;
+          letter-spacing: 0.05em;
+          opacity: 0.8;
+        }
+        .description {
+          color: #FFFFFF;
+          font-size: 1rem;
+          line-height: 2;
+          margin-bottom: 3rem;
+          font-weight: 400;
+        }
+        .button-group {
+          display: flex;
+          flex-direction: column;
+          gap: 1rem;
+          margin-bottom: 4rem;
+        }
+        .support-button {
+          background-color: #FFFFFF;
+          color: #003705;
+          padding: 1.5rem 2rem;
+          font-size: 0.875rem;
+          font-weight: 600;
+          cursor: pointer;
+          transition: all 0.3s ease;
+          text-decoration: none;
+          display: block;
+          width: 100%;
+          text-align: center;
+          border: none;
+        }
+        .support-button:hover {
+          opacity: 0.8;
+        }
+        .supporters-list {
+          margin-bottom: 3rem;
+        }
+        .list-title {
+          color: #FFFFFF;
+          font-size: 1rem;
+          font-weight: 700;
+          margin-bottom: 1.5rem;
+        }
+        .supporter-names {
+          color: #FFFFFF;
+          font-size: 0.875rem;
+          line-height: 2;
+          font-weight: 400;
+        }
+        .note {
+          color: #FFFFFF;
+          font-size: 0.75rem;
+          opacity: 0.7;
+          margin-top: 3rem;
+        }
+        @media (min-width: 1024px) {
+          .section-title {
+            font-size: 1.75rem;
+          }
+        }
+      `}</style>
+
+      <section ref={sectionRef} id="supporter" className="supporter-bg relative">
+        <div className="section-container">
+          {/* 左側: コンテンツエリア（2/3幅） */}
+          <div className="left-column">
+            <div className="content-area">
+              <div className="section-label">supporter</div>
+              
+              <p className="description">
+                子育てをみんなのものにする仲間を募集しています。
+              </p>
+
+              {/* 募集ボタン */}
+              <div className="button-group">
+                <a href="/supporter/frenz" className="support-button">
+                  みん盆フレンズ〈個人サポーター〉はこちら
+                </a>
+                <a href="/supporter/partner" className="support-button">
+                  みん盆パートナー〈法人サポーター〉はこちら
+                </a>
+              </div>
+
+              {/* サポーター一覧 */}
+              {loading ? (
+                <div style={{ color: '#FFFFFF' }}>読み込み中...</div>
+              ) : (
+                <>
+                  {/* みん盆フレンズ */}
+                  {frenzSupporters.length > 0 && (
+                    <div className="supporters-list">
+                      <h3 className="list-title">みん盆フレンズのみなさま</h3>
+                      <div className="supporter-names">
+                        {frenzSupporters.map((supporter, index) => (
+                          <span key={index}>
+                            {supporter.name}
+                            {index < frenzSupporters.length - 1 && ' / '}
+                          </span>
+                        ))}
+                      </div>
+                    </div>
+                  )}
+
+                  {/* みん盆パートナー */}
+                  {partnerSupporters.length > 0 && (
+                    <div className="supporters-list">
+                      <h3 className="list-title">みん盆パートナーのみなさま</h3>
+                      <div className="supporter-names">
+                        {partnerSupporters.map((supporter, index) => (
+                          <span key={index}>
+                            {supporter.name}
+                            {index < partnerSupporters.length - 1 && ' / '}
+                          </span>
+                        ))}
+                      </div>
+                    </div>
+                  )}
+                </>
+              )}
+
+              <p className="note">
+                *2022年度までをさせていただきがたいです
               </p>
             </div>
-            
-            {/* サポート形式 */}
-            <div className="space-y-6 mb-8">
-              <div className="border-l-4 border-green-500 pl-6">
-                <h3 className="text-xl font-bold text-gray-900 mb-2">ボランティア支援</h3>
-                <p className="text-gray-700">
-                  学童保育での活動サポート、イベントお手伝いなど、
-                  時間を使った支援をお願いしています。
-                </p>
-              </div>
-              
-              <div className="border-l-4 border-green-500 pl-6">
-                <h3 className="text-xl font-bold text-gray-900 mb-2">資金支援</h3>
-                <p className="text-gray-700">
-                  活動資金や施設改善費用など、
-                  金銭的なサポートも受け付けています。
-                </p>
-              </div>
-              
-              <div className="border-l-4 border-green-500 pl-6">
-                <h3 className="text-xl font-bold text-gray-900 mb-2">物品寄付</h3>
-                <p className="text-gray-700">
-                  教材、本、おもちゃなど、
-                  子どもたちの活動に役立つ物品の寄付を募集しています。
-                </p>
-              </div>
-            </div>
-            
-            {/* ボタン */}
-            <div className="flex space-x-4">
-              <button className="bg-green-600 text-white px-8 py-3 font-medium hover:bg-green-700 transition-colors">
-                支援について問い合わせ
-              </button>
-              <button className="border-2 border-green-600 text-green-600 px-8 py-3 font-medium hover:bg-green-50 transition-colors">
-                活動を見学する
-              </button>
+          </div>
+
+          {/* 右側: 固定タイトル（1/3幅） */}
+          <div className="right-column">
+            <div className="sticky-header">
+              <h2 className="section-title">サポート募集</h2>
             </div>
           </div>
         </div>
-        
-        {/* 右側カラム - 1/3幅 */}
-        <div className="w-1/3 bg-green-50 p-8 lg:p-12 flex items-center">
-          <h2 
-            className="text-2xl lg:text-3xl font-light text-gray-800 leading-loose"
-            style={{ writingMode: 'vertical-rl', textOrientation: 'mixed' }}
-          >
-            サポート募集
-          </h2>
-        </div>
-      </div>
-    </section>
+      </section>
+    </>
   );
 };
 
-export default SupportSection;
+export default SupporterSection;
