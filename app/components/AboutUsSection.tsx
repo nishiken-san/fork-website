@@ -81,21 +81,22 @@ const AboutUsSection = () => {
           margin-top: 3rem;
         }
         .more-button {
-          background-color: #FFFFFF;
+          background-color: #E7EBE7;
           color: #003705;
           padding: 1rem 0;
           font-size: 0.875rem;
           font-weight: 600;
           cursor: pointer;
-          transition: all 0.3s ease;
+          transition: background-color 0.3s ease;
           text-decoration: none;
           display: block;
           width: 100%;
           text-align: center;
-          border: none;
+          border: 2px solid #FFFFFF;
+          box-shadow: 3px 3px 0px #FFFFFF;
         }
         .more-button:hover {
-          opacity: 0.8;
+          background-color: #93A794;
         }
         @media (min-width: 1024px) {
           .section-title {

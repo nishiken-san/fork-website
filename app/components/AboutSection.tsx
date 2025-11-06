@@ -68,7 +68,7 @@ const AboutSection = () => {
           font-size: 0.875rem;
           font-weight: 600;
           cursor: pointer;
-          transition: all 0.3s ease;
+          transition: background-color 0.3s ease;
           text-decoration: none;
           display: block;
           width: 100%;
@@ -77,8 +77,7 @@ const AboutSection = () => {
           box-shadow: 3px 3px 0px #003705;
         }
         .detail-button:hover {
-          background-color: #003705;
-          color: #FFFFFF;
+          background-color: #93A794;
         }
         @media (min-width: 1024px) {
           .section-title {
@@ -104,7 +103,7 @@ const AboutSection = () => {
           <div ref={contentRef} className="right-column">
             <div className="content-area">
               <p className="main-description">
-                社会みんなで子育て関わる「みん盆」の仕組みで成り立つ学童保育施設。ささざまな人・もの・コトとの出会いを提供することで、子どもたちに人生の選択肢が広がる機会をつくることに挑戦しています。
+                社会みんなで子育て関わる「みん営」の仕組みで成り立つ学童保育施設。ささざまな人・もの・コトとの出会いを提供することで、子どもたちに人生の選択肢が広がる機会をつくることに挑戦しています。
               </p>
 
               <div className="button-container">

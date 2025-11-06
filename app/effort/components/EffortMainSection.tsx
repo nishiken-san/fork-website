@@ -8,13 +8,6 @@ const EffortMainSection = () => {
   const contentRef = useRef<HTMLDivElement>(null);
   const { isSticky } = useSectionSticky(sectionRef, contentRef);
 
-  const effortItems = [
-    "学童保育・fork toyama",
-    "カリキュラム・コンテンツ開発",
-    "子育て世帯のサポート",
-    "学童従事研修"
-  ];
-
   return (
     <>
       <style jsx>{`
@@ -23,16 +16,15 @@ const EffortMainSection = () => {
         }
         .section-container {
           display: flex;
-          min-height: 100vh;
         }
         .left-column {
-          width: 66.666667%;
+          width: 70%;
           background-color: #003705;
-          position: relative;
         }
         .right-column {
-          width: 33.333333%;
+          width: 30%;
           background-color: #003705;
+          position: relative;
         }
         .sticky-header {
           position: sticky;
@@ -41,9 +33,8 @@ const EffortMainSection = () => {
           background-color: #003705;
           z-index: 20;
           display: flex;
-          align-items: center;
+          align-items: flex-start;
           justify-content: flex-end;
-          height: 100vh;
         }
         .vertical-title {
           writing-mode: vertical-rl;
@@ -57,7 +48,6 @@ const EffortMainSection = () => {
         .content-area {
           padding: 4rem 2rem;
           color: white;
-          min-height: 150vh;
         }
         .what-we-do {
           font-size: 0.875rem;
@@ -89,9 +79,6 @@ const EffortMainSection = () => {
           font-weight: 600;
         }
         @media (min-width: 1024px) {
-          .content-area {
-            padding: 4rem 4rem;
-          }
           .vertical-title {
             font-size: 1.75rem;
           }
@@ -100,6 +87,7 @@ const EffortMainSection = () => {
 
       <section ref={sectionRef} id="effort-main" className="effort-bg relative">
         <div className="section-container">
+          {/* 左側: コンテンツエリア（70%） */}
           <div ref={contentRef} className="left-column">
             <div className="content-area">
               <div className="what-we-do">what we do</div>
@@ -115,6 +103,7 @@ const EffortMainSection = () => {
             </div>
           </div>
 
+          {/* 右側: タイトル固定（30%） */}
           <div className="right-column">
             <div className="sticky-header">
               <h1 className="vertical-title">とりくみ</h1>

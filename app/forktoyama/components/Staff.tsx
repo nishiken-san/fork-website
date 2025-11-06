@@ -16,6 +16,16 @@ const Staff = () => {
   ];
 
   return (
+    <>
+      <style jsx>{`
+        .forktoyama-description-layout .forktoyama-two-column-left {
+          width: 33.333333% !important;
+        }
+        .forktoyama-description-layout .forktoyama-two-column-right {
+          width: 66.666667% !important;
+        }
+      `}</style>
+
     <section ref={sectionRef} className="forktoyama-section forktoyama-bg-light">
       <div className="forktoyama-description-layout">
         <div ref={contentRef} className="forktoyama-two-column-left">
@@ -34,14 +44,15 @@ const Staff = () => {
         <div className="forktoyama-two-column-right">
           <div className="forktoyama-sticky">
             <img 
-              src="/images/forktoyama/stone.png" 
-              alt="fork toyama の様子" 
+              src="/images/forktoyama/stoe.png" 
+              alt="スタッフの集合写真" 
               className="forktoyama-image"
             />
           </div>
         </div>
       </div>
     </section>
+    </>
   );
 };
 

@@ -126,24 +126,23 @@ const Gakudou2 = () => {
           gap: 1rem;
         }
         .support-button {
-          background-color: #E7EBE7;
+          background-color: #E7E7E7;
           border: 2px solid #003705;
           color: #003705;
           padding: 1rem 3rem;
           font-size: 0.875rem;
           font-weight: 500;
           cursor: pointer;
-          transition: all 0.3s ease;
+          transition: background-color 0.3s ease;
           text-decoration: none;
           display: block;
           width: 100%;
           text-align: center;
           position: relative;
-          box-shadow: 4px 4px 0px #003705;
+          box-shadow: 3px 3px 0px #003705;
         }
         .support-button:hover {
-          background-color: #003705;
-          color: white;
+          background-color: #93A794;
         }
         @media (min-width: 1024px) {
           .section-title {

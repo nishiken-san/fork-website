@@ -3,75 +3,131 @@ import { NextResponse } from 'next/server';
 import { google } from 'googleapis';
 
 export const dynamic = 'force-dynamic';
-export const revalidate = 300; // 5分ごとにキャッシュを更新
+export const revalidate = 300;
 
 async function getGoogleSheetsData() {
+  const debugInfo: any = {
+    step: '',
+    hasKey: false,
+    hasSheetId: false,
+    keyLength: 0,
+    error: null,
+    cellA2: ''
+  };
+
   try {
-    const credentials = JSON.parse(
-      process.env.GOOGLE_SERVICE_ACCOUNT_KEY || '{}'
-    );
+    debugInfo.step = '1. 環境変数の確認';
     
+    const keyValue = process.env.GOOGLE_SERVICE_ACCOUNT_KEY;
+    const sheetId = process.env.GOOGLE_SHEET_ID;
+    
+    debugInfo.hasKey = !!keyValue;
+    debugInfo.keyLength = keyValue?.length || 0;
+    debugInfo.hasSheetId = !!sheetId;
+    debugInfo.sheetId = sheetId;
+    
+    console.log('=== Debug Step 1: Environment Variables ===');
+    console.log('Has key:', debugInfo.hasKey);
+    console.log('Key length:', debugInfo.keyLength);
+    console.log('Has sheet ID:', debugInfo.hasSheetId);
+    console.log('Sheet ID:', sheetId);
+    
+    if (!keyValue) {
+      debugInfo.error = 'GOOGLE_SERVICE_ACCOUNT_KEY が設定されていません';
+      return debugInfo;
+    }
+    
+    if (!sheetId) {
+      debugInfo.error = 'GOOGLE_SHEET_ID が設定されていません';
+      return debugInfo;
+    }
+    
+    // JSONパース
+    debugInfo.step = '2. JSONパース';
+    let credentials;
+    
+    try {
+      credentials = JSON.parse(keyValue);
+      debugInfo.jsonParsed = true;
+      debugInfo.serviceAccountEmail = credentials.client_email;
+      console.log('=== Debug Step 2: JSON Parsed ===');
+      console.log('Service account email:', credentials.client_email);
+    } catch (parseError: any) {
+      debugInfo.error = `JSONパースエラー: ${parseError.message}`;
+      debugInfo.jsonParsed = false;
+      debugInfo.firstChars = keyValue.substring(0, 100);
+      console.error('JSON parse error:', parseError.message);
+      console.error('First 100 chars:', keyValue.substring(0, 100));
+      return debugInfo;
+    }
+    
+    // Google認証
+    debugInfo.step = '3. Google認証';
     const auth = new google.auth.GoogleAuth({
       credentials,
       scopes: ['https://www.googleapis.com/auth/spreadsheets.readonly'],
     });
     
+    debugInfo.authCreated = true;
+    console.log('=== Debug Step 3: Auth Created ===');
+    
+    // Sheets API
+    debugInfo.step = '4. Sheets API呼び出し';
     const sheets = google.sheets({ version: 'v4', auth });
-    const spreadsheetId = process.env.GOOGLE_SHEET_ID;
     
-    // A列とB列のデータを取得（2行目以降、1行目はタイトル）
+    console.log('=== Debug Step 4: Fetching from Sheet ===');
+    console.log('Sheet ID:', sheetId);
+    console.log('Range: サポーター!A2');
+    
     const response = await sheets.spreadsheets.values.get({
-      spreadsheetId,
-      range: 'サポーター!A2:B',
+      spreadsheetId: sheetId,
+      range: 'サポーター!A2',
     });
     
-    const rows = response.data.values || [];
+    const value = response.data.values?.[0]?.[0] || '';
     
-    const supporters: Array<{ name: string; type: 'frenz' | 'partner' }> = [];
+    debugInfo.step = '5. 完了';
+    debugInfo.cellA2 = value;
+    debugInfo.success = true;
     
-    // 各行を処理
-    rows.forEach(row => {
-      // A列（1列目）：みん盆フレンズ
-      if (row[0] && row[0].trim()) {
-        supporters.push({
-          name: row[0].trim(),
-          type: 'frenz'
-        });
-      }
-      
-      // B列（2列目）：みん盆パートナー
-      if (row[1] && row[1].trim()) {
-        supporters.push({
-          name: row[1].trim(),
-          type: 'partner'
-        });
-      }
-    });
+    console.log('=== Debug Step 5: Success ===');
+    console.log('A2セルの値:', value);
     
-    return supporters;
-  } catch (error) {
-    console.error('Error fetching from Google Sheets:', error);
-    return [];
+    return debugInfo;
+    
+  } catch (error: any) {
+    console.error('=== Error at step:', debugInfo.step, '===');
+    console.error('Error message:', error.message);
+    console.error('Error stack:', error.stack);
+    
+    debugInfo.error = error.message;
+    debugInfo.errorDetails = {
+      name: error.name,
+      message: error.message,
+      code: error.code
+    };
+    
+    return debugInfo;
   }
 }
 
 export async function GET() {
   try {
-    const supporters = await getGoogleSheetsData();
+    const data = await getGoogleSheetsData();
     
+    return NextResponse.json(data, {
+      headers: {
+        'Cache-Control': 'no-store',
+      },
+    });
+  } catch (error: any) {
+    console.error('Outer error:', error);
     return NextResponse.json(
-      { supporters },
-      {
-        headers: {
-          'Cache-Control': 'public, s-maxage=300, stale-while-revalidate=600',
-        },
-      }
-    );
-  } catch (error) {
-    console.error('Error in supporters API:', error);
-    return NextResponse.json(
-      { supporters: [] },
-      { status: 200 }
+      { 
+        error: error.message,
+        details: 'Check server logs for more information'
+      },
+      { status: 500 }
     );
   }
 }
