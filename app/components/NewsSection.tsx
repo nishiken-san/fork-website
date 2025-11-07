@@ -43,7 +43,6 @@ const NewsSection = () => {
         }
         .section-container {
           display: flex;
-          min-height: 100vh;
         }
         .left-column {
           width: 66.666667%;
@@ -63,6 +62,7 @@ const NewsSection = () => {
           display: flex;
           flex-direction: column;
           align-items: flex-end;
+          gap: 2rem;
         }
         .section-title {
           color: #003705;
@@ -75,7 +75,6 @@ const NewsSection = () => {
         }
         .content-area {
           padding: 4rem 4rem 4rem 2rem;
-          min-height: 100vh;
         }
         .section-header {
           color: #666;
@@ -112,11 +111,6 @@ const NewsSection = () => {
           font-weight: 700;
           line-height: 1.8;
         }
-        .view-all-container {
-          display: flex;
-          justify-content: flex-end;
-          margin-top: 4rem;
-        }
         .view-all-link {
           color: #003705;
           font-size: 0.875rem;
@@ -152,8 +146,6 @@ const NewsSection = () => {
                   <h3 className="news-title">{item.title}</h3>
                 </article>
               ))}
-              
-              
             </div>
           </div>
 
@@ -161,13 +153,10 @@ const NewsSection = () => {
           <div className="right-column">
             <div className="sticky-header">
               <h2 className="section-title">お知らせ・記録</h2>
+              <a href="/news" className="view-all-link">
+                すべてのおしらせ ＝＞
+              </a>
             </div>
-
-            <div className="view-all-container">
-                <a href="/news" className="view-all-link">
-                  すべてのおしらせ ＝＞
-                </a>
-              </div>
           </div>
         </div>
       </section>

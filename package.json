@@ -19,7 +19,8 @@
     "marked": "^12.0.0",
     "next": "15.3.4",
     "react": "^19.0.0",
-    "react-dom": "^19.0.0"
+    "react-dom": "^19.0.0",
+    "sass": "^1.93.3"
   },
   "devDependencies": {
     "@eslint/eslintrc": "^3",

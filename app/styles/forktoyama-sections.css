@@ -316,19 +316,23 @@
   background-color: var(--forktoyama-bg-white);
 }
 
+/* 既存のコードの該当部分を以下のように修正 */
+
 .facility-bg {
   background-color: #003705;
 }
 
 .facility-bg .section-container {
   display: flex;
-  min-height: 100vh;
+  /* min-height: 100vh; を削除 */
 }
 
 .facility-bg .left-column {
   width: 66.666667%;
   background-color: #003705;
   position: relative;
+  display: flex;
+  align-items: center; /* 中央配置 */
 }
 
 .facility-bg .right-column {
@@ -343,9 +347,9 @@
   background-color: #003705;
   z-index: 20;
   display: flex;
-  align-items: center;
+  align-items: flex-start;
   justify-content: flex-end;
-  height: 100vh;
+  /* height: 100vh; を削除 */
 }
 
 .facility-bg .vertical-title {
@@ -359,14 +363,14 @@
 }
 
 .facility-bg .content-area {
-  padding: 4rem 2rem;
+  padding: 0 2rem; /* 上下0、左右2rem */
   color: white;
-  min-height: 150vh;
+  /* min-height: 150vh; を削除 */
 }
 
 .facility-bg .what-we-do {
   font-size: 0.875rem;
-  margin-bottom: 2rem;
+  margin-bottom: 0.5rem; /* 2rem → 0.5rem */
   font-weight: 400;
   color: #B4B4B4;
 }
@@ -374,22 +378,23 @@
 .facility-bg .description {
   font-size: 0.875rem;
   line-height: 1.8;
-  margin-bottom: 3rem;
+  margin: 0; /* margin-bottom: 3rem; を削除 */
 }
 
 @media (min-width: 1024px) {
   .facility-bg .content-area {
-    padding: 4rem 4rem;
+    padding: 0 2rem; /* 上下0、左右2rem */
   }
   
   .facility-bg .vertical-title {
     font-size: 1.75rem;
   }
 }
+
 .content-area {
   display: flex;
   flex-direction: column;
-  justify-content: center; /* 中央配置 */
+  justify-content: center; /* 中央配置を維持 */
 }
 
 /* Natural Architecture Section Styles */
@@ -659,8 +664,8 @@
   box-shadow: 4px 4px 0px #003705;
 }
 .about-button:hover {
-  background-color: #003705;
-  color: white;
+  background-color: #93A794;
+  color: #003705;
 }
 
 /* Access Section Styles */
@@ -844,3 +849,4 @@
     height: 250px;
   }
 }
+

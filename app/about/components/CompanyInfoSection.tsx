@@ -102,7 +102,7 @@ const CompanyInformation = () => {
             <div className="company-entry company-name">一般社団法人fork</div>
             <div className="company-entry">設立：2023年7月</div>
             <div className="company-entry">住所：富山県中新川郡舟橋村竹内325</div>
-            <div className="company-entry">代表者：代表理事 岡山支善</div>
+            <div className="company-entry">代表者：代表理事 岡山史興</div>
 
             {/* Sticky解除用Sentinel */}
             <div ref={sentinelRef} style={{ height: '1px' }} />

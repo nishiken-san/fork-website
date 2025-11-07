@@ -152,10 +152,10 @@ const SupporterSection = () => {
             {/* 募集ボタン */}
             <div className="button-group">
               <a href="/supporter/frenz" className="support-button">
-                みん盆フレンズ〈個人サポーター〉はこちら
+                みん営フレンズ〈個人サポーター〉はこちら
               </a>
               <a href="/supporter/partner" className="support-button">
-                みん盆パートナー〈法人サポーター〉はこちら
+                みん営パートナー〈法人サポーター〉はこちら
               </a>
             </div>
 

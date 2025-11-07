@@ -9,27 +9,90 @@ const Facility = () => {
   const { isSticky } = useSectionSticky(sectionRef, contentRef);
 
   return (
-    <section ref={sectionRef} id="facility-main" className="facility-bg relative">
-      <div className="section-container">
-        <div ref={contentRef} className="left-column">
-          <div className="content-area">
-            <div className="what-we-do">facility</div>
-            <div className="description">
-              forkは学童保育施設を中心に、カフェ、コワーキングスペースなど、さまざまな人が関わり合い、選択肢と出会える場所です。
+    <>
+      <style jsx>{`
+        .facility-bg {
+          background-color: #003705;
+        }
+        .section-container {
+          display: flex;
+          align-items: stretch;
+        }
+        .left-column {
+          width: 70%;
+          background-color: #003705;
+          display: flex;
+          align-items: center;
+        }
+        .right-column {
+          width: 30%;
+          background-color: #003705;
+          position: relative;
+        }
+        .sticky-header {
+          position: sticky;
+          top: 80px;
+          padding: 2rem 3rem;
+          background-color: #003705;
+          z-index: 20;
+          display: flex;
+          align-items: flex-start;
+          justify-content: flex-end;
+        }
+        .vertical-title {
+          writing-mode: vertical-rl;
+          text-orientation: mixed;
+          color: white;
+          font-size: 1.5rem;
+          font-weight: 600;
+          line-height: 1.4;
+          letter-spacing: 0.1em;
+        }
+        .content-area {
+          padding: 0 2rem;
+          color: white;
+          width: 100%;
+        }
+        .what-we-do {
+          font-size: 0.875rem;
+          margin-bottom: 0.5rem;
+          font-weight: 400;
+          color: #B4B4B4;
+        }
+        .description {
+          font-size: 0.875rem;
+          line-height: 1.8;
+          margin: 0;
+        }
+        @media (min-width: 1024px) {
+          .vertical-title {
+            font-size: 1.75rem;
+          }
+        }
+      `}</style>
+
+      <section ref={sectionRef} id="facility-main" className="facility-bg relative">
+        <div className="section-container">
+          <div ref={contentRef} className="left-column">
+            <div className="content-area">
+              <div className="what-we-do">facility</div>
+              <div className="description">
+                forkは学童保育施設を中心に、カフェ、コワーキングスペースなど、さまざまな人が関わり合い、選択肢と出会える場所です。
+              </div>
+            </div>
+          </div>
+
+          <div className="right-column">
+            <div className="sticky-header">
+              <h1 className="vertical-title">
+                子どもをきっかけに<br />
+                人が集まる場
+              </h1>
             </div>
           </div>
         </div>
-
-        <div className="right-column">
-          <div className="sticky-header">
-            <h1 className="vertical-title">
-              子どもをきっかけに<br />
-              人が集まる場
-            </h1>
-          </div>
-        </div>
-      </div>
-    </section>
+      </section>
+    </>
   );
 };
 

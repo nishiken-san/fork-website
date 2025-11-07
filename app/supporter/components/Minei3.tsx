@@ -2,56 +2,72 @@
 
 import { useRef } from 'react';
 import { useSectionSticky } from '../../hooks/useSectionSticky';
-import '../../styles/supporter-section.css';
+import '../../styles/supporter-sections.css';
 
-const Minnei3 = () => {
+interface VoiceItem {
+  id: string;
+  name: string;
+  occupation: string;
+  location: string;
+  message: string;
+}
+
+const Minei3 = () => {
   const sectionRef = useRef<HTMLDivElement>(null);
   const contentRef = useRef<HTMLDivElement>(null);
   const { isSticky } = useSectionSticky(sectionRef, contentRef);
 
+  const voices: VoiceItem[] = [
+    {
+      id: '1',
+      name: 'K.R',
+      occupation: '職業職業',
+      location: '地域',
+      message: 'supporter事業の理由の導入文をいれますsupporter事業の理由の導入文をいれますsupporter事業。（100文字程度）'
+    },
+    {
+      id: '2',
+      name: 'K.R',
+      occupation: '職業職業',
+      location: '地域',
+      message: 'supporter事業の理由の導入文をいれますsupporter事業の理由の導入文をいれますsupporter事業。（100文字程度）'
+    },
+    {
+      id: '3',
+      name: 'K.R',
+      occupation: '職業職業',
+      location: '地域',
+      message: 'supporter事業の理由の導入文をいれますsupporter事業の理由の導入文をいれますsupporter事業。（100文字程度）'
+    }
+  ];
+
   return (
-    <section ref={sectionRef} id="minnei3-main" className="minnei3-bg relative">
-      <div className="section-container">
-        <div ref={contentRef} className="left-column">
-          <div className="content-area">
-            <div className="section-category">supporter voice</div>
-            <div className="section-title">サポーターの声</div>
+    <section ref={sectionRef} id="minei3" className="minei3-section relative">
+      <div className="minei3-container">
+        {/* 左側: 固定ヘッダー */}
+        <div className="minei3-left">
+          <div className="minei3-sticky">
+            <div className="minei3-subtitle">supporter voice</div>
+            <h2 className="minei3-title">サポーターの声</h2>
           </div>
         </div>
 
-        <div className="right-column">
-          <div className="voices-container">
-            <div className="voice-card">
-              <div className="voice-header">
-                <div className="voice-name">K.R</div>
-                <div className="voice-occupation">職業職業 [地域]</div>
-              </div>
-              <div className="voice-divider"></div>
-              <div className="voice-content">
-                supporter音楽の理由の導入文をいいますsupporter音楽の理由の導入文をいいますsupporter音楽。。100文字程度)
-              </div>
-            </div>
-
-            <div className="voice-card">
-              <div className="voice-header">
-                <div className="voice-name">K.R</div>
-                <div className="voice-occupation">職業職業 [地域]</div>
-              </div>
-              <div className="voice-divider"></div>
-              <div className="voice-content">
-                supporter音楽の理由の導入文をいいますsupporter音楽の理由の導入文をいいますsupporter音楽。。100文字程度)
-              </div>
-            </div>
-
-            <div className="voice-card">
-              <div className="voice-header">
-                <div className="voice-name">K.R</div>
-                <div className="voice-occupation">職業職業 [地域]</div>
-              </div>
-              <div className="voice-divider"></div>
-              <div className="voice-content">
-                supporter音楽の理由の導入文をいいますsupporter音楽の理由の導入文をいいますsupporter音楽。。100文字程度)
-              </div>
+        {/* 右側: スクロールコンテンツ */}
+        <div ref={contentRef} className="minei3-right">
+          <div className="minei3-content">
+            <div className="minei3-voices-list">
+              {voices.map((voice) => (
+                <div key={voice.id} className="minei3-voice-card">
+                  <div className="minei3-voice-header">
+                    <div className="minei3-voice-name">{voice.name}</div>
+                    <div className="minei3-voice-info">
+                      {voice.occupation} [{voice.location}]
+                    </div>
+                  </div>
+                  <div className="minei3-voice-divider"></div>
+                  <p className="minei3-voice-text">{voice.message}</p>
+                </div>
+              ))}
             </div>
           </div>
         </div>
@@ -60,4 +76,4 @@ const Minnei3 = () => {
   );
 };
 
-export default Minnei3;
+export default Minei3;

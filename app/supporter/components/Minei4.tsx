@@ -2,38 +2,52 @@
 
 import { useRef } from 'react';
 import { useSectionSticky } from '../../hooks/useSectionSticky';
-import '../../styles/supporter-section.css';
+import '../../styles/supporter-sections.css';
 
-const Minnei4 = () => {
+const Minei4 = () => {
   const sectionRef = useRef<HTMLDivElement>(null);
   const contentRef = useRef<HTMLDivElement>(null);
   const { isSticky } = useSectionSticky(sectionRef, contentRef);
 
+  const priceOptions = [
+    '¥1,000',
+    '¥2000',
+    '¥3000',
+    '¥5000',
+    '¥10000',
+    '¥30000',
+    '¥50000'
+  ];
+
   return (
-    <section ref={sectionRef} id="minnei4-main" className="minnei4-bg relative">
-      <div className="section-container">
-        <div ref={contentRef} className="left-column">
-          <div className="content-area">
-            <div className="section-category">price</div>
-            <div className="section-title">料金表</div>
+    <section ref={sectionRef} id="minei4" className="minei4-section relative">
+      <div className="minei4-container">
+        {/* 左側: 固定ヘッダー */}
+        <div className="minei4-left">
+          <div className="minei4-sticky">
+            <div className="minei4-subtitle">price</div>
+            <h2 className="minei4-title">料金表</h2>
           </div>
         </div>
 
-        <div className="right-column">
-          <div className="price-container">
-            <div className="plan-name">みん営フレンズ</div>
-            
-            <div className="price-info">
-              <span className="price-label">月額</span>
-              <span className="price-amount">¥1,000 〜</span>
-            </div>
-            
-            <a href="#" className="apply-button">
-              申し込みはこちら
-            </a>
-            
-            <div className="price-options">
-              ¥1,000 / ¥2000 / ¥3000 / ¥5000 / ¥10000 / ¥30000 / ¥50000
+        {/* 右側: スクロールコンテンツ */}
+        <div ref={contentRef} className="minei4-right">
+          <div className="minei4-content">
+            <div className="minei4-card">
+              <div className="minei4-card-title">みん営フレンズ</div>
+              
+              <div className="minei4-price">
+                <span className="minei4-price-label">月額</span>
+                <span className="minei4-price-amount">¥1,000 〜</span>
+              </div>
+              
+              <a href="/supporter/apply" className="minei4-button">
+                申し込みはこちら
+              </a>
+              
+              <div className="minei4-price-options">
+                {priceOptions.join(' / ')}
+              </div>
             </div>
           </div>
         </div>
@@ -42,4 +56,4 @@ const Minnei4 = () => {
   );
 };
 
-export default Minnei4;
+export default Minei4;

@@ -6,9 +6,10 @@ import { useEffect } from 'react';
 interface MobileMenuProps {
   isOpen: boolean;
   onClose: () => void;
+  logoImage?: string; // オプション: メニュー内のロゴ画像のパス
 }
 
-const MobileMenu: React.FC<MobileMenuProps> = ({ isOpen, onClose }) => {
+const MobileMenu: React.FC<MobileMenuProps> = ({ isOpen, onClose, logoImage }) => {
   useEffect(() => {
     if (isOpen) {
       document.body.style.overflow = 'hidden';
@@ -21,152 +22,110 @@ const MobileMenu: React.FC<MobileMenuProps> = ({ isOpen, onClose }) => {
     };
   }, [isOpen]);
 
-  if (!isOpen) return null;
-
   return (
-    <div className="fixed inset-0 z-50">
-      {/* Backdrop */}
+    <>
+      {/* Overlay */}
       <div 
-        className="absolute inset-0 bg-black/20 backdrop-blur-sm"
-        onClick={onClose}
-      />
+        className={`fixed inset-0 z-40 transition-all duration-300 ${
+          isOpen 
+            ? 'visible opacity-100' 
+            : 'invisible opacity-0'
+        }`}
+      >
+        <div 
+          className="absolute inset-0 bg-black/30"
+          onClick={onClose}
+        />
+      </div>
       
-      {/* Menu Panel */}
-      <div className="absolute right-0 top-0 h-full w-full sm:w-96 bg-white shadow-2xl">
-        <div className="p-8">
-          {/* Close Button */}
-          <div className="flex justify-end mb-12">
-            <button
-              onClick={onClose}
-              className="text-gray-400 hover:text-gray-600 transition-colors text-sm font-light tracking-wide uppercase"
-              aria-label="メニューを閉じる"
-            >
-              close ✕
-            </button>
-          </div>
+      {/* Menu Panel - ヘッダー直下から下に伸びる */}
+      <div 
+        className={`fixed left-0 right-0 bg-[#003705] shadow-2xl z-50 overflow-hidden transition-all duration-500 ease-out ${
+          isOpen 
+            ? 'top-[72px] max-h-[calc(100vh-72px)]' 
+            : 'top-[72px] max-h-0'
+        }`}
+        style={{ marginTop: '0' }}
+      >
+        <div className="p-8 pb-12 overflow-y-auto max-h-[calc(100vh-72px)]">
+          
           
           {/* Navigation */}
-          <nav className="space-y-8">
+          <nav className="space-y-5">
+            <a 
+              href="/" 
+              className="block text-white hover:text-gray-300 transition-colors text-base"
+              onClick={onClose}
+            >
+              ＞ Top
+            </a>
+            
+            <a 
+              href="/about" 
+              className="block text-white hover:text-gray-300 transition-colors text-base"
+              onClick={onClose}
+            >
+              ＞ fork toyama について
+            </a>
+            
+            <a 
+              href="/effort" 
+              className="block text-white hover:text-gray-300 transition-colors text-base"
+              onClick={onClose}
+            >
+              ＞ とりくみ
+            </a>
+            
             <div>
-              <h3 className="text-xs font-medium tracking-widest text-gray-400 uppercase mb-4">
-                Explore
-              </h3>
-              <div className="space-y-3">
+              <div className="text-white text-base mb-2">＞ サポーターになる</div>
+              <div className="ml-6 space-y-2">
                 <a 
-                  href="#about" 
-                  className="block text-2xl font-light text-gray-900 hover:text-gray-600 transition-colors"
+                  href="/supporter" 
+                  className="block text-white hover:text-gray-300 transition-colors text-base"
                   onClick={onClose}
                 >
-                  About
+                  ー　みん営フレンズ（個人）
                 </a>
                 <a 
-                  href="#team" 
-                  className="block text-2xl font-light text-gray-900 hover:text-gray-600 transition-colors"
+                  href="/supporter/corporate" 
+                  className="block text-white hover:text-gray-300 transition-colors text-base"
                   onClick={onClose}
                 >
-                  Team
-                </a>
-                <a 
-                  href="#services" 
-                  className="block text-2xl font-light text-gray-900 hover:text-gray-600 transition-colors"
-                  onClick={onClose}
-                >
-                  Services
-                </a>
-                <a 
-                  href="#contact" 
-                  className="block text-2xl font-light text-gray-900 hover:text-gray-600 transition-colors"
-                  onClick={onClose}
-                >
-                  Contact
+                  ー　みん営パートナー（法人・団体）
                 </a>
               </div>
             </div>
             
-            <div>
-              <h3 className="text-xs font-medium tracking-widest text-gray-400 uppercase mb-4">
-                More
-              </h3>
-              <div className="space-y-3">
-                <a 
-                  href="#" 
-                  className="block text-xl font-light text-gray-700 hover:text-gray-900 transition-colors"
-                  onClick={onClose}
-                >
-                  Careers
-                </a>
-                <a 
-                  href="#" 
-                  className="block text-xl font-light text-gray-700 hover:text-gray-900 transition-colors"
-                  onClick={onClose}
-                >
-                  News
-                </a>
-                <a 
-                  href="#" 
-                  className="block text-xl font-light text-gray-700 hover:text-gray-900 transition-colors"
-                  onClick={onClose}
-                >
-                  Press
-                </a>
-              </div>
-            </div>
+            <a 
+              href="/topics" 
+              className="block text-white hover:text-gray-300 transition-colors text-base"
+              onClick={onClose}
+            >
+              ＞ おしらせ・記録
+            </a>
+            
+            <a 
+              href="/contact" 
+              className="block text-white hover:text-gray-300 transition-colors text-base"
+              onClick={onClose}
+            >
+              ＞ お問い合わせ
+            </a>
           </nav>
           
-          {/* Contact Info */}
-          <div className="mt-16 pt-8 border-t border-gray-100">
-            <div className="space-y-4">
-              <div>
-                <p className="text-xs font-medium tracking-widest text-gray-400 uppercase mb-1">
-                  Email
-                </p>
-                <a 
-                  href="mailto:hello@fork-company.com" 
-                  className="text-sm text-gray-600 hover:text-gray-900 transition-colors"
-                >
-                  hello@fork-company.com
-                </a>
-              </div>
-              <div>
-                <p className="text-xs font-medium tracking-widest text-gray-400 uppercase mb-1">
-                  Phone
-                </p>
-                <a 
-                  href="tel:+81312345678" 
-                  className="text-sm text-gray-600 hover:text-gray-900 transition-colors"
-                >
-                  +81 3 1234 5678
-                </a>
-              </div>
-            </div>
-          </div>
-          
-          {/* Social Links */}
+          {/* Bottom Link */}
           <div className="mt-12">
-            <div className="flex space-x-6">
-              <a 
-                href="#" 
-                className="text-gray-400 hover:text-gray-600 transition-colors text-sm font-light tracking-wide"
-              >
-                Twitter
-              </a>
-              <a 
-                href="#" 
-                className="text-gray-400 hover:text-gray-600 transition-colors text-sm font-light tracking-wide"
-              >
-                LinkedIn
-              </a>
-              <a 
-                href="#" 
-                className="text-gray-400 hover:text-gray-600 transition-colors text-sm font-light tracking-wide"
-              >
-                Instagram
-              </a>
-            </div>
+            <a 
+              href="/fork-toyama" 
+              className="text-white hover:text-gray-300 transition-colors text-sm flex items-center justify-end"
+              onClick={onClose}
+            >
+              学童保育：fork toyama ＝＞
+            </a>
           </div>
         </div>
       </div>
-    </div>
+    </>
   );
 };
 

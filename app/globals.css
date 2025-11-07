@@ -1,5 +1,20 @@
 @import "tailwindcss";
 
+* {
+  font-family: "游ゴシック体", "Yu Gothic", YuGothic, "游ゴシック", "Yu Gothic Medium", "ヒラギノ角ゴ ProN", "Hiragino Kaku Gothic ProN", "メイリオ", Meiryo, "MS Pゴシック", "MS PGothic", sans-serif;
+  font-weight: 700; /* 游ゴシックBold */
+}
+
+body {
+  font-family: "游ゴシック体", "Yu Gothic", YuGothic, "游ゴシック", "Yu Gothic Medium", "ヒラギノ角ゴ ProN", "Hiragino Kaku Gothic ProN", "メイリオ", Meiryo, "MS Pゴシック", "MS PGothic", sans-serif;
+  font-weight: 700; /* 游ゴシックBold */
+}
+
+/* より太字の場合（オプション） */
+strong, b, .font-bold {
+  font-weight: 900; /* より太く */
+}
+
 :root {
   --background: #ffffff;
   --foreground: #171717;
