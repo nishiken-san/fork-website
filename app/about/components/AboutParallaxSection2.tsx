@@ -99,7 +99,7 @@ const AboutParallaxSection = () => {
         <div 
           className="w-full h-full bg-cover bg-center bg-no-repeat"
           style={{
-            backgroundImage: `url('${IMAGES.parallax.about1}')`,
+            backgroundImage: `url('${IMAGES.parallax.about2}')`,
             backgroundPosition: 'center center',
             backgroundAttachment: 'fixed',
           }}

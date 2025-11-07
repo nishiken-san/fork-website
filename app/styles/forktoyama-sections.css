@@ -514,7 +514,6 @@
 
 /* Placeholder text for images */
 .natural-architecture-bg .map-block::after {
-  content: "MAP";
   color: var(--forktoyama-secondary);
   font-size: 2rem;
   font-weight: bold;
@@ -522,7 +521,7 @@
 }
 
 .natural-architecture-bg .photo-block:nth-child(2)::after {
-  content: "PIC1";
+ 
   color: var(--forktoyama-secondary);
   font-size: 2rem;
   font-weight: bold;
@@ -530,7 +529,6 @@
 }
 
 .natural-architecture-bg .photo-block:nth-child(3)::after {
-  content: "PIC2";
   color: var(--forktoyama-secondary);
   font-size: 2rem;
   font-weight: bold;
@@ -538,7 +536,6 @@
 }
 
 .natural-architecture-bg .photo-block:nth-child(4)::after {
-  content: "PIC3";
   color: var(--forktoyama-secondary);
   font-size: 2rem;
   font-weight: bold;
@@ -850,3 +847,55 @@
   }
 }
 
+/* styles/section.css - 画像ブロックの修正 */
+
+/* 既存のコードに追加・修正 */
+
+/* 画像ブロック共通 */
+.image-block {
+  width: 100%;
+  overflow: hidden;
+  /* height削除 - 画像の自然な高さを使用 */
+}
+
+/* 地図ブロック */
+.map-block {
+  margin-bottom: 2rem;
+}
+
+/* 写真ブロック */
+.photo-block {
+  margin-bottom: 2rem;
+}
+
+/* レスポンシブ画像 */
+.responsive-image {
+  width: 100%;
+  height: auto; /* 元のアスペクト比を維持 */
+  display: block;
+  object-fit: contain; /* coverからcontainに変更 */
+}
+
+/* 画像コンテナ */
+.images-container {
+  width: 100%;
+}
+
+.mobile-photos {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+/* 個別の画像で異なるスタイルが必要な場合 */
+.photo-block:first-child .responsive-image {
+  /* photo1用の追加スタイル（必要に応じて） */
+}
+
+.photo-block:nth-child(2) .responsive-image {
+  /* photo2用の追加スタイル（必要に応じて） */
+}
+
+.photo-block:nth-child(3) .responsive-image {
+  /* photo3用の追加スタイル（必要に応じて） */
+}

@@ -141,7 +141,7 @@ const ParallaxPhotoSection2 = () => {
           <div 
             className="w-full h-full"
             style={{
-              backgroundImage: `url('${IMAGES.about.teamPhoto}')`,
+              backgroundImage: `url('${IMAGES.parallax.forktoyama1}')`,
               backgroundPosition: 'center center',
               backgroundSize: 'cover',
               backgroundRepeat: 'no-repeat',

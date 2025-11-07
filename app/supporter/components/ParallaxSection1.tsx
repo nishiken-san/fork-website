@@ -58,7 +58,7 @@ const ParallaxPhotoSection1 = () => {
         <div 
           className="w-full h-full bg-cover bg-center bg-no-repeat"
           style={{
-            backgroundImage: `url('${IMAGES.about.teamPhoto}')`,
+            backgroundImage: `url('${IMAGES.parallax.supporter1}')`,
             backgroundPosition: 'center center',
             backgroundAttachment: 'fixed',
           }}

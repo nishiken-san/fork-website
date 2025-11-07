@@ -1,4 +1,4 @@
-// app/components/ParallaxSection2.tsx
+// app/components/ParallaxPhotoSection.tsx
 'use client';
 
 import { useEffect, useState, useRef } from 'react';

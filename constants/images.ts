@@ -24,15 +24,18 @@ export const IMAGES = {
   parallax: {
     home1: '/images/parallax/home-parallax-1.jpg', // ホームページ1枚目
     about1: '/images/parallax/parallax-bg-4.png', // Aboutページ1枚目（parallaxフォルダ内）
-    about2: '/images/parallax/about-parallax-2.jpg', // Aboutページ2枚目
+    about2: '/images/parallax/parallax-bg-2.png', // Aboutページ2枚目
     section1: '/images/parallax/section-parallax-1.jpg', // セクション用1
     section2: '/images/parallax/section-parallax-2.jpg', // セクション用2
     section3: '/images/parallax/section-parallax-3.jpg', // セクション用3
+    effort1: '/images/parallax/parallax-bg-5.png', // Aboutページ1枚目
+    forktoyama1: '/images/parallax/parallax-bg-6.png', // Aboutページ1枚目
+    supporter1: '/images/parallax/parallax-bg-7.png' // Aboutページ1枚目
   },
 
   // About セクション
   about: {
-    teamPhoto: '/images/about/team-photo.png',
+    teamPhoto: '/images/parallax/parallax-bg-1.png',
     officeInterior: '/images/about/office-interior.jpg',
     workingSpace: '/images/about/working-space.jpg',
     peopleSilhouette: '/images/about/people-silhouette.png', // 人物シルエット画像
@@ -77,6 +80,18 @@ export const IMAGES = {
     project2: '/images/projects/project-02.jpg',
     project3: '/images/projects/project-03.jpg',
     project4: '/images/projects/project-04.jpg',
+  },
+
+  forktoyama: {
+    fork1: '/images/forktoyama/stone.png',
+    fork2: '/images/forktoyama/MAP2.png',
+    fork3: '/images/forktoyama/建築_1.png',
+    fork4: '/images/forktoyama/建築_2.png',
+    fork5: '/images/forktoyama/建築_3.png',
+    fork6: '/images/forktoyama/noki_1 2.png',
+    fork7: '/images/forktoyama/noki_1 1.png',
+    fork8: '/images/forktoyama/コラボレーション_1 1.png',
+    fork9: '/images/forktoyama/コラボレーション 1.png',
   },
 
   // ブログ・ニュース
