@@ -11,6 +11,7 @@ import HistorySection from './components/HistorySection';
 import MemberSection from './components/MemberSection';
 import PartnerSection from './components/PartnerSection';
 import CompanyInfoSection from './components/CompanyInfoSection';
+import '../styles/about-sections.css';
 
 export default function AboutPage() {
   return (

@@ -499,5 +499,39 @@ footer .border-green-800 {
   image-rendering: -webkit-optimize-contrast;
   image-rendering: crisp-edges;
   image-rendering: pixelated;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center center;
+
 }
 
+.parallax-section {
+  position: relative;
+  height: 100vh;
+  overflow: hidden;
+}
+
+.parallax-image-wrapper {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  will-change: transform;
+}
+
+/* モバイル対応 */
+@media (max-width: 768px) {
+  .parallax-image {
+    object-fit: cover; /* モバイルでも全体を表示 */
+    object-position: center center;
+  }
+}
+
+/* タブレット対応 */
+@media (min-width: 769px) and (max-width: 1024px) {
+  .parallax-image {
+    object-fit: cover;
+  }
+}
