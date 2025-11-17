@@ -1,55 +1,14 @@
-// 'use client';
 
-// const AboutParallaxSection4 = () => {
-//   return (
-//     <section className="relative h-screen overflow-hidden bg-gray-900">
-//       {/* パララックス背景画像 */}
-//       <div className="absolute inset-0 w-full h-full">
-//         <div 
-//           className="w-full h-full bg-cover bg-center bg-no-repeat"
-//           style={{
-//             backgroundImage: `url('/../images/parallax/parallax-bg-4.png')`,
-//             backgroundSize: '100% auto', // 横幅100%、縦は自動
-//             backgroundPosition: 'center center',
-//           }}
-//         />
-//         <div className="absolute inset-0 bg-black/50" />
-//       </div>
-
-//     </section>
-//   );
-// };
-
-// export default AboutParallaxSection4;
-
-
-// 'use client';
-
-// const AboutParallaxSection4 = () => {
-//   return (
-//     <section className="relative w-full h-screen overflow-hidden">
-//       <div 
-//         className="absolute inset-0 w-full h-full bg-cover bg-center bg-no-repeat"
-//         style={{
-//             backgroundImage: `url('/../images/parallax/parallax-bg-4.png')`,
-//           }}
-//           />
-//         </section>
-//       );
-//     };
-
-// export default AboutParallaxSection4;
-
-// app/about/components/AboutParallaxSection.tsx
 'use client';
 
 import { useEffect, useState, useRef } from 'react';
-import { IMAGES } from '../../../constants/images';
+import { IMAGES } from '@/constants/images';
 
 const AboutParallaxSection = () => {
   const [scrollY, setScrollY] = useState(0);
   const sectionRef = useRef<HTMLDivElement>(null);
   const [isInView, setIsInView] = useState(false);
+  const [sectionTop, setSectionTop] = useState(0);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -64,12 +23,16 @@ const AboutParallaxSection = () => {
     const observer = new IntersectionObserver(
       ([entry]) => {
         setIsInView(entry.isIntersecting);
+        if (entry.isIntersecting && sectionRef.current) {
+          setSectionTop(sectionRef.current.offsetTop);
+        }
       },
       { threshold: 0.1 }
     );
 
     if (sectionRef.current) {
       observer.observe(sectionRef.current);
+      setSectionTop(sectionRef.current.offsetTop);
     }
 
     window.addEventListener('scroll', throttledHandleScroll, { passive: true });
@@ -80,28 +43,42 @@ const AboutParallaxSection = () => {
     };
   }, []);
 
-  // パララックス効果の計算（セクションが見えている時のみ）
-  const parallaxOffset = isInView ? scrollY * (-0.1) : 0;
+  // パララックス効果の計算（セクション内でのスクロール量に基づく）
+  const relativeScroll = scrollY - sectionTop;
+  const parallaxOffset = isInView ? relativeScroll * 0.3 : 0;
 
   return (
     <section 
       ref={sectionRef}
-      className="relative h-screen overflow-hidden"
+      className="parallax-section relative overflow-hidden"
+      style={{
+        height: '100vh',
+        minHeight: '100vh',
+        backgroundColor: '#E7EBE7'
+      }}
     >
       {/* パララックス背景画像 */}
       <div 
-        className="absolute inset-0 w-full h-[130%]"
+        className="parallax-image-wrapper"
         style={{
+          position: 'absolute',
+          top: 0,
+          left: 0,
+          width: '100%',
+          height: '110%',
           transform: `translateY(${parallaxOffset}px)`,
           willChange: 'transform',
         }}
       >
-        <div 
-          className="w-full h-full bg-cover bg-center bg-no-repeat"
+        <img 
+          src={IMAGES.parallax.about1}
+          alt="チーム写真"
+          className="parallax-image"
           style={{
-            backgroundImage: `url('${IMAGES.parallax.about1}')`,
-            backgroundPosition: 'center center',
-            backgroundAttachment: 'fixed',
+            width: '100%',
+            height: '100%',
+            objectFit: 'cover',
+            objectPosition: 'center top'
           }}
         />
       </div>

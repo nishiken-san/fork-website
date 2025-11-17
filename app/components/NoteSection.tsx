@@ -2,6 +2,7 @@
 'use client';
 
 import { useRef } from 'react';
+import { IMAGES } from '@/constants/images';
 
 interface NoteItem {
   id: string;
@@ -64,37 +65,42 @@ const NoteSection = () => {
     <>
       <style jsx>{`
         .note-bg {
-          background-color: #E7E7E7;
+          background-color: #E7EBE7;
         }
         .section-container {
           display: flex;
         }
         .left-column {
           width: 33.333333%;
-          background-color: #E7E7E7;
+          background-color: #E7EBE7;
           position: relative;
         }
         .right-column {
           width: 66.666667%;
-          background-color: #E7E7E7;
+          background-color: #E7EBE7;
         }
         .sticky-header {
           position: sticky;
           top: 80px;
           padding: 2rem 3rem;
-          background-color: #E7E7E7;
+          background-color: #E7EBE7;
           z-index: 20;
         }
         .section-label {
-          color: #999;
-          font-size: 0.875rem;
-          font-weight: 400;
-          margin-bottom: 1.5rem;
+          position: absolute;
+          left: 53px;
+          top: 81px;
+          color: #B4B4B4;
+          font-size: 15px;
+          font-weight: 700;
           letter-spacing: 0.05em;
         }
         .section-title {
+          position: absolute;
+          left: 53px;
+          top: 110px;
           color: #003705;
-          font-size: 1.5rem;
+          font-size: 25px;
           font-weight: 700;
           line-height: 1.4;
         }
@@ -102,31 +108,54 @@ const NoteSection = () => {
           padding: 4rem 2rem 4rem 2rem;
           position: relative;
         }
+        
+        /* スクロールコンテナと左右の線 */
+        .scroll-wrapper {
+          position: relative;
+        }
+        
+        .scroll-line-left,
+        .scroll-line-right {
+          position: absolute;
+          top: 50%;
+          transform: translateY(-50%);
+          width: 1px;
+          height: 380px;
+          background-color: #003705;
+          z-index: 10;
+        }
+        
+        .scroll-line-left {
+          left: 0;
+        }
+        
+        .scroll-line-right {
+          right: 0;
+        }
+        
         .scroll-container {
           display: flex;
           gap: 2rem;
           overflow-x: auto;
           overflow-y: hidden;
           scroll-behavior: smooth;
-          padding-bottom: 2rem;
-          scrollbar-width: thin;
-          scrollbar-color: #003705 #E7E7E7;
+          padding-bottom: 0;
+          
+          /* スクロールバーを非表示 */
+          scrollbar-width: none; /* Firefox */
+          -ms-overflow-style: none; /* IE and Edge */
         }
+        
+        /* Webkit (Chrome, Safari) のスクロールバーを非表示 */
         .scroll-container::-webkit-scrollbar {
-          height: 8px;
+          display: none;
         }
-        .scroll-container::-webkit-scrollbar-track {
-          background: #E7E7E7;
-        }
-        .scroll-container::-webkit-scrollbar-thumb {
-          background: #003705;
-          border-radius: 4px;
-        }
+        
         .note-card {
           flex: 0 0 300px;
           background-color: #FFFFFF;
-          border: 2px solid #003705;
-          box-shadow: 4px 4px 0px #003705;
+          border: 1px solid #003705;
+          box-shadow: 1px 1px 0px #003705;
           padding: 1rem;
           cursor: pointer;
           transition: all 0.3s ease;
@@ -155,16 +184,23 @@ const NoteSection = () => {
           margin-bottom: 1rem;
         }
         .card-date {
-          color: #666;
-          font-size: 0.75rem;
+          color: #B4B4B4;
+          font-size: 13px;
+          font-weight: 400;
         }
         .card-category {
-          background-color: #E7E7E7;
-          color: #666;
-          padding: 0.25rem 0.75rem;
-          font-size: 0.75rem;
-          font-weight: 500;
-          border-radius: 4px;
+          background-color: transparent;
+          color: #B4B4B4;
+          border: 1px solid #B4B4B4;
+          padding: 0 0.25rem;
+          font-size: 10px;
+          font-weight: 700;
+          height: 16px;
+          display: inline-flex;
+          align-items: center;
+          justify-content: center;
+          border-radius: 0;
+          white-space: nowrap;
         }
         .card-title {
           color: #003705;
@@ -179,24 +215,76 @@ const NoteSection = () => {
         .view-all-container {
           display: flex;
           justify-content: flex-end;
+          align-items: center;
           margin-top: 2rem;
           padding-right: 2rem;
+          gap: 0.5rem;
         }
         .view-all-link {
           color: #003705;
-          font-size: 0.875rem;
+          font-size: 13px;
           font-weight: 700;
-          text-decoration: underline;
-          display: inline-flex;
-          align-items: center;
-          gap: 0.5rem;
+          text-decoration: none;
+          position: relative;
+          padding-bottom: 2px;
+        }
+        .view-all-link::after {
+          content: '';
+          position: absolute;
+          bottom: -0.5px;
+          left: 0;
+          width: 100%;
+          height: 1px;
+          background-color: #003705;
         }
         .view-all-link:hover {
           opacity: 0.7;
         }
+        .arrow-icon {
+          width: 24px;
+          height: 12px;
+          object-fit: contain;
+        }
+        
+        @media (max-width: 768px) {
+          .section-container {
+            flex-direction: column;
+          }
+          
+          .left-column {
+            width: 100%;
+          }
+          
+          .right-column {
+            width: 100%;
+          }
+          
+          .sticky-header {
+            position: static;
+            padding: 2rem 1.5rem;
+          }
+          
+          .section-label {
+            position: relative;
+            left: 0;
+            top: 0;
+            margin-bottom: 1rem;
+          }
+          
+          .section-title {
+            position: relative;
+            left: 0;
+            top: 0;
+          }
+          
+          .content-area {
+            padding: 2rem 1.5rem;
+          }
+        }
+        
         @media (min-width: 1024px) {
           .section-title {
-            font-size: 1.75rem;
+            font-size: 25px;
           }
         }
       `}</style>
@@ -214,28 +302,34 @@ const NoteSection = () => {
           {/* 右側: スクロールコンテンツ */}
           <div className="right-column">
             <div className="content-area">
-              <div ref={scrollContainerRef} className="scroll-container">
-                {noteItems.map((item) => (
-                  <a 
-                    key={item.id} 
-                    href={item.url} 
-                    className="note-card"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                  >
-                    <div className="card-image">
-                      <img 
-                        src={item.image} 
-                        alt={item.title}
-                      />
-                    </div>
-                    <div className="card-meta">
-                      <span className="card-date">{item.date}</span>
-                      <span className="card-category">{item.category}</span>
-                    </div>
-                    <h3 className="card-title">{item.title}</h3>
-                  </a>
-                ))}
+              <div className="scroll-wrapper">
+                {/* 左右の線 */}
+                <div className="scroll-line-left"></div>
+                <div className="scroll-line-right"></div>
+                
+                <div ref={scrollContainerRef} className="scroll-container">
+                  {noteItems.map((item) => (
+                    <a 
+                      key={item.id} 
+                      href={item.url} 
+                      className="note-card"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                    >
+                      <div className="card-image">
+                        <img 
+                          src={item.image} 
+                          alt={item.title}
+                        />
+                      </div>
+                      <div className="card-meta">
+                        <span className="card-date">{item.date}</span>
+                        <span className="card-category">{item.category}</span>
+                      </div>
+                      <h3 className="card-title">{item.title}</h3>
+                    </a>
+                  ))}
+                </div>
               </div>
               
               <div className="view-all-container">
@@ -245,8 +339,13 @@ const NoteSection = () => {
                   target="_blank"
                   rel="noopener noreferrer"
                 >
-                  noteをみる →
+                  noteをみる
                 </a>
+                <img 
+                  src={IMAGES.logo.vec}
+                  alt="arrow"
+                  className="arrow-icon"
+                />
               </div>
             </div>
           </div>

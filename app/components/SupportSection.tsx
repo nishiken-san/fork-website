@@ -49,7 +49,7 @@ const SupporterSection = () => {
         }
         .section-label {
           color: #FFFFFF;
-          font-size: 0.875rem;
+          font-size: 15px;
           font-weight: 400;
           margin-bottom: 2rem;
           letter-spacing: 0.05em;
@@ -57,7 +57,7 @@ const SupporterSection = () => {
         }
         .description {
           color: #FFFFFF;
-          font-size: 1rem;
+          font-size: 15px;
           line-height: 2;
           margin-bottom: 3rem;
           font-weight: 400;
@@ -71,17 +71,21 @@ const SupporterSection = () => {
         .support-button {
           background-color: #E7EBE7;
           color: #003705;
-          padding: 1.5rem 2rem;
-          font-size: 0.875rem;
+          font-size: 15px;
           font-weight: 600;
           cursor: pointer;
           transition: background-color 0.3s ease;
           text-decoration: none;
           display: block;
-          width: 100%;
           text-align: center;
-          border: 2px solid #FFFFFF;
-          box-shadow: 3px 3px 0px #FFFFFF;
+          border: 1px solid #FFFFFF;
+          box-shadow: 1px 1px 0px #FFFFFF;
+          width: 100%;
+          max-width: 850px;
+          height: 50px;
+          display: flex;
+          align-items: center;
+          justify-content: center;
         }
         .support-button:hover {
           background-color: #93A794;
@@ -91,13 +95,13 @@ const SupporterSection = () => {
         }
         .list-title {
           color: #FFFFFF;
-          font-size: 1rem;
+          font-size: 20;
           font-weight: 700;
           margin-bottom: 1.5rem;
         }
         .supporter-names {
           color: #FFFFFF;
-          font-size: 0.875rem;
+          font-size: 13px;
           line-height: 2;
           font-weight: 400;
         }

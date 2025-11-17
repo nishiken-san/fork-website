@@ -8,6 +8,12 @@ export const IMAGES = {
     white: '/images/logo/fork-logo-white.png',
     dark: '/images/logo/fork-logo-dark.png',
     favicon: '/images/logo/favicon.ico',
+    vec: '/images/main/link-vec.png'
+  },
+
+  top: {
+    scroll: "/images/top/scroll.png"
+
   },
 
   // ヒーローセクション
@@ -40,6 +46,7 @@ export const IMAGES = {
     workingSpace: '/images/about/working-space.jpg',
     peopleSilhouette: '/images/about/people-silhouette.png', // 人物シルエット画像
     childcarePeople: '/images/about/people.png', // 子育て支援の人々
+    childcarePeoplemini: '/images/about/people-mini.png', // 子育て支援の人々
   },
 
   // Team セクション

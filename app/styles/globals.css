@@ -535,6 +535,7 @@ footer .border-green-800 {
     object-fit: cover;
   }
 }
+
 /* ============================================
    Header Styles（全ページ共通）
    ============================================ */
@@ -547,7 +548,6 @@ footer .border-green-800 {
     background-color: #003705;
     z-index: 50;
     height: 70px;
-    border-bottom: none;
   }
   
   .header-container {
@@ -562,11 +562,11 @@ footer .border-green-800 {
     display: flex;
     align-items: center;
     text-decoration: none;
-    transition: none;
+    transition: none; /* ホバー効果を削除 */
   }
   
   .header-logo-link:hover {
-    opacity: 1;
+    opacity: 1; /* ホバー時も変化なし */
   }
   
   .header-logo-image {
@@ -582,58 +582,51 @@ footer .border-green-800 {
     background: none;
     border: none;
     cursor: pointer;
-    color: #FFFFFF;
-    transition: none;
-    outline: none;
-    -webkit-tap-highlight-color: transparent;
+    color: #E7E7E7;
+    transition: none; /* ホバー効果を削除 */
+    outline: none; /* アウトラインを削除 */
+    -webkit-tap-highlight-color: transparent; /* タップ時のハイライトを削除 */
   }
   
   .header-menu-button:hover {
-    color: #FFFFFF;
+    color: #E7E7E7; /* ホバー時も色変化なし */
   }
   
-  .header-menu-button:focus,
+  .header-menu-button:focus {
+    outline: none; /* フォーカス時のアウトラインを削除 */
+    box-shadow: none; /* ボックスシャドウを削除 */
+  }
+  
   .header-menu-button:active {
-    outline: none;
-    box-shadow: none;
-    border: none;
+    outline: none; /* アクティブ時のアウトラインを削除 */
+    border: none; /* ボーダーを削除 */
   }
   
   .header-menu-text {
-    font-size: 15px;
-    font-weight: 700;
-    font-family: "游ゴシック体", "Yu Gothic", "YuGothic", sans-serif;
-    color: #FFFFFF;
+    font-size: 15px; /* 15pxに固定 */
+    font-weight: 400;
   }
   
-  /* ハンバーガーアイコン - 通常時 W40 H10 */
+  /* ハンバーガーアイコン - W41 H18 */
   .hamburger-icon {
-    width: 40px;
-    height: 10px;
+    width: 41px;
+    height: 18px;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
     position: relative;
-    transition: width 0.3s ease, height 0.3s ease;
-  }
-  
-  /* メニュー開いた時 W41 H18 */
-  .hamburger-icon.menu-open {
-    width: 41px;
-    height: 18px;
   }
   
   .hamburger-line {
     display: block;
     width: 100%;
     height: 2px;
-    background-color: #FFFFFF;
+    background-color: #E7E7E7;
     transition: all 0.3s ease;
+    transform-origin: center center; /* 中心を基準に回転 */
     position: absolute;
-    left: 0;
   }
   
-  /* 通常時の位置 */
   .hamburger-line:first-child {
     top: 0;
   }
@@ -642,21 +635,15 @@ footer .border-green-800 {
     bottom: 0;
   }
   
-  /* アニメーション - 開いた状態（対角線でクロス） */
+  /* アニメーション - 開いた状態（中心でクロス） */
   .hamburger-line.open-top {
-    width: 44.72px; /* √(41² + 18²) ≈ 44.72px */
     top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%) rotate(23.63deg); /* atan(18/41) ≈ 23.63度 */
-    transform-origin: center;
+    transform: translateY(-50%) rotate(45deg);
   }
   
   .hamburger-line.open-bottom {
-    width: 44.72px; /* √(41² + 18²) ≈ 44.72px */
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%) rotate(-23.63deg); /* 逆方向 */
-    transform-origin: center;
+    bottom: 50%;
+    transform: translateY(50%) rotate(-45deg);
   }
   
   /* モバイル対応 */
@@ -671,25 +658,7 @@ footer .border-green-800 {
     
     .hamburger-icon {
       width: 35px;
-      height: 9px;
-    }
-    
-    .hamburger-icon.menu-open {
-      width: 36px;
-      height: 16px;
-    }
-    
-    .hamburger-line.open-top,
-    .hamburger-line.open-bottom {
-      width: 39.4px; /* √(36² + 16²) */
-    }
-    
-    .hamburger-line.open-top {
-      transform: translate(-50%, -50%) rotate(23.96deg);
-    }
-    
-    .hamburger-line.open-bottom {
-      transform: translate(-50%, -50%) rotate(-23.96deg);
+      height: 15px;
     }
     
     .header-menu-text {
@@ -708,25 +677,7 @@ footer .border-green-800 {
     
     .hamburger-icon {
       width: 32px;
-      height: 8px;
-    }
-    
-    .hamburger-icon.menu-open {
-      width: 33px;
       height: 14px;
-    }
-    
-    .hamburger-line.open-top,
-    .hamburger-line.open-bottom {
-      width: 35.8px; /* √(33² + 14²) */
-    }
-    
-    .hamburger-line.open-top {
-      transform: translate(-50%, -50%) rotate(22.98deg);
-    }
-    
-    .hamburger-line.open-bottom {
-      transform: translate(-50%, -50%) rotate(-22.98deg);
     }
     
     .header-menu-text {
@@ -742,25 +693,7 @@ footer .border-green-800 {
     
     .hamburger-icon {
       width: 38px;
-      height: 9px;
-    }
-    
-    .hamburger-icon.menu-open {
-      width: 39px;
-      height: 17px;
-    }
-    
-    .hamburger-line.open-top,
-    .hamburger-line.open-bottom {
-      width: 42.5px; /* √(39² + 17²) */
-    }
-    
-    .hamburger-line.open-top {
-      transform: translate(-50%, -50%) rotate(23.53deg);
-    }
-    
-    .hamburger-line.open-bottom {
-      transform: translate(-50%, -50%) rotate(-23.53deg);
+      height: 16px;
     }
   }
   
@@ -771,249 +704,40 @@ footer .border-green-800 {
     }
     
     .hamburger-icon {
-      width: 40px;
-      height: 10px;
-    }
-    
-    .hamburger-icon.menu-open {
       width: 41px;
       height: 18px;
     }
-    
-    .hamburger-line.open-top,
-    .hamburger-line.open-bottom {
-      width: 44.72px; /* √(41² + 18²) */
-    }
-    
-    .hamburger-line.open-top {
-      transform: translate(-50%, -50%) rotate(23.63deg);
-    }
-    
-    .hamburger-line.open-bottom {
-      transform: translate(-50%, -50%) rotate(-23.63deg);
-    }
   }
-
-  @font-face {
-    font-family: "Yu Gothic";
-    src: local("Yu Gothic Medium");
-    font-weight: 500;
-  }
-  
-  @font-face {
-    font-family: "Yu Gothic";
-    src: local("Yu Gothic Bold");
-    font-weight: 700;
-  }
-
   /* ============================================
-   Header Secondary Styles（他のページ用）
+   Button Reset（グローバル）
    ============================================ */
 
-.header-secondary {
-  position: fixed;
-  top: 0;
-  left: 0;
-  right: 0;
-  background-color: #E7EBE7;
-  z-index: 50;
-  height: 70px;
-  border-bottom: none;
+button:focus,
+button:active {
+  outline: none !important;
+  box-shadow: none !important;
+  border: none !important;
 }
 
-/* セカンダリヘッダーのボタン */
-.header-menu-button.secondary {
-  color: #003705;
+button:focus-visible {
+  outline: none !important;
 }
 
-.header-menu-button.secondary:hover {
-  color: #003705;
+/* タップハイライトを削除（モバイル） */
+* {
+  -webkit-tap-highlight-color: transparent;
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
 }
 
-/* セカンダリヘッダーのテキスト */
-.header-menu-text.secondary {
-  font-size: 15px;
-  font-weight: 700;
-  font-family: "游ゴシック体", "Yu Gothic", "YuGothic", sans-serif;
-  color: #003705;
-}
-
-/* セカンダリヘッダーのハンバーガーライン */
-.hamburger-line.secondary {
-  background-color: #003705;
-}
-
-/* モバイル対応 */
-@media (max-width: 768px) {
-  .header-secondary .header-logo-image {
-    height: 32px;
-  }
-  
-  .header-secondary .hamburger-icon {
-    width: 35px;
-    height: 9px;
-  }
-  
-  .header-secondary .hamburger-icon.menu-open {
-    width: 36px;
-    height: 16px;
-  }
-  
-  .header-secondary .header-menu-text {
-    font-size: 14px;
-  }
-}
-
-@media (max-width: 480px) {
-  .header-secondary .header-logo-image {
-    height: 28px;
-  }
-  
-  .header-secondary .hamburger-icon {
-    width: 32px;
-    height: 8px;
-  }
-  
-  .header-secondary .hamburger-icon.menu-open {
-    width: 33px;
-    height: 14px;
-  }
-  
-  .header-secondary .header-menu-text {
-    font-size: 13px;
-  }
-}
-
-@media (min-width: 769px) and (max-width: 1024px) {
-  .header-secondary .header-logo-image {
-    height: 36px;
-  }
-}
-
-@media (min-width: 1024px) {
-  .header-secondary .header-logo-image {
-    height: 44px;
-  }
-}
-
-/* ============================================
-   Scroll Button Styles
-   ============================================ */
-
-   .scroll-button {
-    -webkit-tap-highlight-color: transparent;
-    transition: opacity 0.3s ease, transform 0.3s ease;
-  }
-  
-  .scroll-button:hover {
-    opacity: 0.7;
-    transform: translateY(3px);
-  }
-  
-  .scroll-button:focus {
-    outline: none;
-  }
-  
-  .scroll-button:active {
-    transform: translateY(5px);
-  }
-  
-  /* モバイルでホバー効果を無効化 */
-  @media (max-width: 768px) {
-    .scroll-button:hover {
-      opacity: 1;
-      transform: none;
-    }
-  }
-
-  /* ============================================
-   Parallax Photo Section Styles
-   ============================================ */
-
-.parallax-section {
-  position: relative;
-  height: 100vh;
-  min-height: 100vh;
-  overflow: hidden;
-  width: 100%;
-  background-color: #E7EBE7;
-}
-
-.parallax-image-wrapper {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 110%; /* パララックス用の余白 */
-  will-change: transform;
-}
-
-.parallax-image {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  object-position: center top; /* 上部を基準に表示 */
-  display: block;
-  image-rendering: -webkit-optimize-contrast;
-  image-rendering: crisp-edges;
-}
-
-/* デスクトップ - 高解像度 */
-@media (min-width: 1025px) {
-  .parallax-image-wrapper {
-    height: 110%;
-  }
-}
-
-/* タブレット対応 */
-@media (min-width: 769px) and (max-width: 1024px) {
-  .parallax-section {
-    height: 100vh;
-    min-height: 600px;
-  }
-  
-  .parallax-image-wrapper {
-    height: 108%;
-  }
-}
-
-/* モバイル対応 */
-@media (max-width: 768px) {
-  .parallax-section {
-    height: 100vh;
-    min-height: 500px;
-  }
-  
-  .parallax-image-wrapper {
-    height: 105%;
-  }
-  
-  .parallax-image {
-    object-fit: cover;
-    object-position: center center;
-  }
-}
-
-/* 小型モバイル対応 */
-@media (max-width: 480px) {
-  .parallax-section {
-    height: 100vh;
-    min-height: 400px;
-  }
-  
-  .parallax-image-wrapper {
-    height: 105%;
-  }
-}
-
-/* 横向きモバイル対応 */
-@media (max-width: 768px) and (orientation: landscape) {
-  .parallax-section {
-    height: 100vh;
-    min-height: 300px;
-  }
-  
-  .parallax-image-wrapper {
-    height: 105%;
-  }
+/* テキストは選択可能に */
+p, span, a, h1, h2, h3, h4, h5, h6, li {
+  -webkit-user-select: text;
+  -moz-user-select: text;
+  -ms-user-select: text;
+  user-select: text;
 }

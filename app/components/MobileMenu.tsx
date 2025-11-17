@@ -42,8 +42,8 @@ const MobileMenu: React.FC<MobileMenuProps> = ({ isOpen, onClose, logoImage }) =
       <div 
         className={`fixed left-0 right-0 bg-[#003705] shadow-2xl z-50 overflow-hidden transition-all duration-500 ease-out ${
           isOpen 
-            ? 'top-[72px] max-h-[calc(100vh-72px)]' 
-            : 'top-[72px] max-h-0'
+            ? 'top-[70px] max-h-[calc(100vh-72px)]' 
+            : 'top-[70px] max-h-0'
         }`}
         style={{ marginTop: '0' }}
       >

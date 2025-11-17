@@ -3,6 +3,7 @@
 
 import { useRef } from 'react';
 import { useSectionSticky } from '../hooks/useSectionSticky';
+import { IMAGES } from '@/constants/images';
 
 interface NewsItem {
   id: string;
@@ -22,7 +23,7 @@ const NewsSection = () => {
     {
       id: '1',
       date: '2024.01.01',
-      title: 'WEBサイトがリニューアルしました。WEBサイトがリニューアルしました。',
+      title: 'WEBサイトがリニューアルしました。',
       content: '',
       category: 'fork toyama'
     },
@@ -39,34 +40,36 @@ const NewsSection = () => {
     <>
       <style jsx>{`
         .news-bg {
-          background-color: #E7E7E7;
+          background-color: #E7EBE7;
+          height: 400px;
         }
         .section-container {
           display: flex;
+          height: 400px;
         }
         .left-column {
           width: 66.666667%;
-          background-color: #E7E7E7;
+          background-color: #E7EBE7;
+          position: relative;
         }
         .right-column {
           width: 33.333333%;
-          background-color: #E7E7E7;
+          background-color: #E7EBE7;
           position: relative;
         }
         .sticky-header {
           position: sticky;
           top: 80px;
-          padding: 2rem 3rem;
-          background-color: #E7E7E7;
+          background-color: #E7EBE7;
           z-index: 20;
-          display: flex;
-          flex-direction: column;
-          align-items: flex-end;
-          gap: 2rem;
+          height: 100%;
         }
         .section-title {
+          position: absolute;
+          right: 79px;
+          top: 45px;
           color: #003705;
-          font-size: 1.5rem;
+          font-size: 25px;
           font-weight: 700;
           line-height: 1.8;
           writing-mode: vertical-rl;
@@ -74,78 +77,211 @@ const NewsSection = () => {
           letter-spacing: 0.3em;
         }
         .content-area {
-          padding: 4rem 4rem 4rem 2rem;
+          position: relative;
+          height: 100%;
         }
         .section-header {
-          color: #666;
-          font-size: 0.875rem;
-          font-weight: 600;
-          margin-bottom: 3rem;
+          position: absolute;
+          left: 51px;
+          top: 100px;
+          color: #B4B4B4;
+          font-size: 15px;
+          font-weight: 700;
           letter-spacing: 0.05em;
         }
-        .news-item {
-          margin-bottom: 3rem;
+        
+        .news-list {
+          position: relative;
+          width: 100%;
+          height: 100%;
         }
+        
+        /* 1個目のニュース */
+        .news-item-1 {
+          position: absolute;
+          left: 51px;
+          top: 145px;
+        }
+        
+        /* 2個目のニュース */
+        .news-item-2 {
+          position: absolute;
+          left: 51px;
+          top: 216px;
+        }
+        
         .news-meta {
           display: flex;
           align-items: center;
-          gap: 1rem;
-          margin-bottom: 1rem;
+          gap: 0.75rem;
+          margin-bottom: 0.5rem;
         }
+        
         .news-date {
-          color: #666;
-          font-size: 0.875rem;
-          font-weight: 600;
+          color: #B4B4B4;
+          font-size: 13px;
+          font-weight: 400;
         }
+        
         .news-category {
-          background-color: #D9D9D9;
-          color: #666;
-          padding: 0.25rem 1rem;
-          font-size: 0.75rem;
-          font-weight: 600;
-          border-radius: 4px;
+          background-color: transparent;
+          color: #B4B4B4;
+          border: 1px solid #B4B4B4;
+          padding: 0 0.25rem;
+          font-size: 10px;
+          font-weight: 700;
+          height: 16px;
+          display: inline-flex;
+          align-items: center;
+          justify-content: center;
+          border-radius: 0;
+          white-space: nowrap;
         }
+        
         .news-title {
           color: #003705;
-          font-size: 1rem;
+          font-size: 13px;
           font-weight: 700;
-          line-height: 1.8;
+          line-height: 1.6;
+          max-width: 600px;
         }
-        .view-all-link {
-          color: #003705;
-          font-size: 0.875rem;
-          font-weight: 700;
-          text-decoration: underline;
-          display: inline-flex;
+        
+        .view-all-container {
+          position: absolute;
+          right: 139px;
+          bottom: 81px;
+          display: flex;
           align-items: center;
           gap: 0.5rem;
         }
+        
+        .view-all-link {
+          color: #003705;
+          font-size: 13px;
+          font-weight: 700;
+          text-decoration: none;
+          position: relative;
+          padding-bottom: 2px;
+        }
+        
+        .view-all-link::after {
+          content: '';
+          position: absolute;
+          bottom: -4px;
+          left: 0;
+          width: 100%;
+          height: 1px;
+          background-color: #003705;
+        }
+        
         .view-all-link:hover {
           opacity: 0.7;
         }
-        @media (min-width: 1024px) {
+        
+        .arrow-icon {
+          width: 24px;
+          height: 12px;
+          object-fit: contain;
+        }
+        
+        /* モバイル対応 */
+        @media (max-width: 768px) {
+          .news-bg {
+            height: 400px;
+          }
+          
+          .section-container {
+            height: 400px;
+          }
+          
+          .left-column {
+            width: 66.666667%;
+          }
+          
+          .right-column {
+            width: 33.333333%;
+          }
+          
+          .sticky-header {
+            position: sticky;
+            top: 80px;
+            height: 100%;
+          }
+          
           .section-title {
-            font-size: 1.75rem;
+            position: absolute;
+            right: 10px;
+            top: 45px;
+            font-size: 25px;
+            font-weight: 700;
+            writing-mode: vertical-rl;
+          }
+          
+          .section-header {
+            left: 30px;
+            top: 100px;
+          }
+          
+          .news-item-1 {
+            left: 30px;
+            top: 145px;
+          }
+          
+          .news-item-2 {
+            left: 30px;
+            top: 216px;
+          }
+          
+          .news-title {
+            font-size: 13px;
+            font-weight: 700;
+            max-width: 220px;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+          }
+          
+          .view-all-container {
+            position: absolute;
+            left: 30px;
+            bottom: 50px;
+            right: auto;
+            top: auto;
+            flex-direction: row;
+          }
+          
+          .view-all-link {
+            writing-mode: horizontal-tb;
           }
         }
       `}</style>
 
       <section ref={sectionRef} id="news" className="news-bg relative">
         <div className="section-container">
-          {/* 左側: スクロールするニュース記事エリア */}
+          {/* 左側: ニュース記事エリア */}
           <div ref={contentRef} className="left-column">
             <div className="content-area">
               <div className="section-header">news, records</div>
               
-              {newsItems.map((item) => (
-                <article key={item.id} className="news-item">
+              <div className="news-list">
+                {/* 1個目のニュース */}
+                <article className="news-item-1">
                   <div className="news-meta">
-                    <span className="news-date">{item.date}</span>
-                    <span className="news-category">{item.category}</span>
+                    <span className="news-date">{newsItems[0].date}</span>
+                    <span className="news-category">{newsItems[0].category}</span>
                   </div>
-                  <h3 className="news-title">{item.title}</h3>
+                  <h3 className="news-title">{newsItems[0].title}</h3>
                 </article>
-              ))}
+                
+                {/* 2個目のニュース */}
+                <article className="news-item-2">
+                  <div className="news-meta">
+                    <span className="news-date">{newsItems[1].date}</span>
+                    <span className="news-category">{newsItems[1].category}</span>
+                  </div>
+                  <h3 className="news-title">{newsItems[1].title}</h3>
+                </article>
+              </div>
             </div>
           </div>
 
@@ -153,9 +289,16 @@ const NewsSection = () => {
           <div className="right-column">
             <div className="sticky-header">
               <h2 className="section-title">お知らせ・記録</h2>
-              <a href="/news" className="view-all-link">
-                すべてのおしらせ ＝＞
-              </a>
+              <div className="view-all-container">
+                <a href="/news" className="view-all-link">
+                  すべてのおしらせ
+                </a>
+                <img 
+                  src={IMAGES.logo.vec}
+                  alt="arrow"
+                  className="arrow-icon"
+                />
+              </div>
             </div>
           </div>
         </div>

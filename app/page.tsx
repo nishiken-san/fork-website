@@ -3,7 +3,7 @@
 
 import { useState } from 'react';
 import Image from 'next/image';
-import Header from './components/Header';
+import HeaderTop from './components/HeaderTop';
 import HeroSection from './components/HeroSection';
 import AboutSection from './components/AboutSection';
 import TeamSection from './components/TeamSection';
@@ -20,11 +20,12 @@ import SupportSection from './components/SupportSection';
 import ParallaxSection3 from './components/ParallaxSection3';
 
 import Footer from './components/Footer';
+import './globals.css';
 
 export default function Home() {
   return (
     <div className="pt-16">
-      <Header />
+      <HeaderTop />
       {/* <HeroSection /> */}
       <ForkTitleSection />
       <ParallaxPhotoSection />

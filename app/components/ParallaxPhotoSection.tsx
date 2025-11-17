@@ -8,6 +8,7 @@ const ParallaxPhotoSection = () => {
   const [scrollY, setScrollY] = useState(0);
   const sectionRef = useRef<HTMLDivElement>(null);
   const [isInView, setIsInView] = useState(false);
+  const [sectionTop, setSectionTop] = useState(0);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -22,12 +23,16 @@ const ParallaxPhotoSection = () => {
     const observer = new IntersectionObserver(
       ([entry]) => {
         setIsInView(entry.isIntersecting);
+        if (entry.isIntersecting && sectionRef.current) {
+          setSectionTop(sectionRef.current.offsetTop);
+        }
       },
       { threshold: 0.1 }
     );
 
     if (sectionRef.current) {
       observer.observe(sectionRef.current);
+      setSectionTop(sectionRef.current.offsetTop);
     }
 
     window.addEventListener('scroll', throttledHandleScroll, { passive: true });
@@ -38,34 +43,45 @@ const ParallaxPhotoSection = () => {
     };
   }, []);
 
-  // パララックス効果の計算（セクションが見えている時のみ）
-  const parallaxOffset = isInView ? scrollY * (-0.1) : 0; // 変位量を増やす
+  // パララックス効果の計算（セクション内でのスクロール量に基づく）
+  const relativeScroll = scrollY - sectionTop;
+  const parallaxOffset = isInView ? relativeScroll * 0.3 : 0;
 
   return (
     <section 
       ref={sectionRef}
-      className="relative h-screen overflow-hidden"
+      className="parallax-section relative overflow-hidden"
+      style={{
+        height: '100vh',
+        minHeight: '100vh',
+        backgroundColor: '#E7EBE7'
+      }}
     >
       {/* パララックス背景画像 */}
       <div 
-        className="absolute inset-0 w-full h-[130%]"
+        className="parallax-image-wrapper"
         style={{
+          position: 'absolute',
+          top: 0,
+          left: 0,
+          width: '100%',
+          height: '110%',
           transform: `translateY(${parallaxOffset}px)`,
           willChange: 'transform',
         }}
       >
-        {/* 背景画像 - 実際の画像に置き換えてください */}
-        <div 
-          className="w-full h-full bg-cover bg-center bg-no-repeat"
+        <img 
+          src={IMAGES.about.teamPhoto}
+          alt="チーム写真"
+          className="parallax-image"
           style={{
-            backgroundImage: `url('${IMAGES.about.teamPhoto}')`,
-            backgroundPosition: 'center center',
-            backgroundAttachment: 'fixed',
+            width: '100%',
+            height: '100%',
+            objectFit: 'cover',
+            objectPosition: 'center top'
           }}
         />
       </div>
-
-      
 
       {/* グラデーションオーバーレイ（オプション） */}
       <div className="absolute inset-0 bg-gradient-to-b from-transparent via-transparent to-black/20 pointer-events-none" />

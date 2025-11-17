@@ -49,7 +49,7 @@ const AboutSection = () => {
           white-space: nowrap;
         }
         .content-area {
-          padding: 4rem 8rem 4rem 2rem;
+          padding: 4rem 4rem 4rem 2rem;
         }
         .main-description {
           color: #003705;
@@ -60,25 +60,71 @@ const AboutSection = () => {
         }
         .button-container {
           width: 100%;
+          max-width: 853px;
         }
         .detail-button {
           background-color: #E7E7E7;
           color: #003705;
-          padding: 1.5rem 0;
+          height: 53px;
           font-size: 0.875rem;
           font-weight: 600;
           cursor: pointer;
           transition: background-color 0.3s ease;
           text-decoration: none;
-          display: block;
+          display: flex;
+          align-items: center;
+          justify-content: center;
           width: 100%;
-          text-align: center;
-          border: 2px solid #003705;
-          box-shadow: 3px 3px 0px #003705;
+          border: 1px solid #003705;
+          box-shadow: 1px 1px 0px #003705;
         }
         .detail-button:hover {
           background-color: #93A794;
         }
+        
+        /* タブレット対応 */
+        @media (max-width: 1024px) {
+          .content-area {
+            padding: 4rem 3rem 4rem 2rem;
+          }
+        }
+        
+        /* モバイル対応 */
+        @media (max-width: 768px) {
+          .section-container {
+            flex-direction: column;
+          }
+          
+          .left-column {
+            width: 100%;
+            order: 1;
+          }
+          
+          .right-column {
+            width: 100%;
+            order: 2;
+          }
+          
+          .sticky-header {
+            position: static;
+            padding: 2rem 1.5rem;
+            top: auto;
+          }
+          
+          .section-title {
+            white-space: normal;
+            font-size: 1.75rem;
+          }
+          
+          .content-area {
+            padding: 2rem 1.5rem;
+          }
+          
+          .button-container {
+            max-width: 100%;
+          }
+        }
+        
         @media (min-width: 1024px) {
           .section-title {
             font-size: 1.5rem;
@@ -91,7 +137,7 @@ const AboutSection = () => {
 
       <section ref={sectionRef} id="about-fork-toyama" className="about-fork-bg relative">
         <div className="section-container">
-          {/* 左側: 固定ヘッダー */}
+          {/* 左側: 固定ヘッダー（モバイルでは上部） */}
           <div className="left-column">
             <div className="sticky-header">
               <div className="section-label">about fork toyama</div>
@@ -99,7 +145,7 @@ const AboutSection = () => {
             </div>
           </div>
 
-          {/* 右側: スクロールコンテンツ */}
+          {/* 右側: スクロールコンテンツ（モバイルでは下部） */}
           <div ref={contentRef} className="right-column">
             <div className="content-area">
               <p className="main-description">
