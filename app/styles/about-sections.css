@@ -1098,7 +1098,7 @@
 
 .member-leader-name {
   color: #003705;
-  font-size: 15px;
+  font-size: 20px;
   font-weight: 700;
   margin-bottom: 1rem;
 }
@@ -1124,14 +1124,14 @@
 
 .member-name {
   color: #003705;
-  font-size: 13px;
+  font-size: 20px;
   font-weight: 700;
   margin-bottom: 0.25rem;
 }
 
 .member-nickname {
   color: #B4B4B4;
-  font-size: 12px;
+  font-size: 13px;
   font-weight: 400;
 }
 
@@ -1149,7 +1149,7 @@
   }
   
   .member-title {
-    font-size: 22px;
+    font-size: 20px;
   }
   
   .member-grid {
@@ -1199,11 +1199,11 @@
   }
   
   .member-name {
-    font-size: 12px;
+    font-size: 20px;
   }
   
   .member-nickname {
-    font-size: 11px;
+    font-size: 13px;
   }
 }
 
@@ -1239,7 +1239,7 @@
   }
   
   .member-name {
-    font-size: 11px;
+    font-size: 20px;
   }
   
   .member-nickname {

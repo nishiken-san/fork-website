@@ -3,7 +3,6 @@
 
 import { useRef, useState, useEffect } from 'react';
 import { IMAGES, IMAGE_ALT_TEXTS } from '../../../constants/images';
-import '../styles/member-section.css';
 
 const MemberSection = () => {
   const sectionRef = useRef<HTMLDivElement>(null);
