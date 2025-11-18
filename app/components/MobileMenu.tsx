@@ -2,6 +2,7 @@
 'use client';
 
 import { useEffect } from 'react';
+import { IMAGES } from '@/constants/images';
 
 interface MobileMenuProps {
   isOpen: boolean;
@@ -120,7 +121,12 @@ const MobileMenu: React.FC<MobileMenuProps> = ({ isOpen, onClose, logoImage }) =
               className="text-white hover:text-gray-300 transition-colors text-sm flex items-center justify-end"
               onClick={onClose}
             >
-              学童保育：fork toyama ＝＞
+              学童保育：fork toyama 
+              <img 
+                  src={IMAGES.logo.vecw}
+                  alt="arrow"
+                  className="arrow-icon"
+                />
             </a>
           </div>
         </div>

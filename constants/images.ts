@@ -8,7 +8,8 @@ export const IMAGES = {
     white: '/images/logo/fork-logo-white.png',
     dark: '/images/logo/fork-logo-dark.png',
     favicon: '/images/logo/favicon.ico',
-    vec: '/images/main/link-vec.png'
+    vec: '/images/main/link-vec.png',
+    vecw: '/images/main/link-vec-w.png'
   },
 
   top: {

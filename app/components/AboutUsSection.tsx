@@ -44,6 +44,7 @@ const AboutUsSection = () => {
           position: sticky;
           top: 80px;
           padding: 6rem 3rem 2rem 3rem;
+          margin-left: 30px;
           background-color: #003705;
           z-index: 20;
         }
@@ -57,7 +58,8 @@ const AboutUsSection = () => {
           letter-spacing: 0.3em;
         }
         .content-area {
-          padding: 6rem 4rem 4rem 2rem;
+          padding: 6rem 4rem 4rem 0;
+          margin-left: 100px;
           min-height: 100vh;
           display: flex;
           flex-direction: column;
@@ -68,7 +70,7 @@ const AboutUsSection = () => {
           font-size: 15px;
           font-weight: 700;
           margin-bottom: 2rem;
-          letter-spacing: 0.1em;
+          letter-spacing: 0;
         }
         .main-text {
           color: #FFFFFF;
@@ -142,6 +144,7 @@ const AboutUsSection = () => {
           .sticky-header {
             position: relative;
             padding: 2rem 1rem;
+            margin-left: 0;
           }
           
           .section-title {
@@ -151,6 +154,7 @@ const AboutUsSection = () => {
           
           .content-area {
             padding: 2rem 1.5rem;
+            margin-left: 0;
             min-height: auto;
             justify-content: flex-start;
           }
@@ -159,6 +163,7 @@ const AboutUsSection = () => {
             color: #B4B4B4;
             font-size: 15px;
             margin-bottom: 1.5rem;
+            letter-spacing: 0;
           }
           
           .main-text {
@@ -224,7 +229,7 @@ const AboutUsSection = () => {
           {/* 右側: コンテンツ */}
           <div ref={contentRef} className="right-column">
             <div className="content-area">
-              <div className="section-label">about us</div>
+              <div className="section-label">aboutus</div>
               
               <p className="main-text">
                 forkとは「選択肢」のこと。<br/>
@@ -255,7 +260,7 @@ const AboutUsSection = () => {
           <div className="mobile-media-container">
             <div className="illustration-container">
               <img 
-                src="/images/about/silhuetto-mini.png"
+                src="/images/about/silhouette-mini.png"
                 alt="様々な人々のイラスト" 
                 className="illustration"
               />

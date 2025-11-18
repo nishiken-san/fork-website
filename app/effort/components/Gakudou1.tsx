@@ -64,7 +64,7 @@ const Gakudou1 = () => {
         }
         .main-description {
           color: #003705;
-          font-size: 0.875rem;
+          font-size: 13px;
           line-height: 1.8;
           margin-bottom: 4rem;
           text-align: left;
@@ -110,20 +110,21 @@ const Gakudou1 = () => {
           width: 100%;
         }
         .about-button {
-          background-color: #E7E7E7;
+          background-color: #E7EBE7;
           border: 2px solid #003705;
           color: #003705;
           padding: 1rem 3rem;
           font-size: 0.875rem;
-          font-weight: 500;
+          font-weight: 700;
           cursor: pointer;
           transition: background-color 0.3s ease;
           text-decoration: none;
           display: block;
           width: 100%;
+          height: 53px;
           text-align: center;
           position: relative;
-          box-shadow: 3px 3px 0px #003705;
+          box-shadow: 1px 1px 0px #003705;
         }
         .about-button:hover {
           background-color: #93A794;

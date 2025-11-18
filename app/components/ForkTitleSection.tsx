@@ -12,7 +12,7 @@ interface ForkTitleSectionProps {
 const ForkTitleSection: React.FC<ForkTitleSectionProps> = ({ 
   backgroundColor = 'green',
   parallaxImage,
-  scrollImage = '/images/hero/scroll.png'
+  scrollImage = '/images/top/scroll.png'
 }) => {
   const [isMobile, setIsMobile] = useState(false);
   const [isReady, setIsReady] = useState(false);

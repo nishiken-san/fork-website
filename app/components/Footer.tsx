@@ -45,12 +45,22 @@ const Footer = () => {
               © fork toyama, 2024
             </p>
             <div className="flex flex-col space-y-2 text-right">
-              <a href="#" className="text-white hover:text-gray-300 text-sm transition-colors">
-                Instagram 
+              <a href="#" className="text-white flex text-sm transition-colors display:flex">
+                Instagram <img 
+                  src={IMAGES.logo.vecw}
+                  alt="arrow"
+                  className="arrow-icon"
+                />
               </a>
-              <a href="#" className="text-white hover:text-gray-300 text-sm transition-colors">
-                note
+              
+              <a href="#" className="text-white flex text-sm transition-colors">
+                note<img 
+                  src={IMAGES.logo.vecw}
+                  alt="arrow"
+                  className="arrow-icon"
+                />
               </a>
+              
             </div>
           </div>
         </div>

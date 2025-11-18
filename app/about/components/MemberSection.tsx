@@ -23,14 +23,14 @@ const MemberSection = () => {
   const members = [
     { name: '大橋えつこ', nickname: 'ジーン', image: IMAGES.members.member1, alt: IMAGE_ALT_TEXTS.members.member1 },
     { name: '板谷あつこ', nickname: 'ダコダ', image: IMAGES.members.member2, alt: IMAGE_ALT_TEXTS.members.member2 },
-    { name: '滝澤茜', nickname: 'たっきー', image: IMAGES.members.member3, alt: IMAGE_ALT_TEXTS.members.member3 },
+   
     { name: '戸谷朱李', nickname: 'あかどん', image: IMAGES.members.member4, alt: IMAGE_ALT_TEXTS.members.member4 },
     { name: '山口未来子', nickname: 'みっこ', image: IMAGES.members.member5, alt: IMAGE_ALT_TEXTS.members.member5 },
     { name: '吉田ゆかり', nickname: 'よっしー', image: IMAGES.members.member6, alt: IMAGE_ALT_TEXTS.members.member6 },
     { name: '大庭日菜', nickname: 'にわにわ', image: IMAGES.members.member7, alt: IMAGE_ALT_TEXTS.members.member7 },
     { name: '松野志保', nickname: 'おまつ', image: IMAGES.members.member8, alt: IMAGE_ALT_TEXTS.members.member8 },
     { name: '大石和', nickname: 'やまぴー', image: IMAGES.members.member9, alt: IMAGE_ALT_TEXTS.members.member9 },
-    { name: 'えみこむ', nickname: '', image: IMAGES.members.member10, alt: IMAGE_ALT_TEXTS.members.member10 }
+  
   ];
 
   // モバイル表示
