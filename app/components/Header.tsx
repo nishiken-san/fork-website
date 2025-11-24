@@ -14,6 +14,26 @@ const Header: React.FC<HeaderProps> = ({ logoImage, menuLogoImage }) => {
 
   return (
     <>
+      <style jsx>{`
+        /* kinfolk風アニメーション（500ms + cubic-bezier） */
+        .hamburger-icon {
+          transition: opacity 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        
+        .hamburger-line {
+          transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1) !important;
+        }
+        
+        /* メニューが開いた時のアニメーション速度 */
+        .hamburger-icon.menu-open {
+          opacity: 0.9;
+        }
+        
+        .hamburger-icon.menu-open .hamburger-line {
+          transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1) !important;
+        }
+      `}</style>
+
       <header className="header-secondary">
         <div className="header-container">
           <a href="/" className="header-logo-link">

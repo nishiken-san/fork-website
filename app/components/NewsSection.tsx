@@ -66,7 +66,7 @@ const NewsSection = () => {
         }
         .section-title {
           position: absolute;
-          right: 79px;
+          right: 50px;
           top: 45px;
           color: #003705;
           font-size: 25px;
@@ -82,7 +82,7 @@ const NewsSection = () => {
         }
         .section-header {
           position: absolute;
-          left: 51px;
+          left: 50px;
           top: 100px;
           color: #B4B4B4;
           font-size: 15px;
@@ -99,14 +99,14 @@ const NewsSection = () => {
         /* 1個目のニュース */
         .news-item-1 {
           position: absolute;
-          left: 51px;
+          left: 50px;
           top: 145px;
         }
         
         /* 2個目のニュース */
         .news-item-2 {
           position: absolute;
-          left: 51px;
+          left: 50px;
           top: 216px;
         }
         
@@ -148,8 +148,9 @@ const NewsSection = () => {
         
         .view-all-container {
           position: absolute;
-          right: 139px;
+          right: 0;
           bottom: 81px;
+          padding-right: 50px;
           display: flex;
           align-items: center;
           gap: 0.5rem;
@@ -162,6 +163,8 @@ const NewsSection = () => {
           text-decoration: none;
           position: relative;
           padding-bottom: 2px;
+          transition: transform 0.3s ease;
+          display: inline-block;
         }
         
         .view-all-link::after {
@@ -174,14 +177,20 @@ const NewsSection = () => {
           background-color: #003705;
         }
         
-        .view-all-link:hover {
-          opacity: 0.7;
-        }
-        
         .arrow-icon {
           width: 24px;
           height: 12px;
           object-fit: contain;
+          transition: transform 0.3s ease;
+        }
+        
+        /* コンテナホバーで両方動く */
+        .view-all-container:hover .view-all-link {
+          transform: translateX(0.5em);
+        }
+        
+        .view-all-container:hover .arrow-icon {
+          transform: translateX(0.5em);
         }
         
         /* モバイル対応 */
@@ -210,7 +219,7 @@ const NewsSection = () => {
           
           .section-title {
             position: absolute;
-            right: 10px;
+            right: 30px;
             top: 45px;
             font-size: 25px;
             font-weight: 700;
@@ -243,10 +252,10 @@ const NewsSection = () => {
           
           .view-all-container {
             position: absolute;
-            left: 30px;
+            right: 0;
             bottom: 50px;
-            right: auto;
-            top: auto;
+            left: auto;
+            padding-right: 30px;
             flex-direction: row;
           }
           

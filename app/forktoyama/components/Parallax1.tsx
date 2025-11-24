@@ -4,7 +4,7 @@
 import { useEffect, useState, useRef } from 'react';
 import { IMAGES } from '@/constants/images';
 
-const ParallaxPhotoSection1 = () => {
+const ParallaxSection1 = () => {
   const [scrollY, setScrollY] = useState(0);
   const [isMobile, setIsMobile] = useState(false);
   const sectionRef = useRef<HTMLDivElement>(null);
@@ -117,4 +117,4 @@ const ParallaxPhotoSection1 = () => {
   );
 };
 
-export default ParallaxPhotoSection1;
+export default ParallaxSection1;

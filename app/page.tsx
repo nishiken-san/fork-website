@@ -10,7 +10,7 @@ import TeamSection from './components/TeamSection';
 import ServicesSection from './components/ServicesSection';
 import ContactSection from './components/ContactSection';
 import ForkTitleSection from './components/ForkTitleSection';
-import ParallaxPhotoSection from './components/ParallaxPhotoSection';
+import ParallaxSection1 from './components/ParallaxSection1';
 import NewsSection from './components/NewsSection';
 import AboutUsSection from './components/AboutUsSection';
 // import GakudoSection from './components/GakudoSection';
@@ -28,7 +28,7 @@ export default function Home() {
       <HeaderTop />
       {/* <HeroSection /> */}
       <ForkTitleSection />
-      <ParallaxPhotoSection />
+      <ParallaxSection1 />
       <NewsSection />
       <AboutUsSection />
       <AboutSection />

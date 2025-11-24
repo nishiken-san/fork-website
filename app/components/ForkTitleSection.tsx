@@ -30,7 +30,7 @@ const ForkTitleSection: React.FC<ForkTitleSectionProps> = ({
         const baseWidth = 1400;
         
         // 最小マージン47pxを確保
-        const minWidth = 47 * 2 + 832.02; // 両端47px + forkロゴ幅
+        const minWidth = 47 * 2 + 832.02;
         
         if (windowWidth < baseWidth) {
           const newScale = Math.max(windowWidth / baseWidth, minWidth / baseWidth);
@@ -91,7 +91,7 @@ const ForkTitleSection: React.FC<ForkTitleSectionProps> = ({
 
   // 次のセクションへスクロール
   const scrollToNext = () => {
-    const scrollDistance = isMobile ? 750 : 850;
+    const scrollDistance = isMobile ? 750 : 780;
     window.scrollTo({
       top: scrollDistance,
       behavior: 'smooth'
@@ -99,30 +99,59 @@ const ForkTitleSection: React.FC<ForkTitleSectionProps> = ({
   };
 
   return (
-    <section 
-      className="fork-title-section"
-      style={{
-        ...getBackgroundStyle(),
-        height: isMobile ? '750px' : '850px',
-        position: 'relative',
-        overflow: 'hidden',
-        width: '100%',
-        opacity: isReady ? 1 : 0,
-        transition: 'opacity 0.3s ease-in'
-      }}
-    >
-      <div style={{
-        position: 'relative',
-        width: isMobile ? '390px' : '1400px',
-        height: '100%',
-        margin: '0 auto',
-        transform: `scale(${scale})`,
-        transformOrigin: 'top center'
-      }}>
-        
-        {/* fork-logo.png */}
-        {/* PC: X47 Y103 W832.02 H347 */}
-        {/* Mobile: X29 Y100 W329.6 H137.5 */}
+    <>
+      <style jsx global>{`
+        html, body {
+          background-color: #003705 !important;
+          margin: 0;
+          padding: 0;
+        }
+      `}</style>
+      
+      <section 
+        className="fork-title-section"
+        style={{
+          ...getBackgroundStyle(),
+          height: isMobile ? '750px' : '780px',
+          position: 'relative',
+          overflow: 'hidden',
+          width: '100%',
+          opacity: isReady ? 1 : 0,
+          transition: 'opacity 0.3s ease-in',
+          marginTop: 0,
+          paddingTop: 0
+        }}
+      >
+        {/* scaleで縮小されるコンテンツ（イラストのみ） */}
+        <div style={{
+          position: 'relative',
+          width: isMobile ? '390px' : '1400px',
+          height: isMobile ? '750px' : '780px',
+          margin: '0 auto',
+          transform: `scale(${scale})`,
+          transformOrigin: 'top center'
+        }}>
+          
+          {/* fork-illustration-pc.png (5本線) */}
+          <img
+            src="/images/hero/fork-illustration-pc.png"
+            alt="Fork illustration"
+            style={{
+              position: 'absolute',
+              ...(isMobile 
+                ? { left: '-9px', top: '101px' }
+                : { right: '870px', top: '153px' }
+              ),
+              width: isMobile ? '460.4px' : '743.0px',
+              height: isMobile ? '457.67px' : '738.55px',
+              objectFit: 'contain',
+              transformOrigin: 'top left',
+              zIndex: 2
+            }}
+          />
+        </div>
+
+        {/* fork-logo.png - scale変換の外（常に左から47px、上から103px） */}
         <img
           src="/images/hero/fork-logo.png"
           alt="Fork"
@@ -133,39 +162,20 @@ const ForkTitleSection: React.FC<ForkTitleSectionProps> = ({
             width: isMobile ? '329.6px' : '832.02px',
             height: isMobile ? '137.5px' : '347px',
             objectFit: 'contain',
-            zIndex: 1
+            zIndex: 10
           }}
         />
-        
-        {/* fork-illustration-pc.png (5本線) */}
-        {/* PC: 右から 870px (1400-530=870) */}
-        {/* Mobile: 左から -9px */}
-        <img
-          src="/images/hero/fork-illustration-pc.png"
-          alt="Fork illustration"
-          style={{
-            position: 'absolute',
-            ...(isMobile 
-              ? { left: '-9px', top: '101px' }
-              : { right: '870px', top: '153px' }
-            ),
-            width: isMobile ? '460.4px' : '743.0px',
-            height: isMobile ? '457.67px' : '738.55px',
-            objectFit: 'contain',
-            transformOrigin: 'top left',
-            zIndex: 2
-          }}
-        />
-        
-        {/* テキストコンテンツ */}
-        {/* PC: X47 Y610, 20px */}
-        {/* Mobile: X30 Y500, 15px */}
+
+        {/* テキストコンテンツ - scale変換の外（左から47px、下端が下から240px） */}
         <div style={{
           position: 'absolute',
           left: isMobile ? '30px' : '47px',
-          top: isMobile ? '500px' : '610px',
+          bottom: isMobile ? '250px' : '240px',
           color: '#FFFFFF',
-          zIndex: 20
+          zIndex: 20,
+          display: 'flex',
+          flexDirection: 'column',
+          alignItems: 'flex-start'
         }}>
           <div style={{
             display: 'flex',
@@ -182,21 +192,19 @@ const ForkTitleSection: React.FC<ForkTitleSectionProps> = ({
             <p style={{ margin: 0 }}>あたらしい学童保育</p>
           </div>
         </div>
-        
-        {/* scrollボタン（画像） */}
-        {/* PC: 右から 88px (1400-1312=88) */}
-        {/* Mobile: 右から 71px (390-319=71) */}
+
+        {/* scrollボタン - scale変換の外（常に右から91px、下から70px） */}
         <button
           onClick={scrollToNext}
           className="scroll-button"
           style={{
             position: 'absolute',
-            right: isMobile ? '71px' : '88px',
-            top: isMobile ? '694px' : '780px',
+            right: isMobile ? '71px' : '91px',
+            bottom: isMobile ? '56px' : '70px',
             background: 'none',
             border: 'none',
             cursor: 'pointer',
-            zIndex: 20,
+            zIndex: 30,
             padding: 0,
             outline: 'none'
           }}
@@ -206,14 +214,14 @@ const ForkTitleSection: React.FC<ForkTitleSectionProps> = ({
             src={scrollImage}
             alt="scroll"
             style={{
-              width: isMobile ? '41px' : 'auto',
-              height: isMobile ? '36px' : '50px',
+              width: '41px',
+              height: '36px',
               objectFit: 'contain'
             }}
           />
         </button>
-      </div>
-    </section>
+      </section>
+    </>
   );
 };
 

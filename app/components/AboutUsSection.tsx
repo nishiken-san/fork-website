@@ -43,9 +43,9 @@ const AboutUsSection = () => {
         .sticky-header {
           position: sticky;
           top: 80px;
-          padding: 6rem 3rem 2rem 3rem;
-          margin-left: 30px;
-          background-color: #003705;
+          padding: 6rem 0 2rem 0;
+          margin-left: 50px;
+          background-color: transparent;
           z-index: 20;
         }
         .section-title {
@@ -58,7 +58,7 @@ const AboutUsSection = () => {
           letter-spacing: 0.3em;
         }
         .content-area {
-          padding: 6rem 4rem 4rem 0;
+          padding: 6rem 50px 4rem 0;
           margin-left: 100px;
           min-height: 100vh;
           display: flex;
@@ -143,8 +143,9 @@ const AboutUsSection = () => {
           
           .sticky-header {
             position: relative;
-            padding: 2rem 1rem;
-            margin-left: 0;
+            padding: 2rem 0;
+            margin-left: 30px;
+            background-color: transparent;
           }
           
           .section-title {
@@ -153,7 +154,7 @@ const AboutUsSection = () => {
           }
           
           .content-area {
-            padding: 2rem 1.5rem;
+            padding: 2rem 30px 2rem 0;
             margin-left: 0;
             min-height: auto;
             justify-content: flex-start;
@@ -182,17 +183,20 @@ const AboutUsSection = () => {
           .mobile-media-container {
             display: flex;
             flex-direction: column;
-            align-items: center;
+            align-items: flex-end;
             width: 100%;
             background-color: #003705;
             padding: 2rem 0;
+            position: relative;
           }
           
           .mobile-media-container .illustration-container {
             display: flex;
-            justify-content: center;
+            justify-content: flex-end;
             margin: 0 0 2rem 0;
             width: 100%;
+            position: relative;
+            right: 30px;
           }
           
           .mobile-media-container .illustration {
@@ -202,9 +206,11 @@ const AboutUsSection = () => {
           
           .mobile-media-container .button-container {
             display: flex;
-            justify-content: center;
+            justify-content: flex-end;
             width: 100%;
             margin: 0;
+            position: relative;
+            right: 30px;
           }
           
           .mobile-media-container .more-button {

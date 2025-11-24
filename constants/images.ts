@@ -72,6 +72,7 @@ export const IMAGES = {
     member8: '/images/members/松野志保（おまつ）.png',
     member9: '/images/members/大石和（やまぴー）.png',
     member10: '/images/members/えみこむ.png',
+    member11: '/images/members/中村拓海.png',
   },
 
   // Services セクション
@@ -100,6 +101,13 @@ export const IMAGES = {
     fork7: '/images/forktoyama/noki_1 1.png',
     fork8: '/images/forktoyama/コラボレーション_1 1.png',
     fork9: '/images/forktoyama/コラボレーション 1.png',
+  },
+
+  movie: {
+    fork1: '/images/mov/A_fork_webmovie0617_01_0630_1.mp4',
+    fork2: '/images/mov/B_fork_webmovie0617_02_0630_1.mp4',
+    fork3: '/images/mov/C_fork_webmovie0617_04_0630_1.mp4',
+    fork4: '/images/mov/D_fork_webmovie0617_03_0630_1.mp4',
   },
 
   // ブログ・ニュース

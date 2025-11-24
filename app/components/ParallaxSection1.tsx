@@ -3,7 +3,7 @@
 
 import { useEffect, useState, useRef } from 'react';
 
-const ParallaxSection2 = () => {
+const ParallaxSection1 = () => {
   const [scrollY, setScrollY] = useState(0);
   const [videoHeight, setVideoHeight] = useState(0);
   const [isMobile, setIsMobile] = useState(false);
@@ -176,7 +176,7 @@ const ParallaxSection2 = () => {
               objectFit: 'cover',
             }}
           >
-            <source src="/images/mov/B_fork_webmovie0617_02_0630_1.mp4" type="video/mp4" />
+            <source src="/images/mov/A_fork_webmovie0617_01_0630_1.mp4" type="video/mp4" />
           </video>
         </div>
 
@@ -198,4 +198,4 @@ const ParallaxSection2 = () => {
   );
 };
 
-export default ParallaxSection2;
+export default ParallaxSection1;

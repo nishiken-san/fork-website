@@ -1,4 +1,3 @@
-
 'use client';
 
 import { useRef } from 'react';
@@ -21,7 +20,7 @@ const SupporterSection = () => {
         .left-column {
           width: 66.666667%;
           background-color: #003705;
-          padding: 4rem 4rem 4rem 2rem;
+          padding: 4rem 50px 4rem 50px;
         }
         .right-column {
           width: 33.333333%;
@@ -31,7 +30,7 @@ const SupporterSection = () => {
         .sticky-header {
           position: sticky;
           top: 80px;
-          padding: 2rem 3rem;
+          padding: 2rem 50px;
           background-color: #003705;
           z-index: 20;
           display: flex;
@@ -95,7 +94,7 @@ const SupporterSection = () => {
         }
         .list-title {
           color: #FFFFFF;
-          font-size: 20;
+          font-size: 20px;
           font-weight: 700;
           margin-bottom: 1.5rem;
         }
@@ -112,27 +111,53 @@ const SupporterSection = () => {
           margin-top: 3rem;
         }
         
+        .mobile-header {
+          display: none;
+        }
+        
+        .mobile-content {
+          display: none;
+        }
+        
         /* モバイル対応 */
         @media (max-width: 768px) {
           .section-container {
-            flex-direction: column;
+            display: none;
           }
-          .left-column,
-          .right-column {
-            width: 100%;
+          
+          .mobile-header {
+            display: flex;
+            padding: 4rem 0;
           }
-          .left-column {
-            padding: 2rem 1.5rem;
+          
+          .mobile-header-left {
+            width: 66.666667%;
+            padding-left: 30px;
           }
-          .sticky-header {
-            position: static;
-            padding: 2rem 1.5rem;
-            align-items: flex-start;
+          
+          .mobile-header-right {
+            width: 33.333333%;
+            padding-right: 30px;
+            display: flex;
+            justify-content: flex-end;
           }
-          .section-title {
-            writing-mode: horizontal-tb;
-            font-size: 1.75rem;
-            letter-spacing: 0.1em;
+          
+          .mobile-header .section-title {
+            writing-mode: vertical-rl;
+            font-size: 25px;
+          }
+          
+          .mobile-content {
+            display: block;
+            padding: 0 30px 4rem 30px;
+          }
+          
+          .mobile-content .button-group {
+            max-width: none;
+          }
+          
+          .mobile-content .support-button {
+            max-width: none;
           }
         }
         
@@ -144,6 +169,7 @@ const SupporterSection = () => {
       `}</style>
 
       <section ref={sectionRef} id="supporter" className="supporter-bg">
+        {/* PC表示 */}
         <div className="section-container">
           {/* 左側: コンテンツエリア（2/3幅） */}
           <div className="left-column">
@@ -200,6 +226,63 @@ const SupporterSection = () => {
               <h2 className="section-title">サポート募集</h2>
             </div>
           </div>
+        </div>
+
+        {/* モバイル表示 */}
+        {/* ヘッダー部分（2カラム） */}
+        <div className="mobile-header">
+          <div className="mobile-header-left">
+            <div className="section-label">supporter</div>
+            <p className="description">
+              子育てをみんなのものにする仲間を募集しています。
+            </p>
+          </div>
+          <div className="mobile-header-right">
+            <h2 className="section-title">サポート募集</h2>
+          </div>
+        </div>
+
+        {/* コンテンツ部分（全幅） */}
+        <div className="mobile-content">
+          {/* 募集ボタン */}
+          <div className="button-group">
+            <a href="/supporter/frenz" className="support-button">
+              みん営フレンズ〈個人サポーター〉はこちら
+            </a>
+            <a href="/supporter/partner" className="support-button">
+              みん営パートナー〈法人サポーター〉はこちら
+            </a>
+          </div>
+
+          {/* みん営フレンズ */}
+          <div className="supporters-list">
+            <h3 className="list-title">みん営フレンズのみなさま</h3>
+            <div className="supporter-names">
+              {supportersData.frenz.map((name, index) => (
+                <span key={index}>
+                  {name}
+                  {index < supportersData.frenz.length - 1 && ' / '}
+                </span>
+              ))}
+            </div>
+          </div>
+
+          {/* みん営パートナー */}
+          <div className="supporters-list">
+            <h3 className="list-title">みん営パートナーのみなさま</h3>
+            <div className="supporter-names">
+              {supportersData.partners.map((name, index) => (
+                <span key={index}>
+                  {name}
+                  {index < supportersData.partners.length - 1 && ' / '}
+                </span>
+              ))}
+            </div>
+          </div>
+
+          <p className="note">
+            *2022年の支援者を含む的な内容がはいる
+          </p>
         </div>
       </section>
     </>

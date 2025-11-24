@@ -88,7 +88,7 @@ const NoteSection = () => {
         }
         .section-label {
           position: absolute;
-          left: 53px;
+          left: 50px;
           top: 81px;
           color: #B4B4B4;
           font-size: 15px;
@@ -97,7 +97,7 @@ const NoteSection = () => {
         }
         .section-title {
           position: absolute;
-          left: 53px;
+          left: 50px;
           top: 110px;
           color: #003705;
           font-size: 25px;
@@ -105,7 +105,7 @@ const NoteSection = () => {
           line-height: 1.4;
         }
         .content-area {
-          padding: 4rem 2rem 4rem 2rem;
+          padding: 4rem 50px 4rem 50px;
           position: relative;
         }
         
@@ -217,7 +217,7 @@ const NoteSection = () => {
           justify-content: flex-end;
           align-items: center;
           margin-top: 2rem;
-          padding-right: 2rem;
+          padding-right: 0;
           gap: 0.5rem;
         }
         .view-all-link {
@@ -227,6 +227,8 @@ const NoteSection = () => {
           text-decoration: none;
           position: relative;
           padding-bottom: 2px;
+          transition: transform 0.3s ease;
+          display: inline-block;
         }
         .view-all-link::after {
           content: '';
@@ -238,12 +240,16 @@ const NoteSection = () => {
           background-color: #003705;
         }
         .view-all-link:hover {
-          opacity: 0.7;
+          transform: translateX(0.5em);
         }
         .arrow-icon {
           width: 24px;
           height: 12px;
           object-fit: contain;
+          transition: transform 0.3s ease;
+        }
+        .view-all-container:hover .arrow-icon {
+          transform: translateX(0.5em);
         }
         
         @media (max-width: 768px) {
@@ -266,19 +272,19 @@ const NoteSection = () => {
           
           .section-label {
             position: relative;
-            left: 0;
+            left: 30px;
             top: 0;
             margin-bottom: 1rem;
           }
           
           .section-title {
             position: relative;
-            left: 0;
+            left: 30px;
             top: 0;
           }
           
           .content-area {
-            padding: 2rem 1.5rem;
+            padding: 2rem 30px;
           }
         }
         
