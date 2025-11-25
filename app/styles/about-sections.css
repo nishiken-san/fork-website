@@ -46,7 +46,7 @@
   text-orientation: mixed;
   color: #FFFFFF;
   font-size: 25px;
-  font-weight: 300;
+  font-weight: 700;
   line-height: 1.5;
   letter-spacing: 0.1em;
 }
@@ -69,9 +69,9 @@
 }
 
 .about-description {
-  color: rgba(255, 255, 255, 0.9);
+  color: rgba(255, 255, 255, 1);
   font-size: 15px;
-  font-weight: 300;
+  font-weight: 700;
   line-height: 1.8;
 }
 
@@ -162,6 +162,8 @@
 
 /* app/about/styles/childcare-section.css */
 
+/* app/about/styles/childcare-section.css */
+
 /* ============================================
    Childcare Section Styles
    ============================================ */
@@ -175,7 +177,6 @@
 /* コンテナ */
 .childcare-section-container {
   display: flex;
-  min-height: 100vh;
 }
 
 /* 左カラム（1/3 = 33.33%） */
@@ -195,7 +196,10 @@
 .childcare-sticky-header {
   position: sticky;
   top: 80px;
-  padding: 4rem 3rem;
+  padding: 0 0 60px 0;  /* 下60px追加 */
+  margin: 0;
+  margin-left: 50px;
+  padding-top: 80px;
   background-color: #E7EBE7;
   z-index: 20;
   display: flex;
@@ -210,7 +214,8 @@
   font-size: 15px;
   font-weight: 700;
   letter-spacing: 0;
-  margin-bottom: 1.5rem;
+  margin: 0 0 1.5rem 0;
+  padding: 0;
 }
 
 /* タイトル */
@@ -219,12 +224,13 @@
   font-size: 25px;
   font-weight: 700;
   line-height: 1.4;
+  margin: 0;
+  padding: 0;
 }
 
 /* コンテンツエリア */
 .childcare-content-area {
-  padding: 4rem 4rem;
-  min-height: 100vh;
+  padding: 80px 50px 60px 50px;
 }
 
 /* テキストブロック */
@@ -236,9 +242,10 @@
 .childcare-paragraph {
   color: #003705;
   font-size: 13px;
-  font-weight: 400;
+  font-weight: 700;
   line-height: 2;
-  margin-bottom: 1.5rem;
+  margin: 0 0 1.5rem 0;
+  padding: 0;
 }
 
 /* 画像コンテナ */
@@ -263,11 +270,13 @@
 /* タブレット対応 */
 @media (min-width: 769px) and (max-width: 1024px) {
   .childcare-sticky-header {
-    padding: 3rem 2rem;
+    padding: 0 0 60px 0;
+    margin-left: 50px;  /* 40px → 50px */
+    padding-top: 80px;
   }
   
   .childcare-content-area {
-    padding: 3rem 3rem;
+    padding: 80px 40px 60px 40px;
   }
   
   .childcare-title {
@@ -284,7 +293,6 @@
 @media (max-width: 768px) {
   .childcare-section-container {
     flex-direction: column; /* 縦並びに変更 */
-    min-height: auto;
   }
   
   .childcare-left-column {
@@ -297,12 +305,15 @@
   
   .childcare-sticky-header {
     position: relative; /* stickyを解除 */
-    padding: 3rem 2rem;
+    padding: 0 0 60px 0;  /* 下60px追加 */
+    margin: 0;
+    margin-left: 30px;
+    padding-top: 50px;
   }
   
   .minei-label {
     font-size: 13px;
-    margin-bottom: 1rem;
+    margin: 0 0 1rem 0;
   }
   
   .childcare-title {
@@ -312,13 +323,13 @@
   }
   
   .childcare-content-area {
-    padding: 2rem 2rem;
-    min-height: auto;
+    padding: 50px 30px 60px 30px;
   }
   
   .childcare-paragraph {
     font-size: 13px;
     line-height: 1.8;
+    margin: 0 0 1.5rem 0;
   }
   
   .childcare-image-container {
@@ -343,7 +354,9 @@
 /* 小型モバイル対応 */
 @media (max-width: 480px) {
   .childcare-sticky-header {
-    padding: 2rem 1.5rem;
+    padding: 0;
+    margin-left: 20px;
+    padding-top: 40px;
   }
   
   .minei-label {
@@ -356,11 +369,12 @@
   }
   
   .childcare-content-area {
-    padding: 1.5rem 1.5rem;
+    padding: 40px 20px 60px 20px;
   }
   
   .childcare-paragraph {
     font-size: 12px;
+    margin: 0 0 1.5rem 0;
   }
   
   .childcare-image-mobile {
@@ -404,7 +418,7 @@
 .private-sticky-header {
   position: sticky;
   top: 80px;
-  padding: 4rem 3rem;
+  padding: 50px 50px;
   background-color: #003705;
   z-index: 20;
   display: flex;
@@ -441,7 +455,7 @@
 /* カード */
 .private-card {
   background-color: #E7EBE7;
-  border-radius: 8px;
+  border-radius: 10px;
   padding: 1.5rem;
   height: 100px; /* カードの高さ100px */
   display: flex;
@@ -463,11 +477,22 @@
   font-size: 20px;
   font-weight: 700;
   padding-right: 1rem;
-  border-right: 1px solid #003705;
+  /* border-right: 1px solid #003705; ← 削除 */
   min-width: 3rem;
   display: flex;
   align-items: center;
   justify-content: center;
+  position: relative;  /* 追加 */
+}
+
+.private-card-number::after {
+  content: '';
+  position: absolute;
+  right: 0;
+  bottom: -0.75rem;  /* padding-bottomの位置（横線の位置） */
+  width: 1px;
+  height: 40px;
+  background-color: #003705;
 }
 
 /* カードタイトル */
@@ -487,18 +512,27 @@
   font-size: 13px;
   line-height: 1.6;
   margin: 0;
-  font-weight: 400;
+  font-weight: 700;
   padding-top: 0.5rem;
 }
 
 /* タブレット対応 */
+/* タブレット対応 */
 @media (min-width: 769px) and (max-width: 1024px) {
+  .private-main-bg {
+    padding: 0 30px 100px 30px;  /* 左右30px、下100px */
+  }
+  
   .private-sticky-header {
-    padding: 3rem 2rem;
+    padding: 0 0 60px 0;  /* 追加: 下60px */
+    margin: 0;
+    margin-left: 50px;  /* 追加: 左50px */
+    padding-top: 80px;  /* 追加: 上80px */
+    margin-bottom: 100px;  /* タイトルとカードの間100px */
   }
   
   .private-content-area {
-    padding: 3rem 3rem;
+    padding: 0 30px;  /* 左右30px */
   }
   
   .private-title {
@@ -512,11 +546,12 @@
 }
 
 /* モバイル対応（縦一列） */
+/* モバイル対応（縦一列） */
 @media (max-width: 768px) {
   .private-main-bg {
     min-height: auto;
     background-color: #003705;
-    padding: 0 31px; /* 左右31pxのpadding */
+    padding: 0 30px 100px 30px;  /* 左右30px、下100px（31px→30px、下100px追加） */
   }
   
   .private-section-container {
@@ -542,7 +577,7 @@
     position: relative; /* stickyを解除 */
     padding: 31px 0 0 0;
     text-align: left;
-    margin-bottom: 4rem; /* タイトルとカードの間に余白を増やす */
+    margin-bottom: 100px; /* タイトルとカードの間100px（4rem→100px） */
   }
   
   .private-label {
@@ -585,8 +620,11 @@
     font-size: 18px;
     font-weight: 700;
     padding-right: 1rem;
-    border-right: 1px solid #003705;
     min-width: 2.5rem;
+  }
+  
+  .private-card-number::after {
+    bottom: -1rem;  /* モバイル版の調整 */
   }
   
   .private-card-title {
@@ -781,7 +819,7 @@
   line-height: 1.6;
   padding: 1rem 1.5rem;
   vertical-align: top;
-  font-weight: 400;
+  font-weight: 700;
 }
 
 /* noteセクション */
@@ -805,7 +843,7 @@
   font-size: 13px;
   line-height: 1.6;
   margin-bottom: 1.5rem;
-  font-weight: 400;
+  font-weight: 700;
 }
 
 .history-note-button-container {
@@ -1106,7 +1144,7 @@
   color: #003705;
   font-size: 13px;
   line-height: 1.8;
-  font-weight: 400;
+  font-weight: 700;
 }
 
 /* メンバーカード */
@@ -1131,7 +1169,7 @@
 .member-nickname {
   color: #B4B4B4;
   font-size: 13px;
-  font-weight: 400;
+  font-weight: 700;
 }
 
 /* ============================================

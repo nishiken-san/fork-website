@@ -32,6 +32,11 @@ const Header: React.FC<HeaderProps> = ({ logoImage, menuLogoImage }) => {
         .hamburger-icon.menu-open .hamburger-line {
           transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1) !important;
         }
+        
+        /* 文字の高さを35pxに */
+        .header-menu-text {
+          line-height: 35px;
+        }
       `}</style>
 
       <header className="header-secondary">

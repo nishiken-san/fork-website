@@ -78,7 +78,7 @@ const SupporterSection = () => {
           display: block;
           text-align: center;
           border: 1px solid #FFFFFF;
-          box-shadow: 1px 1px 0px #FFFFFF;
+          box-shadow: 3px 3px 0px #FFFFFF;
           width: 100%;
           max-width: 850px;
           height: 50px;

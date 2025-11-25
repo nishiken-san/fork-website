@@ -5,8 +5,8 @@ export const IMAGES = {
   // ロゴ関連
   logo: {
     main: '/images/logo/logo.png',
-    white: '/images/logo/fork-logo-white.png',
-    dark: '/images/logo/fork-logo-dark.png',
+    white: '/images/logo/fork-logo-white.svg',
+    dark: '/images/logo/fork-logo-dark.svg',
     favicon: '/images/logo/favicon.ico',
     vec: '/images/main/link-vec.png',
     vecw: '/images/main/link-vec-w.png'

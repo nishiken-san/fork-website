@@ -78,7 +78,7 @@ const AboutSection = () => {
           justify-content: center;
           width: 100%;
           border: 1px solid #003705;
-          box-shadow: 1px 1px 0px #003705;
+          box-shadow: 3px 3px 0px #003705;
         }
         .detail-button:hover {
           background-color: #93A794;

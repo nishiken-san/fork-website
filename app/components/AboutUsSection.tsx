@@ -114,7 +114,7 @@ const AboutUsSection = () => {
           align-items: center;
           justify-content: center;
           border: 1px solid #FFFFFF;
-          box-shadow: 1px 1px 0px #FFFFFF;
+          box-shadow: 3px 3px 0px #FFFFFF;
         }
         .more-button:hover {
           background-color: #93A794;
@@ -225,7 +225,7 @@ const AboutUsSection = () => {
             height: 52px;
             font-size: 15px;
             border: 1px solid #FFFFFF;
-            box-shadow: 1px 1px 0px #FFFFFF;
+            box-shadow: 3px 3px 0px #FFFFFF;
           }
         }
       `}</style>
