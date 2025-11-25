@@ -29,7 +29,6 @@ const AboutUsSection = () => {
         }
         .section-container {
           display: flex;
-          min-height: 100vh;
         }
         .left-column {
           width: 33.333333%;
@@ -43,8 +42,10 @@ const AboutUsSection = () => {
         .sticky-header {
           position: sticky;
           top: 80px;
-          padding: 6rem 0 2rem 0;
+          padding: 0 0 60px 0;
+          margin: 0;
           margin-left: 50px;
+          padding-top: 80px;
           background-color: transparent;
           z-index: 20;
         }
@@ -56,31 +57,34 @@ const AboutUsSection = () => {
           writing-mode: vertical-rl;
           text-orientation: mixed;
           letter-spacing: 0.3em;
+          margin: 0;
+          padding: 0;
         }
         .content-area {
-          padding: 6rem 50px 4rem 0;
-          margin-left: 100px;
-          min-height: 100vh;
+          padding: 80px 50px 60px 50px;
           display: flex;
           flex-direction: column;
-          justify-content: center;
+          margin: 0;
         }
         .section-label {
           color: #FFFFFF;
           font-size: 15px;
           font-weight: 700;
-          margin-bottom: 2rem;
+          margin: 0 0 2rem 0;
+          padding: 0;
           letter-spacing: 0;
         }
         .main-text {
           color: #FFFFFF;
           font-size: 15px;
           line-height: 2;
-          margin-bottom: 3rem;
-          font-weight: 400;
+          margin: 0 0 3rem 0;
+          padding: 0;
+          font-weight: 700;
         }
         .illustration-container {
           margin: 3rem 0;
+          padding: 0;
           display: flex;
           justify-content: flex-start;
         }
@@ -93,7 +97,8 @@ const AboutUsSection = () => {
         .button-container {
           width: 100%;
           max-width: 853px;
-          margin-top: 2rem;
+          margin: 2rem 0 0 0;
+          padding: 0;
         }
         .more-button {
           background-color: #E7EBE7;
@@ -143,8 +148,10 @@ const AboutUsSection = () => {
           
           .sticky-header {
             position: relative;
-            padding: 2rem 0;
+            padding: 0 0 60px 0;
+            margin: 0;
             margin-left: 30px;
+            padding-top: 50px;
             background-color: transparent;
           }
           
@@ -154,8 +161,7 @@ const AboutUsSection = () => {
           }
           
           .content-area {
-            padding: 2rem 30px 2rem 0;
-            margin-left: 0;
+            padding: 50px 30px 60px 0;
             min-height: auto;
             justify-content: flex-start;
           }
@@ -163,14 +169,14 @@ const AboutUsSection = () => {
           .section-label {
             color: #B4B4B4;
             font-size: 15px;
-            margin-bottom: 1.5rem;
+            margin: 0 0 1.5rem 0;
             letter-spacing: 0;
           }
           
           .main-text {
             color: #FFFFFF;
             font-size: 15px;
-            margin-bottom: 2rem;
+            margin: 0 0 2rem 0;
           }
           
           /* PCの画像とボタンを非表示 */
@@ -186,7 +192,8 @@ const AboutUsSection = () => {
             align-items: flex-end;
             width: 100%;
             background-color: #003705;
-            padding: 2rem 0;
+            padding: 0 0 60px 0;
+            margin: 0;
             position: relative;
           }
           

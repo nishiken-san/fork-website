@@ -82,47 +82,48 @@ const NoteSection = () => {
         .sticky-header {
           position: sticky;
           top: 80px;
-          padding: 2rem 3rem;
+          padding: 0;
+          margin-left: 50px;
+          margin-top: 80px;
           background-color: #E7EBE7;
           z-index: 20;
         }
         .section-label {
-          position: absolute;
-          left: 50px;
-          top: 81px;
           color: #B4B4B4;
           font-size: 15px;
           font-weight: 700;
           letter-spacing: 0.05em;
+          margin-bottom: 1rem;
         }
         .section-title {
-          position: absolute;
-          left: 50px;
-          top: 110px;
           color: #003705;
           font-size: 25px;
           font-weight: 700;
           line-height: 1.4;
         }
         .content-area {
-          padding: 4rem 50px 4rem 50px;
+          padding: 110px 0 4rem 50px;
           position: relative;
         }
         
         /* スクロールコンテナと左右の線 */
         .scroll-wrapper {
           position: relative;
+          padding-right: 50px;
+          height: 320px;
+          display: flex;
+          align-items: center;
         }
         
         .scroll-line-left,
         .scroll-line-right {
           position: absolute;
-          top: 50%;
-          transform: translateY(-50%);
           width: 1px;
           height: 380px;
           background-color: #003705;
           z-index: 10;
+          top: 50%;
+          transform: translateY(-50%);
         }
         
         .scroll-line-left {
@@ -140,6 +141,8 @@ const NoteSection = () => {
           overflow-y: hidden;
           scroll-behavior: smooth;
           padding-bottom: 0;
+          height: 320px;
+          align-items: center;
           
           /* スクロールバーを非表示 */
           scrollbar-width: none; /* Firefox */
@@ -217,7 +220,7 @@ const NoteSection = () => {
           justify-content: flex-end;
           align-items: center;
           margin-top: 2rem;
-          padding-right: 0;
+          padding-right: 50px;
           gap: 0.5rem;
         }
         .view-all-link {
@@ -239,15 +242,18 @@ const NoteSection = () => {
           height: 1px;
           background-color: #003705;
         }
-        .view-all-link:hover {
-          transform: translateX(0.5em);
-        }
+        
         .arrow-icon {
           width: 24px;
           height: 12px;
           object-fit: contain;
           transition: transform 0.3s ease;
         }
+        
+        .view-all-container:hover .view-all-link {
+          transform: translateX(0.5em);
+        }
+        
         .view-all-container:hover .arrow-icon {
           transform: translateX(0.5em);
         }
@@ -267,24 +273,25 @@ const NoteSection = () => {
           
           .sticky-header {
             position: static;
-            padding: 2rem 1.5rem;
+            padding: 0;
+            margin-left: 30px;
+            margin-top: 50px;
           }
           
           .section-label {
-            position: relative;
-            left: 30px;
-            top: 0;
             margin-bottom: 1rem;
           }
           
-          .section-title {
-            position: relative;
-            left: 30px;
-            top: 0;
+          .content-area {
+            padding: 50px 0 2rem 30px;
           }
           
-          .content-area {
-            padding: 2rem 30px;
+          .scroll-wrapper {
+            padding-right: 30px;
+          }
+          
+          .view-all-container {
+            padding-right: 30px;
           }
         }
         

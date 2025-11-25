@@ -5,66 +5,167 @@ import { IMAGES } from '@/constants/images';
 
 const Footer = () => {
   return (
-    <footer className="bg-green-900 text-white py-12">
-      <div className="max-w-6xl mx-auto px-4">
-        <div className="space-y-2 mb-8">
-          <div>
-            <a href="/" className="text-white hover:text-gray-300 transition-colors">
+    <>
+      <style jsx>{`
+        .footer-bg {
+          background-color: #003705;
+          padding: 3rem 0;
+        }
+        
+        .footer-container {
+          padding: 0 50px;
+        }
+        
+        .nav-links {
+          margin-bottom: 2rem;
+        }
+        
+        .nav-link {
+          color: #FFFFFF;
+          font-size: 15px;
+          text-decoration: none;
+          display: block;
+          margin-bottom: 0.5rem;
+          transition: color 0.3s ease;
+        }
+        
+        .nav-link:hover {
+          color: #B4B4B4;
+        }
+        
+        .footer-bottom {
+          display: flex;
+          justify-content: space-between;
+          align-items: flex-start;
+        }
+        
+        .copyright {
+          color: #FFFFFF;
+          font-size: 13px;
+        }
+        
+        .social-links {
+          display: flex;
+          flex-direction: column;
+          gap: 0.5rem;
+          align-items: flex-end;
+        }
+        
+        .social-link-container {
+          display: flex;
+          align-items: center;
+          gap: 0.5rem;
+          cursor: pointer;
+        }
+        
+        .social-link {
+          color: #FFFFFF;
+          font-size: 13px;
+          text-decoration: none;
+          transition: transform 0.3s ease;
+          display: inline-block;
+        }
+        
+        .arrow-icon {
+          width: 24px;
+          height: 12px;
+          object-fit: contain;
+          transition: transform 0.3s ease;
+        }
+        
+        .social-link-container:hover .social-link {
+          transform: translateX(0.5em);
+        }
+        
+        .social-link-container:hover .arrow-icon {
+          transform: translateX(0.5em);
+        }
+        
+        @media (max-width: 768px) {
+          .footer-container {
+            padding: 0 30px;
+          }
+          
+          .footer-bottom {
+            flex-direction: column;
+            gap: 2rem;
+          }
+          
+          .social-links {
+            align-items: flex-start;
+          }
+        }
+      `}</style>
+
+      <footer className="footer-bg">
+        <div className="footer-container">
+          {/* ナビゲーションリンク */}
+          <div className="nav-links">
+            <a href="/" className="nav-link">
               ＞ top
             </a>
-          </div>
-          <div>
-            <a href="/about" className="text-white hover:text-gray-300 transition-colors">
+            <a href="/about" className="nav-link">
               ＞ わたしたちについて
             </a>
-          </div>
-          <div>
-            <a href="/effort" className="text-white hover:text-gray-300 transition-colors">
+            <a href="/effort" className="nav-link">
               ＞ とりくみ
             </a>
-          </div>
-          <div>
-            <a href="/supporter" className="text-white hover:text-gray-300 transition-colors">
+            <a href="/supporter" className="nav-link">
               ＞ サポーター
             </a>
-          </div>
-          <div>
-            <a href="/info" className="text-white hover:text-gray-300 transition-colors">
+            <a href="/info" className="nav-link">
               ＞ おしらせ
             </a>
-          </div>
-          <div>
-            <a href="/forktoyama" className="text-white hover:text-gray-300 transition-colors">
+            <a href="/forktoyama" className="nav-link">
               ＞ お問い合わせ
             </a>
           </div>
-        </div>
-        
-          <div className="flex flex-col md:flex-row justify-between items-start md:items-center">
-            <p className="text-white text-sm mb-4 md:mb-0">
+          
+          {/* フッター下部 */}
+          <div className="footer-bottom">
+            <p className="copyright">
               © fork toyama, 2024
             </p>
-            <div className="flex flex-col space-y-2 text-right">
-              <a href="#" className="text-white flex text-sm transition-colors display:flex">
-                Instagram <img 
+            
+            <div className="social-links">
+              {/* Instagram */}
+              <div className="social-link-container">
+                <a 
+                  href="https://www.instagram.com/forktoyama/" 
+                  className="social-link"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  Instagram
+                </a>
+                <img 
                   src={IMAGES.logo.vecw}
                   alt="arrow"
                   className="arrow-icon"
                 />
-              </a>
+              </div>
               
-              <a href="#" className="text-white flex text-sm transition-colors">
-                note<img 
+              {/* note */}
+              <div className="social-link-container">
+                <a 
+                  href="https://note.com/forktoyama" 
+                  className="social-link"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  note
+                </a>
+                <img 
                   src={IMAGES.logo.vecw}
                   alt="arrow"
                   className="arrow-icon"
                 />
-              </a>
-              
+              </div>
             </div>
           </div>
         </div>
-    </footer>
+      </footer>
+    </>
   );
 };
 

@@ -22,6 +22,8 @@ const AboutSection = () => {
           width: 33.333333%;
           background-color: #E7E7E7;
           position: relative;
+          margin-top: 40px;
+
         }
         .right-column {
           width: 66.666667%;
@@ -56,7 +58,7 @@ const AboutSection = () => {
           font-size: 1rem;
           line-height: 2;
           margin-bottom: 2rem;
-          font-weight: 400;
+          font-weight: 700;
         }
         .button-container {
           width: 100%;
