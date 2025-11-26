@@ -48,7 +48,7 @@ const ForktoyamaIntro = () => {
               
               <div className="forktoyama-logo-container">
                 <img 
-                  src="/images/forktoyama/forktoyama.png" 
+                  src="/images/forktoyama/forktoyama.svg" 
                   alt="fork toyama ロゴ" 
                   className="forktoyama-image forktoyama-intro-logo"
                 />

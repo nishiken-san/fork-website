@@ -4,7 +4,7 @@
 import { useEffect, useState, useRef } from 'react';
 import { IMAGES } from '@/constants/images';
 
-const AboutParallaxSection = () => {
+const ParallaxSection = () => {
   const [scrollY, setScrollY] = useState(0);
   const [isMobile, setIsMobile] = useState(false);
   const [screenWidth, setScreenWidth] = useState(0);
@@ -137,4 +137,4 @@ const AboutParallaxSection = () => {
   );
 };
 
-export default AboutParallaxSection;
+export default ParallaxSection;

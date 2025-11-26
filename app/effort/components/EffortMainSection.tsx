@@ -44,9 +44,10 @@ const EffortMainSection = () => {
           font-weight: 600;
           line-height: 1.4;
           letter-spacing: 0.1em;
+          top: 80px;
         }
         .content-area {
-          padding: 4rem 2rem;
+          padding: 50px 50px 100px 50px;
           color: white;
         }
         .what-we-do {

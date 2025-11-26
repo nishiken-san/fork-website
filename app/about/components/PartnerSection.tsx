@@ -35,78 +35,191 @@ const PartnerSection = () => {
   return (
     <>
       <style jsx>{`
-        .single-bg {
-          background-color: #f8f8f8;
-        }
-        .section-container {
-          display: flex;
-          min-height: 100vh;
-        }
-        .left-column {
-          width: 33.333333%;
-          background-color: #f8f8f8;
-          position: relative;
-        }
-        .right-column {
-          width: 66.666667%;
-          background-color: #f8f8f8;
-        }
-        .sticky-header {
-          position: sticky;
-          top: 80px;
-          padding: 2rem 3rem;
-          background-color: #f8f8f8;
-          z-index: 20;
-        }
-        .section-label {
-          color: #B4B4B4;
-          font-size: 0.875rem;
-          font-weight: 400;
-          letter-spacing: 0.1em;
-          margin-bottom: 0.5rem;
-        }
-        .section-title {
-          color: #003705;
-          font-size: 1.5rem;
-          font-weight: 600;
-          line-height: 1.4;
-        }
-        .single-item {
-          margin-bottom: 3rem;
-          border-bottom: 1px solid #e0e0e0;
-          padding-bottom: 2rem;
-        }
-        .single-item:last-child {
-          border-bottom: none;
-        }
-        .item-header {
-          display: flex;
-          align-items: center;
-          gap: 1rem;
-          margin-bottom: 0.75rem;
-        }
-        .item-number {
-          color: #B4B4B4;
-          font-size: 0.875rem;
-          font-weight: 600;
-        }
-        .item-date {
-          color: #B4B4B4;
-          font-size: 0.875rem;
-          font-weight: 400;
-        }
-        .item-title {
-          color: #003705;
-          font-size: 1.25rem;
-          font-weight: 600;
-          margin-bottom: 0.5rem;
-        }
-        .item-description {
-          color: #003705;
-          font-size: 0.875rem;
-          line-height: 1.6;
-        }
-      `}</style>
+  .single-bg {
+    background-color: #f8f8f8;
+  }
+  .section-container {
+    display: flex;
+  }
+  .left-column {
+    width: 33.333333%;
+    background-color: #f8f8f8;
+    position: relative;
+  }
+  .right-column {
+    width: 66.666667%;
+    background-color: #f8f8f8;
+  }
+  .sticky-header {
+    position: sticky;
+    top: 80px;
+    padding: 0 0 100px 0;
+    margin: 0;
+    margin-left: 50px;
+    padding-top: 50px;
+    background-color: #f8f8f8;
+    z-index: 20;
+  }
+  .section-label {
+    color: #B4B4B4;
+    font-size: 15px;
+    font-weight: 700;
+    letter-spacing: 0;
+    margin: 0 0 0.5rem 0;
+    padding: 0;
+  }
+  .section-title {
+    color: #003705;
+    font-size: 25px;
+    font-weight: 700;
+    line-height: 1.4;
+    margin: 0;
+    padding: 0;
+  }
+  .content-area {
+    padding: 50px 50px 100px 50px;
+  }
+  .single-item {
+    margin: 0 0 55px 0;
+    padding: 0;
+  }
+  .single-item:last-child {
+    margin-bottom: 0;
+  }
+  .item-header {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    margin: 0 0 12px 0;
+    padding: 0;
+  }
+  .item-number {
+    color: #B4B4B4;
+    font-size: 13px;
+    font-weight: 700;
+    margin: 0;
+    padding: 0;
+  }
+  .item-date {
+    color: #B4B4B4;
+    font-size: 13px;
+    font-weight: 700;
+    margin: 0;
+    padding: 0;
+  }
+  .item-title {
+    color: #003705;
+    font-size: 20px;
+    font-weight: 700;
+    margin: 0;
+    padding: 0;
+  }
+  .item-description {
+    color: #003705;
+    font-size: 13px;
+    font-weight: 700;
+    line-height: 1.6;
+    margin: 0;
+    padding: 0;
+  }
+  
+  @media (min-width: 1024px) {
+    .section-title {
+      font-size: 25px;
+    }
+    .section-label {
+      font-size: 15px;
+    }
+    .content-area {
+      padding: 50px 50px 100px 50px;
+    }
+  }
+  
+  @media (max-width: 768px) {
+    .section-container {
+      flex-direction: column;
+    }
+    
+    .left-column {
+      width: 100%;
+    }
+    
+    .right-column {
+      width: 100%;
+    }
+    
+    .sticky-header {
+      position: relative;
+      padding: 0 0 60px 0;
+      margin: 0;
+      margin-left: 30px;
+      padding-top: 50px;
+    }
+    
+    .section-label {
+      font-size: 13px;
+    }
+    
+    .section-title {
+      font-size: 20px;
+    }
+    
+    .content-area {
+      padding: 0 30px 60px 30px;
+    }
+    
+    .single-item {
+      margin: 0 0 40px 0;
+    }
+    
+    .item-header {
+      margin: 0 0 10px 0;
+    }
+    
+    .item-number {
+      font-size: 12px;
+    }
+    
+    .item-title {
+      font-size: 18px;
+    }
+  }
+  
+  @media (max-width: 480px) {
+    .sticky-header {
+      margin-left: 20px;
+      padding-top: 40px;
+    }
+    
+    .section-label {
+      font-size: 12px;
+    }
+    
+    .section-title {
+      font-size: 18px;
+    }
+    
+    .content-area {
+      padding: 0 20px 60px 20px;
+    }
+    
+    .single-item {
+      margin: 0 0 35px 0;
+    }
+    
+    .item-header {
+      margin: 0 0 8px 0;
+    }
+    
+    .item-number {
+      font-size: 11px;
+    }
+    
+    .item-title {
+      font-size: 16px;
+    }
+  }
+`}</style>
 
       <section ref={sectionRef} id="single" className="single-bg relative">
         <div className="section-container">

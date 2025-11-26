@@ -1,167 +1,140 @@
-// app/components/ParallaxPhotoSection.tsx
+// app/components/AboutParallaxSection.tsx
 'use client';
 
 import { useEffect, useState, useRef } from 'react';
 import { IMAGES } from '@/constants/images';
 
-const ParallaxPhotoSection2 = () => {
+const ParallaxSection2 = () => {
   const [scrollY, setScrollY] = useState(0);
   const [isMobile, setIsMobile] = useState(false);
-  const sectionRef = useRef<HTMLDivElement>(null);
-  const [isInView, setIsInView] = useState(false);
+  const [screenWidth, setScreenWidth] = useState(0);
+  const parentRef = useRef<HTMLDivElement>(null);
+  const imageRef = useRef<HTMLImageElement>(null);
   const [sectionTop, setSectionTop] = useState(0);
 
   useEffect(() => {
-    // モバイル判定
-    const checkDevice = () => {
-      setIsMobile(window.innerWidth <= 768);
+    // 画面サイズの判定
+    const checkScreenSize = () => {
+      const width = window.innerWidth;
+      setScreenWidth(width);
+      setIsMobile(width < 768);
     };
 
-    // セクションの位置を取得
-    const updateSectionTop = () => {
-      if (sectionRef.current) {
-        const rect = sectionRef.current.getBoundingClientRect();
-        setSectionTop(rect.top + window.scrollY);
-      }
-    };
+    checkScreenSize();
+    window.addEventListener('resize', checkScreenSize);
 
+    return () => {
+      window.removeEventListener('resize', checkScreenSize);
+    };
+  }, []);
+
+  useEffect(() => {
     const handleScroll = () => {
       setScrollY(window.scrollY);
-    };
-
-    const throttledHandleScroll = () => {
-      requestAnimationFrame(handleScroll);
-    };
-
-    // Intersection Observer for performance
-    const observer = new IntersectionObserver(
-      ([entry]) => {
-        setIsInView(entry.isIntersecting);
-      },
-      { 
-        threshold: 0,
-        rootMargin: '100px 0px' // 早めに検知開始
+      
+      if (parentRef.current) {
+        setSectionTop(parentRef.current.offsetTop);
       }
-    );
+    };
 
-    // 初期設定
-    checkDevice();
-    updateSectionTop();
-
-    if (sectionRef.current) {
-      observer.observe(sectionRef.current);
+    // 初期位置を取得
+    if (parentRef.current) {
+      setSectionTop(parentRef.current.offsetTop);
     }
 
-    // モバイルではスクロールイベントを軽量化
-    if (!isMobile) {
-      window.addEventListener('scroll', throttledHandleScroll, { passive: true });
-    }
-    
-    window.addEventListener('resize', () => {
-      checkDevice();
-      updateSectionTop();
-    });
+    window.addEventListener('scroll', handleScroll, { passive: true });
     
     return () => {
-      window.removeEventListener('scroll', throttledHandleScroll);
-      window.removeEventListener('resize', checkDevice);
-      observer.disconnect();
+      window.removeEventListener('scroll', handleScroll);
     };
-  }, [isMobile]);
+  }, []);
 
-  // 参考サイト風のパララックス計算
-  const calculateParallaxOffset = () => {
-    if (isMobile || !isInView) return 0;
-    
-    // セクションの中央を基準とした相対位置
-    const sectionHeight = sectionRef.current?.offsetHeight || 0;
-    const windowHeight = window.innerHeight;
-    const sectionCenter = sectionTop + sectionHeight / 2;
-    const viewportCenter = scrollY + windowHeight / 2;
-    
-    // 中央からの距離に基づく変位量計算
-    const distanceFromCenter = viewportCenter - sectionCenter;
-    
-    // 参考サイト風の変位量（より自然な動き）
-    const parallaxSpeed = 0.3; // 変位の強さ調整
-    const maxOffset = sectionHeight * 0.2; // 最大変位量制限
-    
-    const offset = distanceFromCenter * parallaxSpeed;
-    
-    // 変位量制限
-    return Math.max(-maxOffset, Math.min(maxOffset, offset));
+  // 画面幅に応じたパララックス速度を計算
+  const getParallaxSpeed = () => {
+    if (screenWidth >= 1200) {
+      return 0.4;  // PC: 控えめに
+    } else if (screenWidth >= 768) {
+      return 0.25; // タブレット: さらに控えめ
+    } else if (screenWidth >= 480) {
+      return 0.15; // 大きめモバイル: かなり遅く
+    } else {
+      return 0;    // 小さいモバイル: パララックス無効
+    }
   };
 
-  const parallaxOffset = calculateParallaxOffset();
-
-  // セクションの高さ設定（参考サイト風）
-  const sectionStyle = {
-    height: isMobile ? '50vh' : '80vh', // 参考サイトに近い高さ
-    minHeight: isMobile ? '400px' : '600px',
-    maxHeight: isMobile ? '500px' : '900px',
-  };
-
-  // 背景画像のスケール（ズーム効果）
-  const backgroundScale = isMobile ? 1 : 1.2; // デスクトップでは少し拡大
+  // パララックス計算（画面幅に応じて変位量を調整）
+  const relativeScroll = scrollY - sectionTop;
+  const parallaxSpeed = getParallaxSpeed();
+  const parallaxOffset = Math.max(relativeScroll * parallaxSpeed, 0); // 上方向の移動を制限
 
   return (
-    <section 
-      ref={sectionRef}
-      className="relative overflow-hidden"
-      style={sectionStyle}
-    >
-      {/* モバイル用の背景画像 */}
-      {isMobile && (
+    <>
+      <style jsx global>{`
+        /* 全体の背景色を統一 */
+        body {
+          background-color: #E7EBE7 !important;
+        }
+      `}</style>
+
+      <div 
+        ref={parentRef}
+        className="home_section_bg"
+        style={{
+          position: 'relative',
+          height: '600px',
+          overflow: 'hidden',
+          backgroundColor: '#E7EBE7',
+          WebkitOverflowScrolling: 'touch',
+        }}
+      >
         <div 
-          className="absolute inset-0 w-full h-full"
+          className="home_section_bg_image"
           style={{
-            backgroundImage: `url('${IMAGES.about.teamPhoto}')`,
-            backgroundPosition: 'center center',
-            backgroundSize: 'cover',
-            backgroundRepeat: 'no-repeat',
-            backgroundAttachment: 'scroll',
-          }}
-        />
-      )}
-      
-      {/* デスクトップ用のパララックス背景 */}
-      {!isMobile && (
-        <div 
-          className="absolute w-full h-full"
-          style={{
-            top: '50%',
-            left: '50%',
+            position: 'absolute',
+            top: '-30%', /* -10% → -30% に変更 */
+            left: '0',
             width: '100%',
-            height: `${100 * backgroundScale}%`,
-            transform: `translate(-50%, -50%) translateY(${parallaxOffset}px) scale(${backgroundScale})`,
-            transformOrigin: 'center center',
+            height: '140%', /* 120% → 160% に変更 */
+            transform: `translateY(${parallaxOffset}px)`,
             willChange: 'transform',
+            WebkitTransform: `translateY(${parallaxOffset}px) translateZ(0)`,
+            backfaceVisibility: 'hidden',
+            WebkitBackfaceVisibility: 'hidden',
           }}
         >
-          <div 
-            className="w-full h-full"
+          <img
+            ref={imageRef}
+            src={IMAGES.parallax.forktoyama1}
+            alt="About parallax background"
             style={{
-              backgroundImage: `url('${IMAGES.parallax.forktoyama1}')`,
-              backgroundPosition: 'center center',
-              backgroundSize: 'cover',
-              backgroundRepeat: 'no-repeat',
-              backgroundAttachment: 'fixed',
+              position: 'absolute',
+              top: '0',
+              left: '0',
+              width: '100%',
+              height: '100%',
+              objectFit: 'cover',
+              objectPosition: 'center center',
+              display: 'block',
             }}
           />
         </div>
-      )}
 
-      {/* コンテンツオーバーレイ（参考サイト風） */}
-      <div className="absolute inset-0 flex items-center justify-center">
-        <div className="text-center text-white z-10">
-          {/* 必要に応じてコンテンツを追加 */}
-        </div>
+        {/* グラデーションオーバーレイ */}
+        <div 
+          style={{
+            position: 'absolute',
+            top: 0,
+            left: 0,
+            right: 0,
+            bottom: 0,
+            background: 'linear-gradient(to bottom, transparent, transparent, rgba(0, 0, 0, 0.2))',
+            pointerEvents: 'none',
+            zIndex: 1,
+          }}
+        />
       </div>
-
-      {/* グラデーションオーバーレイ（より自然に） */}
-      <div className="absolute inset-0 bg-gradient-to-b from-black/10 via-transparent to-black/20 pointer-events-none" />
-    </section>
+    </>
   );
 };
 
-export default ParallaxPhotoSection2;
+export default ParallaxSection2;

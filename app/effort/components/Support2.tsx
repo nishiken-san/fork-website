@@ -11,157 +11,252 @@ const Gakudou2 = () => {
   return (
     <>
       <style jsx>{`
-        .gakudou2-bg {
-          background-color: #E7EBE7;
-        }
-        .section-container {
-          display: flex;
-          min-height: 100vh;
-        }
-        .left-column {
-          width: 33.333333%;
-          background-color: #E7EBE7;
-          position: relative;
-        }
-        .right-column {
-          width: 66.666667%;
-          background-color: #E7EBE7;
-        }
-        .sticky-header {
-          position: sticky;
-          top: 80px;
-          padding: 2rem 3rem;
-          background-color: #E7EBE7;
-          z-index: 20;
-        }
-        .section-label {
-          color: #003705;
-          font-size: 1.5rem;
-          font-weight: 600;
-          letter-spacing: 0.1em;
-          margin-bottom: 0.5rem;
-        }
-        .section-subtitle {
-          color: #B4B4B4;
-          font-size: 0.875rem;
-          font-weight: 400;
-          letter-spacing: 0.1em;
-          margin-bottom: 0.5rem;
-        }
-        .section-title {
-          color: #003705;
-          font-size: 1.5rem;
-          font-weight: 600;
-          line-height: 1.4;
-        }
-        .content-area {
-          padding: 4rem 0 4rem 2rem;
-          min-height: 100vh;
-          display: flex;
-          flex-direction: column;
-          justify-content: center;
-          align-items: flex-start;
-        }
-        .main-description {
-          color: #003705;
-          font-size: 0.875rem;
-          line-height: 1.8;
-          margin-bottom: 2rem;
-          text-align: left;
-        }
-        .support-list {
-          margin-bottom: 3rem;
-        }
-        .support-item {
-          display: flex;
-          align-items: center;
-          margin-bottom: 0.5rem;
-          color: #003705;
-          font-size: 0.875rem;
-        }
-        .support-checkbox {
-          width: 12px;
-          height: 12px;
-          border: 1px solid #003705;
-          margin-right: 0.5rem;
-          background-color: transparent;
-        }
-        .map-section {
-          display: flex;
-          flex-direction: column;
-          align-items: flex-start;
-          margin-bottom: 4rem;
-          position: relative;
-          width: 100%;
-        }
-        .map-container {
-          position: relative;
-          width: 100%;
-          display: flex;
-          justify-content: flex-start;
-          align-items: center;
-          padding-left: 0;
-        }
-        .japan-map-image {
-          width: 100%;
-          max-width: 100%;
-          height: auto;
-          position: relative;
-          z-index: 1;
-        }
-        .fork-text-overlay {
-          position: absolute;
-          top: 45%;
-          left: 45%;
-          transform: translate(-50%, -50%);
-          color: #003705;
-          font-size: 1.2rem;
-          font-weight: 600;
-          z-index: 2;
-        }
-        .button-section {
-          width: 100%;
-          display: flex;
-          flex-direction: column;
-          gap: 1rem;
-        }
-        .support-button {
-          background-color: #E7E7E7;
-          border: 2px solid #003705;
-          color: #003705;
-          padding: 1rem 3rem;
-          font-size: 0.875rem;
-          font-weight: 500;
-          cursor: pointer;
-          transition: background-color 0.3s ease;
-          text-decoration: none;
-          display: block;
-          width: 100%;
-          text-align: center;
-          position: relative;
-          box-shadow: 3px 3px 0px #003705;
-        }
-        .support-button:hover {
-          background-color: #93A794;
-        }
-        @media (min-width: 1024px) {
-          .section-title {
-            font-size: 1.75rem;
-          }
-          .section-label {
-            font-size: 1.75rem;
-          }
-          .content-area {
-            padding: 4rem 0 4rem 4rem;
-          }
-          .japan-map-image {
-            width: 100%;
-          }
-          .fork-text-overlay {
-            font-size: 1.4rem;
-          }
-        }
-      `}</style>
+  .gakudou2-bg {
+    background-color: #E7EBE7;
+  }
+  .section-container {
+    display: flex;
+  }
+  .left-column {
+    width: 33.333333%;
+    background-color: #E7EBE7;
+    position: relative;
+  }
+  .right-column {
+    width: 66.666667%;
+    background-color: #E7EBE7;
+  }
+  .sticky-header {
+    position: sticky;
+    top: 80px;
+    padding: 0 0 100px 0;
+    margin: 0;
+    margin-left: 50px;
+    padding-top: 50px;
+    background-color: #E7EBE7;
+    z-index: 20;
+  }
+  .section-label {
+    color: #003705;
+    font-size: 25px;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    margin: 0 0 0.5rem 0;
+    padding: 0;
+  }
+  .section-subtitle {
+    color: #B4B4B4;
+    font-size: 15px;
+    font-weight: 700;
+    letter-spacing: 0;
+    margin: 0 0 0.5rem 0;
+    padding: 0;
+  }
+  .section-title {
+    color: #003705;
+    font-size: 25px;
+    font-weight: 700;
+    line-height: 1.4;
+    margin: 0;
+    padding: 0;
+  }
+  .content-area {
+    padding: 50px 50px 100px 50px;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
+    margin: 0;
+  }
+  .main-description {
+    color: #003705;
+    font-size: 13px;
+    font-weight: 700;
+    line-height: 1.8;
+    margin: 0 0 2rem 0;
+    padding: 0;
+    text-align: left;
+  }
+  .support-list {
+    margin: 0 0 3rem 0;
+    padding: 0;
+  }
+  .support-item {
+    display: flex;
+    align-items: center;
+    margin: 0 0 0.5rem 0;
+    padding: 0;
+    color: #003705;
+    font-size: 13px;
+    font-weight: 700;
+  }
+  .support-checkbox {
+    width: 12px;
+    height: 12px;
+    border: 1px solid #003705;
+    margin-right: 0.5rem;
+    background-color: transparent;
+  }
+  .map-section {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    margin: 0 0 4rem 0;
+    padding: 0;
+    position: relative;
+    width: 100%;
+  }
+  .map-container {
+    position: relative;
+    width: 100%;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    padding: 0;
+  }
+  .japan-map-image {
+    width: 100%;
+    max-width: 100%;
+    height: auto;
+    position: relative;
+    z-index: 1;
+  }
+  .fork-text-overlay {
+    position: absolute;
+    top: 45%;
+    left: 45%;
+    transform: translate(-50%, -50%);
+    color: #003705;
+    font-size: 1.2rem;
+    font-weight: 700;
+    z-index: 2;
+  }
+  .button-section {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    margin: 0;
+    padding: 0;
+  }
+  .support-button {
+    background-color: #E7EBE7;
+    border: 1px solid #003705;
+    color: #003705;
+    padding: 0;
+    font-size: 15px;
+    font-weight: 700;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 53px;
+    text-align: center;
+    position: relative;
+    box-shadow: 3px 3px 0px #003705;
+  }
+  .support-button:hover {
+    background-color: #93A794;
+  }
+  
+  @media (min-width: 1024px) {
+    .section-title {
+      font-size: 25px;
+    }
+    .section-label {
+      font-size: 25px;
+    }
+    .content-area {
+      padding: 50px 50px 100px 50px;
+    }
+    .japan-map-image {
+      width: 100%;
+    }
+    .fork-text-overlay {
+      font-size: 1.4rem;
+    }
+  }
+  
+  @media (max-width: 768px) {
+    .section-container {
+      flex-direction: column;
+    }
+    
+    .left-column {
+      width: 100%;
+    }
+    
+    .right-column {
+      width: 100%;
+    }
+    
+    .sticky-header {
+      position: relative;
+      padding: 0 0 60px 0;
+      margin: 0;
+      margin-left: 30px;
+      padding-top: 50px;
+    }
+    
+    .section-label {
+      font-size: 20px;
+    }
+    
+    .section-subtitle {
+      font-size: 13px;
+    }
+    
+    .section-title {
+      font-size: 20px;
+    }
+    
+    .content-area {
+      padding: 0 30px 60px 30px;
+    }
+    
+    .main-description {
+      font-size: 13px;
+    }
+    
+    .support-item {
+      font-size: 13px;
+    }
+  }
+  
+  @media (max-width: 480px) {
+    .sticky-header {
+      margin-left: 20px;
+      padding-top: 40px;
+    }
+    
+    .section-label {
+      font-size: 18px;
+    }
+    
+    .section-subtitle {
+      font-size: 12px;
+    }
+    
+    .section-title {
+      font-size: 18px;
+    }
+    
+    .content-area {
+      padding: 0 20px 60px 20px;
+    }
+    
+    .main-description {
+      font-size: 12px;
+    }
+    
+    .support-item {
+      font-size: 12px;
+    }
+  }
+`}</style>
 
       <section ref={sectionRef} id="gakudou2" className="gakudou2-bg relative">
         <div className="section-container">

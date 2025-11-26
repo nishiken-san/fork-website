@@ -1,4 +1,6 @@
-/* styles/about-main.css */
+/* ============================================
+   About Main Section
+   ============================================ */
 
 /* Background */
 .about-main-bg {
@@ -9,17 +11,17 @@
 /* Container */
 .about-section-container {
   display: flex;
-  min-height: 400px; /* 最小高さ400px */
 }
 
 /* Left Column - Content (PC: 2/3, Mobile: 3/4) */
 .about-left-column {
   width: 66.666667%; /* 2/3 */
   background-color: #003705;
-  padding: 4rem 4rem;
+  padding: 50px 50px 100px 50px;
   display: flex;
-  align-items: center;
-  min-height: 400px; /* 最小高さ400px */
+  align-items: flex-start;
+  justify-content: center;
+  flex-direction: column;
 }
 
 /* Right Column - Sticky Title (PC: 1/3, Mobile: 1/4) */
@@ -32,11 +34,14 @@
 .about-sticky-area {
   position: sticky;
   top: 80px;
-  padding: 4rem 2rem;
+  padding: 0 0 100px 0;
+  margin: 0;
+  margin-right: 50px;
+  padding-top: 50px;
   background-color: #003705;
   z-index: 20;
   display: flex;
-  align-items: center;
+  align-items: flex-start;
   justify-content: flex-end;
 }
 
@@ -49,6 +54,8 @@
   font-weight: 700;
   line-height: 1.5;
   letter-spacing: 0.1em;
+  margin: 0;
+  padding: 0;
 }
 
 /* Content */
@@ -58,54 +65,49 @@
 
 .about-content-block {
   padding: 0;
+  margin: 0;
 }
 
 .about-section-category {
-  color: rgba(255, 255, 255, 0.7);
+  color: #B4B4B4;
   font-size: 15px;
   font-weight: 700;
-  letter-spacing: 0; /* 文字間隔をなくす */
-  margin-bottom: 2rem;
+  letter-spacing: 0;
+  margin: 0 0 2rem 0;
+  padding: 0;
 }
 
 .about-description {
-  color: rgba(255, 255, 255, 1);
+  color: #FFFFFF;
   font-size: 15px;
   font-weight: 700;
   line-height: 1.8;
-}
-
-/* Desktop */
-@media (min-width: 1024px) {
-  .about-vertical-title {
-    font-size: 25px;
-  }
-  .about-description {
-    font-size: 15px;
-  }
+  margin: 0;
+  padding: 0;
 }
 
 /* Tablet */
-@media (max-width: 1023px) and (min-width: 769px) {
+@media (min-width: 769px) and (max-width: 1024px) {
   .about-left-column {
-    padding: 3rem 3rem;
+    padding: 50px 50px 100px 50px;
   }
   
   .about-sticky-area {
-    padding: 3rem 1.5rem;
+    padding: 0 0 100px 0;
+    margin-right: 50px;
+    padding-top: 50px;
   }
 }
 
 /* Mobile - 3:1 ratio */
 @media (max-width: 768px) {
   .about-section-container {
-    min-height: 400px;
+    flex-direction: row;
   }
   
   .about-left-column {
     width: 75%; /* 3/4 */
-    min-height: 400px;
-    padding: 3rem 2rem;
+    padding: 50px 30px 60px 30px;
   }
   
   .about-right-column {
@@ -113,8 +115,12 @@
   }
   
   .about-sticky-area {
-    position: relative; /* モバイルではstickyを解除 */
-    padding: 3rem 1rem;
+    position: relative;
+    padding: 0 0 60px 0;
+    margin: 0;
+    margin-right: 0;
+    padding-top: 50px;
+    padding-left: 0;
   }
   
   .about-vertical-title {
@@ -134,17 +140,13 @@
 
 /* Small Mobile */
 @media (max-width: 480px) {
-  .about-section-container {
-    min-height: 400px;
-  }
-  
   .about-left-column {
-    min-height: 400px;
-    padding: 2rem 1.5rem;
+    padding: 40px 20px 60px 20px;
   }
   
   .about-sticky-area {
-    padding: 2rem 0.5rem;
+    padding: 0 0 60px 0;
+    padding-top: 40px;
   }
   
   .about-vertical-title {
@@ -160,43 +162,34 @@
   }
 }
 
-/* app/about/styles/childcare-section.css */
-
-/* app/about/styles/childcare-section.css */
-
 /* ============================================
-   Childcare Section Styles
+   Childcare Section
    ============================================ */
 
-/* 背景 */
 .childcare-main-bg {
   background-color: #E7EBE7;
   position: relative;
 }
 
-/* コンテナ */
 .childcare-section-container {
   display: flex;
 }
 
-/* 左カラム（1/3 = 33.33%） */
 .childcare-left-column {
   width: 33.333333%;
   background-color: #E7EBE7;
   position: relative;
 }
 
-/* 右カラム（2/3 = 66.67%） */
 .childcare-right-column {
   width: 66.666667%;
   background-color: #E7EBE7;
 }
 
-/* Stickyヘッダー */
 .childcare-sticky-header {
   position: sticky;
   top: 80px;
-  padding: 0 0 60px 0;  /* 下60px追加 */
+  padding: 0 0 60px 0;
   margin: 0;
   margin-left: 50px;
   padding-top: 80px;
@@ -208,7 +201,6 @@
   justify-content: flex-start;
 }
 
-/* MINEIラベル */
 .minei-label {
   color: #B4B4B4;
   font-size: 15px;
@@ -218,7 +210,6 @@
   padding: 0;
 }
 
-/* タイトル */
 .childcare-title {
   color: #003705;
   font-size: 25px;
@@ -228,17 +219,14 @@
   padding: 0;
 }
 
-/* コンテンツエリア */
 .childcare-content-area {
   padding: 80px 50px 60px 50px;
 }
 
-/* テキストブロック */
 .childcare-text-block {
   margin-bottom: 3rem;
 }
 
-/* 段落 */
 .childcare-paragraph {
   color: #003705;
   font-size: 13px;
@@ -248,40 +236,35 @@
   padding: 0;
 }
 
-/* 画像コンテナ */
 .childcare-image-container {
   display: flex;
   justify-content: center;
   margin-top: 4rem;
 }
 
-/* 画像 */
 .childcare-image {
   width: 100%;
   max-width: 1000px;
   height: auto;
 }
 
-/* モバイル用画像（PC版は非表示） */
 .childcare-image-mobile {
   display: none;
 }
 
-/* タブレット対応 */
 @media (min-width: 769px) and (max-width: 1024px) {
   .childcare-sticky-header {
     padding: 0 0 60px 0;
-    margin-left: 50px;  /* 40px → 50px */
+    margin-left: 50px;
     padding-top: 80px;
   }
   
   .childcare-content-area {
-    padding: 80px 40px 60px 40px;
+    padding: 80px 50px 60px 50px;
   }
   
   .childcare-title {
     font-size: 22px;
-    font-weight: 700;
   }
   
   .childcare-paragraph {
@@ -289,26 +272,30 @@
   }
 }
 
-/* モバイル対応（縦一列） */
 @media (max-width: 768px) {
+  .childcare-main-bg {
+    padding-bottom: 60px;
+  }
+  
   .childcare-section-container {
-    flex-direction: column; /* 縦並びに変更 */
+    flex-direction: column;
   }
   
   .childcare-left-column {
-    width: 100%; /* 全幅 */
+    width: 100%;
   }
   
   .childcare-right-column {
-    width: 100%; /* 全幅 */
+    width: 100%;
   }
   
   .childcare-sticky-header {
-    position: relative; /* stickyを解除 */
-    padding: 0 0 60px 0;  /* 下60px追加 */
+    position: relative;
+    padding: 0 0 60px 0;
     margin: 0;
     margin-left: 30px;
     padding-top: 50px;
+    margin-bottom: 100px;
   }
   
   .minei-label {
@@ -318,30 +305,26 @@
   
   .childcare-title {
     font-size: 20px;
-    writing-mode: horizontal-tb; /* 横書き */
-    font-weight: 700;
+    writing-mode: horizontal-tb;
   }
   
   .childcare-content-area {
-    padding: 50px 30px 60px 30px;
+    padding: 0 30px 60px 30px;
   }
   
   .childcare-paragraph {
     font-size: 13px;
     line-height: 1.8;
-    margin: 0 0 1.5rem 0;
   }
   
   .childcare-image-container {
     margin-top: 2rem;
   }
   
-  /* PC用画像を非表示 */
   .childcare-image {
     display: none;
   }
   
-  /* モバイル用画像を表示 */
   .childcare-image-mobile {
     display: block;
     width: 100%;
@@ -351,12 +334,12 @@
   }
 }
 
-/* 小型モバイル対応 */
 @media (max-width: 480px) {
   .childcare-sticky-header {
-    padding: 0;
+    padding: 0 0 60px 0;
     margin-left: 20px;
     padding-top: 40px;
+    margin-bottom: 80px;
   }
   
   .minei-label {
@@ -365,16 +348,14 @@
   
   .childcare-title {
     font-size: 18px;
-    font-weight: 700;
   }
   
   .childcare-content-area {
-    padding: 40px 20px 60px 20px;
+    padding: 0 20px 60px 20px;
   }
   
   .childcare-paragraph {
     font-size: 12px;
-    margin: 0 0 1.5rem 0;
   }
   
   .childcare-image-mobile {
@@ -382,43 +363,37 @@
   }
 }
 
-/* app/about/styles/private-section.css */
-
 /* ============================================
-   Private Section Styles
+   Private Section
    ============================================ */
 
-/* 背景 */
 .private-main-bg {
   background-color: #003705;
   position: relative;
-  min-height: 530px; /* セクション高さ530px */
 }
 
-/* コンテナ */
 .private-section-container {
   display: flex;
-  min-height: 530px;
 }
 
-/* 左カラム（1/3 = 33.33%） */
 .private-left-column {
   width: 33.333333%;
   background-color: #003705;
   position: relative;
 }
 
-/* 右カラム（2/3 = 66.67%） */
 .private-right-column {
   width: 66.666667%;
   background-color: #003705;
 }
 
-/* Stickyヘッダー */
 .private-sticky-header {
   position: sticky;
   top: 80px;
-  padding: 50px 50px;
+  padding: 0 0 60px 0;
+  margin: 0;
+  margin-left: 50px;
+  padding-top: 80px;
   background-color: #003705;
   z-index: 20;
   display: flex;
@@ -427,43 +402,41 @@
   justify-content: flex-start;
 }
 
-/* ラベル */
 .private-label {
   color: #B4B4B4;
   font-size: 15px;
   font-weight: 700;
   letter-spacing: 0;
-  margin-bottom: 1.5rem;
+  margin: 0 0 1.5rem 0;
+  padding: 0;
 }
 
-/* タイトル */
 .private-title {
   color: #FFFFFF;
   font-size: 25px;
   font-weight: 700;
   line-height: 1.4;
+  margin: 0;
+  padding: 0;
 }
 
-/* コンテンツエリア */
 .private-content-area {
-  padding: 4rem 4rem;
+  padding: 80px 50px 60px 50px;
   display: flex;
   flex-direction: column;
   gap: 1.5rem;
 }
 
-/* カード */
 .private-card {
   background-color: #E7EBE7;
   border-radius: 10px;
   padding: 1.5rem;
-  height: 100px; /* カードの高さ100px */
+  height: 100px;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
 }
 
-/* カードヘッダー */
 .private-card-header {
   display: flex;
   align-items: center;
@@ -471,31 +444,28 @@
   border-bottom: 1px solid #003705;
 }
 
-/* カード番号 */
 .private-card-number {
   color: #003705;
   font-size: 20px;
   font-weight: 700;
   padding-right: 1rem;
-  /* border-right: 1px solid #003705; ← 削除 */
   min-width: 3rem;
   display: flex;
   align-items: center;
   justify-content: center;
-  position: relative;  /* 追加 */
+  position: relative;
 }
 
 .private-card-number::after {
   content: '';
   position: absolute;
   right: 0;
-  bottom: -0.75rem;  /* padding-bottomの位置（横線の位置） */
+  bottom: -0.75rem;
   width: 1px;
   height: 40px;
   background-color: #003705;
 }
 
-/* カードタイトル */
 .private-card-title {
   color: #003705;
   font-size: 15px;
@@ -506,7 +476,6 @@
   padding: 0 1rem;
 }
 
-/* カードテキスト */
 .private-card-text {
   color: #003705;
   font-size: 13px;
@@ -516,23 +485,21 @@
   padding-top: 0.5rem;
 }
 
-/* タブレット対応 */
-/* タブレット対応 */
 @media (min-width: 769px) and (max-width: 1024px) {
   .private-main-bg {
-    padding: 0 30px 100px 30px;  /* 左右30px、下100px */
+    padding: 0 30px 100px 30px;
   }
   
   .private-sticky-header {
-    padding: 0 0 60px 0;  /* 追加: 下60px */
+    padding: 0 0 60px 0;
     margin: 0;
-    margin-left: 50px;  /* 追加: 左50px */
-    padding-top: 80px;  /* 追加: 上80px */
-    margin-bottom: 100px;  /* タイトルとカードの間100px */
+    margin-left: 50px;
+    padding-top: 80px;
+    margin-bottom: 100px;
   }
   
   .private-content-area {
-    padding: 0 30px;  /* 左右30px */
+    padding: 0 30px;
   }
   
   .private-title {
@@ -545,39 +512,36 @@
   }
 }
 
-/* モバイル対応（縦一列） */
-/* モバイル対応（縦一列） */
 @media (max-width: 768px) {
   .private-main-bg {
     min-height: auto;
-    background-color: #003705;
-    padding: 0 30px 100px 30px;  /* 左右30px、下100px（31px→30px、下100px追加） */
+    padding: 0 30px 100px 30px;
   }
   
   .private-section-container {
-    flex-direction: column; /* 縦並びに変更 */
+    flex-direction: column;
     min-height: auto;
     width: 100%;
-    max-width: 390px; /* W390 */
-    margin: 0 auto; /* 中央配置 */
-    padding: 0; /* paddingをリセット */
+    max-width: 390px;
+    margin: 0 auto;
+    padding: 0;
   }
   
   .private-left-column {
-    width: 100%; /* 全幅 */
-    order: 1; /* 最初に表示 */
+    width: 100%;
+    order: 1;
   }
   
   .private-right-column {
-    width: 100%; /* 全幅 */
-    order: 2; /* 2番目に表示 */
+    width: 100%;
+    order: 2;
   }
   
   .private-sticky-header {
-    position: relative; /* stickyを解除 */
+    position: relative;
     padding: 31px 0 0 0;
     text-align: left;
-    margin-bottom: 100px; /* タイトルとカードの間100px（4rem→100px） */
+    margin-bottom: 100px;
   }
   
   .private-label {
@@ -587,66 +551,50 @@
   
   .private-title {
     font-size: 20px;
-    font-weight: 700;
-    writing-mode: horizontal-tb; /* 横書き */
+    writing-mode: horizontal-tb;
   }
   
   .private-content-area {
     padding: 0;
     display: flex;
     flex-direction: column;
-    align-items: center; /* 中央配置 */
+    align-items: center;
     gap: 1.5rem;
   }
   
   .private-card {
-    width: 329px; /* モバイルでの幅 */
-    height: 155px; /* モバイルでの高さ */
+    width: 329px;
+    height: 155px;
     padding: 1.5rem;
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-start;
   }
   
   .private-card-header {
-    display: flex;
-    align-items: center;
     padding-bottom: 1rem;
-    border-bottom: 1px solid #003705;
     margin-bottom: 1rem;
   }
   
   .private-card-number {
     font-size: 18px;
-    font-weight: 700;
-    padding-right: 1rem;
     min-width: 2.5rem;
   }
   
   .private-card-number::after {
-    bottom: -1rem;  /* モバイル版の調整 */
+    bottom: -1rem;
   }
   
   .private-card-title {
     font-size: 14px;
-    font-weight: 700;
-    text-align: center;
-    flex: 1;
-    padding: 0 1rem;
   }
   
   .private-card-text {
     font-size: 12px;
-    line-height: 1.6;
-    margin: 0;
     padding: 0;
   }
 }
 
-/* 小型モバイル対応 */
 @media (max-width: 480px) {
   .private-main-bg {
-    padding: 0 20px;
+    padding: 0 20px 100px 20px;
   }
   
   .private-section-container {
@@ -655,7 +603,7 @@
   
   .private-sticky-header {
     padding: 2rem 0 0 0;
-    margin-bottom: 3rem;
+    margin-bottom: 80px;
   }
   
   .private-label {
@@ -687,46 +635,37 @@
   }
 }
 
-/* app/about/styles/history-section.css */
-
 /* ============================================
-   History Section Styles
+   History Section
    ============================================ */
 
-/* 背景 */
 .history-main-bg {
   background-color: #E7EBE7;
   position: relative;
 }
 
-/* ============================================
-   PC Layout (Default)
-   ============================================ */
-
-/* コンテナ */
 .history-section-container {
   display: flex;
-  min-height: 100vh;
 }
 
-/* 左カラム（1/3 = 33.33%） */
 .history-left-column {
   width: 33.333333%;
   background-color: #E7EBE7;
   position: relative;
 }
 
-/* 右カラム（2/3 = 66.67%） */
 .history-right-column {
   width: 66.666667%;
   background-color: #E7EBE7;
 }
 
-/* Stickyヘッダー */
 .history-sticky-header {
   position: sticky;
   top: 80px;
-  padding: 4rem 3rem;
+  padding: 0 0 60px 0;
+  margin: 0;
+  margin-left: 50px;
+  padding-top: 80px;
   background-color: #E7EBE7;
   z-index: 20;
   display: flex;
@@ -735,54 +674,44 @@
   justify-content: flex-start;
 }
 
-/* コンテンツエリア */
 .history-content-area {
-  padding: 4rem 4rem;
+  padding: 80px 50px 60px 50px;
 }
-
-/* ============================================
-   Mobile Layout (Separate)
-   ============================================ */
 
 .history-mobile-container {
   display: block;
   width: 100%;
-  min-height: 100vh;
 }
 
 .history-mobile-header {
-  padding: 3rem 2rem 0 2rem;
-  margin-bottom: 3rem;
+  padding: 50px 30px 0 30px;
+  margin-bottom: 100px;
   background-color: #E7EBE7;
 }
 
 .history-mobile-content {
-  padding: 0 2rem 3rem 2rem;
+  padding: 0 30px 60px 30px;
   background-color: #E7EBE7;
 }
 
-/* ============================================
-   Common Styles
-   ============================================ */
-
-/* ラベル */
 .history-label {
   color: #B4B4B4;
   font-size: 15px;
   font-weight: 700;
   letter-spacing: 0;
-  margin-bottom: 1.5rem;
+  margin: 0 0 1.5rem 0;
+  padding: 0;
 }
 
-/* タイトル */
 .history-title {
   color: #003705;
   font-size: 25px;
   font-weight: 700;
   line-height: 1.4;
+  margin: 0;
+  padding: 0;
 }
 
-/* 年表テーブル */
 .history-table {
   width: 100%;
   border-collapse: collapse;
@@ -790,7 +719,7 @@
 }
 
 .history-row {
-  border-top: 2px solid #003705;
+  border-top: 1px solid #003705;
 }
 
 .history-year-cell {
@@ -822,11 +751,10 @@
   font-weight: 700;
 }
 
-/* noteセクション */
 .history-note-section {
   background-color: #FFFFFF;
   border: 1px solid #003705;
-  box-shadow: 1px 1px 0px #003705;
+  box-shadow: 3px 3px 0px #003705;
   padding: 1.5rem;
   margin-top: 2rem;
 }
@@ -884,17 +812,19 @@
   object-fit: contain;
 }
 
-/* ============================================
-   Tablet
-   ============================================ */
-
 @media (min-width: 769px) and (max-width: 1024px) {
+  .history-main-bg {
+    padding-bottom: 60px;
+  }
+  
   .history-sticky-header {
-    padding: 3rem 2rem;
+    padding: 0 0 60px 0;
+    margin-left: 50px;
+    padding-top: 80px;
   }
   
   .history-content-area {
-    padding: 3rem 3rem;
+    padding: 80px 50px 60px 50px;
   }
   
   .history-title {
@@ -902,11 +832,11 @@
   }
 }
 
-/* ============================================
-   Mobile
-   ============================================ */
-
 @media (max-width: 768px) {
+  .history-main-bg {
+    padding-bottom: 60px;
+  }
+  
   .history-label {
     font-size: 13px;
     margin-bottom: 1rem;
@@ -959,18 +889,14 @@
   }
 }
 
-/* ============================================
-   Small Mobile
-   ============================================ */
-
 @media (max-width: 480px) {
   .history-mobile-header {
-    padding: 2rem 1.5rem 0 1.5rem;
-    margin-bottom: 2rem;
+    padding: 40px 20px 0 20px;
+    margin-bottom: 80px;
   }
   
   .history-mobile-content {
-    padding: 0 1.5rem 2rem 1.5rem;
+    padding: 0 20px 60px 20px;
   }
   
   .history-label {
@@ -997,46 +923,37 @@
   }
 }
 
-/* app/about/styles/member-section.css */
-
 /* ============================================
-   Member Section Styles
+   Member Section
    ============================================ */
 
-/* 背景 */
 .member-main-bg {
   background-color: #E7EBE7;
   position: relative;
 }
 
-/* ============================================
-   PC Layout (Default)
-   ============================================ */
-
-/* コンテナ */
 .member-section-container {
   display: flex;
-  min-height: 100vh;
 }
 
-/* 左カラム（1/3 = 33.33%） */
 .member-left-column {
   width: 33.333333%;
   background-color: #E7EBE7;
   position: relative;
 }
 
-/* 右カラム（2/3 = 66.67%） */
 .member-right-column {
   width: 66.666667%;
   background-color: #E7EBE7;
 }
 
-/* Stickyヘッダー */
 .member-sticky-header {
   position: sticky;
   top: 80px;
-  padding: 4rem 3rem;
+  padding: 0 0 60px 0;
+  margin: 0;
+  margin-left: 50px;
+  padding-top: 80px;
   background-color: #E7EBE7;
   z-index: 20;
   display: flex;
@@ -1045,40 +962,32 @@
   justify-content: flex-start;
 }
 
-/* コンテンツエリア */
 .member-content-area {
-  padding: 4rem 4rem;
+  padding: 80px 50px 60px 50px;
 }
 
-/* メンバーグリッド（PC: 4列） */
 .member-grid {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
   gap: 2rem;
 }
 
-/* ============================================
-   Mobile Layout (Separate)
-   ============================================ */
-
 .member-mobile-container {
   display: block;
   width: 100%;
-  min-height: 100vh;
 }
 
 .member-mobile-header {
-  padding: 3rem 2rem 0 2rem;
-  margin-bottom: 3rem;
+  padding: 50px 30px 0 30px;
+  margin-bottom: 100px;
   background-color: #E7EBE7;
 }
 
 .member-mobile-content {
-  padding: 0 2rem 3rem 2rem;
+  padding: 0 30px 60px 30px;
   background-color: #E7EBE7;
 }
 
-/* メンバーグリッド（モバイル: 2列） */
 .member-grid-mobile {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
@@ -1086,28 +995,24 @@
   margin-top: 3rem;
 }
 
-/* ============================================
-   Common Styles
-   ============================================ */
-
-/* ラベル */
 .member-label {
   color: #B4B4B4;
   font-size: 15px;
   font-weight: 700;
   letter-spacing: 0;
-  margin-bottom: 1.5rem;
+  margin: 0 0 1.5rem 0;
+  padding: 0;
 }
 
-/* タイトル */
 .member-title {
   color: #003705;
   font-size: 25px;
   font-weight: 700;
   line-height: 1.4;
+  margin: 0;
+  padding: 0;
 }
 
-/* 代表者カード */
 .member-leader-card {
   display: flex;
   gap: 2rem;
@@ -1147,7 +1052,6 @@
   font-weight: 700;
 }
 
-/* メンバーカード */
 .member-card {
   text-align: left;
 }
@@ -1172,17 +1076,19 @@
   font-weight: 700;
 }
 
-/* ============================================
-   Tablet
-   ============================================ */
-
 @media (min-width: 769px) and (max-width: 1024px) {
+  .member-main-bg {
+    padding-bottom: 60px;
+  }
+  
   .member-sticky-header {
-    padding: 3rem 2rem;
+    padding: 0 0 60px 0;
+    margin-left: 50px;
+    padding-top: 80px;
   }
   
   .member-content-area {
-    padding: 3rem 3rem;
+    padding: 80px 50px 60px 50px;
   }
   
   .member-title {
@@ -1194,11 +1100,11 @@
   }
 }
 
-/* ============================================
-   Mobile
-   ============================================ */
-
 @media (max-width: 768px) {
+  .member-main-bg {
+    padding-bottom: 60px;
+  }
+  
   .member-label {
     font-size: 13px;
     margin-bottom: 1rem;
@@ -1244,18 +1150,14 @@
   }
 }
 
-/* ============================================
-   Small Mobile
-   ============================================ */
-
 @media (max-width: 480px) {
   .member-mobile-header {
-    padding: 2rem 1.5rem 0 1.5rem;
-    margin-bottom: 2rem;
+    padding: 40px 20px 0 20px;
+    margin-bottom: 80px;
   }
   
   .member-mobile-content {
-    padding: 0 1.5rem 2rem 1.5rem;
+    padding: 0 20px 60px 20px;
   }
   
   .member-label {
