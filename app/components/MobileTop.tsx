@@ -1,16 +1,16 @@
-// app/components/MobileMenu.tsx
+// app/components/MobileTop.tsx
 'use client';
 
 import { useEffect } from 'react';
 import { IMAGES } from '@/constants/images';
 
-interface MobileMenuProps {
+interface MobileTopProps {
   isOpen: boolean;
   onClose: () => void;
   logoImage?: string;
 }
 
-const MobileMenu: React.FC<MobileMenuProps> = ({ isOpen, onClose, logoImage }) => {
+const MobileTop: React.FC<MobileTopProps> = ({ isOpen, onClose, logoImage }) => {
   useEffect(() => {
     if (isOpen) {
       document.body.style.overflow = 'hidden';
@@ -46,8 +46,8 @@ const MobileMenu: React.FC<MobileMenuProps> = ({ isOpen, onClose, logoImage }) =
           position: fixed;
           left: 0;
           right: 0;
-          top: 71px;
-          background-color: #E7EBE7;
+          top: 70px;
+          background-color: #003705;
           z-index: 50;
           overflow: hidden;
           max-height: 0;
@@ -55,19 +55,19 @@ const MobileMenu: React.FC<MobileMenuProps> = ({ isOpen, onClose, logoImage }) =
         }
         
         .menu-panel.active {
-          max-height: calc(100vh - 71px);
+          max-height: calc(100vh - 70px);
         }
         
         .menu-content {
           padding: 2rem;
           padding-bottom: 3rem;
           overflow-y: auto;
-          max-height: calc(100vh - 71px);
+          max-height: calc(100vh - 70px);
         }
         
         .menu-link {
           display: block;
-          color: #003705;
+          color: #E7EBE7;
           font-size: 1rem;
           margin-bottom: 1.25rem;
           text-decoration: none;
@@ -108,7 +108,7 @@ const MobileMenu: React.FC<MobileMenuProps> = ({ isOpen, onClose, logoImage }) =
         }
         
         .menu-link:hover {
-          color: #1a5c1f;
+          color: #b8c0b8;
         }
         
         .menu-submenu-container {
@@ -125,7 +125,7 @@ const MobileMenu: React.FC<MobileMenuProps> = ({ isOpen, onClose, logoImage }) =
         }
         
         .menu-submenu-title {
-          color: #003705;
+          color: #E7EBE7;
           font-size: 1rem;
           margin-bottom: 0.5rem;
         }
@@ -164,7 +164,7 @@ const MobileMenu: React.FC<MobileMenuProps> = ({ isOpen, onClose, logoImage }) =
         }
         
         .menu-bottom-link {
-          color: #003705;
+          color: #E7EBE7;
           font-size: 0.875rem;
           display: flex;
           align-items: center;
@@ -174,7 +174,7 @@ const MobileMenu: React.FC<MobileMenuProps> = ({ isOpen, onClose, logoImage }) =
         }
         
         .menu-bottom-link:hover {
-          color: #1a5c1f;
+          color: #b8c0b8;
         }
         
         .arrow-icon {
@@ -228,7 +228,7 @@ const MobileMenu: React.FC<MobileMenuProps> = ({ isOpen, onClose, logoImage }) =
             <a href="/fork-toyama" className="menu-bottom-link" onClick={onClose}>
               学童保育：fork toyama 
               <img 
-                src={IMAGES.logo.vecg}
+                src={IMAGES.logo.vecw}
                 alt="arrow"
                 className="arrow-icon"
               />
@@ -240,4 +240,4 @@ const MobileMenu: React.FC<MobileMenuProps> = ({ isOpen, onClose, logoImage }) =
   );
 };
 
-export default MobileMenu;
+export default MobileTop;
