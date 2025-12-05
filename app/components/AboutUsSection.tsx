@@ -24,31 +24,35 @@ const AboutUsSection = () => {
   return (
     <>
       <style jsx>{`
-        .about-bg {
+        .about-section {
           background-color: #003705;
         }
+        
         .section-container {
           display: flex;
         }
+        
         .left-column {
           width: 33.333333%;
           background-color: #003705;
           position: relative;
         }
+        
         .right-column {
           width: 66.666667%;
           background-color: #003705;
         }
+        
         .sticky-header {
           position: sticky;
-          top: 80px;
-          padding: 0 0 60px 0;
-          margin: 0;
-          margin-left: 50px;
+          top: 70px;
           padding-top: 80px;
+          padding-left: 50px;
+          padding-bottom: 60px;
           background-color: transparent;
           z-index: 20;
         }
+        
         .section-title {
           color: #FFFFFF;
           font-size: 25px;
@@ -60,46 +64,48 @@ const AboutUsSection = () => {
           margin: 0;
           padding: 0;
         }
+        
         .content-area {
           padding: 80px 50px 60px 50px;
           display: flex;
           flex-direction: column;
-          margin: 0;
         }
+        
         .section-label {
           color: #FFFFFF;
           font-size: 15px;
           font-weight: 700;
           margin: 0 0 2rem 0;
-          padding: 0;
           letter-spacing: 0;
         }
+        
         .main-text {
           color: #FFFFFF;
           font-size: 15px;
           line-height: 2;
           margin: 0 0 3rem 0;
-          padding: 0;
           font-weight: 700;
         }
+        
         .illustration-container {
           margin: 3rem 0;
-          padding: 0;
           display: flex;
           justify-content: flex-start;
         }
+        
         .illustration {
           width: 100%;
           max-width: 853px;
           height: auto;
           object-fit: contain;
         }
+        
         .button-container {
           width: 100%;
           max-width: 853px;
           margin: 2rem 0 0 0;
-          padding: 0;
         }
+        
         .more-button {
           background-color: #E7EBE7;
           color: #003705;
@@ -116,6 +122,7 @@ const AboutUsSection = () => {
           border: 1px solid #FFFFFF;
           box-shadow: 3px 3px 0px #FFFFFF;
         }
+        
         .more-button:hover {
           background-color: #93A794;
         }
@@ -126,7 +133,7 @@ const AboutUsSection = () => {
         
         /* モバイル対応 */
         @media (max-width: 768px) {
-          .about-bg {
+          .about-section {
             display: flex;
             flex-direction: column;
           }
@@ -148,33 +155,28 @@ const AboutUsSection = () => {
           
           .sticky-header {
             position: relative;
-            padding: 0 0 60px 0;
-            margin: 0;
-            margin-left: 30px;
+            top: auto;
             padding-top: 50px;
-            background-color: transparent;
+            padding-left: 30px;
+            padding-bottom: 60px;
           }
           
           .section-title {
             font-size: 25px;
-            writing-mode: vertical-rl;
           }
           
           .content-area {
             padding: 50px 30px 60px 0;
             min-height: auto;
-            justify-content: flex-start;
           }
           
           .section-label {
             color: #B4B4B4;
             font-size: 15px;
             margin: 0 0 1.5rem 0;
-            letter-spacing: 0;
           }
           
           .main-text {
-            color: #FFFFFF;
             font-size: 15px;
             margin: 0 0 2rem 0;
           }
@@ -185,7 +187,7 @@ const AboutUsSection = () => {
             display: none;
           }
           
-          /* モバイル専用の画像とボタンコンテナ */
+          /* モバイル専用コンテナ */
           .mobile-media-container {
             display: flex;
             flex-direction: column;
@@ -193,8 +195,6 @@ const AboutUsSection = () => {
             width: 100%;
             background-color: #003705;
             padding: 0 0 60px 0;
-            margin: 0;
-            position: relative;
           }
           
           .mobile-media-container .illustration-container {
@@ -202,35 +202,32 @@ const AboutUsSection = () => {
             justify-content: flex-end;
             margin: 0 0 2rem 0;
             width: 100%;
-            position: relative;
-            right: 30px;
+            padding-right: 30px;
           }
           
           .mobile-media-container .illustration {
             width: 330px;
-            height: 189.21px;
+            max-width: calc(100% - 30px);
+            height: auto;
           }
           
           .mobile-media-container .button-container {
             display: flex;
             justify-content: flex-end;
             width: 100%;
-            margin: 0;
-            position: relative;
-            right: 30px;
+            padding-right: 30px;
           }
           
           .mobile-media-container .more-button {
             width: 332px;
+            max-width: calc(100% - 30px);
             height: 52px;
             font-size: 15px;
-            border: 1px solid #FFFFFF;
-            box-shadow: 3px 3px 0px #FFFFFF;
           }
         }
       `}</style>
 
-      <section ref={sectionRef} id="about" className="about-bg relative">
+      <section ref={sectionRef} id="about" className="about-section">
         <div className="section-container">
           {/* 左側: タイトル */}
           <div className="left-column">
@@ -242,15 +239,15 @@ const AboutUsSection = () => {
           {/* 右側: コンテンツ */}
           <div ref={contentRef} className="right-column">
             <div className="content-area">
-              <div className="section-label">aboutus</div>
+              <div className="section-label">about us</div>
               
               <p className="main-text">
                 forkとは「選択肢」のこと。<br/>
-                社会全体で子育てする仕組みづくりを通して、<br/>
+                社会全体で子育てする仕組みづくりを通じて、<br/>
                 大人も子どもも自分らしい生き方を選べる世の中をつくります。
               </p>
 
-              {/* PC表示用の画像とボタン */}
+              {/* PC表示用 */}
               <div className="illustration-container">
                 <img 
                   src="/images/about/silhouette.png"
@@ -268,7 +265,7 @@ const AboutUsSection = () => {
           </div>
         </div>
         
-        {/* モバイル専用: 画像とボタン（独立した行） */}
+        {/* モバイル専用 */}
         {isMobile && (
           <div className="mobile-media-container">
             <div className="illustration-container">

@@ -14,63 +14,18 @@ const ForkTitleSection: React.FC<ForkTitleSectionProps> = ({
   parallaxImage,
   scrollImage = '/images/top/scroll.png'
 }) => {
-  const [isMobile, setIsMobile] = useState(false);
   const [isReady, setIsReady] = useState(false);
-  const [scale, setScale] = useState(1);
 
   useEffect(() => {
-    const checkMobile = () => {
-      setIsMobile(window.innerWidth < 768);
-    };
-    
-    const calculateScale = () => {
-      if (window.innerWidth >= 768) {
-        // PC表示
-        const windowWidth = window.innerWidth;
-        const baseWidth = 1400;
-        
-        // 最小マージン47pxを確保
-        const minWidth = 47 * 2 + 832.02;
-        
-        if (windowWidth < baseWidth) {
-          const newScale = Math.max(windowWidth / baseWidth, minWidth / baseWidth);
-          setScale(newScale);
-        } else {
-          setScale(1);
-        }
-      } else {
-        // モバイル表示
-        const windowWidth = window.innerWidth;
-        const baseWidth = 390;
-        
-        if (windowWidth < baseWidth) {
-          setScale(windowWidth / baseWidth);
-        } else {
-          setScale(1);
-        }
-      }
-    };
-    
-    checkMobile();
-    calculateScale();
-    
     const timer = setTimeout(() => {
       setIsReady(true);
     }, 100);
     
-    window.addEventListener('resize', () => {
-      checkMobile();
-      calculateScale();
-    });
-    
     return () => {
       clearTimeout(timer);
-      window.removeEventListener('resize', checkMobile);
-      window.removeEventListener('resize', calculateScale);
     };
   }, []);
 
-  // 背景色を取得
   const getBackgroundStyle = () => {
     switch (backgroundColor) {
       case 'green':
@@ -89,22 +44,221 @@ const ForkTitleSection: React.FC<ForkTitleSectionProps> = ({
     }
   };
 
-  // 次のセクションへスクロール
   const scrollToNext = () => {
-    const scrollDistance = isMobile ? 750 : 780;
-    window.scrollTo({
-      top: scrollDistance,
-      behavior: 'smooth'
-    });
+    const section = document.querySelector('.fork-title-section');
+    if (section) {
+      const sectionHeight = section.getBoundingClientRect().height;
+      window.scrollTo({
+        top: sectionHeight,
+        behavior: 'smooth'
+      });
+    }
   };
+
+  /* ============================================
+   * 微調整用パラメータ一覧
+   * ============================================
+   * 
+   * 【セクション全体】
+   * - height: 850px (モバイル: 750px) → セクションの高さ
+   * 
+   * 【forkロゴ】
+   * - top: 40px → 上からの距離
+   * - width: 832px → ロゴの幅
+   * - height: 347px → ロゴの高さ（五本線位置計算に使用）
+   * 
+   * 【五本線イラスト】
+   * - top: 213px → 上からの距離（fork上端40px + fork高さ347px/2 = 213.5px）
+   * - right: 0〜50px → 右からの距離（画面幅で変動）
+   * - width: 743px → イラストの幅
+   * 
+   * 【テキスト】
+   * - left: 50px (モバイル: 30px, 小型: 20px) → 左からの距離
+   * - bottom: 45px → 下端からの距離
+   * - font-size: 20px → 文字サイズ（固定）
+   * - font-weight: 700 → 文字の太さ
+   * - line-height: 1.8 → 行間
+   * 
+   * 【scrollボタン】
+   * - right: 50px (モバイル: 30px, 小型: 20px) → 右からの距離
+   * - bottom: 40px → 下端からの距離
+   * - width: 41px, height: 36px → ボタンサイズ
+   * ============================================ */
 
   return (
     <>
-      <style jsx global>{`
+    <style jsx global>{`
         html, body {
           background-color: #003705 !important;
           margin: 0;
           padding: 0;
+        }
+      `}</style>
+      <style jsx>{`
+        .fork-title-section {
+          position: relative;
+          width: 100%;
+          height: 850px; /* 【調整】セクション高さ */
+          overflow: hidden;
+        }
+        
+        /* forkロゴ - 中央配置、上から40px */
+        .fork-logo {
+          position: absolute;
+          top: 40px; /* 【調整】forkロゴの上からの距離 */
+          left: 50%;
+          transform: translateX(-50%);
+          z-index: 10;
+          width: 832px; /* 【調整】forkロゴの幅 */
+          height: auto;
+          max-width: 90%;
+        }
+        
+        /* 5本線イラスト - 上端がforkの半分位置（40px + 347px/2 = 213px） */
+        .fork-illustration {
+          position: absolute;
+          top: 213px; /* 【調整】五本線の上からの距離 */
+          right: 0; /* 【調整】五本線の右からの距離 */
+          z-index: 15;
+          width: 743px; /* 【調整】五本線の幅 */
+          height: auto;
+        }
+        
+        /* テキストコンテンツ - 左下固定 */
+        .text-content {
+          position: absolute;
+          left: 50px; /* 【調整】テキストの左からの距離 */
+          bottom: 45px; /* 【調整】テキストの下端からの距離 */
+          color: #FFFFFF;
+          z-index: 20;
+        }
+        
+        .text-line {
+          font-size: 20px; /* 【調整】テキストサイズ（固定） */
+          font-weight: 700; /* 【調整】テキストの太さ */
+          line-height: 1.8; /* 【調整】行間 */
+          margin: 0;
+          letter-spacing: 0.05em; /* 【調整】字間 */
+        }
+        
+        /* scrollボタン - 右下固定 */
+        .scroll-button {
+          position: absolute;
+          right: 50px; /* 【調整】scrollの右からの距離 */
+          bottom: 40px; /* 【調整】scrollの下端からの距離 */
+          background: none;
+          border: none;
+          cursor: pointer;
+          z-index: 30;
+          padding: 0;
+          outline: none;
+        }
+        
+        .scroll-button:hover {
+          opacity: 0.7;
+        }
+        
+        .scroll-icon {
+          width: 41px; /* 【調整】scrollアイコンの幅 */
+          height: 36px; /* 【調整】scrollアイコンの高さ */
+          object-fit: contain;
+        }
+        
+        /* ==================== レスポンシブ設定 ==================== */
+        
+        /* 1700px以上 */
+        @media (min-width: 1700px) {
+          .fork-illustration {
+            right: 50px; /* 【調整】1700px以上での右位置 */
+          }
+        }
+        
+        /* 1400px〜1699px */
+        @media (min-width: 1400px) and (max-width: 1699px) {
+          .fork-illustration {
+            right: 0; /* 【調整】1400-1699pxでの右位置 */
+          }
+        }
+        
+        /* 1000px〜1399px */
+        @media (min-width: 1000px) and (max-width: 1399px) {
+          .fork-illustration {
+            right: -100px; /* 【調整】1000-1399pxでの右位置 */
+          }
+        }
+        
+        /* 769px〜999px */
+        @media (min-width: 769px) and (max-width: 999px) {
+          .fork-illustration {
+            right: -100px; /* 【調整】769-999pxでの右位置 */
+            width: 600px; /* 【調整】769-999pxでの五本線幅 */
+            top: 100px; /* 【調整】769-999pxでの上位置 */
+          }
+          
+          .fork-logo {
+            width: 730px; /* 【調整】769-999pxでのforkロゴ幅 */
+          }
+        }
+        
+        /* モバイル: 768px以下 */
+        @media (max-width: 768px) {
+          .fork-title-section {
+            height: 750px; /* 【調整】モバイルでのセクション高さ */
+          }
+          
+          .fork-logo {
+            width: 330px; /* 【調整】モバイルでのforkロゴ幅 */
+            top: 100px; /* 【調整】モバイルでのfork上位置 */
+          }
+          
+          .fork-illustration {
+            width: 460px; /* 【調整】モバイルでの五本線幅 */
+            right: 30px;
+            left: auto; /* 【調整】モバイルでの五本線左位置 */
+            top: 100px; /* 【調整】モバイルでの五本線上位置 */
+          }
+          
+          .text-content {
+            left: 30px; /* 【調整】モバイルでのテキスト左位置 */
+            bottom: 45px;
+          }
+          
+          .scroll-button {
+            right: 30px; /* 【調整】モバイルでのscroll右位置 */
+            bottom: 40px;
+          }
+        }
+        
+        /* 小型モバイル: 480px以下 */
+        @media (max-width: 480px) {
+          .fork-logo {
+            width: 280px; /* 【調整】小型モバイルでのforkロゴ幅 */
+          }
+          
+          .fork-illustration {
+            width: 400px; /* 【調整】小型モバイルでの五本線幅 */
+            left: -30px; /* 【調整】小型モバイルでの五本線左位置 */
+          }
+          
+          .text-content {
+            left: 20px; /* 【調整】小型モバイルでのテキスト左位置 */
+          }
+          
+          .scroll-button {
+            right: 20px; /* 【調整】小型モバイルでのscroll右位置 */
+          }
+        }
+        
+        /* 390px以下 */
+        @media (max-width: 390px) {
+          .fork-logo {
+            width: 260px; /* 【調整】390px以下でのforkロゴ幅 */
+          }
+          
+          .fork-illustration {
+            width: 350px; /* 【調整】390px以下での五本線幅 */
+            left: -40px; /* 【調整】390px以下での五本線左位置 */
+          }
         }
       `}</style>
       
@@ -112,112 +266,43 @@ const ForkTitleSection: React.FC<ForkTitleSectionProps> = ({
         className="fork-title-section"
         style={{
           ...getBackgroundStyle(),
-          height: isMobile ? '750px' : '780px',
-          position: 'relative',
-          overflow: 'hidden',
-          width: '100%',
           opacity: isReady ? 1 : 0,
-          transition: 'opacity 0.3s ease-in',
-          marginTop: 0,
-          paddingTop: 0
+          transition: 'opacity 0.3s ease-in'
         }}
       >
-        {/* scaleで縮小されるコンテンツ（イラストのみ） */}
-        <div style={{
-          position: 'relative',
-          width: isMobile ? '390px' : '1400px',
-          height: isMobile ? '750px' : '780px',
-          margin: '0 auto',
-          transform: `scale(${scale})`,
-          transformOrigin: 'top center'
-        }}>
-          
-          {/* fork-illustration-pc.png (5本線) */}
-          <img
-            src="/images/hero/fork-illustration-pc.png"
-            alt="Fork illustration"
-            style={{
-              position: 'absolute',
-              ...(isMobile 
-                ? { left: '-9px', top: '101px' }
-                : { right: '870px', top: '153px' }
-              ),
-              width: isMobile ? '460.4px' : '743.0px',
-              height: isMobile ? '457.67px' : '738.55px',
-              objectFit: 'contain',
-              transformOrigin: 'top left',
-              zIndex: 2
-            }}
-          />
-        </div>
-
-        {/* fork-logo.png - scale変換の外（常に左から47px、上から103px） */}
+        {/* forkロゴ - 中央配置、上から40px */}
         <img
           src="/images/hero/fork-logo.png"
           alt="Fork"
-          style={{
-            position: 'absolute',
-            left: isMobile ? '29px' : '47px',
-            top: isMobile ? '100px' : '103px',
-            width: isMobile ? '329.6px' : '832.02px',
-            height: isMobile ? '137.5px' : '347px',
-            objectFit: 'contain',
-            zIndex: 10
-          }}
+          className="fork-logo"
+        />
+        
+        {/* 5本線イラスト - 文字より手前（z-index: 15） */}
+        <img
+          src="/images/hero/fork-illustration-pc.png"
+          alt="Fork illustration"
+          className="fork-illustration"
         />
 
-        {/* テキストコンテンツ - scale変換の外（左から47px、下端が下から240px） */}
-        <div style={{
-          position: 'absolute',
-          left: isMobile ? '30px' : '47px',
-          bottom: isMobile ? '250px' : '240px',
-          color: '#FFFFFF',
-          zIndex: 20,
-          display: 'flex',
-          flexDirection: 'column',
-          alignItems: 'flex-start'
-        }}>
-          <div style={{
-            display: 'flex',
-            flexDirection: 'column',
-            gap: '0.25rem',
-            fontSize: isMobile ? '15px' : '20px',
-            fontWeight: 300,
-            lineHeight: 1.6
-          }}>
-            <p style={{ margin: 0 }}>&quot;はたらく&quot;と</p>
-            <p style={{ margin: 0 }}>&quot;そだてる&quot;を</p>
-            <p style={{ margin: 0 }}>もっと自由にする。</p>
-            <p style={{ margin: 0 }}>みんなで生きる。</p>
-            <p style={{ margin: 0 }}>あたらしい学童保育</p>
-          </div>
+        {/* テキストコンテンツ - 左下、下端から45px */}
+        <div className="text-content">
+          <p className="text-line">&quot;はたらく&quot;と</p>
+          <p className="text-line">&quot;そだてる&quot;を</p>
+          <p className="text-line">もっと自由にする。</p>
+          <p className="text-line">みんなで営む、</p>
+          <p className="text-line">あたらしい学童保育</p>
         </div>
 
-        {/* scrollボタン - scale変換の外（常に右から91px、下から70px） */}
+        {/* scrollボタン - 右下、下端から40px */}
         <button
           onClick={scrollToNext}
           className="scroll-button"
-          style={{
-            position: 'absolute',
-            right: isMobile ? '71px' : '91px',
-            bottom: isMobile ? '56px' : '70px',
-            background: 'none',
-            border: 'none',
-            cursor: 'pointer',
-            zIndex: 30,
-            padding: 0,
-            outline: 'none'
-          }}
           aria-label="次のセクションへスクロール"
         >
           <img
             src={scrollImage}
             alt="scroll"
-            style={{
-              width: '41px',
-              height: '36px',
-              objectFit: 'contain'
-            }}
+            className="scroll-icon"
           />
         </button>
       </section>

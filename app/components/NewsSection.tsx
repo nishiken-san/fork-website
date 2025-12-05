@@ -58,8 +58,7 @@ const NewsSection = () => {
           position: relative;
         }
         .sticky-header {
-          position: sticky;
-          top: 80px;
+          position: relative;
           background-color: #E7EBE7;
           z-index: 20;
           height: 100%;
@@ -96,14 +95,12 @@ const NewsSection = () => {
           height: 100%;
         }
         
-        /* 1個目のニュース */
         .news-item-1 {
           position: absolute;
           left: 50px;
           top: 145px;
         }
         
-        /* 2個目のニュース */
         .news-item-2 {
           position: absolute;
           left: 50px;
@@ -184,7 +181,6 @@ const NewsSection = () => {
           transition: transform 0.3s ease;
         }
         
-        /* コンテナホバーで両方動く */
         .view-all-container:hover .view-all-link {
           transform: translateX(0.5em);
         }
@@ -212,8 +208,7 @@ const NewsSection = () => {
           }
           
           .sticky-header {
-            position: sticky;
-            top: 80px;
+            position: relative;
             height: 100%;
           }
           
@@ -244,10 +239,12 @@ const NewsSection = () => {
           .news-title {
             font-size: 13px;
             font-weight: 700;
-            max-width: 220px;
-            white-space: nowrap;
+            max-width: 180px;
             overflow: hidden;
             text-overflow: ellipsis;
+            display: -webkit-box;
+            -webkit-line-clamp: 2;
+            -webkit-box-orient: vertical;
           }
           
           .view-all-container {
@@ -297,7 +294,7 @@ const NewsSection = () => {
           {/* 右側: 固定ヘッダー */}
           <div className="right-column">
             <div className="sticky-header">
-              <h2 className="section-title">お知らせ・記録</h2>
+              <h2 className="section-title">おしらせ・記録</h2>
               <div className="view-all-container">
                 <a href="/news" className="view-all-link">
                   すべてのおしらせ
