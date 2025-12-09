@@ -5,21 +5,27 @@ import { useEffect, useRef } from 'react';
 import styles from './ParallaxSection.module.css';
 
 /* ============================================
- * 微調整用パラメータ
+ * パララックス設定
  * ============================================
  * 
- * parallaxAmount: 30 → 最大移動量（px）
- *   - 参考サイトは約10〜15px程度
- *   - 大きくすると動きが目立つ
+ * PARALLAX_SPEED: 視差の強さ
+ *   - 0.1〜0.3 推奨
  * 
- * videoScale: 1.15 → 動画拡大率
- *   - パララックス移動分の余白確保
- *   - parallaxAmountが大きい場合は拡大率も上げる
+ * PARALLAX_OVERFLOW: パララックス用の余裕（px）
+ *   - 大きいほど上下の余白が出にくい
+ *   - PARALLAX_SPEEDを大きくする場合は増やす
+ * 
+ * VERTICAL_POSITION: 動画の上下表示位置
+ *   - 'top' = 上寄せ
+ *   - 'center' = 中央
+ *   - 'bottom' = 下寄せ
+ *   - '30%' = 上から30%の位置
  * 
  * ============================================ */
 
-const PARALLAX_AMOUNT = 30; // 【調整】最大移動量（px）
-const VIDEO_SCALE = 1.15;   // 【調整】動画拡大率
+const PARALLAX_SPEED = 0.15;      // 【調整】視差の強さ
+const PARALLAX_OVERFLOW = 50;     // 【調整】パララックス用の余裕（px）
+const VERTICAL_POSITION = 'center'; // 【調整】上下表示位置
 
 const ParallaxSection1 = () => {
   const sectionRef = useRef<HTMLDivElement>(null);
@@ -32,28 +38,21 @@ const ParallaxSection1 = () => {
     
     if (!section || !wrapper) return;
 
-    // パララックス計算（スクロールに完全同期）
     const updateParallax = () => {
       const rect = section.getBoundingClientRect();
       const windowHeight = window.innerHeight;
 
-      // 画面外なら処理スキップ
       if (rect.bottom < 0 || rect.top > windowHeight) return;
 
-      // 進行度計算: 画面下端→画面上端で0→1
-      const progress = 1 - (rect.top + rect.height) / (windowHeight + rect.height);
-      
-      // 中央基準で-0.5〜0.5に正規化
-      const offset = (progress - 0.5) * PARALLAX_AMOUNT;
+      const sectionCenter = rect.top + rect.height / 2;
+      const viewportCenter = windowHeight / 2;
+      const distanceFromCenter = sectionCenter - viewportCenter;
+      const offset = distanceFromCenter * PARALLAX_SPEED;
 
-      // GPU加速でスムーズに更新
       wrapper.style.transform = `translate3d(0, ${offset}px, 0)`;
     };
 
-    // 初期化
     updateParallax();
-
-    // スクロール監視（パッシブで軽量化）
     window.addEventListener('scroll', updateParallax, { passive: true });
     window.addEventListener('resize', updateParallax, { passive: true });
 
@@ -63,7 +62,7 @@ const ParallaxSection1 = () => {
     };
   }, []);
 
-  // 動画再生（IntersectionObserverで効率化）
+  // 動画再生制御
   useEffect(() => {
     const video = videoRef.current;
     if (!video) return;
@@ -76,7 +75,7 @@ const ParallaxSection1 = () => {
             video.play().catch(() => {});
           });
         } else {
-          video.pause(); // 画面外で一時停止（パフォーマンス向上）
+          video.pause();
         }
       },
       { threshold: 0.1 }
@@ -91,16 +90,21 @@ const ParallaxSection1 = () => {
       <div 
         ref={wrapperRef} 
         className={styles.wrapper}
-        style={{ '--video-scale': VIDEO_SCALE } as React.CSSProperties}
+        style={{ 
+          '--parallax-overflow': `${PARALLAX_OVERFLOW}px`,
+        } as React.CSSProperties}
       >
         <video
           ref={videoRef}
           className={styles.video}
+          style={{ 
+            '--vertical-position': VERTICAL_POSITION,
+          } as React.CSSProperties}
           autoPlay
           loop
           muted
           playsInline
-          preload="metadata" // metadataのみ先読み（軽量化）
+          preload="auto"
         >
           <source src="/images/mov/A_fork_webmovie0617_01_0630_1.mp4" type="video/mp4" />
         </video>
