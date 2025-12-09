@@ -570,7 +570,7 @@ footer .border-green-800 {
   }
   
   .header-logo-image {
-    height: 40px;
+    height: 30px;
     width: auto;
   }
   
@@ -737,7 +737,7 @@ footer .border-green-800 {
   /* タブレット対応 */
   @media (min-width: 769px) and (max-width: 1024px) {
     .header-logo-image {
-      height: 36px;
+      height: 30px;
     }
     
     .hamburger-icon {
@@ -767,7 +767,7 @@ footer .border-green-800 {
   /* デスクトップ */
   @media (min-width: 1024px) {
     .header-logo-image {
-      height: 44px;
+      height: 30px;
     }
     
     .hamburger-icon {
@@ -808,6 +808,7 @@ footer .border-green-800 {
 
   /* ============================================
    Header Secondary Styles（他のページ用）
+   背景色と色のみ変更、その他はheader-topの共通スタイルを継承
    ============================================ */
 
 .header-secondary {
@@ -818,82 +819,27 @@ footer .border-green-800 {
   background-color: #E7EBE7;
   z-index: 50;
   height: 70px;
-  border-bottom: none;
+  border-bottom: 1px solid #003705;
 }
 
-/* セカンダリヘッダーのボタン */
-.header-menu-button.secondary {
+/* セカンダリヘッダーのボタン - 色のみ変更 */
+.header-secondary .header-menu-button {
   color: #003705;
 }
 
-.header-menu-button.secondary:hover {
+.header-secondary .header-menu-button:hover {
   color: #003705;
 }
 
-/* セカンダリヘッダーのテキスト */
-.header-menu-text.secondary {
-  font-size: 15px;
-  font-weight: 700;
-  font-family: "游ゴシック体", "Yu Gothic", "YuGothic", sans-serif;
+/* セカンダリヘッダーのテキスト - 色のみ変更 */
+.header-secondary .header-menu-text {
   color: #003705;
 }
 
-/* セカンダリヘッダーのハンバーガーライン */
-.hamburger-line.secondary {
+/* セカンダリヘッダーのハンバーガーライン - 色のみ変更 */
+.header-secondary .hamburger-line {
   background-color: #003705;
-}
-
-/* モバイル対応 */
-@media (max-width: 768px) {
-  .header-secondary .header-logo-image {
-    height: 32px;
-  }
-  
-  .header-secondary .hamburger-icon {
-    width: 35px;
-    height: 9px;
-  }
-  
-  .header-secondary .hamburger-icon.menu-open {
-    width: 36px;
-    height: 16px;
-  }
-  
-  .header-secondary .header-menu-text {
-    font-size: 14px;
-  }
-}
-
-@media (max-width: 480px) {
-  .header-secondary .header-logo-image {
-    height: 28px;
-  }
-  
-  .header-secondary .hamburger-icon {
-    width: 32px;
-    height: 8px;
-  }
-  
-  .header-secondary .hamburger-icon.menu-open {
-    width: 33px;
-    height: 14px;
-  }
-  
-  .header-secondary .header-menu-text {
-    font-size: 13px;
-  }
-}
-
-@media (min-width: 769px) and (max-width: 1024px) {
-  .header-secondary .header-logo-image {
-    height: 36px;
-  }
-}
-
-@media (min-width: 1024px) {
-  .header-secondary .header-logo-image {
-    height: 44px;
-  }
+  height: 2px;  /* 追加 */
 }
 
 /* ============================================
@@ -1016,4 +962,90 @@ footer .border-green-800 {
   .parallax-image-wrapper {
     height: 105%;
   }
+}
+
+/* globals.css に追加する内容 */
+/* 既存のglobals.cssにこれらを追加してください */
+
+/* ============================================
+ * スムーススクロール & パフォーマンス最適化
+ * ============================================ */
+
+ html {
+  /* Lenis使用時はnativeスクロールを無効化 */
+  scroll-behavior: auto;
+}
+
+html.lenis, html.lenis body {
+  height: auto;
+}
+
+.lenis.lenis-smooth {
+  scroll-behavior: auto !important;
+}
+
+.lenis.lenis-smooth [data-lenis-prevent] {
+  overscroll-behavior: contain;
+}
+
+.lenis.lenis-stopped {
+  overflow: hidden;
+}
+
+.lenis.lenis-smooth iframe {
+  pointer-events: none;
+}
+
+/* ============================================
+ * パフォーマンス最適化
+ * ============================================ */
+
+/* GPU加速を有効化 */
+.will-change-transform {
+  will-change: transform;
+}
+
+/* 画面外の動画を非表示（リソース節約） */
+video:not(:playing) {
+  content-visibility: auto;
+}
+
+/* アニメーション軽減設定への対応 */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+/* ============================================
+ * 基本リセット（必要に応じて）
+ * ============================================ */
+
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* 画像の最適化 */
+img, video {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+/* フォーカス時のアウトライン */
+:focus-visible {
+  outline: 2px solid #003705;
+  outline-offset: 2px;
 }

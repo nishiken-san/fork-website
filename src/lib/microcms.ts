@@ -1,44 +1,180 @@
 // lib/microcms.ts
-import { createClient } from 'microcms-js-sdk';
+// microCMS API クライアント
+// 
+// 【セキュリティ】このファイルはサーバーサイドでのみ実行されます
+// クライアントコンポーネントからは直接インポートしないでください
 
-if (!process.env.MICROCMS_SERVICE_DOMAIN) {
-  throw new Error('MICROCMS_SERVICE_DOMAIN is required');
+import { 
+  InfoArticle, 
+  Tag, 
+  MicroCMSListResponse, 
+  InfoListQuery 
+} from '@/src/types/blog';
+
+// ユーティリティ関数を再エクスポート（後方互換性のため）
+export { formatDate, generateExcerpt } from './Utils';
+
+// ============================================
+// 環境変数の検証
+// ============================================
+
+const serviceDomain = process.env.MICROCMS_SERVICE_DOMAIN;
+const apiKey = process.env.MICROCMS_API_KEY;
+
+if (!serviceDomain) {
+  console.warn('Warning: MICROCMS_SERVICE_DOMAIN is not set');
 }
 
-if (!process.env.MICROCMS_API_KEY) {
-  throw new Error('MICROCMS_API_KEY is required');
+if (!apiKey) {
+  console.warn('Warning: MICROCMS_API_KEY is not set');
 }
 
-export const client = createClient({
-  serviceDomain: process.env.MICROCMS_SERVICE_DOMAIN,
-  apiKey: process.env.MICROCMS_API_KEY,
+// ============================================
+// API基本設定
+// ============================================
+
+const BASE_URL = `https://${serviceDomain}.microcms.io/api/v1`;
+
+/**
+ * microCMS API リクエストヘッダー
+ * APIキーはサーバーサイドでのみ使用
+ */
+const getHeaders = (): HeadersInit => ({
+  'X-MICROCMS-API-KEY': apiKey || '',
 });
 
-// 型定義
-export type Tag = {
-  id: string;
-  name: string;
-};
+// ============================================
+// 汎用フェッチ関数
+// ============================================
 
-export type Blog = {
-  id: string;
-  title: string;
-  content: string;
-  eyecatch?: {
-    url: string;
-    height: number;
-    width: number;
-  };
-  tags?: Tag[];
-  publishedAt: string;
-  createdAt: string;
-  updatedAt: string;
-  revisedAt: string;
-};
+interface FetchOptions {
+  endpoint: string;
+  queries?: Record<string, string | number | undefined>;
+  id?: string;
+}
 
-export type BlogListResponse = {
-  contents: Blog[];
-  totalCount: number;
-  offset: number;
-  limit: number;
-};
+/**
+ * microCMS API への汎用リクエスト関数
+ * Next.js のキャッシュ機能を活用
+ */
+async function fetchFromMicroCMS<T>({ 
+  endpoint, 
+  queries = {}, 
+  id 
+}: FetchOptions): Promise<T> {
+  // URLを構築
+  const url = new URL(
+    id ? `${BASE_URL}/${endpoint}/${id}` : `${BASE_URL}/${endpoint}`
+  );
+
+  // クエリパラメータを追加
+  Object.entries(queries).forEach(([key, value]) => {
+    if (value !== undefined && value !== '') {
+      url.searchParams.append(key, String(value));
+    }
+  });
+
+  try {
+    const response = await fetch(url.toString(), {
+      headers: getHeaders(),
+      // ISR: 60秒ごとに再検証
+      next: { revalidate: 60 },
+    });
+
+    if (!response.ok) {
+      throw new Error(`microCMS API Error: ${response.status} ${response.statusText}`);
+    }
+
+    return response.json();
+  } catch (error) {
+    console.error('microCMS fetch error:', error);
+    throw error;
+  }
+}
+
+// ============================================
+// お知らせ記事 API
+// ============================================
+
+/**
+ * お知らせ記事一覧を取得
+ * @param query - 取得条件
+ */
+export async function getInfoList(
+  query: InfoListQuery = {}
+): Promise<MicroCMSListResponse<InfoArticle>> {
+  const { limit = 10, offset = 0, filters, orders = '-publishedAt', tag } = query;
+
+  // タグでフィルタリング
+  let filterQuery = filters || '';
+  if (tag) {
+    filterQuery = filterQuery 
+      ? `${filterQuery}[and]tags[contains]${tag}`
+      : `tags[contains]${tag}`;
+  }
+
+  return fetchFromMicroCMS<MicroCMSListResponse<InfoArticle>>({
+    endpoint: 'info',
+    queries: {
+      limit,
+      offset,
+      filters: filterQuery || undefined,
+      orders,
+    },
+  });
+}
+
+/**
+ * お知らせ記事の詳細を取得
+ * @param id - 記事ID
+ */
+export async function getInfoDetail(id: string): Promise<InfoArticle> {
+  return fetchFromMicroCMS<InfoArticle>({
+    endpoint: 'info',
+    id,
+  });
+}
+
+/**
+ * 全てのお知らせ記事IDを取得（静的生成用）
+ */
+export async function getAllInfoIds(): Promise<string[]> {
+  const data = await fetchFromMicroCMS<MicroCMSListResponse<InfoArticle>>({
+    endpoint: 'info',
+    queries: {
+      limit: 100,
+      fields: 'id',
+    },
+  });
+
+  return data.contents.map((article) => article.id);
+}
+
+// ============================================
+// タグ API
+// ============================================
+
+/**
+ * タグ一覧を取得
+ */
+export async function getTagList(): Promise<MicroCMSListResponse<Tag>> {
+  return fetchFromMicroCMS<MicroCMSListResponse<Tag>>({
+    endpoint: 'tags',
+    queries: {
+      limit: 50,
+    },
+  });
+}
+
+/**
+ * タグの詳細を取得
+ * @param id - タグID
+ */
+export async function getTagDetail(id: string): Promise<Tag> {
+  return fetchFromMicroCMS<Tag>({
+    endpoint: 'tags',
+    id,
+  });
+}
+
+// ユーティリティ関数はutils.tsから再エクスポートしています

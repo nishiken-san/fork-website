@@ -1,0 +1,74 @@
+/* app/components/ParallaxSection.module.css */
+/* パララックスセクション用スタイル */
+
+.section {
+    position: relative;
+    width: 100%;
+    height: 56.25vw; /* 16:9比率 */
+    min-height: 400px;
+    max-height: 900px;
+    overflow: hidden;
+    background-color: #E7EBE7;
+    clip-path: inset(0%);
+  }
+  
+  .wrapper {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    will-change: transform;
+  }
+  
+  .video {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transform: translate(-50%, -50%) scale(var(--video-scale, 1.15));
+  }
+  
+  .image {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transform: translate(-50%, -50%) scale(var(--image-scale, 1.15));
+  }
+  
+  .overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(
+      to bottom,
+      transparent 0%,
+      transparent 80%,
+      rgba(0, 0, 0, 0.08) 100%
+    );
+    pointer-events: none;
+    z-index: 1;
+  }
+  
+  /* モバイル対応 */
+  @media (max-width: 768px) {
+    .section {
+      height: 75vw;
+      min-height: 300px;
+      max-height: 500px;
+    }
+  }
+  
+  /* パフォーマンス最適化 */
+  @media (prefers-reduced-motion: reduce) {
+    .wrapper {
+      transform: none !important;
+    }
+  }

@@ -43,5 +43,3 @@ next-env.d.ts
 
 # zip
 *.zip
-
-./next.config.ts

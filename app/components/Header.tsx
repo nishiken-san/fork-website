@@ -60,6 +60,7 @@ const Header: React.FC<HeaderProps> = ({ logoImage, menuLogoImage }) => {
               <span className={`hamburger-line secondary ${isMenuOpen ? 'open-top' : ''}`} />
               <span className={`hamburger-line secondary ${isMenuOpen ? 'open-bottom' : ''}`} />
             </div>
+            
           </button>
         </div>
       </header>
