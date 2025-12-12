@@ -57,7 +57,7 @@ const ForkTitleSection: React.FC<ForkTitleSectionProps> = ({
     >
       {/* forkロゴ - 中央上部 */}
       <img
-        src="/images/hero/fork-logo.png"
+        src="/images/hero/fork-logo.svg"
         alt="Fork"
         className={styles.logo}
       />

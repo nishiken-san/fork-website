@@ -26,214 +26,225 @@
  * ============================================ */
 
  .section {
-    --header-height: 70px; /* 【調整】ヘッダーの高さ */
-    
-    position: relative;
-    width: 100%;
-    /* ヘッダー分を引いた高さ */
-    height: calc(100dvh - var(--header-height));
-    min-height: 550px;
-    overflow: hidden;
-    background-color: #003705;
-  }
+  --header-height: 70px; /* 【調整】ヘッダーの高さ */
   
-  /* forkロゴ - 中央上部 */
-  .logo {
-    position: absolute;
-    top: 20px; /* 【調整】上からの距離 */
-    left: 50%;
-    transform: translateX(-50%);
-    z-index: 10;
-    width: 45vw;
-    max-width: 832px;
-    min-width: 260px;
-    height: auto;
-  }
-  
-  /* 五本線イラスト - 右側 */
+  position: relative;
+  width: 100%;
+  /* ヘッダー分を引いた高さ */
+  height: calc(100dvh - var(--header-height));
+  min-height: 550px;
+  overflow: hidden;
+  background-color: #003705;
+}
+
+/* forkロゴ - 左右マージンを揃えて中央配置 */
+.logo {
+  position: absolute;
+  top: 20px; /* 【調整】上からの距離 */
+  left: 50px; /* 【調整】左マージン */
+  right: 50px; /* 【調整】右マージン */
+  z-index: 10;
+  display: block;
+  margin: 0 auto;
+  width: auto;
+  min-width: 400px;
+  max-width: 832px;
+  height: auto;
+}
+
+/* 五本線イラスト - 右側 */
+.illustration {
+  position: absolute;
+  top: 8vh; /* 【調整】上からの距離 */
+  right: 0;
+  z-index: 15;
+  width: 40vw;
+  max-width: 743px;
+  min-width: 300px;
+  height: auto;
+}
+
+/* テキストコンテンツ - 左下 */
+.textContent {
+  position: absolute;
+  left: 50px;
+  bottom: 40px; /* 【調整】下からの距離（固定値） */
+  color: #FFFFFF;
+  z-index: 20;
+}
+
+.textLine {
+  font-size: clamp(14px, 2vw, 20px);
+  font-weight: 700;
+  line-height: 1.8;
+  margin: 0;
+  letter-spacing: 0.05em;
+}
+
+/* scrollボタン - 右下 */
+.scrollButton {
+  position: absolute;
+  right: 50px;
+  bottom: 40px; /* 【調整】下からの距離（固定値） */
+  background: none;
+  border: none;
+  cursor: pointer;
+  z-index: 30;
+  padding: 0;
+  outline: none;
+  transition: opacity 0.3s ease;
+}
+
+.scrollButton:hover {
+  opacity: 0.7;
+}
+
+.scrollIcon {
+  width: 41px;
+  height: 36px;
+  object-fit: contain;
+}
+
+/* ============================================
+ * レスポンシブ設定
+ * ============================================ */
+
+/* 大画面: 1700px以上 */
+@media (min-width: 1700px) {
   .illustration {
-    position: absolute;
-    top: 8vh; /* 【調整】上からの距離 */
-    right: 30;
-    z-index: 15;
-    width: 40vw;
-    max-width: 743px;
-    min-width: 300px;
-    height: auto;
+    width: 280vw;
+    right: 50px;
+  }
+}
+
+/* 中〜大画面: 1400px〜1699px */
+@media (min-width: 1400px) and (max-width: 1699px) {
+  .illustration {
+    width: 380vw;
+    right: 130;
+  }
+}
+
+/* 中画面: 1000px〜1399px */
+@media (min-width: 1000px) and (max-width: 1399px) {
+  .illustration {
+    top: 10%;
+    width: 80vw;
+    right: 10px;
+  }
+}
+
+/* タブレット: 769px〜999px */
+@media (min-width: 769px) and (max-width: 999px) {
+  .logo {
+    left: 50px;   /* 左マージン */
+  right: 50px;  /* 右マージン */
+  display: block;
+  margin: 0 auto;  /* 中央配置 */
+  width: auto;
+  max-width: 669px;
   }
   
-  /* テキストコンテンツ - 左下 */
+  .illustration {
+    top: 100px;
+    right: 80px;
+    width: 75vw;
+    max-width: 600px;
+  }
+}
+
+/* モバイル: 768px以下 */
+@media (max-width: 768px) {
+  .section {
+    min-height: 500px;
+  }
+  
+  .logo {
+    top: 60px; /* 【調整】モバイルでの上位置 */
+    left: 30px; /* 【調整】モバイルでの左マージン */
+    right: 30px; /* 【調整】モバイルでの右マージン */
+    max-width: 330px;
+  }
+  
+  .illustration {
+    top: 60px; /* 【調整】モバイルでの上位置 */
+    right: -20px;
+    width: 80vw;
+    max-width: 460px;
+  }
+  
   .textContent {
-    position: absolute;
-    left: 50px;
-    bottom: 40px; /* 【調整】下からの距離（固定値） */
-    color: #FFFFFF;
-    z-index: 20;
+    left: 30px;
+    bottom: 30px; /* 【調整】モバイルでの下位置 */
+  }
+  
+  .scrollButton {
+    right: 30px;
+    bottom: 30px; /* 【調整】モバイルでの下位置 */
+  }
+}
+
+/* 小型モバイル: 480px以下 */
+@media (max-width: 480px) {
+  .logo {
+    max-width: 280px;
+  }
+  
+  .illustration {
+    width: 90vw;
+    max-width: 400px;
+    right: -40px;
+  }
+  
+  .textContent {
+    left: 20px;
+  }
+  
+  .scrollButton {
+    right: 20px;
+  }
+}
+
+/* 超小型モバイル: 390px以下 */
+@media (max-width: 390px) {
+  .logo {
+    max-width: 260px;
+  }
+  
+  .illustration {
+    max-width: 350px;
+    right: -50px;
+  }
+}
+
+/* 横向きモバイル対応 */
+@media (max-height: 500px) and (orientation: landscape) {
+  .section {
+    height: auto;
+    min-height: calc(100dvh - var(--header-height));
+    padding-bottom: 20px;
+  }
+  
+  .logo {
+    top: 10px;
+    max-width: 300px;
+  }
+  
+  .illustration {
+    top: 10px;
+    width: 35vw;
+  }
+  
+  .textContent {
+    bottom: 20px;
+  }
+  
+  .scrollButton {
+    bottom: 20px;
   }
   
   .textLine {
-    font-size: clamp(14px, 2vw, 20px);
-    font-weight: 700;
-    line-height: 1.8;
-    margin: 0;
-    letter-spacing: 0.05em;
+    font-size: 14px;
+    line-height: 1.5;
   }
-  
-  /* scrollボタン - 右下 */
-  .scrollButton {
-    position: absolute;
-    right: 50px;
-    bottom: 40px; /* 【調整】下からの距離（固定値） */
-    background: none;
-    border: none;
-    cursor: pointer;
-    z-index: 30;
-    padding: 0;
-    outline: none;
-    transition: opacity 0.3s ease;
-  }
-  
-  .scrollButton:hover {
-    opacity: 0.7;
-  }
-  
-  .scrollIcon {
-    width: 41px;
-    height: 36px;
-    object-fit: contain;
-  }
-  
-  /* ============================================
-   * レスポンシブ設定
-   * ============================================ */
-  
-  /* 大画面: 1700px以上 */
-  @media (min-width: 1700px) {
-    .illustration {
-      right: 50px;
-    }
-  }
-  
-  /* 中〜大画面: 1400px〜1699px */
-  @media (min-width: 1400px) and (max-width: 1699px) {
-    .illustration {
-      right: 0;
-    }
-  }
-  
-  /* 中画面: 1000px〜1399px */
-  @media (min-width: 1000px) and (max-width: 1399px) {
-    .illustration {
-      right: 80px;
-    }
-  }
-  
-  /* タブレット: 769px〜999px */
-  @media (min-width: 769px) and (max-width: 999px) {
-    .logo {
-      width: 50vw;
-      max-width: 730px;
-    }
-    
-    .illustration {
-      right: 25%;
-      width: 45vw;
-      max-width: 600px;
-    }
-  }
-  
-  /* モバイル: 768px以下 */
-  @media (max-width: 768px) {
-    .section {
-      min-height: 500px;
-    }
-    
-    .logo {
-      top: 60px; /* 【調整】モバイルでの上位置 */
-      width: 70vw;
-      max-width: 330px;
-    }
-    
-    .illustration {
-      top: 30px; /* 【調整】モバイルでの上位置 */
-      right: 20px;
-      width: 80vw;
-      max-width: 460px;
-    }
-    
-    .textContent {
-      left: 30px;
-      bottom: 30px; /* 【調整】モバイルでの下位置 */
-    }
-    
-    .scrollButton {
-      right: 30px;
-      bottom: 30px; /* 【調整】モバイルでの下位置 */
-    }
-  }
-  
-  /* 小型モバイル: 480px以下 */
-  @media (max-width: 480px) {
-    .logo {
-      width: 75vw;
-      max-width: 280px;
-    }
-    
-    .illustration {
-      width: 90vw;
-      max-width: 400px;
-      right: -40px;
-    }
-    
-    .textContent {
-      left: 20px;
-    }
-    
-    .scrollButton {
-      right: 20px;
-    }
-  }
-  
-  /* 超小型モバイル: 390px以下 */
-  @media (max-width: 390px) {
-    .logo {
-      max-width: 260px;
-    }
-    
-    .illustration {
-      max-width: 350px;
-      right: -50px;
-    }
-  }
-  
-  /* 横向きモバイル対応 */
-  @media (max-height: 500px) and (orientation: landscape) {
-    .section {
-      height: auto;
-      min-height: calc(100dvh - var(--header-height));
-      padding-bottom: 20px;
-    }
-    
-    .logo {
-      top: 10px;
-      width: 30vw;
-    }
-    
-    .illustration {
-      top: 10px;
-      width: 35vw;
-    }
-    
-    .textContent {
-      bottom: 20px;
-    }
-    
-    .scrollButton {
-      bottom: 20px;
-    }
-    
-    .textLine {
-      font-size: 14px;
-      line-height: 1.5;
-    }
-  }
+}

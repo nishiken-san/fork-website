@@ -91,7 +91,7 @@ const ParallaxSection1 = () => {
           min-height: 200px;
           max-height: 700px;
           overflow: hidden;
-          background-color: #000000;
+          background-color: #003705;
           clip-path: inset(0%);
         }
         
