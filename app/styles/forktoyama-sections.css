@@ -479,16 +479,13 @@
 .natural-architecture-bg .image-block {
   width: 100%;
   overflow: hidden;
-  border-radius: 8px;
   transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
-.natural-architecture-bg .image-block:hover {
-  transform: translateY(-5px);
-}
+
 
 .natural-architecture-bg .map-block {
-  height: 400px;
+
   background: var(--forktoyama-bg-light);
   display: flex;
   align-items: center;
@@ -672,16 +669,14 @@
 
 .access-bg .section-container {
   display: flex;
-  max-width: 1200px;
-  margin: 0 auto;
-  padding: 0 2rem;
+  padding: 0 ;
   gap: 3rem;
 }
 
 .access-bg .left-column {
   flex: 1;
-  position: relative;
   z-index: 10;
+  padding: 50px 50px 0 50px;
 }
 
 .access-bg .content-area {
@@ -739,13 +734,13 @@
 .access-bg .right-column {
   flex: 2;
   position: relative;
+  padding: 50px 50px 0 50px;
 }
 
 .access-bg .map-container {
   position: relative;
   width: 100%;
   height: 600px;
-  border-radius: 8px;
   overflow: hidden;
   background-color: #B4B4B4;
 }

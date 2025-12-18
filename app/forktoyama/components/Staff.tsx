@@ -9,49 +9,120 @@ const Staff = () => {
   const contentRef = useRef<HTMLDivElement>(null);
   const { isSticky } = useSectionSticky(sectionRef, contentRef);
 
-  const principles = [
-    "ありがとうや日々のあいさつを言う、言われる",
-    "人の話を聞く、自分の気持ちを伝える", 
-    "道具や食べ物を大切に扱う"
-  ];
-
   return (
     <>
       <style jsx>{`
-        .forktoyama-description-layout .forktoyama-two-column-left {
-          width: 33.333333% !important;
+        .staff-section {
+          background-color: #E7EBE7;
         }
-        .forktoyama-description-layout .forktoyama-two-column-right {
-          width: 66.666667% !important;
+        
+        .staff-container {
+          display: flex;
+        }
+        
+        .staff-left {
+          width: 33.333333%;
+          background-color: #E7EBE7;
+        }
+        
+        .staff-right {
+          width: 66.666667%;
+          background-color: #E7EBE7;
+        }
+        
+        .staff-content {
+          padding: 110px 25px 100px 50px;
+        }
+        
+        .staff-sticky {
+          position: sticky;
+          top: 80px;
+          padding: 110px 50px 100px 25px;
+          z-index: 20;
+        }
+        
+        .staff-text {
+          color: #003705;
+          font-size: 13px;
+          font-weight: 700;
+          line-height: 1.8;
+          margin: 0;
+          padding: 0;
+        }
+        
+        .staff-image {
+          width: 100%;
+          height: auto;
+        }
+        
+        @media (max-width: 768px) {
+          .staff-container {
+            flex-direction: column;
+          }
+          
+          .staff-left {
+            width: 100%;
+            order: 2;
+          }
+          
+          .staff-right {
+            width: 100%;
+            order: 1;
+          }
+          
+          .staff-content {
+            padding: 30px 30px 50px 30px;
+          }
+          
+          .staff-sticky {
+            position: relative;
+            top: 0;
+            padding: 50px 30px 0 30px;
+          }
+          
+          .staff-text {
+            font-size: 13px;
+            text-align: center;
+          }
+        }
+        
+        @media (max-width: 480px) {
+          .staff-content {
+            padding: 20px 20px 40px 20px;
+          }
+          
+          .staff-sticky {
+            padding: 40px 20px 0 20px;
+          }
+          
+          .staff-text {
+            font-size: 13px;
+            text-align: center;
+          }
         }
       `}</style>
 
-    <section ref={sectionRef} className="forktoyama-section forktoyama-bg-light">
-      <div className="forktoyama-description-layout">
-        <div ref={contentRef} className="forktoyama-two-column-left">
-          <div className="forktoyama-content">
-            
-            <div className="forktoyama-section-spacing">
-              <p className="forktoyama-text">
-              富山県内外から集ったメンバーが子ども達と日々、原石を磨きあっています。
+      <section ref={sectionRef} className="staff-section">
+        <div className="staff-container">
+          <div ref={contentRef} className="staff-left">
+            <div className="staff-content">
+              <p className="staff-text">
+                富山県内外から集ったメンバーが子ども達と日々、原石を磨きあっています。
               </p>
-              
             </div>
-            
           </div>
-        </div>
 
-        <div className="forktoyama-two-column-right">
-          <div className="forktoyama-sticky">
-            <img 
-              src="/images/forktoyama/staff.png" 
-              alt="スタッフの集合写真" 
-              className="forktoyama-image"
-            />
+          <div className="staff-right">
+            <div className="staff-sticky">
+              <img 
+                src="/images/forktoyama/staff.png" 
+                alt="スタッフの集合写真" 
+                className="staff-image"
+              />
+            </div>
           </div>
         </div>
-      </div>
-    </section>
+      </section>
     </>
   );
 };

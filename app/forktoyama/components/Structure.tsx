@@ -29,6 +29,7 @@ const NaturalArchitecture = () => {
           width: 33.333333%;
           background-color: #E7EBE7;
           position: relative;
+          padding:125px 50px 0 50px;
         }
 
         .content-area {
@@ -89,7 +90,7 @@ const NaturalArchitecture = () => {
 
         /* カテゴリー */
         .section-category {
-          color: #B4B4B4;
+          color: #003705;
           font-size: 15px;
           font-weight: 700;
           letter-spacing: 0;
@@ -163,7 +164,7 @@ const NaturalArchitecture = () => {
           }
           
           .section-category {
-            font-size: 13px;
+            font-size: 15px;
           }
           
           .section-title {
@@ -182,7 +183,7 @@ const NaturalArchitecture = () => {
           }
           
           .section-category {
-            font-size: 12px;
+            font-size: 15px;
           }
           
           .section-title {
