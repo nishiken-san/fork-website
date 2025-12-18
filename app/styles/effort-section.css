@@ -1,0 +1,220 @@
+/* app/styles/effort-section.css */
+/* 取り組みセクション共通スタイル */
+
+.effort-section {
+    background-color: #E7EBE7;
+    height: 100vh;
+    min-height: 600px;
+  }
+  
+  .effort-container {
+    display: flex;
+  }
+  
+  .effort-left-column {
+    width: 33.333333%;
+    background-color: #E7EBE7;
+    position: relative;
+  }
+  
+  .effort-right-column {
+    width: 66.666667%;
+    background-color: #E7EBE7;
+  }
+  
+  .effort-sticky-header {
+    position: sticky;
+    top: 80px;
+    padding: 0 0 100px 0;
+    margin: 0;
+    margin-left: 50px;
+    padding-top: 50px;
+    background-color: #E7EBE7;
+    z-index: 20;
+  }
+  
+  .effort-label {
+    color: #003705;
+    font-size: 25px;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    margin: 0 0 47px 0;
+    padding: 0;
+  }
+  
+  .effort-subtitle {
+    color: #B4B4B4;
+    font-size: 15px;
+    font-weight: 700;
+    letter-spacing: 0;
+    margin: 0 0 38px 0;
+    padding: 0;
+  }
+  
+  .effort-title {
+    color: #003705;
+    font-size: 25px;
+    font-weight: 700;
+    line-height: 1.4;
+    margin: 0;
+    padding: 0;
+  }
+  
+  .effort-content-area {
+    padding: 50px 50px 100px 50px;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
+    margin: 0;
+  }
+  
+  .effort-description {
+    color: #003705;
+    font-size: 13px;
+    font-weight: 700;
+    line-height: 1.8;
+    margin: 0 0 64px 0;
+    padding: 0;
+    text-align: left;
+  }
+  
+  .effort-image-section {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    margin: 0 0 64px 0;
+    padding: 0;
+    position: relative;
+    width: 100%;
+  }
+  
+  .effort-main-image {
+    width: 100%;
+    height: auto;
+  }
+  
+  .effort-button-section {
+    width: 100%;
+    margin: 0;
+    padding: 0;
+  }
+  
+  .effort-button {
+    background-color: #E7EBE7;
+    border: 1px solid #003705;
+    color: #003705;
+    padding: 0;
+    font-size: 15px;
+    font-weight: 700;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 53px;
+    text-align: center;
+    position: relative;
+    box-shadow: 3px 3px 0px #003705;
+  }
+  
+  .effort-button:hover {
+    background-color: #93A794;
+  }
+  
+  @media (min-width: 1024px) {
+    .effort-title {
+      font-size: 25px;
+    }
+    .effort-label {
+      font-size: 25px;
+    }
+    .effort-content-area {
+      padding: 50px 50px 100px 50px;
+    }
+  }
+  
+  @media (max-width: 768px) {
+    .effort-section {
+      height: 100vh;
+      min-height: 500px;
+    }
+    
+    .effort-container {
+      flex-direction: column;
+    }
+    
+    .effort-left-column {
+      width: 100%;
+    }
+    
+    .effort-right-column {
+      width: 100%;
+    }
+    
+    .effort-sticky-header {
+      position: relative;
+      padding: 0 0 60px 0;
+      margin: 0;
+      margin-left: 30px;
+      padding-top: 50px;
+    }
+    
+    .effort-label {
+      font-size: 20px;
+      margin: 0 0 47px 0;
+    }
+    
+    .effort-subtitle {
+      font-size: 13px;
+      margin: 0 0 38px 0;
+    }
+    
+    .effort-title {
+      font-size: 20px;
+    }
+    
+    .effort-content-area {
+      padding: 0 30px 60px 30px;
+    }
+    
+    .effort-description {
+      font-size: 13px;
+    }
+  }
+  
+  @media (max-width: 480px) {
+    .effort-section {
+      height: 100vh;
+      min-height: 480px;
+    }
+    
+    .effort-sticky-header {
+      margin-left: 20px;
+      padding-top: 40px;
+    }
+    
+    .effort-label {
+      font-size: 18px;
+      margin: 0 0 47px 0;
+    }
+    
+    .effort-subtitle {
+      font-size: 12px;
+      margin: 0 0 38px 0;
+    }
+    
+    .effort-title {
+      font-size: 18px;
+    }
+    
+    .effort-content-area {
+      padding: 0 20px 60px 20px;
+    }
+    
+    .effort-description {
+      font-size: 12px;
+    }
+  }

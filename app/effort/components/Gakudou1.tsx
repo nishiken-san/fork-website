@@ -32,7 +32,7 @@ const Gakudou1 = () => {
           padding: 0 0 100px 0;
           margin: 0;
           margin-left: 50px;
-          padding-top: 50px;
+          padding-top: 100px;
           background-color: #E7EBE7;
           z-index: 20;
         }
@@ -41,7 +41,7 @@ const Gakudou1 = () => {
           font-size: 25px;
           font-weight: 700;
           letter-spacing: 0.1em;
-          margin: 0 0 0.5rem 0;
+          margin: 0 0 19px 0;
           padding: 0;
         }
         .section-subtitle {
@@ -49,7 +49,7 @@ const Gakudou1 = () => {
           font-size: 15px;
           font-weight: 700;
           letter-spacing: 0;
-          margin: 0 0 0.5rem 0;
+          margin: 0 0 12px 0;
           padding: 0;
         }
         .section-title {
@@ -61,7 +61,7 @@ const Gakudou1 = () => {
           padding: 0;
         }
         .content-area {
-          padding: 50px 50px 100px 50px;
+          padding: 100px 50px 100px 50px;
           display: flex;
           flex-direction: column;
           justify-content: flex-start;
@@ -94,7 +94,7 @@ const Gakudou1 = () => {
           align-items: flex-start;
         }
         .fork-text-image {
-          width: 47.5%;
+          width: 100%;
           height: auto;
           position: relative;
           z-index: 1;
@@ -151,10 +151,10 @@ const Gakudou1 = () => {
             font-size: 25px;
           }
           .content-area {
-            padding: 50px 50px 100px 50px;
+            padding: 100px 50px 100px 50px;
           }
           .fork-text-image {
-            width: 45%;
+            width: 100%;
           }
           .toyama-text-image {
             width: 45%;
@@ -181,57 +181,82 @@ const Gakudou1 = () => {
           
           .sticky-header {
             position: relative;
-            padding: 0 0 60px 0;
+            top: 0;
+            padding: 30px 0 15px 0;
             margin: 0;
             margin-left: 30px;
-            padding-top: 50px;
+            margin-right: 30px;
           }
           
           .section-label {
-            font-size: 20px;
+            font-size: 25px;
+            margin: 0 0 8px 0;
           }
           
           .section-subtitle {
-            font-size: 13px;
+            font-size: 15px;
+            margin: 0 0 8px 0;
           }
           
           .section-title {
-            font-size: 20px;
+            font-size: 25px;
           }
           
           .content-area {
-            padding: 0 30px 60px 30px;
+            padding: 15px 30px 30px 30px;
           }
           
           .main-description {
             font-size: 13px;
+            margin: 0 0 20px 0;
+            line-height: 1.6;
+          }
+          
+          .fork-logo-section {
+            margin: 0 0 20px 0;
+          }
+          
+          .about-button {
+            height: 45px;
+            font-size: 14px;
           }
         }
         
         @media (max-width: 480px) {
           .sticky-header {
             margin-left: 20px;
-            padding-top: 40px;
+            margin-right: 20px;
+            padding: 20px 0 10px 0;
           }
           
           .section-label {
-            font-size: 18px;
+            font-size: 25px;
           }
           
           .section-subtitle {
-            font-size: 12px;
+            font-size: 15px;
           }
           
           .section-title {
-            font-size: 18px;
+            font-size: 25px;
           }
           
           .content-area {
-            padding: 0 20px 60px 20px;
+            padding: 10px 20px 20px 20px;
           }
           
           .main-description {
-            font-size: 12px;
+            font-size: 13px;
+            margin: 0 0 15px 0;
+          }
+          
+          .fork-logo-section {
+            margin: 0 0 15px 0;
+          }
+          
+          .about-button {
+            height: 40px;
+            font-size: 13px;
           }
         }
       `}</style>
@@ -242,7 +267,7 @@ const Gakudou1 = () => {
             <div className="sticky-header">
               <div className="section-label">01.</div>
               <div className="section-subtitle">fork toyama</div>
-              <h2 className="section-title">学童保育・fork toyama</h2>
+              <h2 className="section-title">学童保育：fork toyama</h2>
             </div>
           </div>
 
@@ -254,21 +279,17 @@ const Gakudou1 = () => {
               
               <div className="fork-logo-section">
                 <div className="logo-container">
-                  <img 
-                    src="/images/effort/fork-text.png" 
-                    alt="fork テキスト" 
-                    className="fork-text-image"
-                  />
-                  <img 
-                    src="/images/effort/toyama-text.png" 
-                    alt="toyama テキスト" 
-                    className="toyama-text-image"
-                  />
-                  <img 
-                    src="/images/effort/fork-icon.png" 
-                    alt="fork アイコン" 
-                    className="fork-icon-image"
-                  />
+                  <picture>
+                    <source
+                      media="(max-width: 768px)"
+                      srcSet="/images/effort/forktoyama-mobile.png"
+                    />
+                    <img 
+                      src="/images/effort/forktoyama.png" 
+                      alt="fork toyama" 
+                      className="fork-text-image"
+                    />
+                  </picture>
                 </div>
               </div>
               

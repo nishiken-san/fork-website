@@ -40,6 +40,11 @@ export const IMAGES = {
     supporter1: '/images/parallax/parallax-bg-7.png' // Aboutページ1枚目
   },
 
+  effort: {
+    home1: '/images/parallax/home-parallax-1.jpg', // ホームページ1枚目
+    
+  },
+
   // About セクション
   about: {
     teamPhoto: '/images/parallax/parallax-bg-1.png',

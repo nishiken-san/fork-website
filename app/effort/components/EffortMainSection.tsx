@@ -29,7 +29,7 @@ const EffortMainSection = () => {
         .sticky-header {
           position: sticky;
           top: 80px;
-          padding: 2rem 3rem;
+          padding: 2rem 50px;
           background-color: #003705;
           z-index: 20;
           display: flex;
@@ -41,13 +41,13 @@ const EffortMainSection = () => {
           text-orientation: mixed;
           color: white;
           font-size: 25px;
-          font-weight: 600;
+          font-weight: 700;
           line-height: 1.4;
           letter-spacing: 0.1em;
-          top: 80px;
+          top: 50px;
         }
         .content-area {
-          padding: 50px 50px 100px 50px;
+          padding: 140px 50px 90px 50px;
           color: white;
         }
         .what-we-do {

@@ -143,15 +143,15 @@ textarea:focus {
 /* Responsive typography */
 @media (max-width: 768px) {
   h1 {
-    font-size: 2.5rem;
+    font-size: 40px;
   }
   
   h2 {
-    font-size: 2rem;
+    font-size: 30px;
   }
   
   h3 {
-    font-size: 1.5rem;
+    font-size: 24px;
   }
 }
 
@@ -194,7 +194,7 @@ textarea:focus {
   display: flex !important;
   align-items: center !important;
   justify-content: flex-start !important;
-  padding-left: 6rem !important;
+  padding-left: 100px !important;
   pointer-events: none !important;
   z-index: 1 !important;
 }
@@ -208,7 +208,7 @@ textarea:focus {
   display: flex !important;
   align-items: center !important;
   justify-content: flex-end !important;
-  padding-right: 6rem !important;
+  padding-right: 100px !important;
   pointer-events: none !important;
   z-index: 2 !important;
 }
@@ -222,8 +222,8 @@ textarea:focus {
 }
 
 .fork-title-section .fork-illustration-image {
-  width: 24rem !important;
-  height: 24rem !important;
+  width: 380px !important;
+  height: 380px !important;
   object-fit: contain !important;
   display: block !important;
   max-width: none !important;
@@ -233,14 +233,14 @@ textarea:focus {
 @media (max-width: 768px) {
   .fork-title-section .fork-logo-layer {
     justify-content: center !important;
-    padding-left: 1rem !important;
-    padding-right: 1rem !important;
+    padding-left: 20px !important;
+    padding-right: 20px !important;
   }
   
   .fork-title-section .fork-illustration-layer {
     align-items: flex-start !important;
-    padding-top: 2rem !important;
-    padding-right: 1rem !important;
+    padding-top: 30px !important;
+    padding-right: 20px !important;
   }
   
   .fork-title-section .fork-logo-image {
@@ -248,8 +248,8 @@ textarea:focus {
   }
   
   .fork-title-section .fork-illustration-image {
-    width: 8rem !important;
-    height: 8rem !important;
+    width: 130px !important;
+    height: 130px !important;
   }
 }
 
@@ -323,7 +323,7 @@ footer .border-green-800 {
   .sticky-element {
     position: static !important;
     transform: none !important;
-    padding: 1rem !important;
+    padding: 20px !important;
   }
   
   .vertical-text {
@@ -333,15 +333,15 @@ footer .border-green-800 {
   }
   
   .large-title {
-    font-size: 2rem !important;
+    font-size: 30px !important;
   }
   
   .medium-title {
-    font-size: 1.5rem !important;
+    font-size: 24px !important;
   }
   
   .section-padding {
-    padding: 2rem 1rem !important;
+    padding: 30px 20px !important;
   }
   
   .image-container {
@@ -353,14 +353,14 @@ footer .border-green-800 {
 
 @media (max-width: 480px) {
   .very-small-screen {
-    font-size: 0.875rem;
-    padding: 1rem 0.5rem;
+    font-size: 14px;
+    padding: 20px 10px;
   }
   
   .button-mobile {
     width: 100%;
-    padding: 0.75rem 1rem;
-    font-size: 0.875rem;
+    padding: 12px 20px;
+    font-size: 14px;
   }
 }
 
@@ -552,7 +552,7 @@ footer .border-green-800 {
   
   .header-container {
     height: 100%;
-    padding: 0 2rem;
+    padding: 0 50px;
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -578,7 +578,7 @@ footer .border-green-800 {
   .header-menu-button {
     display: flex;
     align-items: center;
-    gap: 0.5rem;
+    gap: 10px;
     background: none;
     border: none;
     cursor: pointer;
@@ -644,25 +644,25 @@ footer .border-green-800 {
   
   /* アニメーション - 開いた状態（対角線でクロス） */
   .hamburger-line.open-top {
-    width: 44.72px; /* √(41² + 18²) ≈ 44.72px */
+    width: 45px;
     top: 50%;
     left: 50%;
-    transform: translate(-50%, -50%) rotate(23.63deg); /* atan(18/41) ≈ 23.63度 */
+    transform: translate(-50%, -50%) rotate(24deg);
     transform-origin: center;
   }
   
   .hamburger-line.open-bottom {
-    width: 44.72px; /* √(41² + 18²) ≈ 44.72px */
+    width: 45px;
     top: 50%;
     left: 50%;
-    transform: translate(-50%, -50%) rotate(-23.63deg); /* 逆方向 */
+    transform: translate(-50%, -50%) rotate(-24deg);
     transform-origin: center;
   }
   
   /* モバイル対応 */
   @media (max-width: 768px) {
     .header-container {
-      padding: 0 1.5rem;
+      padding: 0 24px;
     }
     
     .header-logo-image {
@@ -681,15 +681,15 @@ footer .border-green-800 {
     
     .hamburger-line.open-top,
     .hamburger-line.open-bottom {
-      width: 39.4px; /* √(36² + 16²) */
+      width: 39px;
     }
     
     .hamburger-line.open-top {
-      transform: translate(-50%, -50%) rotate(23.96deg);
+      transform: translate(-50%, -50%) rotate(24deg);
     }
     
     .hamburger-line.open-bottom {
-      transform: translate(-50%, -50%) rotate(-23.96deg);
+      transform: translate(-50%, -50%) rotate(-24deg);
     }
     
     .header-menu-text {
@@ -699,7 +699,7 @@ footer .border-green-800 {
   
   @media (max-width: 480px) {
     .header-container {
-      padding: 0 1rem;
+      padding: 0 20px;
     }
     
     .header-logo-image {
@@ -718,15 +718,15 @@ footer .border-green-800 {
     
     .hamburger-line.open-top,
     .hamburger-line.open-bottom {
-      width: 35.8px; /* √(33² + 14²) */
+      width: 36px;
     }
     
     .hamburger-line.open-top {
-      transform: translate(-50%, -50%) rotate(22.98deg);
+      transform: translate(-50%, -50%) rotate(23deg);
     }
     
     .hamburger-line.open-bottom {
-      transform: translate(-50%, -50%) rotate(-22.98deg);
+      transform: translate(-50%, -50%) rotate(-23deg);
     }
     
     .header-menu-text {
@@ -752,15 +752,15 @@ footer .border-green-800 {
     
     .hamburger-line.open-top,
     .hamburger-line.open-bottom {
-      width: 42.5px; /* √(39² + 17²) */
+      width: 43px;
     }
     
     .hamburger-line.open-top {
-      transform: translate(-50%, -50%) rotate(23.53deg);
+      transform: translate(-50%, -50%) rotate(24deg);
     }
     
     .hamburger-line.open-bottom {
-      transform: translate(-50%, -50%) rotate(-23.53deg);
+      transform: translate(-50%, -50%) rotate(-24deg);
     }
   }
   
@@ -782,15 +782,15 @@ footer .border-green-800 {
     
     .hamburger-line.open-top,
     .hamburger-line.open-bottom {
-      width: 44.72px; /* √(41² + 18²) */
+      width: 45px;
     }
     
     .hamburger-line.open-top {
-      transform: translate(-50%, -50%) rotate(23.63deg);
+      transform: translate(-50%, -50%) rotate(24deg);
     }
     
     .hamburger-line.open-bottom {
-      transform: translate(-50%, -50%) rotate(-23.63deg);
+      transform: translate(-50%, -50%) rotate(-24deg);
     }
   }
 
@@ -839,7 +839,7 @@ footer .border-green-800 {
 /* セカンダリヘッダーのハンバーガーライン - 色のみ変更 */
 .header-secondary .hamburger-line {
   background-color: #003705;
-  height: 2px;  /* 追加 */
+  height: 2px;
 }
 
 /* ============================================
