@@ -44,7 +44,7 @@ const Staff = () => {
         <div className="forktoyama-two-column-right">
           <div className="forktoyama-sticky">
             <img 
-              src="/images/forktoyama/stoe.png" 
+              src="/images/forktoyama/staff.png" 
               alt="スタッフの集合写真" 
               className="forktoyama-image"
             />

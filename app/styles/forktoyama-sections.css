@@ -36,7 +36,7 @@
 }
 
 .forktoyama-content {
-  padding: 4rem 2rem 4rem 4rem;
+  padding: 142px 50px 50px 50px;
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
@@ -45,7 +45,7 @@
 .forktoyama-sticky {
   position: sticky;
   top: 80px;
-  padding: 2rem 0;
+  padding: 50px 0;
   z-index: 20;
   display: flex;
   align-items: flex-start;
@@ -106,24 +106,24 @@
    ======================================== */
 
 .forktoyama-subtitle {
-  font-size: 1rem;
-  font-weight: 300;
-  letter-spacing: 0.2em;
-  margin-bottom: 2rem;
+  margin-top: 142px;
+  font-size: 15px;
+  font-weight: 700;
+  margin-bottom: 18px;
   opacity: 0.8;
 }
 
 .forktoyama-title {
-  font-size: 1.5rem;
+  font-size: 15px;
   font-weight: 600;
   margin-bottom: 1.5rem;
   line-height: 1.4;
 }
 
 .forktoyama-description {
-  font-size: 1rem;
+  font-size: 15px;
   line-height: 1.8;
-  margin-bottom: 3rem;
+  margin-bottom: 67px;
   width: 100%;
   max-width: none;
   padding-right: 2rem;
@@ -291,7 +291,7 @@
   .forktoyama-vertical-text {
     writing-mode: horizontal-tb;
     text-orientation: mixed;
-    text-align: center;
+    text-align: top;
   }
   
   .forktoyama-title {

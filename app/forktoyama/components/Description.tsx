@@ -18,7 +18,7 @@ const Description = () => {
 
   const images = [
     "/images/forktoyama/stone.png",
-    "/images/forktoyama/stone2.png",
+    "/images/forktoyama/_DSC4365.jpg",
     "/images/forktoyama/stone3.png"
   ];
 

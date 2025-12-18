@@ -668,7 +668,7 @@ footer .border-green-800 {
   
   @media (max-width: 480px) {
     .header-container {
-      padding: 0 1rem;
+      padding: 0 30px;
     }
     
     .header-logo-image {

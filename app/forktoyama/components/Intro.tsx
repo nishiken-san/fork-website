@@ -25,14 +25,124 @@ const ForktoyamaIntro = () => {
           width: 33.333333% !important;
         }
         .forktoyama-sticky {
+          font-size: 30px;
           display: flex;
           justify-content: flex-end;
           align-items: flex-start;
-          padding-top: 2rem;
-          padding-right: 2rem;
+          padding-top: 50px;
+          padding-right: 50px;
         }
         .forktoyama-content {
           padding-bottom: 2rem;
+        }
+        
+        /* モバイル用ロゴ（デスクトップでは非表示） */
+        .mobile-logo-container {
+          display: none;
+        }
+        
+        @media (max-width: 768px) {
+          .forktoyama-two-column {
+            flex-direction: row !important;
+            min-height: auto !important;
+          }
+          
+          .forktoyama-two-column-left {
+            width: 60% !important;
+            order: 1;
+          }
+          
+          .forktoyama-two-column-right {
+            width: 40% !important;
+            order: 2;
+            display: flex !important;
+            justify-content: flex-end;
+            align-items: flex-start;
+          }
+          
+          .forktoyama-content {
+            padding: 30px 15px 30px 30px;
+          }
+          
+          .forktoyama-sticky {
+            position: relative !important;
+            top: 0 !important;
+            padding: 45px 30px 30px 0;
+            height: auto !important;
+          }
+          
+          .forktoyama-vertical-container {
+            display: flex;
+            gap: 0.5rem;
+          }
+          
+          .forktoyama-vertical-text {
+            writing-mode: vertical-rl !important;
+            text-orientation: mixed !important;
+            font-size: 30px;
+            line-height: 1.5;
+          }
+          
+          .forktoyama-subtitle {
+            font-size: 15px;
+            margin-bottom: 19px;
+          }
+          
+          .forktoyama-description {
+            padding-right: 0;
+            margin-bottom: 0;
+            font-size: 15px;
+            line-height: 2.8;
+          }
+          
+          .forktoyama-logo-container {
+            display: none;
+          }
+          
+          .mobile-logo-container {
+            display: block;
+            padding: 20px 30px 30px 30px;
+          }
+          
+          .mobile-logo-container img {
+            width: 100%;
+            height: auto;
+          }
+        }
+        
+        @media (max-width: 480px) {
+          .forktoyama-two-column-left {
+            width: 55% !important;
+          }
+          
+          .forktoyama-two-column-right {
+            width: 45% !important;
+          }
+          
+          .forktoyama-content {
+            padding: 20px 10px 20px 30px;
+          }
+          
+          .forktoyama-sticky {
+            padding: 20px 20px 20px 0;
+          }
+          
+          .forktoyama-subtitle {
+            font-size: 15px;
+          }
+          
+          .forktoyama-description {
+            font-size: 15px;
+            line-height: 2;
+          }
+          
+          .forktoyama-vertical-text {
+            font-size: 30px;
+          }
+          
+          .mobile-logo-container {
+            padding: 45px 30px 20px 30px;
+          }
         }
       `}</style>
 
@@ -60,14 +170,23 @@ const ForktoyamaIntro = () => {
             <div className="forktoyama-sticky">
               <div className="forktoyama-vertical-container">
                 <div className="forktoyama-vertical-text">
-                  日本一小さな村発、
+                  保育料ゼロの学童保育
                 </div>
                 <div className="forktoyama-vertical-text">
-                  保育料ゼロの学童保育
+                  日本一小さな村発、
+
                 </div>
               </div>
             </div>
           </div>
+        </div>
+        
+        {/* モバイル用ロゴ */}
+        <div className="mobile-logo-container">
+          <img 
+            src="/images/forktoyama/forktoyama.svg" 
+            alt="fork toyama ロゴ" 
+          />
         </div>
       </section>
     </>
