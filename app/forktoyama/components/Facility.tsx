@@ -43,13 +43,13 @@ const Facility = () => {
           writing-mode: vertical-rl;
           text-orientation: mixed;
           color: white;
-          font-size: 1.5rem;
-          font-weight: 600;
+          font-size: 25px;
+          font-weight: 700;
           line-height: 1.4;
           letter-spacing: 0.1em;
         }
         .content-area {
-          padding: 0 2rem;
+          padding: 0 50px;
           color: white;
           width: 100%;
         }
