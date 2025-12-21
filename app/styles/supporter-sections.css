@@ -37,7 +37,7 @@
 }
 
 .supporter-content {
-  padding: 0 4rem;
+  padding: 0 50px;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -91,7 +91,6 @@
 
 .supporter-title {
   font-size: 1.5rem;
-  margin-bottom: 1.5rem;
   line-height: 1.4;
   /* font-weight削除 - globals.cssの700を継承 */
 }

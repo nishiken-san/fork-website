@@ -17,7 +17,7 @@ const SupporterMainSection = () => {
           <div className="supporter-content">
             <div className="supporter-subtitle">"MINEI" friends</div>
             <p className="supporter-description">
-              1日1,000円からのサポーター制度で、一緒に「みん営」を実現する仲間になりませんか？みなさまとともに。子どもたちの選択肢が開かれるように。
+              1口1,000円からのサポーター制度で、一緒に「みん営」を実現する仲間になりませんか？生まれたところや家庭の事情で、子どもたちの選択肢が閉ざされないように。
             </p>
           </div>
         </div>
