@@ -2,15 +2,15 @@
 // app/layout.tsx
 import type { Metadata } from 'next';
 import { Inter } from 'next/font/google';
-import LenisProvider from './components/LenisProvider';
 import './globals.css';
+import GoogleMapsScript from './components/GoogleMapsScript';
 
 const inter = Inter({ subsets: ['latin'] });
 
 export const metadata: Metadata = {
   title: 'Fork',
-  description: '私たちは、革新的なソリューションを通じて、お客様のビジネスの成長を支援します。',
-  keywords: '学童保育, システム開発, デザイン, サポート',
+  description: '',
+  keywords: '',
   authors: [{ name: 'Fork Company' }],
   viewport: 'width=device-width, initial-scale=1',
 };
@@ -24,6 +24,7 @@ export default function RootLayout({
     <html lang="ja">
       <body className={inter.className}>
         {children}
+        <GoogleMapsScript />
       </body>
     </html>
   );

@@ -155,7 +155,7 @@ const AboutSection = () => {
               </p>
 
               <div className="button-container">
-                <a href="/fork-toyama" className="detail-button">
+                <a href="/forktoyama" className="detail-button">
                   fork toyamaについて
                 </a>
               </div>

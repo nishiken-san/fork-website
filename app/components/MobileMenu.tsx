@@ -181,6 +181,27 @@ const MobileMenu: React.FC<MobileMenuProps> = ({ isOpen, onClose, logoImage }) =
           width: 16px;
           height: 16px;
         }
+
+        .menu-bottom-link-text {
+  transition: transform 0.3s ease;
+}
+
+/* 矢印アイコンにtransitionを追加 */
+.arrow-icon {
+  width: 24px;
+  height: 12px;
+  object-fit: contain;
+  transition: transform 0.3s ease;
+}
+
+/* ホバー時にテキストと矢印が横にスライド */
+.menu-bottom-link:hover .menu-bottom-link-text {
+  transform: translateX(0.5em);
+}
+
+.menu-bottom-link:hover .arrow-icon {
+  transform: translateX(0.5em);
+}
       `}</style>
 
       <div 
@@ -209,7 +230,7 @@ const MobileMenu: React.FC<MobileMenuProps> = ({ isOpen, onClose, logoImage }) =
                 <a href="/supporter" className="menu-link" onClick={onClose}>
                   ー　みん営フレンズ（個人）
                 </a>
-                <a href="/supporter/corporate" className="menu-link" onClick={onClose}>
+                <a href="/supporterCorp" className="menu-link" onClick={onClose}>
                   ー　みん営パートナー（法人・団体）
                 </a>
               </div>
@@ -225,10 +246,10 @@ const MobileMenu: React.FC<MobileMenuProps> = ({ isOpen, onClose, logoImage }) =
           </nav>
           
           <div className="menu-bottom">
-            <a href="/fork-toyama" className="menu-bottom-link" onClick={onClose}>
-              学童保育：fork toyama 
+            <a href="/forktoyama" className="menu-bottom-link" onClick={onClose}>
+              <span className="menu-bottom-link-text">学童保育：fork toyama</span>
               <img 
-                src={IMAGES.logo.vecg}
+                src={IMAGES.logo.vec}
                 alt="arrow"
                 className="arrow-icon"
               />

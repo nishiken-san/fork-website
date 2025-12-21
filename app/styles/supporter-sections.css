@@ -37,10 +37,9 @@
 }
 
 .supporter-content {
-  padding: 0 4rem;
+  padding: 140px 50px 90px;
   display: flex;
   flex-direction: column;
-  justify-content: center;
 }
 
 .supporter-sticky {
@@ -83,21 +82,20 @@
 
 .supporter-subtitle {
   font-size: 1rem;
-  letter-spacing: 0.2em;
   margin-bottom: 2rem;
-  opacity: 0.8;
+  color: #B4B4B4;
+  font-size: 15px
   /* font-weight削除 - globals.cssの700を継承 */
 }
 
 .supporter-title {
   font-size: 1.5rem;
-  margin-bottom: 1.5rem;
   line-height: 1.4;
   /* font-weight削除 - globals.cssの700を継承 */
 }
 
-.supporter-description {
-  font-size: 0.875rem;
+.supporter-description { 
+  font-size: 15px;
   line-height: 1.8;
   margin: 0;
   /* font-weight削除 - globals.cssの700を継承 */
@@ -111,9 +109,10 @@
   writing-mode: vertical-rl;
   text-orientation: mixed;
   color: white;
-  font-size: 1.5rem;
+  font-size: 25px;
   line-height: 1.4;
   letter-spacing: 0.1em;
+  padding: 50px 0 90px 0;
   /* font-weight削除 - globals.cssの700を継承 */
 }
 
@@ -143,22 +142,21 @@
 .minei1-sticky {
   position: sticky;
   top: 80px;
-  padding: 2rem 3rem;
+  padding: 83px 50px 0 50px;
   background-color: #E7EBE7;
   z-index: 20;
 }
 
 .minei1-subtitle {
-  color: #999;
-  font-size: 0.875rem;
+  color: #B4B4B4;
+  font-size: 15px;
   margin-bottom: 1.5rem;
-  letter-spacing: 0.05em;
   /* font-weight削除 - globals.cssの700を継承 */
 }
 
 .minei1-title {
   color: #003705;
-  font-size: 1.25rem;
+  font-size: 25px;
   line-height: 1.4;
   margin-bottom: 0.5rem;
   /* font-weight削除 - globals.cssの700を継承 */
@@ -172,27 +170,28 @@
 }
 
 .minei1-content {
-  padding: 4rem 2rem 4rem 2rem; /* 右側を8remから2remに変更 */
+  padding: 83px 50px 0 2rem; /* 右側を8remから2remに変更 */
 }
 
 .minei1-description {
   color: #003705;
-  font-size: 1rem;
+  font-size: 13px;
+  font-weight: 700;
   line-height: 2;
-  margin-bottom: 2rem;
+  margin-bottom: 30px;
   /* font-weight削除 - globals.cssの700を継承 */
 }
 
 .minei1-button-container {
   width: 100%;
-  margin-bottom: 1rem;
+  margin-bottom: 10px;
 }
 
 .minei1-button {
   background-color: #003705;
   border: 2px solid #003705;
   color: white;
-  padding: 1.5rem 0;
+  padding: 10px 0;
   font-size: 0.875rem;
   cursor: pointer;
   transition: background-color 0.3s ease;
@@ -200,7 +199,7 @@
   display: block;
   width: 100%;
   text-align: center;
-  box-shadow: 0px 0px 0px transparent;
+  box-shadow: 3px 3px 0px #b4b4b4;
   /* font-weight削除 - globals.cssの700を継承 */
 }
 
@@ -214,6 +213,8 @@
 .minei1-link-container {
   display: flex;
   justify-content: flex-end;
+  padding: 16px 0 0 0 ;
+  align-items: center;
 }
 
 .minei1-link {
@@ -228,6 +229,16 @@
 
 .minei1-link:hover {
   opacity: 0.7;
+}
+
+.view-corp-link{
+  color: #003705;
+  font-size: 13px;
+  font-weight: 700;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+  padding: 0 3px 0 0px;
+  align-items: center;
 }
 
 /* ========================================
@@ -289,9 +300,30 @@
   }
   
   .minei1-content {
-    padding: 2rem;
+    padding: 30px;
   }
 }
+.minei1-link-container:hover .view-corp-link {
+  transform: translateX(0.5em);
+}
+
+.minei1-link-container:hover .arrow-icon {
+  transform: translateX(0.5em);
+}
+
+.menu-bottom-link-text {
+  transition: transform 0.3s ease;
+}
+
+/* 矢印アイコンにtransitionを追加 */
+.arrow-icon {
+  width: 24px;
+  height: 12px;
+  object-fit: contain;
+  transition: transform 0.3s ease;
+}
+
+
 
 /* styles/supporter-sections.css に追加 */
 
@@ -798,6 +830,6 @@
   }
   
   .minei5-content {
-    padding: 2rem;
+    padding: 50px;
   }
 }

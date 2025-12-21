@@ -3,6 +3,7 @@
 import { useRef } from 'react';
 import { useSectionSticky } from '../../hooks/useSectionSticky';
 import '../../styles/supporter-sections.css';
+import { IMAGES } from '@/constants/images';
 
 const Minei1 = () => {
   const sectionRef = useRef<HTMLDivElement>(null);
@@ -17,7 +18,7 @@ const Minei1 = () => {
           <div className="minei1-sticky">
             <div className="minei1-subtitle">about supporter</div>
             <h2 className="minei1-title">個人でサポート</h2>
-            <div className="minei1-subtitle-text">"みん営フレンズ"</div>
+            <div className="minei1-title">"みん営フレンズ"</div>
           </div>
         </div>
 
@@ -35,9 +36,14 @@ const Minei1 = () => {
             </div>
             
             <div className="minei1-link-container">
-              <a href="/supporter/howto" className="minei1-link">
-                法人の方はこちら ＝＞
+              <a href="/supportercorp" className="view-corp-link">
+                <span className="menu-bottom-link-text">法人の方はこちら</span>
               </a>
+              <img 
+                src={IMAGES.logo.vec}
+                alt="arrow"
+                className="arrow-icon"
+              />
             </div>
           </div>
         </div>

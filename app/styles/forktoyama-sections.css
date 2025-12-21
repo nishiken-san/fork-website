@@ -608,27 +608,27 @@
 .access-bg .left-column {
   flex: 1;
   z-index: 10;
-  padding: 50px 50px 0 50px;
+  padding: 0px 50px 0 50px;
 }
 
 .access-bg .left-column .content-area {
   position: sticky;
   top: 128px;
-  padding: 32px 0;
+  padding: 0px 0;
 }
 
 .access-bg .section-category {
-  font-size: 14px;
-  color: #003705;
+  font-size: 13px;
+  color: #B4B4B4; 
   margin-bottom: 8px;
   letter-spacing: 0.05em;
-  font-weight: 700;
+  font-weight: 600;
   text-decoration: underline;
   text-underline-offset: 6px;
 }
 
 .access-bg .section-title {
-  font-size: 29px;
+  font-size: 20px;
   font-weight: 600;
   color: #003705;
   margin-bottom: 48px;
@@ -640,21 +640,21 @@
 }
 
 .access-bg .facility-name {
-  font-size: 18px;
+  font-size: 20px;
   font-weight: 600;
   margin-bottom: 8px;
   color: #003705;
 }
 
 .access-bg .address {
-  font-size: 15px;
+  font-size: 13px;
   margin-bottom: 40px;
   line-height: 1.6;
   color: #003705;
 }
 
 .access-bg .company-info {
-  font-size: 14px;
+  font-size: 13px;
   line-height: 1.8;
   color: #003705;
 }
@@ -666,7 +666,7 @@
 .access-bg .right-column {
   flex: 2;
   position: relative;
-  padding: 50px 50px 0 50px;
+  padding: 0px 50px 0 50px;
 }
 
 .access-bg .map-container {
@@ -674,104 +674,133 @@
   width: 100%;
   height: 600px;
   overflow: hidden;
-  background-color: #B4B4B4;
+  background-color: #E7EBE7;
 }
 
 .access-bg .map-container iframe {
-  position: relative;
-  z-index: 1;
-}
-
-.access-bg .map-overlay {
   position: absolute;
   top: 0;
   left: 0;
   width: 100%;
   height: 100%;
-  background-color: rgba(0, 55, 5, 0.3);
-  pointer-events: none;
-  z-index: 2;
+  z-index: 1;
+  /* 青色単色+濃淡の地図 */
+  /* filter: grayscale(100%) sepia(100%) hue-rotate(190deg) saturate(400%) brightness(0.5); */
+  filter: grayscale(100%) sepia(100%) hue-rotate(70deg) saturate(50%) brightness(1);
+}
+
+/* モバイル用要素（デスクトップでは非表示） */
+.access-bg .mobile-header {
+  display: none;
+}
+
+.access-bg .mobile-map {
+  display: none;
+}
+
+.access-bg .mobile-info {
+  display: none;
 }
 
 /* モバイル対応 */
 @media (max-width: 768px) {
   .access-bg {
-    padding: 30px 0;
+    padding: 0;
+    min-height: auto;
   }
   
   .access-bg .section-container {
-    flex-direction: column;
-    padding: 0;
-    gap: 30px;
+    display: none;
   }
   
-  .access-bg .left-column {
-    flex: none;
-    padding: 0 30px;
+  /* モバイル用要素を表示 */
+  .access-bg .mobile-header {
+    display: block;
+    padding: 50px 30px 30px 30px;
   }
   
-  .access-bg .left-column .content-area {
-    position: static;
-    padding: 16px 0;
+  .access-bg .mobile-header .section-category {
+    font-size: 13px;
+    color: #B4B4B4;
+    margin: 0 0 8px 0;
+    text-decoration: underline;
+    text-underline-offset: 6px;
   }
   
-  .access-bg .section-title {
-    font-size: 24px;
-    margin-bottom: 32px;
+  .access-bg .mobile-header .section-title {
+    font-size: 20px;
+    color: #003705;
+    font-weight: 600;
+    margin: 0;
   }
   
-  .access-bg .facility-name {
-    font-size: 16px;
+  .access-bg .mobile-map {
+    display: block;
+    width: 100%;
   }
   
-  .access-bg .address {
-    font-size: 14px;
-    margin-bottom: 32px;
+  .access-bg .mobile-map .map-container {
+    height: 200px;
   }
   
-  .access-bg .company-info {
-    font-size: 14px;
+  .access-bg .mobile-info {
+    display: block;
+    padding: 30px 30px 60px 30px;
   }
   
-  .access-bg .right-column {
-    flex: none;
-    padding: 0 30px;
+  .access-bg .mobile-info .facility-name {
+    font-size: 18px;
+    font-weight: 600;
+    margin: 0 0 8px 0;
+    color: #003705;
   }
   
-  .access-bg .map-container {
-    height: 300px;
+  .access-bg .mobile-info .address {
+    font-size: 13px;
+    margin: 0 0 30px 0;
+    line-height: 1.6;
+    color: #003705;
+  }
+  
+  .access-bg .mobile-info .company-info {
+    font-size: 13px;
+    line-height: 1.8;
+    color: #003705;
+  }
+  
+  .access-bg .mobile-info .company-info > div {
+    margin: 0 0 8px 0;
   }
 }
 
 /* 小型モバイル対応 */
 @media (max-width: 480px) {
-  .access-bg .left-column {
-    padding: 0 20px;
+  .access-bg .mobile-header {
+    padding: 40px 20px 20px 20px;
   }
   
-  .access-bg .section-title {
-    font-size: 21px;
+  .access-bg .mobile-header .section-title {
+    font-size: 18px;
   }
   
-  .access-bg .facility-name {
-    font-size: 15px;
+  .access-bg .mobile-map .map-container {
+    height: 180px;
   }
   
-  .access-bg .address {
-    font-size: 14px;
+  .access-bg .mobile-info {
+    padding: 20px 20px 50px 20px;
   }
   
-  .access-bg .company-info {
-    font-size: 13px;
-    line-height: 1.7;
+  .access-bg .mobile-info .facility-name {
+    font-size: 16px;
   }
   
-  .access-bg .right-column {
-    padding: 0 20px;
+  .access-bg .mobile-info .address {
+    font-size: 12px;
   }
   
-  .access-bg .map-container {
-    height: 250px;
+  .access-bg .mobile-info .company-info {
+    font-size: 12px;
   }
 }
 
@@ -807,4 +836,284 @@
   display: flex;
   flex-direction: column;
   gap: 32px;
+}
+
+/* ========================================
+   Description Section
+   ======================================== */
+
+.description-section {
+  background-color: #E7EBE7;
+}
+
+.description-container {
+  display: flex;
+}
+
+.description-left {
+  width: 33.333333%;
+  background-color: #E7EBE7;
+  position: relative;
+}
+
+.description-right {
+  width: 66.666667%;
+  background-color: #E7EBE7;
+  position: relative;
+}
+
+.description-content {
+  padding: 110px 25px 100px 50px;
+}
+
+.description-sticky {
+  position: sticky;
+  top: 80px;
+  padding: 110px 50px 100px 25px;
+  z-index: 20;
+  overflow: hidden;
+}
+
+/* 画像スライダー（PC用） */
+.description-section .image-slider {
+  position: relative;
+  width: 100%;
+  height: 0;
+  padding-bottom: 58.82%;
+  overflow: hidden;
+}
+
+.description-section .slider-track {
+  position: absolute;
+  top: 0;
+  left: 0;
+  display: flex;
+  width: 100%;
+  height: 100%;
+  transition: transform 0.8s ease-in-out;
+}
+
+.description-section .slider-image {
+  flex-shrink: 0;
+  min-width: 100%;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* カテゴリー（サブタイトル） */
+.description-category {
+  color: #003705;
+  font-size: 15px;
+  font-weight: 700;
+  letter-spacing: 0;
+  margin: 0 0 16px 0;
+  padding: 0 0 7px 0;
+  border-bottom: 1px solid #003705;
+  display: inline-block;
+}
+
+/* タイトル */
+.description-title {
+  color: #003705;
+  font-size: 25px;
+  font-weight: 700;
+  line-height: 1.4;
+  margin: 0 0 24px 0;
+  padding: 0;
+}
+
+/* テキスト */
+.description-text {
+  color: #003705;
+  font-size: 13px;
+  font-weight: 700;
+  line-height: 1.8;
+  margin: 0 0 16px 0;
+  padding: 0;
+}
+
+/* セクション間隔 */
+.description-section-spacing {
+  margin: 0 0 64px 0;
+  padding: 0;
+}
+
+.description-section-spacing:last-child {
+  margin-bottom: 0;
+}
+
+/* リスト */
+.description-list {
+  list-style: none;
+  padding: 0;
+  margin: 32px 0 0 0;
+}
+
+.description-list-item {
+  background-color: #FFFFFF;
+  border-radius: 10px;
+  padding: 24px;
+  margin: 0 0 16px 0;
+  display: flex;
+  align-items: flex-start;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.description-list-item:last-child {
+  margin-bottom: 0;
+}
+
+.description-list-number {
+  color: #003705;
+  font-size: 18px;
+  font-weight: 700;
+  margin: 0 16px 0 0;
+  padding: 0;
+  min-width: 32px;
+}
+
+.description-list-text {
+  color: #003705;
+  font-size: 18px;
+  font-weight: 700;
+  line-height: 1.6;
+  margin: 0;
+  padding: 0;
+  flex: 1;
+}
+
+/* モバイル用静止画像（デスクトップでは非表示） */
+.description-section .mobile-image {
+  display: none;
+}
+
+/* モバイル対応 */
+@media (max-width: 768px) {
+  .description-container {
+    flex-direction: column;
+  }
+  
+  .description-left {
+    width: 100%;
+  }
+  
+  .description-right {
+    display: none;
+  }
+  
+  .description-content {
+    padding: 50px 30px 60px 30px;
+  }
+  
+  .description-category {
+    font-size: 13px;
+    padding: 0 0 7px 0;
+    margin: 0 0 12px 0;
+  }
+  
+  .description-title {
+    font-size: 20px;
+    margin: 0 0 20px 0;
+  }
+  
+  .description-text {
+    font-size: 13px;
+    margin: 0 0 12px 0;
+  }
+  
+  .description-section-spacing {
+    margin: 0 0 40px 0;
+  }
+  
+  .description-list {
+    margin: 24px 0 0 0;
+  }
+  
+  .description-list-item {
+    padding: 20px;
+    margin: 0 0 12px 0;
+  }
+  
+  .description-list-number {
+    font-size: 16px;
+    min-width: 28px;
+    margin: 0 12px 0 0;
+  }
+  
+  .description-list-text {
+    font-size: 16px;
+  }
+  
+  /* モバイル用静止画像を表示 */
+  .description-section .mobile-image {
+    display: block;
+    width: 100%;
+    margin: 0 0 40px 0;
+  }
+  
+  .description-section .mobile-image img {
+    width: 100%;
+    height: auto;
+    aspect-ratio: 1 / 1;
+    object-fit: cover;
+  }
+}
+
+/* 小型モバイル対応 */
+@media (max-width: 480px) {
+  .description-content {
+    padding: 40px 20px 50px 20px;
+  }
+  
+  .description-category {
+    font-size: 12px;
+  }
+  
+  .description-title {
+    font-size: 18px;
+    margin: 0 0 16px 0;
+  }
+  
+  .description-text {
+    font-size: 12px;
+    margin: 0 0 10px 0;
+  }
+  
+  .description-section-spacing {
+    margin: 0 0 32px 0;
+  }
+  
+  .description-list {
+    margin: 20px 0 0 0;
+  }
+  
+  .description-list-item {
+    padding: 16px;
+    margin: 0 0 10px 0;
+  }
+  
+  .description-list-number {
+    font-size: 14px;
+    min-width: 24px;
+    margin: 0 10px 0 0;
+  }
+  
+  .description-list-text {
+    font-size: 14px;
+  }
+  
+  .description-section .mobile-image {
+    margin: 0 0 32px 0;
+  }
+}
+
+.google-map {
+  width: 100%;
+  height: 100%;
+}
+
+.access-bg .map-container {
+  height: 600px;
+  position: relative;
 }

@@ -166,21 +166,32 @@ const MobileTop: React.FC<MobileTopProps> = ({ isOpen, onClose, logoImage }) => 
         .menu-bottom-link {
           color: #E7EBE7;
           font-size: 0.875rem;
-          display: flex;
+          display: inline-flex;
           align-items: center;
-          gap: 0.5rem;
+          gap: 3px;
           text-decoration: none;
-          transition: color 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+          transition: transform 0.3s ease;
         }
         
-        .menu-bottom-link:hover {
-          color: #b8c0b8;
+        .menu-bottom-link-text {
+          transition: transform 0.3s ease;
         }
         
         .arrow-icon {
-          width: 16px;
-          height: 16px;
+          width: 24px;
+          height: 12px;
+          object-fit: contain;
+          transition: transform 0.3s ease;
         }
+        
+        .menu-bottom-link:hover .menu-bottom-link-text {
+          transform: translateX(0.5em);
+        }
+        
+        .menu-bottom-link:hover .arrow-icon {
+          transform: translateX(0.5em);
+        }
+        
       `}</style>
 
       <div 
@@ -226,7 +237,7 @@ const MobileTop: React.FC<MobileTopProps> = ({ isOpen, onClose, logoImage }) => 
           
           <div className="menu-bottom">
             <a href="/fork-toyama" className="menu-bottom-link" onClick={onClose}>
-              学童保育：fork toyama 
+              <span className="menu-bottom-link-text">学童保育：fork toyama</span>
               <img 
                 src={IMAGES.logo.vecw}
                 alt="arrow"

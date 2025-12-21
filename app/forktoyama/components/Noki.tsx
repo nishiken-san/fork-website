@@ -31,10 +31,10 @@ const Noki = () => {
           {/* Mobile Text Section */}
           <div className="mobile-text-section">
             <div className="content-area">
-              <div className="section-category">建物</div>
-              <div className="section-title">自然とあそぶ建築</div>
+              <div className="section-category">cafe</div>
+              <div className="section-title">Noki</div>
               <div className="description">
-              forkの施設は地域に根ざして教育に取り組んできた旧家のお屋敷をリノベーションした建物です。富山県産の木材をふんだんに使用した床や壁は、学童保育を利用する親子がワークショップで仕上げました。広い庭は子どもたちの想像力が全開にできる場所。季節に合わせてさまざまな遊びを楽しんでいます
+              子どもたちの声を楽しみながら、こだわりのコーヒーとホットサンドやデザートでお迎えするカフェ。収益の一部は学童保育運営に充てられます。
               </div>
             </div>
           </div>
