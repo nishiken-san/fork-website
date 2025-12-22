@@ -37,7 +37,11 @@
 }
 
 .supporter-content {
+<<<<<<< HEAD
   padding: 140px 50px 90px;
+=======
+  padding: 0 50px;
+>>>>>>> da867aa1b8bb8f19bdd476d3d614a75c4ee36d24
   display: flex;
   flex-direction: column;
 }
