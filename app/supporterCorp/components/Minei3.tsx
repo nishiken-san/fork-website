@@ -3,6 +3,7 @@
 import { useRef } from 'react';
 import { useSectionSticky } from '../../hooks/useSectionSticky';
 import '../../styles/supporter-sections.css';
+import { IMAGES } from '@/constants/images';
 
 interface VoiceItem {
   id: string;
@@ -47,8 +48,8 @@ const Minei3 = () => {
         {/* 左側: 固定ヘッダー */}
         <div className="minei3-left">
           <div className="minei3-sticky">
-            <div className="minei3-subtitle">supporter voice</div>
-            <h2 className="minei3-title">サポーターの声</h2>
+            <div className="minei3-subtitle">tie-up</div>
+            <h2 className="minei3-title">コラボレーション事例</h2>
           </div>
         </div>
 
@@ -69,6 +70,17 @@ const Minei3 = () => {
                 </div>
               ))}
             </div>
+
+            <div className="minei1-link-container">
+                          <a href="/supporter" className="view-corp-link">
+                            <span className="menu-bottom-link-text">タイアップ事例一覧</span>
+                          </a>
+                          <img 
+                            src={IMAGES.logo.vec}
+                            alt="arrow"
+                            className="arrow-icon"
+                          />
+                        </div>
           </div>
         </div>
       </div>

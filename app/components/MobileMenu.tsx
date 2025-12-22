@@ -230,7 +230,7 @@ const MobileMenu: React.FC<MobileMenuProps> = ({ isOpen, onClose, logoImage }) =
                 <a href="/supporter" className="menu-link" onClick={onClose}>
                   ー　みん営フレンズ（個人）
                 </a>
-                <a href="/supporterCorp" className="menu-link" onClick={onClose}>
+                <a href="/supportercorp" className="menu-link" onClick={onClose}>
                   ー　みん営パートナー（法人・団体）
                 </a>
               </div>

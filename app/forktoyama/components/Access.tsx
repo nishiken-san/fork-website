@@ -1,7 +1,7 @@
 'use client';
 
 import { useRef, useEffect, useState } from 'react';
-import { Loader } from '@googlemaps/js-api-loader';
+import { setOptions, importLibrary, Loader } from '@googlemaps/js-api-loader';
 import { useSectionSticky } from '../../hooks/useSectionSticky';
 import '../../styles/forktoyama-sections.css';
 
@@ -11,7 +11,7 @@ const mapStyles: google.maps.MapTypeStyle[] = [
     featureType: 'all',
     elementType: 'all',
     stylers: [
-      { hue: '#00ff00' },
+      { hue: '#003705' },
       { saturation: -50 },
       { lightness: 0 },
       { gamma: 1 }

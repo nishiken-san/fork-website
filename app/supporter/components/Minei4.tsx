@@ -11,12 +11,12 @@ const Minei4 = () => {
 
   const priceOptions = [
     '¥1,000',
-    '¥2000',
-    '¥3000',
-    '¥5000',
-    '¥10000',
-    '¥30000',
-    '¥50000'
+    '¥2,000',
+    '¥3,000',
+    '¥5,000',
+    '¥10,000',
+    '¥30,000',
+    '¥50,000'
   ];
 
   return (
@@ -41,7 +41,7 @@ const Minei4 = () => {
                 <span className="minei4-price-amount">¥1,000 〜</span>
               </div>
               
-              <a href="/supporter/apply" className="minei4-button">
+              <a href="https://docs.google.com/forms/d/e/1FAIpQLSeQisLpyoUlh3Bsgt4quyVe3GtiSExoa-WOJyoyv2cRBoeYNA/viewform" className="minei4-button">
                 申し込みはこちら
               </a>
               

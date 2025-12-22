@@ -3,6 +3,7 @@
 import { useRef } from 'react';
 import { useSectionSticky } from '../../hooks/useSectionSticky';
 import '../../styles/supporter-sections.css';
+import { IMAGES } from '@/constants/images';
 
 const Minei1 = () => {
   const sectionRef = useRef<HTMLDivElement>(null);
@@ -16,8 +17,8 @@ const Minei1 = () => {
         <div className="minei1-left">
           <div className="minei1-sticky">
             <div className="minei1-subtitle">about supporter</div>
-            <h2 className="minei1-title">個人でサポート</h2>
-            <div className="minei1-subtitle-text">"みん営フレンズ"</div>
+            <h2 className="minei1-title">法人・団体でサポート</h2>
+            <div className="minei1-title">"みん営パートナー"</div>
           </div>
         </div>
 
@@ -25,7 +26,7 @@ const Minei1 = () => {
         <div ref={contentRef} className="minei1-right">
           <div className="minei1-content">
             <p className="minei1-description">
-            forkが掲げる「みん営」は、理念・取り組みに共感いただいたサポーターの方々の寄付によって成り立っています。ひとりひとりにとってお金の価値が異なるように、寄付金の額はお客様自身にきめていただく方法をとっています。
+            法人サポーターの方々には、継続寄付のほかに子どもたち向けのコラボレーション企画も提供しています。貴社の商品やサービス等を通じて子どもたちの人生に選択肢を増やすことができるような、さらには大人までもが触発されるような機会をともにつくりませんか？
             </p>
 
             <div className="minei1-button-container">
@@ -35,9 +36,14 @@ const Minei1 = () => {
             </div>
             
             <div className="minei1-link-container">
-              <a href="/supporter/howto" className="minei1-link">
-                法人の方はこちら ＝＞
+              <a href="/supporter" className="view-corp-link">
+                <span className="menu-bottom-link-text">個人の方はこちら</span>
               </a>
+              <img 
+                src={IMAGES.logo.vec}
+                alt="arrow"
+                className="arrow-icon"
+              />
             </div>
           </div>
         </div>

@@ -10,10 +10,12 @@ const Minei2 = () => {
   const { isSticky } = useSectionSticky(sectionRef, contentRef);
 
   const benefits = [
-    'noki fork cafeでのドリンク無料クーポン（毎月）',
+    '毎月の活動報告レター配信',
+    'noki fork cafeでの1ドリンク無料クーポン（毎月）',
     '「みん営」ミーティング（年1回開催）へのご招待',
-    'そのほかfork開催イベントへの先行ご案内',
-    'コワーキングスペースのご利用権'
+    'そのほかfork開催イベントへの先行ご案内（団体チケット）',
+    'コワーキングスペースのご利用権',
+    'forkとのコラボレーション企画'
   ];
 
   return (
@@ -23,7 +25,7 @@ const Minei2 = () => {
         <div className="minei2-left">
           <div className="minei2-sticky">
             <div className="minei2-subtitle">supporter benefits</div>
-            <h2 className="minei2-title">みん営フレンズになったら</h2>
+            <h2 className="minei2-title">みん営パートナーになったら</h2>
           </div>
         </div>
 
@@ -31,7 +33,7 @@ const Minei2 = () => {
         <div ref={contentRef} className="minei2-right">
           <div className="minei2-content">
             <div className="minei2-card">
-              <div className="minei2-card-title">・毎月の活動報告レター配信</div>
+              
               <ul className="minei2-benefits-list">
                 {benefits.map((benefit, index) => (
                   <li key={index} className="minei2-benefits-item">
@@ -39,7 +41,7 @@ const Minei2 = () => {
                   </li>
                 ))}
               </ul>
-              など
+              <div className="minei2-card-title">など</div>
             </div>
           </div>
         </div>

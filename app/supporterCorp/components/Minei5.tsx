@@ -15,7 +15,7 @@ const Minei5 = () => {
     fetch('/data/supporters.json')
       .then(response => response.json())
       .then(data => {
-        setSupporters(data.frenz || []);
+        setSupporters(data.partners || []);
       })
       .catch(error => {
         console.error('Error loading supporters:', error);
@@ -29,7 +29,7 @@ const Minei5 = () => {
         <div className="minei5-left">
           <div className="minei5-sticky">
             <div className="minei5-subtitle">supporters</div>
-            <h2 className="minei5-title">みん営フレンズのみなさま</h2>
+            <h2 className="minei5-title">みん営パートナーのみなさま</h2>
           </div>
         </div>
 

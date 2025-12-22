@@ -11,12 +11,12 @@ const Minei4 = () => {
 
   const priceOptions = [
     '¥1,000',
-    '¥2000',
-    '¥3000',
-    '¥5000',
-    '¥10000',
-    '¥30000',
-    '¥50000'
+    '¥2,000',
+    '¥3,000',
+    '¥5,000',
+    '¥10,000',
+    '¥30,000',
+    '¥50,000'
   ];
 
   return (
@@ -34,20 +34,17 @@ const Minei4 = () => {
         <div ref={contentRef} className="minei4-right">
           <div className="minei4-content">
             <div className="minei4-card">
-              <div className="minei4-card-title">みん営フレンズ</div>
+              <div className="minei4-card-title">みん営パートナー</div>
               
               <div className="minei4-price">
                 <span className="minei4-price-label">月額</span>
-                <span className="minei4-price-amount">¥1,000 〜</span>
+                <span className="minei4-price-amount">¥10,000 〜</span>
               </div>
               
-              <a href="/supporter/apply" className="minei4-button">
-                申し込みはこちら
+              <a href="https://docs.google.com/forms/d/e/1FAIpQLSeQisLpyoUlh3Bsgt4quyVe3GtiSExoa-WOJyoyv2cRBoeYNA/viewform" className="minei4-button">
+                お問い合わせはこちら
               </a>
               
-              <div className="minei4-price-options">
-                {priceOptions.join(' / ')}
-              </div>
             </div>
           </div>
         </div>

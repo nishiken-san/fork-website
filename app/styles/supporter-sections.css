@@ -45,7 +45,7 @@
 .supporter-sticky {
   position: sticky;
   top: 80px;
-  padding: 2rem 3rem;
+  padding: 50px 50px;
   z-index: 20;
   display: flex;
   align-items: flex-start;
@@ -84,7 +84,7 @@
   font-size: 1rem;
   margin-bottom: 2rem;
   color: #B4B4B4;
-  font-size: 15px
+  font-size: 15px;
   /* font-weight削除 - globals.cssの700を継承 */
 }
 
@@ -170,7 +170,7 @@
 }
 
 .minei1-content {
-  padding: 83px 50px 0 2rem; /* 右側を8remから2remに変更 */
+  padding: 83px 50px 0 0px; /* 右側を8remから2remに変更 */
 }
 
 .minei1-description {
@@ -239,70 +239,9 @@
   text-underline-offset: 3px;
   padding: 0 3px 0 0px;
   align-items: center;
+  transition: transform 0.3s ease;
 }
 
-/* ========================================
-   レスポンシブデザイン
-   ======================================== */
-
-@media (min-width: 1024px) {
-  .supporter-vertical-text {
-    font-size: 1.75rem;
-  }
-  
-  .minei1-title,
-  .minei1-subtitle-text {
-    font-size: 1.5rem;
-  }
-  
-  .minei1-description {
-    font-size: 1.125rem;
-  }
-}
-
-@media (max-width: 768px) {
-  .supporter-two-column {
-    flex-direction: column;
-  }
-  
-  .supporter-two-column-left,
-  .supporter-two-column-right {
-    width: 100% !important;
-  }
-  
-  .supporter-content {
-    padding: 3rem 2rem;
-  }
-  
-  .supporter-sticky {
-    position: static;
-    padding: 2rem;
-    justify-content: center;
-  }
-  
-  .supporter-vertical-text {
-    writing-mode: horizontal-tb;
-    text-align: center;
-  }
-  
-  .minei1-container {
-    flex-direction: column;
-  }
-  
-  .minei1-left,
-  .minei1-right {
-    width: 100%;
-  }
-  
-  .minei1-sticky {
-    position: static;
-    padding: 2rem;
-  }
-  
-  .minei1-content {
-    padding: 30px;
-  }
-}
 .minei1-link-container:hover .view-corp-link {
   transform: translateX(0.5em);
 }
@@ -315,7 +254,7 @@
   transition: transform 0.3s ease;
 }
 
-/* 矢印アイコンにtransitionを追加 */
+/* 矢印アイコン共通 */
 .arrow-icon {
   width: 24px;
   height: 12px;
@@ -323,140 +262,122 @@
   transition: transform 0.3s ease;
 }
 
-
-
-/* styles/supporter-sections.css に追加 */
-
 /* ========================================
-   Minei2 Section Styles
+   Minei2 Section Styles（基準）
    ======================================== */
 
-   .minei2-section {
-    background-color: #E7EBE7;
-    padding: 4rem 0;
+.minei2-section {
+  background-color: #E7EBE7;
+  padding: 50px 0;
+}
+
+.minei2-container {
+  display: flex;
+}
+
+.minei2-left {
+  width: 33.333333%;
+  background-color: #E7EBE7;
+  position: relative;
+}
+
+.minei2-right {
+  width: 66.666667%;
+  background-color: #E7EBE7;
+}
+
+.minei2-sticky {
+  position: sticky;
+  top: 80px;
+  padding: 50px 50px;
+  z-index: 20;
+}
+
+.minei2-subtitle {
+  color: #B4B4B4;
+  font-size: 15px;
+  margin-bottom: 1.5rem;
+  letter-spacing: 0.05em;
+}
+
+.minei2-title {
+  color: #003705;
+  font-size: 25px;
+  line-height: 1.4;
+}
+
+.minei2-content {
+  padding: 50px 50px 50px 0px;
+}
+
+.minei2-card {
+  background-color: #FFFFFF;
+  border-radius: 10px;
+  padding: 24px;
+}
+
+.minei2-card-title {
+  color: #003705;
+  font-size: 13px;
+  line-height: 1.6;
+}
+
+.minei2-benefits-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.minei2-benefits-item {
+  color: #003705;
+  font-size: 13px;
+  line-height: 2;
+  margin-bottom: 0.5rem;
+  padding-left: 1rem;
+  position: relative;
+}
+
+.minei2-benefits-item::before {
+  content: "・";
+  position: absolute;
+  left: 0;
+}
+
+@media (max-width: 768px) {
+  .minei2-section {
+    padding: 2rem 0;
   }
   
   .minei2-container {
-    display: flex;
+    flex-direction: column;
   }
   
-  .minei2-left {
-    width: 33.333333%;
-    background-color: #E7EBE7;
-    position: relative;
-  }
-  
+  .minei2-left,
   .minei2-right {
-    width: 66.666667%;
-    background-color: #E7EBE7;
+    width: 100%;
   }
   
   .minei2-sticky {
-    position: sticky;
-    top: 80px;
-    padding: 2rem 3rem;
-    background-color: #E7EBE7;
-    z-index: 20;
-  }
-  
-  .minei2-subtitle {
-    color: #999;
-    font-size: 0.875rem;
-    margin-bottom: 1.5rem;
-    letter-spacing: 0.05em;
-  }
-  
-  .minei2-title {
-    color: #003705;
-    font-size: 1.25rem;
-    line-height: 1.4;
+    position: static;
+    padding: 0px 0px 43px 30px;
   }
   
   .minei2-content {
-    padding: 4rem 2rem 4rem 2rem; /* 右側を8remから2remに変更 */
+    padding: 0px 30px 0 30px;
   }
   
   .minei2-card {
-    background-color: #FFFFFF;
-    border-radius: 16px;
-    padding: 3rem;
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    padding: 24px;
   }
-  
-  .minei2-card-title {
-    color: #003705;
-    font-size: 1rem;
-    margin-bottom: 2rem;
-    line-height: 1.6;
-  }
-  
-  .minei2-benefits-list {
-    list-style: none;
-    padding: 0;
-    margin: 0;
-  }
-  
-  .minei2-benefits-item {
-    color: #003705;
-    font-size: 0.875rem;
-    line-height: 2;
-    margin-bottom: 0.5rem;
-    padding-left: 1rem;
-    position: relative;
-  }
-  
-  .minei2-benefits-item::before {
-    content: "・";
-    position: absolute;
-    left: 0;
-  }
-  
-  @media (min-width: 1024px) {
-    .minei2-title {
-      font-size: 1.5rem;
-    }
-    
-    .minei2-card-title {
-      font-size: 1.125rem;
-    }
-  }
-  
-  @media (max-width: 768px) {
-    .minei2-section {
-      padding: 2rem 0;
-    }
-    
-    .minei2-container {
-      flex-direction: column;
-    }
-    
-    .minei2-left,
-    .minei2-right {
-      width: 100%;
-    }
-    
-    .minei2-sticky {
-      position: static;
-      padding: 2rem;
-    }
-    
-    .minei2-content {
-      padding: 2rem;
-    }
-    
-    .minei2-card {
-      padding: 2rem;
-    }
-  }
-
+}
 
 /* ========================================
-   Minei3 Section Styles
+   Minei3 Section Styles（minei2に統一）
    ======================================== */
 
 .minei3-section {
   background-color: #E7EBE7;
-  padding: 4rem 0;
+  padding: 50px 0;
 }
 
 .minei3-container {
@@ -477,58 +398,52 @@
 .minei3-sticky {
   position: sticky;
   top: 80px;
-  padding: 2rem 3rem;
-  background-color: #E7EBE7;
+  padding: 50px 50px;
   z-index: 20;
 }
 
 .minei3-subtitle {
-  color: #999;
-  font-size: 0.875rem;
+  color: #B4B4B4;
+  font-size: 15px;
   margin-bottom: 1.5rem;
   letter-spacing: 0.05em;
 }
 
 .minei3-title {
   color: #003705;
-  font-size: 1.25rem;
+  font-size: 25px;
   line-height: 1.4;
-  text-decoration: underline;
-  text-decoration-color: #003705;
-  text-underline-offset: 0.3em;
-  text-decoration-thickness: 2px;
 }
 
 .minei3-content {
-  padding: 4rem 2rem 4rem 2rem; /* 右側を8remから2remに変更 */
+  padding: 50px 50px 50px 0px;
 }
 
 .minei3-voices-list {
   display: flex;
   flex-direction: column;
-  gap: 2rem;
+  gap: 24px;
 }
 
 .minei3-voice-card {
   background-color: #FFFFFF;
-  border-radius: 16px;
-  padding: 2.5rem;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  border-radius: 10px;
+  padding: 24px;
 }
 
 .minei3-voice-header {
-  margin-bottom: 1.5rem;
+  margin-bottom: 1rem;
 }
 
 .minei3-voice-name {
   color: #003705;
-  font-size: 1rem;
+  font-size: 13px;
   margin-bottom: 0.5rem;
 }
 
 .minei3-voice-info {
-  color: #666;
-  font-size: 0.875rem;
+  color: #B4B4B4;
+  font-size: 13px;
   margin-bottom: 1rem;
 }
 
@@ -536,23 +451,13 @@
   width: 100%;
   height: 1px;
   background-color: #003705;
-  margin-bottom: 1.5rem;
+  margin-bottom: 1rem;
 }
 
 .minei3-voice-text {
   color: #003705;
-  font-size: 0.875rem;
-  line-height: 1.8;
-}
-
-@media (min-width: 1024px) {
-  .minei3-title {
-    font-size: 1.5rem;
-  }
-  
-  .minei3-voice-name {
-    font-size: 1.125rem;
-  }
+  font-size: 13px;
+  line-height: 2;
 }
 
 @media (max-width: 768px) {
@@ -571,185 +476,164 @@
   
   .minei3-sticky {
     position: static;
-    padding: 2rem;
+    padding: 0px 0px 43px 30px;
   }
   
   .minei3-content {
-    padding: 2rem;
+    padding: 0px 30px 0 30px;
   }
   
   .minei3-voice-card {
-    padding: 2rem;
+    padding: 24px;
   }
   
   .minei3-voices-list {
-    gap: 1.5rem;
+    gap: 16px;
   }
 }
 
-/* styles/supporter-sections.css に追加 */
-
-/* styles/supporter-sections.css の Minei4 Section を修正 */
-
 /* ========================================
-   Minei4 Section Styles
+   Minei4 Section Styles（minei2に統一）
    ======================================== */
 
-   .minei4-section {
-    background-color: #E7EBE7;
-    padding: 4rem 0;
+.minei4-section {
+  background-color: #E7EBE7;
+  padding: 50px 0;
+}
+
+.minei4-container {
+  display: flex;
+}
+
+.minei4-left {
+  width: 33.333333%;
+  background-color: #E7EBE7;
+  position: relative;
+}
+
+.minei4-right {
+  width: 66.666667%;
+  background-color: #E7EBE7;
+}
+
+.minei4-sticky {
+  position: sticky;
+  top: 80px;
+  padding: 50px 50px;
+  z-index: 20;
+}
+
+.minei4-subtitle {
+  color: #B4B4B4;
+  font-size: 15px;
+  margin-bottom: 1.5rem;
+  letter-spacing: 0.05em;
+}
+
+.minei4-title {
+  color: #003705;
+  font-size: 25px;
+  line-height: 1.4;
+}
+
+.minei4-content {
+  padding: 50px 50px 50px 0px;
+}
+
+.minei4-card {
+  background-color: #FFFFFF;
+  border-radius: 10px;
+  padding: 24px;
+}
+
+.minei4-card-title {
+  color: #003705;
+  font-size: 13px;
+  line-height: 1.6;
+  margin-bottom: 1.5rem;
+}
+
+.minei4-price {
+  text-align: center;
+  margin-bottom: 24px;
+}
+
+.minei4-price-label {
+  color: #003705;
+  font-size: 13px;
+  margin-right: 1rem;
+}
+
+.minei4-price-amount {
+  color: #003705;
+  font-size: 25px;
+}
+
+.minei4-button {
+  background-color: #003705;
+  border: 2px solid #003705;
+  color: white;
+  padding: 10px 0;
+  font-size: 13px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  text-decoration: none;
+  display: block;
+  width: 100%;
+  text-align: center;
+  margin-bottom: 16px;
+  box-shadow: 3px 3px 0px #b4b4b4;
+}
+
+.minei4-button:hover {
+  background-color: #93A794;
+  border: 2px solid #003705;
+  color: #003705;
+  box-shadow: 3px 3px 0px #003705;
+}
+
+.minei4-price-options {
+  color: #B4B4B4;
+  font-size: 13px;
+  text-align: center;
+  line-height: 2;
+}
+
+@media (max-width: 768px) {
+  .minei4-section {
+    padding: 2rem 0;
   }
   
   .minei4-container {
-    display: flex;
+    flex-direction: column;
   }
   
-  .minei4-left {
-    width: 33.333333%;
-    background-color: #E7EBE7;
-    position: relative;
-  }
-  
+  .minei4-left,
   .minei4-right {
-    width: 66.666667%;
-    background-color: #E7EBE7;
+    width: 100%;
   }
   
   .minei4-sticky {
-    position: sticky;
-    top: 80px;
-    padding: 2rem 3rem;
-    background-color: #E7EBE7;
-    z-index: 20;
-  }
-  
-  .minei4-subtitle {
-    color: #999;
-    font-size: 0.875rem;
-    margin-bottom: 1.5rem;
-    letter-spacing: 0.05em;
-  }
-  
-  .minei4-title {
-    color: #003705;
-    font-size: 1.25rem;
-    line-height: 1.4;
+    position: static;
+    padding: 0px 0px 43px 30px;
   }
   
   .minei4-content {
-    padding: 4rem 2rem 4rem 2rem; /* 右側を8remから2remに変更 */
+    padding: 0px 30px 0 30px;
   }
   
   .minei4-card {
-    background-color: #FFFFFF;
-    border-radius: 16px;
-    padding: 3rem;
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    padding: 24px;
   }
-  
-  .minei4-card-title {
-    color: #003705;
-    font-size: 1rem;
-    margin-bottom: 1.5rem;
-  }
-  
-  .minei4-price {
-    text-align: center; /* rightからcenterに変更 */
-    margin-bottom: 2rem;
-  }
-  
-  .minei4-price-label {
-    color: #003705;
-    font-size: 0.875rem;
-    margin-right: 1rem;
-  }
-  
-  .minei4-price-amount {
-    color: #003705;
-    font-size: 1.5rem;
-  }
-  
-  .minei4-button {
-    background-color: #003705;
-    border: 2px solid #003705;
-    color: white;
-    padding: 1.5rem 0;
-    font-size: 0.875rem;
-    cursor: pointer;
-    transition: all 0.3s ease;
-    text-decoration: none;
-    display: block;
-    width: 100%;
-    text-align: center;
-    margin-bottom: 1.5rem;
-    box-shadow: 0px 0px 0px transparent;
-  }
-  
-  .minei4-button:hover {
-    background-color: #93A794;
-    border: 2px solid #003705;
-    color: #003705;
-    box-shadow: 3px 3px 0px #003705;
-  }
-  
-  .minei4-price-options {
-    color: #B4B4B4;
-    font-size: 0.875rem;
-    text-align: center;
-    line-height: 1.8;
-  }
-  
-  @media (min-width: 1024px) {
-    .minei4-title {
-      font-size: 1.5rem;
-    }
-    
-    .minei4-card-title {
-      font-size: 1.125rem;
-    }
-    
-    .minei4-price-amount {
-      font-size: 2rem;
-    }
-  }
-  
-  @media (max-width: 768px) {
-    .minei4-section {
-      padding: 2rem 0;
-    }
-    
-    .minei4-container {
-      flex-direction: column;
-    }
-    
-    .minei4-left,
-    .minei4-right {
-      width: 100%;
-    }
-    
-    .minei4-sticky {
-      position: static;
-      padding: 2rem;
-    }
-    
-    .minei4-content {
-      padding: 2rem;
-    }
-    
-    .minei4-card {
-      padding: 2rem;
-    }
-  }
-
-  /* styles/supporter-sections.css に追加 */
+}
 
 /* ========================================
-   Minei5 Section Styles
+   Minei5 Section Styles（minei2に統一）
    ======================================== */
 
 .minei5-section {
   background-color: #E7EBE7;
-  padding: 4rem 0;
+  padding: 50px 0;
 }
 
 .minei5-container {
@@ -770,44 +654,40 @@
 .minei5-sticky {
   position: sticky;
   top: 80px;
-  padding: 2rem 3rem;
-  background-color: #E7EBE7;
+  padding: 50px 50px;
   z-index: 20;
 }
 
 .minei5-subtitle {
-  color: #999;
-  font-size: 0.875rem;
+  color: #B4B4B4;
+  font-size: 15px;
   margin-bottom: 1.5rem;
   letter-spacing: 0.05em;
 }
 
 .minei5-title {
   color: #003705;
-  font-size: 1.25rem;
+  font-size: 25px;
   line-height: 1.4;
 }
 
 .minei5-content {
-  padding: 4rem 2rem 4rem 2rem;
+  padding: 50px 50px 50px 0px;
+}
+
+/* テキストのみの場合はカードとして扱う */
+.minei5-card {
+  background-color: #FFFFFF;
+  border-radius: 10px;
+  padding: 24px;
 }
 
 .minei5-supporters-text {
   color: #003705;
-  font-size: 0.875rem;
+  font-size: 13px;
   line-height: 2;
   word-wrap: break-word;
   overflow-wrap: break-word;
-}
-
-@media (min-width: 1024px) {
-  .minei5-title {
-    font-size: 1.5rem;
-  }
-  
-  .minei5-supporters-text {
-    font-size: 1rem;
-  }
 }
 
 @media (max-width: 768px) {
@@ -826,10 +706,123 @@
   
   .minei5-sticky {
     position: static;
-    padding: 2rem;
+    padding: 0px 0px 43px 30px;
   }
   
   .minei5-content {
-    padding: 50px;
+    padding: 0px 30px 0 30px;
+  }
+  
+  .minei5-card {
+    padding: 24px;
+  }
+}
+
+/* ========================================
+   レスポンシブデザイン（共通）
+   ======================================== */
+
+@media (min-width: 1024px) {
+  .supporter-vertical-text {
+    font-size: 1.75rem;
+  }
+  
+  .minei1-title,
+  .minei1-subtitle-text {
+    font-size: 1.5rem;
+  }
+  
+  .minei1-description {
+    font-size: 1.125rem;
+  }
+}
+
+/* ========================================
+   supporter-two-column モバイル対応（3:1横並び維持）
+   ======================================== */
+
+@media (max-width: 768px) {
+  /* supporter-two-columnは横並びを維持（3:1） */
+  .supporter-two-column {
+    flex-direction: row;
+  }
+  
+  .supporter-two-column-left {
+    width: 75% !important;
+  }
+  
+  .supporter-two-column-right {
+    width: 25% !important;
+  }
+  
+  .supporter-content {
+    padding: 138px 0px 50px 30px;
+  }
+  
+  .supporter-sticky {
+    position: sticky;
+    top: 70px;
+    padding: 50px 30px;
+    justify-content: flex-end;
+  }
+  
+  .supporter-vertical-text {
+    writing-mode: vertical-rl;
+    text-orientation: mixed;
+    font-size: 20px;
+    letter-spacing: 0.1em;
+    padding: 0;
+  }
+  
+  .supporter-subtitle {
+    font-size: 13px;
+    margin-bottom: 1.5rem;
+  }
+  
+  .supporter-description {
+    font-size: 13px;
+    line-height: 1.8;
+  }
+  
+  /* minei1はcolumn */
+  .minei1-container {
+    flex-direction: column;
+  }
+  
+  .minei1-left,
+  .minei1-right {
+    width: 100%;
+  }
+  
+  .minei1-sticky {
+    position: static;
+    padding: 2rem;
+  }
+  
+  .minei1-content {
+    padding: 30px;
+  }
+}
+
+/* 小さいモバイル用 */
+@media (max-width: 480px) {
+  .supporter-content {
+    padding: 138px 20px 40px 20px;
+  }
+  
+  .supporter-sticky {
+    padding: 40px 15px;
+  }
+  
+  .supporter-vertical-text {
+    font-size: 18px;
+  }
+  
+  .supporter-subtitle {
+    font-size: 12px;
+  }
+  
+  .supporter-description {
+    font-size: 12px;
   }
 }
