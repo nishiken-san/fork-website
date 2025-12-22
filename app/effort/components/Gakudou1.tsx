@@ -210,6 +210,7 @@ const Gakudou1 = () => {
             font-size: 13px;
             margin: 0 0 20px 0;
             line-height: 1.6;
+            padding: 0 0 0 0;
           }
           
           .fork-logo-section {
@@ -248,6 +249,7 @@ const Gakudou1 = () => {
           .main-description {
             font-size: 13px;
             margin: 0 0 15px 0;
+            padding: 0 0 0 0;
           }
           
           .fork-logo-section {

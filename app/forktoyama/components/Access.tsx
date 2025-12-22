@@ -1,21 +1,80 @@
 'use client';
 
 import { useRef, useEffect, useState } from 'react';
-import { setOptions, importLibrary, Loader } from '@googlemaps/js-api-loader';
 import { useSectionSticky } from '../../hooks/useSectionSticky';
 import '../../styles/forktoyama-sections.css';
 
-// Google Maps スタイルオプション
+// #003705基調のマップスタイル
 const mapStyles: google.maps.MapTypeStyle[] = [
   {
     featureType: 'all',
-    elementType: 'all',
-    stylers: [
-      { hue: '#003705' },
-      { saturation: -50 },
-      { lightness: 0 },
-      { gamma: 1 }
-    ]
+    elementType: 'geometry',
+    stylers: [{ color: '#e8efe8' }]
+  },
+  {
+    featureType: 'all',
+    elementType: 'labels.text.fill',
+    stylers: [{ color: '#003705' }]
+  },
+  {
+    featureType: 'all',
+    elementType: 'labels.text.stroke',
+    stylers: [{ color: '#ffffff' }, { weight: 2 }]
+  },
+  {
+    featureType: 'water',
+    elementType: 'geometry',
+    stylers: [{ color: '#a8c8a8' }]
+  },
+  {
+    featureType: 'road',
+    elementType: 'geometry',
+    stylers: [{ color: '#ffffff' }]
+  },
+  {
+    featureType: 'road',
+    elementType: 'geometry.stroke',
+    stylers: [{ color: '#b8d4b8' }]
+  },
+  {
+    featureType: 'road.highway',
+    elementType: 'geometry',
+    stylers: [{ color: '#c8e0c8' }]
+  },
+  {
+    featureType: 'road.highway',
+    elementType: 'geometry.stroke',
+    stylers: [{ color: '#003705' }, { weight: 0.5 }]
+  },
+  {
+    featureType: 'transit.line',
+    elementType: 'geometry',
+    stylers: [{ color: '#003705' }]
+  },
+  {
+    featureType: 'transit.station',
+    elementType: 'geometry',
+    stylers: [{ color: '#d0e8d0' }]
+  },
+  {
+    featureType: 'poi',
+    elementType: 'geometry',
+    stylers: [{ color: '#d8ecd8' }]
+  },
+  {
+    featureType: 'poi.park',
+    elementType: 'geometry',
+    stylers: [{ color: '#c0dcc0' }]
+  },
+  {
+    featureType: 'landscape',
+    elementType: 'geometry',
+    stylers: [{ color: '#e8f0e8' }]
+  },
+  {
+    featureType: 'administrative',
+    elementType: 'geometry.stroke',
+    stylers: [{ color: '#003705' }, { weight: 1 }]
   }
 ];
 
@@ -27,10 +86,13 @@ const Access = () => {
   const mapRef = useRef<HTMLDivElement>(null);
   const mobileMapRef = useRef<HTMLDivElement>(null);
   const [mapError, setMapError] = useState(false);
-  const [isLoaded, setIsLoaded] = useState(false);
+  const mapInitialized = useRef(false);
   useSectionSticky(sectionRef, contentRef);
 
   useEffect(() => {
+    // 二重初期化を防ぐ
+    if (mapInitialized.current) return;
+    
     const apiKey = process.env.NEXT_PUBLIC_GOOGLE_MAPS_API_KEY;
     
     if (!apiKey) {
@@ -39,68 +101,63 @@ const Access = () => {
       return;
     }
 
-    const loader = new Loader({
-      apiKey: apiKey,
-      version: 'weekly',
-    });
-
-    loader.importLibrary('maps').then(({ Map }) => {
-      const mapOptions: google.maps.MapOptions = {
-        center: FORK_TOYAMA_LOCATION,
-        zoom: 17,
-        styles: mapStyles,
-        disableDefaultUI: false,
-        zoomControl: true,
-        mapTypeControl: false,
-        streetViewControl: false,
-        fullscreenControl: true,
-      };
-
-      // PC用マップ
-      if (mapRef.current) {
-        const map = new Map(mapRef.current, mapOptions);
+    const initMaps = async () => {
+      try {
+        // 新しい関数型APIを使用
+        const { setOptions, importLibrary } = await import('@googlemaps/js-api-loader');
         
-        // AdvancedMarkerElementを使用
-        loader.importLibrary('marker').then(({ AdvancedMarkerElement }) => {
-          new AdvancedMarkerElement({
-            position: FORK_TOYAMA_LOCATION,
-            map: map,
-            title: "fork toyama"
-          });
-        }).catch(() => {
-          // フォールバック：従来のMarkerを使用
+        setOptions({
+          apiKey: apiKey,
+          version: 'weekly',
+        });
+
+        // mapsライブラリを読み込み
+        const mapsLib = await importLibrary('maps') as google.maps.MapsLibrary;
+        const { Map } = mapsLib;
+        
+        const mapOptions: google.maps.MapOptions = {
+          center: FORK_TOYAMA_LOCATION,
+          zoom: 17,
+          styles: mapStyles,
+          disableDefaultUI: false,
+          zoomControl: true,
+          mapTypeControl: false,
+          streetViewControl: false,
+          fullscreenControl: true,
+        };
+
+        // PC用マップ
+        if (mapRef.current) {
+          const map = new Map(mapRef.current, mapOptions);
+          
+          // 従来のMarkerを使用
           new google.maps.Marker({
             position: FORK_TOYAMA_LOCATION,
             map: map,
             title: "fork toyama"
           });
-        });
-      }
+        }
 
-      // モバイル用マップ
-      if (mobileMapRef.current) {
-        const mobileMap = new Map(mobileMapRef.current, mapOptions);
-        
-        loader.importLibrary('marker').then(({ AdvancedMarkerElement }) => {
-          new AdvancedMarkerElement({
-            position: FORK_TOYAMA_LOCATION,
-            map: mobileMap,
-            title: "fork toyama"
-          });
-        }).catch(() => {
+        // モバイル用マップ
+        if (mobileMapRef.current) {
+          const mobileMap = new Map(mobileMapRef.current, mapOptions);
+          
           new google.maps.Marker({
             position: FORK_TOYAMA_LOCATION,
             map: mobileMap,
             title: "fork toyama"
           });
-        });
-      }
+        }
 
-      setIsLoaded(true);
-    }).catch((error) => {
-      console.error('Google Maps load error:', error);
-      setMapError(true);
-    });
+        mapInitialized.current = true;
+
+      } catch (error) {
+        console.error('Google Maps load error:', error);
+        setMapError(true);
+      }
+    };
+
+    initMaps();
   }, []);
 
   // フォールバック用iframe URL

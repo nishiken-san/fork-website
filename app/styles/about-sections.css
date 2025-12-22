@@ -33,10 +33,9 @@
 
 .about-sticky-area {
   position: sticky;
-  top: 80px;
-  padding: 0 0 100px 0;
+  
+  padding: 0 30px 100px 30px;
   margin: 0;
-  margin-right: 50px;
   padding-top: 50px;
   background-color: #003705;
   z-index: 20;
@@ -55,7 +54,7 @@
   line-height: 1.5;
   letter-spacing: 0.1em;
   margin: 0;
-  padding: 0;
+  padding: 0px 50px;
 }
 
 /* Content */
@@ -94,7 +93,6 @@
   
   .about-sticky-area {
     padding: 0 0 100px 0;
-    margin-right: 50px;
     padding-top: 50px;
   }
 }
@@ -124,7 +122,8 @@
   }
   
   .about-vertical-title {
-    font-size: 20px;
+    font-size: 25px;
+    padding: 0px 30px 0 0;
   }
   
   .about-description {
@@ -150,15 +149,16 @@
   }
   
   .about-vertical-title {
-    font-size: 18px;
+    font-size: 25px;
+    padding: 0px 30px 0 0;
   }
   
   .about-description {
-    font-size: 12px;
+    font-size: 15px;
   }
   
   .about-section-category {
-    font-size: 12px;
+    font-size: 15px;
   }
 }
 
@@ -328,9 +328,8 @@
   .childcare-image-mobile {
     display: block;
     width: 100%;
-    max-width: 400px;
     height: auto;
-    margin: 0 auto;
+    margin: 0 30px 0 30px;
   }
 }
 
@@ -351,7 +350,7 @@
   }
   
   .childcare-content-area {
-    padding: 0 20px 60px 20px;
+    padding: 0 30px 60px 30px;
   }
   
   .childcare-paragraph {
@@ -359,9 +358,10 @@
   }
   
   .childcare-image-mobile {
-    max-width: 330px;
+    
   }
 }
+
 
 /* ============================================
    Private Section
@@ -390,9 +390,8 @@
 .private-sticky-header {
   position: sticky;
   top: 80px;
-  padding: 0 0 60px 0;
+  padding: 80px 0 60px 50px;
   margin: 0;
-  margin-left: 50px;
   padding-top: 80px;
   background-color: #003705;
   z-index: 20;
@@ -485,23 +484,20 @@
   padding-top: 0.5rem;
 }
 
+/* タブレット（769px〜1024px） */
 @media (min-width: 769px) and (max-width: 1024px) {
   .private-main-bg {
-    padding: 0 30px 100px 30px;
+    padding-bottom: 60px;
   }
-  
+
   .private-sticky-header {
-    padding: 0 0 60px 0;
-    margin: 0;
-    margin-left: 50px;
-    padding-top: 80px;
-    margin-bottom: 100px;
+    padding: 80px 0 60px 50px;
   }
-  
+
   .private-content-area {
-    padding: 0 30px;
+    padding: 80px 30px 60px 30px;
   }
-  
+
   .private-title {
     font-size: 22px;
   }
@@ -512,18 +508,17 @@
   }
 }
 
+/* モバイル（768px以下） */
 @media (max-width: 768px) {
   .private-main-bg {
     min-height: auto;
-    padding: 0 30px 100px 30px;
+    padding-bottom: 60px;
   }
   
   .private-section-container {
     flex-direction: column;
     min-height: auto;
     width: 100%;
-    max-width: 390px;
-    margin: 0 auto;
     padding: 0;
   }
   
@@ -539,9 +534,9 @@
   
   .private-sticky-header {
     position: relative;
-    padding: 31px 0 0 0;
+    padding: 0px 0 0 30px;
     text-align: left;
-    margin-bottom: 100px;
+    margin: 0;
   }
   
   .private-label {
@@ -555,7 +550,8 @@
   }
   
   .private-content-area {
-    padding: 0;
+    padding: 40px 30px 0 30px;
+    margin: 100px 0 0 0 ;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -563,8 +559,10 @@
   }
   
   .private-card {
-    width: 329px;
-    height: 155px;
+    width: 100%;
+    max-width: 100%;
+    height: auto;
+    min-height: 120px;
     padding: 1.5rem;
   }
   
@@ -589,49 +587,6 @@
   .private-card-text {
     font-size: 12px;
     padding: 0;
-  }
-}
-
-@media (max-width: 480px) {
-  .private-main-bg {
-    padding: 0 20px 100px 20px;
-  }
-  
-  .private-section-container {
-    max-width: 100%;
-  }
-  
-  .private-sticky-header {
-    padding: 2rem 0 0 0;
-    margin-bottom: 80px;
-  }
-  
-  .private-label {
-    font-size: 12px;
-  }
-  
-  .private-title {
-    font-size: 18px;
-  }
-  
-  .private-card {
-    width: 100%;
-    max-width: 329px;
-    height: auto;
-    min-height: 155px;
-  }
-  
-  .private-card-number {
-    font-size: 16px;
-    min-width: 2rem;
-  }
-  
-  .private-card-title {
-    font-size: 13px;
-  }
-  
-  .private-card-text {
-    font-size: 11px;
   }
 }
 
@@ -812,6 +767,81 @@
   object-fit: contain;
 }
 
+.menu-bottom-link {
+    color: #E7EBE7;
+    font-size: 0.875rem;
+    display: inline-flex;
+    align-items: center;
+    gap: 3px;
+    text-decoration: none;
+    transition: transform 0.3s ease;
+  }
+
+.view-corp-link{
+  color: #003705;
+  font-size: 13px;
+  font-weight: 700;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+  padding: 0 3px 0 0px;
+  align-items: center;
+  transition: transform 0.3s ease;
+}
+  
+/* History Link Container - ホバーでスライド、右から20px配置 */
+
+.history-link-container {
+  display: flex;
+  justify-content: flex-end;
+  padding: 16px 20px 0 0;
+  align-items: center;
+}
+
+.history-link-container .view-corp-link {
+  color: #003705;
+  font-size: 13px;
+  font-weight: 700;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+  padding: 0 3px 0 0;
+  display: inline-flex;
+  align-items: center;
+  transition: transform 0.3s ease;
+}
+
+.history-link-container .menu-bottom-link-text {
+  display: inline-block;
+  transition: transform 0.3s ease;
+}
+
+.history-link-container .arrow-icon {
+  width: 24px;
+  height: 12px;
+  object-fit: contain;
+  transition: transform 0.3s ease;
+}
+
+/* ホバー時にテキストと矢印が一緒にスライド */
+.history-link-container:hover .view-corp-link {
+  transform: translateX(0.5em);
+}
+
+.history-link-container:hover .arrow-icon {
+  transform: translateX(0.5em);
+}
+
+.menu-bottom-link-text {
+  transition: transform 0.3s ease;
+}
+
+/* 矢印アイコン共通 */
+.arrow-icon {
+  width: 24px;
+  height: 12px;
+  object-fit: contain;
+  transition: transform 0.3s ease;
+}
+
 @media (min-width: 769px) and (max-width: 1024px) {
   .history-main-bg {
     padding-bottom: 60px;
@@ -828,7 +858,7 @@
   }
   
   .history-title {
-    font-size: 22px;
+    font-size: 25px;
   }
 }
 
@@ -843,7 +873,7 @@
   }
   
   .history-title {
-    font-size: 20px;
+    font-size: 25px;
   }
   
   .history-table {
@@ -904,7 +934,7 @@
   }
   
   .history-title {
-    font-size: 18px;
+    font-size: 25px;
   }
   
   .history-year-cell,
@@ -1123,21 +1153,20 @@
   
   .member-leader-image {
     width: 100%;
-    max-width: 200px;
-    height: 200px;
-    margin: 0 auto;
+    height: 100%;
+    padding: 0 auto;
   }
   
   .member-leader-role {
-    font-size: 12px;
+    font-size: 13px;
   }
   
   .member-leader-name {
-    font-size: 14px;
+    font-size: 20px;
   }
   
   .member-leader-description {
-    font-size: 12px;
+    font-size: 13px;
     line-height: 1.6;
   }
   
@@ -1161,11 +1190,11 @@
   }
   
   .member-label {
-    font-size: 12px;
+    font-size: 13px;
   }
   
   .member-title {
-    font-size: 18px;
+    font-size: 20px;
   }
   
   .member-grid-mobile {
@@ -1174,7 +1203,7 @@
   }
   
   .member-leader-description {
-    font-size: 11px;
+    font-size: 13px;
   }
   
   .member-name {
@@ -1182,6 +1211,6 @@
   }
   
   .member-nickname {
-    font-size: 10px;
+    font-size: 13px;
   }
 }

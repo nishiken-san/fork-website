@@ -1,4 +1,3 @@
-
 'use client';
 
 import { useRef } from 'react';
@@ -150,22 +149,23 @@ const PartnerSection = () => {
     
     .sticky-header {
       position: relative;
-      padding: 0 0 60px 0;
-      margin: 0;
-      margin-left: 30px;
-      padding-top: 50px;
+      padding: 0px 0 0 0;
+      margin: 0 0 0 30px;
     }
     
     .section-label {
       font-size: 13px;
+      margin-bottom: 1rem;
     }
     
     .section-title {
-      font-size: 20px;
+      font-size: 25px;
+      font-weight: 700;
     }
     
     .content-area {
-      padding: 0 30px 60px 30px;
+      margin: 100px 0 0 0;
+      padding: 40px 30px 60px 30px;
     }
     
     .single-item {
@@ -184,41 +184,6 @@ const PartnerSection = () => {
       font-size: 18px;
     }
   }
-  
-  @media (max-width: 480px) {
-    .sticky-header {
-      margin-left: 20px;
-      padding-top: 40px;
-    }
-    
-    .section-label {
-      font-size: 12px;
-    }
-    
-    .section-title {
-      font-size: 18px;
-    }
-    
-    .content-area {
-      padding: 0 20px 60px 20px;
-    }
-    
-    .single-item {
-      margin: 0 0 35px 0;
-    }
-    
-    .item-header {
-      margin: 0 0 8px 0;
-    }
-    
-    .item-number {
-      font-size: 11px;
-    }
-    
-    .item-title {
-      font-size: 16px;
-    }
-  }
 `}</style>
 
       <section ref={sectionRef} id="single" className="single-bg relative">
@@ -231,7 +196,7 @@ const PartnerSection = () => {
           </div>
 
           <div ref={contentRef} className="right-column">
-            <div className="py-16 px-8 lg:px-16">
+            <div className="content-area">
               {singleItems.map((item, index) => (
                 <div key={index} className="single-item">
                   <div className="item-header">

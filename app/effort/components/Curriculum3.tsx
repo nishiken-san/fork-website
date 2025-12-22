@@ -11,7 +11,7 @@ const Gakudou3 = () => {
   return (
     <>
       <style jsx>{`
-        .gakudou3-bg {
+        .gakudou2-bg {
           background-color: #E7EBE7;
         }
         .section-container {
@@ -73,11 +73,31 @@ const Gakudou3 = () => {
           font-size: 13px;
           font-weight: 700;
           line-height: 1.8;
-          margin: 0 0 4rem 0;
+          margin: 0 0 2rem 0;
           padding: 0;
           text-align: left;
         }
-        .image-section {
+        .curriculum-list {
+          margin: 0 0 3rem 0;
+          padding: 0;
+        }
+        .curriculum-item {
+          display: flex;
+          align-items: center;
+          margin: 0 0 0.5rem 0;
+          padding: 0;
+          color: #003705;
+          font-size: 13px;
+          font-weight: 700;
+        }
+        .curriculum-checkbox {
+          width: 12px;
+          height: 12px;
+          border: 1px solid #003705;
+          margin-right: 0.5rem;
+          background-color: transparent;
+        }
+        .map-section {
           display: flex;
           flex-direction: column;
           align-items: flex-start;
@@ -86,22 +106,36 @@ const Gakudou3 = () => {
           position: relative;
           width: 100%;
         }
-        .image-container {
+        .map-container {
           position: relative;
           width: 100%;
           display: flex;
           justify-content: flex-start;
           align-items: center;
+          padding: 0;
         }
-        .contents-image {
+        .japan-map-image {
           width: 100%;
           max-width: 100%;
           height: auto;
           position: relative;
           z-index: 1;
         }
+        .fork-text-overlay {
+          position: absolute;
+          top: 45%;
+          left: 45%;
+          transform: translate(-50%, -50%);
+          color: #003705;
+          font-size: 1.2rem;
+          font-weight: 700;
+          z-index: 2;
+        }
         .button-section {
           width: 100%;
+          display: flex;
+          flex-direction: column;
+          gap: 1rem;
           margin: 0;
           padding: 0;
         }
@@ -138,8 +172,27 @@ const Gakudou3 = () => {
           .content-area {
             padding: 100px 50px 100px 50px;
           }
+          .japan-map-image {
+            width: 100%;
+          }
+          .fork-text-overlay {
+            font-size: 1.4rem;
+          }
         }
         
+        @media (min-width: 769px) and (max-width: 1024px) {
+  .content-area {
+    padding: 80px 50px 80px 50px;
+  }
+
+  .image-section {
+    margin-bottom: 3rem;
+  }
+
+  .button-section {
+    margin-top: 2rem;
+  }
+}
         @media (max-width: 768px) {
           .section-container {
             flex-direction: column;
@@ -182,12 +235,24 @@ const Gakudou3 = () => {
           
           .main-description {
             font-size: 13px;
-            margin: 0 0 20px 0;
+            margin: 0 0 15px 0;
             line-height: 1.6;
+          }
+          
+          .curriculum-list {
+            margin: 0 0 15px 0;
+          }
+          
+          .curriculum-item {
+            font-size: 13px;
           }
           
           .image-section {
             margin: 0 0 20px 0;
+          }
+          
+          .button-section {
+            gap: 0.75rem;
           }
           
           .curriculum-button {
@@ -221,7 +286,15 @@ const Gakudou3 = () => {
           
           .main-description {
             font-size: 13px;
-            margin: 0 0 15px 0;
+            margin: 0 0 12px 0;
+          }
+          
+          .curriculum-list {
+            margin: 0 0 12px 0;
+          }
+          
+          .curriculum-item {
+            font-size: 13px;
           }
           
           .image-section {
@@ -278,3 +351,4 @@ const Gakudou3 = () => {
 };
 
 export default Gakudou3;
+

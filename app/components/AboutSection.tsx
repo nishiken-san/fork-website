@@ -39,9 +39,8 @@ const AboutSection = () => {
         .section-label {
           color: #999;
           font-size: 0.875rem;
-          font-weight: 400;
+          font-weight: 700;
           margin-bottom: 1.5rem;
-          letter-spacing: 0.05em;
         }
         .section-title {
           color: #003705;

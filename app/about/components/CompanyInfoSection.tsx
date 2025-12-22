@@ -1,39 +1,12 @@
 'use client';
 
-import { useEffect, useRef, useState } from 'react';
+import { useRef } from 'react';
+import { useSectionSticky } from '../../hooks/useSectionSticky';
 
 const CompanyInformation = () => {
-  const [isSticky, setIsSticky] = useState(false);
   const sectionRef = useRef<HTMLDivElement>(null);
-  const sentinelRef = useRef<HTMLDivElement>(null);
-
-  const [showHeader, setShowHeader] = useState(false);
-  const lastScrollY = useRef(0);
-
-  useEffect(() => {
-    const observer = new IntersectionObserver(
-      ([entry]) => {
-        const scrollingDown = window.scrollY > lastScrollY.current;
-        lastScrollY.current = window.scrollY;
-
-        if (entry.isIntersecting && scrollingDown) {
-          setShowHeader(true);
-        } else if (!entry.isIntersecting) {
-          setShowHeader(false);
-        }
-      },
-      {
-        threshold: 0.1,
-      }
-    );
-
-    const section = sectionRef.current;
-    if (section) observer.observe(section);
-
-    return () => {
-      if (section) observer.unobserve(section);
-    };
-  }, []);
+  const contentRef = useRef<HTMLDivElement>(null);
+  useSectionSticky(sectionRef, contentRef);
 
   return (
     <>
@@ -41,71 +14,122 @@ const CompanyInformation = () => {
         .company-bg {
           background-color: #E7EBE7;
         }
-        .sticky-left-header {
-          position: fixed;
-          top: 80px;
-          left: 0;
-          width: 33.333333%;
-          z-index: 20;
-          background-color: #E7EBE7;
-          padding: 2rem 3rem;
+        .section-container {
           display: flex;
-          flex-direction: column;
-          justify-content: center;
         }
-        .normal-header {
-          padding: 2rem 3rem;
+        .left-column {
+          width: 33.333333%;
+          background-color: #E7EBE7;
+          position: relative;
+        }
+        .right-column {
+          width: 66.666667%;
+          background-color: #E7EBE7;
+        }
+        .sticky-header {
+          position: sticky;
+          top: 80px;
+          padding: 50px 0 100px 0;
+          margin: 0;
+          margin-left: 50px;
+          background-color: #E7EBE7;
+          z-index: 20;
           display: flex;
           flex-direction: column;
-          justify-content: center;
+          justify-content: flex-start;
         }
         .company-label {
           color: #B4B4B4;
-          font-size: 0.875rem;
-          font-weight: 400;
-          letter-spacing: 0.1em;
-          margin-bottom: 0.5rem;
+          font-size: 15px;
+          font-weight: 700;
+          letter-spacing: 0;
+          margin: 0 0 1.5rem 0;
+          padding: 0;
         }
         .horizontal-title {
           color: #003705;
-          font-size: 1.5rem;
-          font-weight: 600;
+          font-size: 25px;
+          font-weight: 700;
           line-height: 1.4;
+          margin: 0;
+          padding: 0;
         }
-        @media (min-width: 1024px) {
-          .horizontal-title {
-            font-size: 1.75rem;
-          }
+        .content-area {
+          padding: 50px 50px 100px 50px;
         }
         .company-entry {
-          margin-bottom: 1rem;
+          margin-bottom: 10px;
           color: #003705;
-          font-size: 0.875rem;
+          font-size: 13px;
+          font-weight: 700;
+          line-height: 2;
         }
         .company-name {
-          font-weight: 700;
+          font-size: 13px;
+        }
+        
+        @media (max-width: 768px) {
+          .section-container {
+            flex-direction: column;
+          }
+          
+          .left-column {
+            width: 100%;
+          }
+          
+          .right-column {
+            width: 100%;
+          }
+          
+          .sticky-header {
+            position: relative;
+            padding: 50px 0 0 0;
+            margin: 0 0 0 30px;
+          }
+          
+          .company-label {
+            font-size: 13px;
+            font-weight: 700;
+            margin-bottom: 1rem;
+          }
+          
+          .horizontal-title {
+            font-size: 25px;
+          }
+          
+          .content-area {
+            margin: 100px 0 0 0;
+            padding: 40px 30px 60px 30px;
+          }
+          
+          .company-name {
+            font-size: 18px;
+          }
+          
+          .company-entry {
+            font-size: 13px;
+          }
         }
       `}</style>
 
       <section ref={sectionRef} id="company" className="company-bg relative">
-        <div className="flex">
+        <div className="section-container">
           {/* 左カラム */}
-          <div className="w-1/3 company-bg">
-            <div className={isSticky ? 'sticky-left-header' : 'normal-header'}>
+          <div className="left-column">
+            <div className="sticky-header">
               <div className="company-label">company</div>
               <h2 className="horizontal-title">企業情報</h2>
             </div>
           </div>
 
           {/* 右カラム */}
-          <div className="w-2/3 company-bg py-16 px-8 lg:px-16">
-            <div className="company-entry company-name">一般社団法人fork</div>
-            <div className="company-entry">設立：2023年7月</div>
-            <div className="company-entry">住所：富山県中新川郡舟橋村竹内325</div>
-            <div className="company-entry">代表者：代表理事 岡山史興</div>
-
-            {/* Sticky解除用Sentinel */}
-            <div ref={sentinelRef} style={{ height: '1px' }} />
+          <div ref={contentRef} className="right-column">
+            <div className="content-area">
+              <div className="company-entry company-name">一般社団法人fork</div>
+              <div className="company-entry">設立：2023年7月</div>
+              <div className="company-entry">住所：富山県中新川郡舟橋村竹内325</div>
+              <div className="company-entry">代表者：代表理事 岡山史興</div>
+            </div>
           </div>
         </div>
       </section>

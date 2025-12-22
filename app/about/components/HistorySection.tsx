@@ -62,21 +62,16 @@ const HistorySection = () => {
               <p className="history-note-text">
                 保育村ゼロ"みんな"学童の2年間とこれから。
               </p>
-              <div className="history-note-button-container">
-                <a 
-                  href="https://note.com/forktoyama/n/n9c44750f387b"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="history-note-link"
-                >
-                  noteをみる
-                  <img 
-                    src={IMAGES.logo.vec}
-                    alt="arrow"
-                    className="history-arrow-icon"
-                  />
-                </a>
-              </div>
+              <div className="history-link-container">
+              <a href="/supporter" className="view-corp-link">
+                <span className="menu-bottom-link-text">noteをみる</span>
+              </a>
+              <img 
+                src={IMAGES.logo.vec}
+                alt="arrow"
+                className="arrow-icon"
+              />
+            </div>
             </div>
           </div>
         </div>
@@ -118,21 +113,16 @@ const HistorySection = () => {
               <p className="history-note-text">
                 保育村ゼロ"みんな"学童の2年間とこれから。
               </p>
-              <div className="history-note-button-container">
-                <a 
-                  href="https://note.com/forktoyama/n/n9c44750f387b"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="history-note-link"
-                >
-                  noteをみる
-                  <img 
-                    src={IMAGES.logo.vec}
-                    alt="arrow"
-                    className="history-arrow-icon"
-                  />
-                </a>
-              </div>
+              <div className="history-link-container">
+              <a href="/supporter" className="view-corp-link">
+                <span className="menu-bottom-link-text">noteをみる</span>
+              </a>
+              <img 
+                src={IMAGES.logo.vec}
+                alt="arrow"
+                className="arrow-icon"
+              />
+            </div>
             </div>
           </div>
         </div>

@@ -1,4 +1,60 @@
+/* app/components/ParallaxSection.module.css
+/* セクション高さを動画の高さに連動して自動調整 */
 
+.section {
+  position: relative;
+  width: 100%;
+  /* 
+   * 16:9動画を横100%表示した場合の高さ = 56.25vw
+   * セクションの高さ = 動画の高さ × 表示比率
+   * 70% = 56.25vw × 0.7 ≈ 39.375vw
+   */
+  height: calc(56.25vw * var(--video-height-ratio, 0.7));
+  overflow: hidden;
+  background-color: #000;
+}
+
+/* パララックス用ラッパー */
+.wrapper {
+  position: absolute;
+  left: 0;
+  width: 100%;
+  top: 50%;
+  transform: translateY(-50%);
+  will-change: transform;
+  backface-visibility: hidden;
+}
+
+/* 動画スタイル - 横100%表示、高さは自動 */
+.video {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+/* オーバーレイ */
+.overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(
+    to bottom,
+    transparent 0%,
+    transparent 80%,
+    rgba(0, 0, 0, 0.08) 100%
+  );
+  pointer-events: none;
+  z-index: 1;
+}
+
+/* アニメーション軽減設定への対応 */
+@media (prefers-reduced-motion: reduce) {
+  .wrapper {
+    transform: translateY(-50%) !important;
+  }
+} */
 
 .section {
   position: relative;
@@ -38,7 +94,7 @@
 }
 
 /* グラデーションオーバーレイ（オプション） */
-.overlay {
+.parallax-overlay {
   position: absolute;
   top: 0;
   left: 0;

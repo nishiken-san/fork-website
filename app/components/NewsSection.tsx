@@ -294,7 +294,7 @@ const NewsSection = () => {
           {/* 右側: 固定ヘッダー */}
           <div className="right-column">
             <div className="sticky-header">
-              <h2 className="section-title">おしらせ・記録</h2>
+              <h2 className="section-title">おしらせ･記録</h2>
               <div className="view-all-container">
                 <a href="/news" className="view-all-link">
                   すべてのおしらせ
