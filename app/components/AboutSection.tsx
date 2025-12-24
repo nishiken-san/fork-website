@@ -142,7 +142,7 @@ const AboutSection = () => {
           <div className="left-column">
             <div className="sticky-header">
               <div className="section-label">about fork toyama</div>
-              <h2 className="section-title">学童保育:fork toyama</h2>
+              <h2 className="section-title">学童保育：fork toyama</h2>
             </div>
           </div>
 

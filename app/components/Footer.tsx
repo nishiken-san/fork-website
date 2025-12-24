@@ -33,22 +33,12 @@ const Footer = () => {
           color: #B4B4B4;
         }
         
-        .footer-bottom {
-          display: flex;
-          justify-content: space-between;
-          align-items: flex-start;
-        }
-        
-        .copyright {
-          color: #FFFFFF;
-          font-size: 13px;
-        }
-        
         .social-links {
           display: flex;
           flex-direction: column;
           gap: 0.5rem;
           align-items: flex-end;
+          margin-bottom: 2rem;
         }
         
         .social-link-container {
@@ -64,6 +54,8 @@ const Footer = () => {
           text-decoration: none;
           transition: transform 0.3s ease;
           display: inline-block;
+          text-decoration: underline;
+          text-underline-offset: 3px;
         }
         
         .arrow-icon {
@@ -81,18 +73,18 @@ const Footer = () => {
           transform: translateX(0.5em);
         }
         
+        .copyright {
+          color: #FFFFFF;
+          font-size: 13px;
+        }
+        
         @media (max-width: 768px) {
           .footer-container {
             padding: 0 30px;
           }
           
-          .footer-bottom {
-            flex-direction: column;
-            gap: 2rem;
-          }
-          
           .social-links {
-            align-items: flex-start;
+            align-items: flex-end;
           }
         }
       `}</style>
@@ -111,7 +103,10 @@ const Footer = () => {
               ＞ とりくみ
             </a>
             <a href="/supporter" className="nav-link">
-              ＞ サポーター
+              ＞ みん営フレンズ〈個人サポーター〉
+            </a>
+            <a href="/supportercorp" className="nav-link">
+              ＞ みん営パートナー〈法人・団体サポーター〉
             </a>
             <a href="/info" className="nav-link">
               ＞ おしらせ
@@ -121,48 +116,47 @@ const Footer = () => {
             </a>
           </div>
           
-          {/* フッター下部 */}
-          <div className="footer-bottom">
-            <p className="copyright">
-              © fork toyama, 2024
-            </p>
+          {/* ソーシャルリンク */}
+          <div className="social-links">
+            {/* Instagram */}
+            <div className="social-link-container">
+              <a 
+                href="https://www.instagram.com/forktoyama/" 
+                className="social-link"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                Instagram
+              </a>
+              <img 
+                src={IMAGES.logo.vecw}
+                alt="arrow"
+                className="arrow-icon"
+              />
+            </div>
             
-            <div className="social-links">
-              {/* Instagram */}
-              <div className="social-link-container">
-                <a 
-                  href="https://www.instagram.com/forktoyama/" 
-                  className="social-link"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  Instagram
-                </a>
-                <img 
-                  src={IMAGES.logo.vecw}
-                  alt="arrow"
-                  className="arrow-icon"
-                />
-              </div>
-              
-              {/* note */}
-              <div className="social-link-container">
-                <a 
-                  href="https://note.com/forktoyama" 
-                  className="social-link"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  note
-                </a>
-                <img 
-                  src={IMAGES.logo.vecw}
-                  alt="arrow"
-                  className="arrow-icon"
-                />
-              </div>
+            {/* note */}
+            <div className="social-link-container">
+              <a 
+                href="https://note.com/forktoyama" 
+                className="social-link"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                note
+              </a>
+              <img 
+                src={IMAGES.logo.vecw}
+                alt="arrow"
+                className="arrow-icon"
+              />
             </div>
           </div>
+          
+          {/* コピーライト */}
+          <p className="copyright">
+            © fork toyama, 2024
+          </p>
         </div>
       </footer>
     </>

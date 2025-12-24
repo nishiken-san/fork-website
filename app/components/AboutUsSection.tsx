@@ -60,7 +60,6 @@ const AboutUsSection = () => {
           line-height: 1.8;
           writing-mode: vertical-rl;
           text-orientation: mixed;
-          letter-spacing: 0.3em;
           margin: 0;
           padding: 0;
         }
