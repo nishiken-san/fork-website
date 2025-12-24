@@ -61,7 +61,7 @@ const Collaboration = () => {
             <div className="image-block photo-block">
               <img 
                 src="/images/pic1.jpg" 
-                alt="建築写真1" 
+                alt="コワーキングスペース1" 
                 className="responsive-image"
               />
             </div>

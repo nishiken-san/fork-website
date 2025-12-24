@@ -3,80 +3,8 @@
 import { useRef, useEffect, useState } from 'react';
 import { useSectionSticky } from '../../hooks/useSectionSticky';
 import '../../styles/forktoyama-sections.css';
-
-// #003705基調のマップスタイル
-const mapStyles: google.maps.MapTypeStyle[] = [
-  {
-    featureType: 'all',
-    elementType: 'geometry',
-    stylers: [{ color: '#e8efe8' }]
-  },
-  {
-    featureType: 'all',
-    elementType: 'labels.text.fill',
-    stylers: [{ color: '#003705' }]
-  },
-  {
-    featureType: 'all',
-    elementType: 'labels.text.stroke',
-    stylers: [{ color: '#ffffff' }, { weight: 2 }]
-  },
-  {
-    featureType: 'water',
-    elementType: 'geometry',
-    stylers: [{ color: '#a8c8a8' }]
-  },
-  {
-    featureType: 'road',
-    elementType: 'geometry',
-    stylers: [{ color: '#ffffff' }]
-  },
-  {
-    featureType: 'road',
-    elementType: 'geometry.stroke',
-    stylers: [{ color: '#b8d4b8' }]
-  },
-  {
-    featureType: 'road.highway',
-    elementType: 'geometry',
-    stylers: [{ color: '#c8e0c8' }]
-  },
-  {
-    featureType: 'road.highway',
-    elementType: 'geometry.stroke',
-    stylers: [{ color: '#003705' }, { weight: 0.5 }]
-  },
-  {
-    featureType: 'transit.line',
-    elementType: 'geometry',
-    stylers: [{ color: '#003705' }]
-  },
-  {
-    featureType: 'transit.station',
-    elementType: 'geometry',
-    stylers: [{ color: '#d0e8d0' }]
-  },
-  {
-    featureType: 'poi',
-    elementType: 'geometry',
-    stylers: [{ color: '#d8ecd8' }]
-  },
-  {
-    featureType: 'poi.park',
-    elementType: 'geometry',
-    stylers: [{ color: '#c0dcc0' }]
-  },
-  {
-    featureType: 'landscape',
-    elementType: 'geometry',
-    stylers: [{ color: '#e8f0e8' }]
-  },
-  {
-    featureType: 'administrative',
-    elementType: 'geometry.stroke',
-    stylers: [{ color: '#003705' }, { weight: 1 }]
-  }
-];
+import { forkToyamaMapStyle } from '../../../libs/mapStyleForkToyama';
+import { loadGoogleMaps, isGoogleMapsLoaded } from '../../../libs/googleMaps';
 
 const FORK_TOYAMA_LOCATION = { lat: 36.705422524872, lng: 137.30563961907245 };
 
@@ -85,83 +13,146 @@ const Access = () => {
   const contentRef = useRef<HTMLDivElement>(null);
   const mapRef = useRef<HTMLDivElement>(null);
   const mobileMapRef = useRef<HTMLDivElement>(null);
+
   const [mapError, setMapError] = useState(false);
+  const [isMapLoading, setIsMapLoading] = useState(true);
   const mapInitialized = useRef(false);
+  
   useSectionSticky(sectionRef, contentRef);
 
   useEffect(() => {
     // 二重初期化を防ぐ
     if (mapInitialized.current) return;
-    
-    const apiKey = process.env.NEXT_PUBLIC_GOOGLE_MAPS_API_KEY;
-    
-    if (!apiKey) {
-      console.warn('Google Maps API Key is not set');
-      setMapError(true);
-      return;
-    }
 
     const initMaps = async () => {
       try {
-        // 新しい関数型APIを使用
-        const { setOptions, importLibrary } = await import('@googlemaps/js-api-loader');
+        setIsMapLoading(true);
         
-        setOptions({
-          apiKey: apiKey,
-          version: 'weekly',
-        });
+        // Google Maps APIを読み込み
+        await loadGoogleMaps();
+        
+        // 読み込み確認
+        if (!isGoogleMapsLoaded()) {
+          throw new Error('Google Maps failed to initialize');
+        }
 
-        // mapsライブラリを読み込み
-        const mapsLib = await importLibrary('maps') as google.maps.MapsLibrary;
-        const { Map } = mapsLib;
-        
+        // マップオプション - UIコントロールを全て有効化
         const mapOptions: google.maps.MapOptions = {
           center: FORK_TOYAMA_LOCATION,
           zoom: 17,
-          styles: mapStyles,
+          styles: forkToyamaMapStyle,
+          // UI設定
           disableDefaultUI: false,
           zoomControl: true,
+          zoomControlOptions: {
+            position: google.maps.ControlPosition.RIGHT_CENTER
+          },
           mapTypeControl: false,
-          streetViewControl: false,
+          streetViewControl: true,
+          streetViewControlOptions: {
+            position: google.maps.ControlPosition.RIGHT_CENTER
+          },
           fullscreenControl: true,
+          fullscreenControlOptions: {
+            position: google.maps.ControlPosition.RIGHT_TOP
+          },
+          scaleControl: true,
+          rotateControl: false,
+          gestureHandling: 'cooperative'
         };
 
         // PC用マップ
         if (mapRef.current) {
-          const map = new Map(mapRef.current, mapOptions);
+          const map = new google.maps.Map(mapRef.current, mapOptions);
           
-          // 従来のMarkerを使用
+          // マーカー追加
           new google.maps.Marker({
             position: FORK_TOYAMA_LOCATION,
             map: map,
-            title: "fork toyama"
+            title: 'fork toyama'
           });
         }
 
         // モバイル用マップ
         if (mobileMapRef.current) {
-          const mobileMap = new Map(mobileMapRef.current, mapOptions);
+          const mobileMap = new google.maps.Map(mobileMapRef.current, {
+            ...mapOptions,
+            gestureHandling: 'greedy' // モバイルではスムーズに操作
+          });
           
           new google.maps.Marker({
             position: FORK_TOYAMA_LOCATION,
             map: mobileMap,
-            title: "fork toyama"
+            title: 'fork toyama'
           });
         }
 
         mapInitialized.current = true;
+        setIsMapLoading(false);
 
       } catch (error) {
-        console.error('Google Maps load error:', error);
+        console.error('Google Maps initialization error:', error);
         setMapError(true);
+        setIsMapLoading(false);
       }
     };
 
     initMaps();
   }, []);
 
-  // フォールバック用iframe URL
+  // フォールバック用iframe URL（グレースケールフィルター付き）
   const iframeSrc = "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d565.4579975939349!2d137.30563961907245!3d36.705422524872!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x5ff797813d97aec1%3A0x51faecf143e2bb08!2sfork%20toyama!5e0!3m2!1sja!2sjp!4v1754876356107!5m2!1sja!2sjp";
+
+  // マップコンテンツをレンダリング
+  const renderMap = (ref: React.RefObject<HTMLDivElement>) => {
+    if (mapError) {
+      return (
+        <iframe 
+          src={iframeSrc}
+          width="100%"
+          height="100%"
+          style={{ 
+            border: 0,
+            filter: 'grayscale(100%) sepia(30%) hue-rotate(90deg) saturate(50%)'
+          }}
+          allowFullScreen
+          loading="lazy"
+          referrerPolicy="no-referrer-when-downgrade"
+          title="fork toyama location"
+        />
+      );
+    }
+
+    return (
+      <>
+        <div 
+          ref={ref} 
+          className="google-map"
+          style={{ 
+            width: '100%', 
+            height: '100%',
+            display: isMapLoading ? 'none' : 'block'
+          }}
+        />
+        {isMapLoading && (
+          <div 
+            style={{ 
+              width: '100%', 
+              height: '100%', 
+              display: 'flex', 
+              alignItems: 'center', 
+              justifyContent: 'center',
+              backgroundColor: '#e7ebe7',
+              color: '#003705',
+              fontSize: '14px'
+            }}
+          >
+            地図を読み込み中...
+          </div>
+        )}
+      </>
+    );
+  };
 
   return (
     <section ref={sectionRef} id="access-main" className="access-bg">
@@ -190,20 +181,7 @@ const Access = () => {
         {/* PC用 - 右カラム（マップ） */}
         <div className="right-column">
           <div className="map-container">
-            {mapError ? (
-              <iframe 
-                src={iframeSrc}
-                width="100%"
-                height="100%"
-                style={{ border: 0 }}
-                allowFullScreen
-                loading="lazy"
-                referrerPolicy="no-referrer-when-downgrade"
-                title="fork toyama location"
-              />
-            ) : (
-              <div ref={mapRef} className="google-map"></div>
-            )}
+            {renderMap(mapRef)}
           </div>
         </div>
       </div>
@@ -217,20 +195,7 @@ const Access = () => {
       {/* モバイル用 - マップ（左右マージンなし） */}
       <div className="mobile-map">
         <div className="map-container">
-          {mapError ? (
-            <iframe 
-              src={iframeSrc}
-              width="100%"
-              height="100%"
-              style={{ border: 0 }}
-              allowFullScreen
-              loading="lazy"
-              referrerPolicy="no-referrer-when-downgrade"
-              title="fork toyama location"
-            />
-          ) : (
-            <div ref={mobileMapRef} className="google-map"></div>
-          )}
+          {renderMap(mobileMapRef)}
         </div>
       </div>
 

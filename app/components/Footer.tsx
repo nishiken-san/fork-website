@@ -43,7 +43,7 @@ const Footer = () => {
         
         .social-link-container {
           display: flex;
-          align-items: center;
+          align-items: flex-end;  /* 右寄せ */
           gap: 0.5rem;
           cursor: pointer;
         }

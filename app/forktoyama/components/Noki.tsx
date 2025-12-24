@@ -22,6 +22,21 @@ const Noki = () => {
             <div className="description">
             子どもたちの声を楽しみながら、こだわりのコーヒーとホットサンドやデザートでお迎えするカフェ。収益の一部は学童保育運営に充てられます。
             </div>
+            <div className="social-link-container">
+              <a 
+                href="https://www.instagram.com/forktoyama/" 
+                className="social-link"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                Instagram
+              </a>
+              <img 
+                src={IMAGES.logo.vec}
+                alt="arrow"
+                className="arrow-icon"
+              />
+            </div>
           </div>
         </div>
 
@@ -36,6 +51,21 @@ const Noki = () => {
               <div className="description">
               子どもたちの声を楽しみながら、こだわりのコーヒーとホットサンドやデザートでお迎えするカフェ。収益の一部は学童保育運営に充てられます。
               </div>
+              <div className="social-link-container">
+              <a 
+                href="https://www.instagram.com/forktoyama/" 
+                className="social-link"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                Instagram
+              </a>
+              <img 
+                src={IMAGES.logo.vec}
+                alt="arrow"
+                className="arrow-icon"
+              />
+            </div>
             </div>
           </div>
           

@@ -456,6 +456,8 @@
   font-weight: 700;
   letter-spacing: 0;
   margin: 0 0 16px 0;
+  text-decoration: underline;
+  text-underline-offset: 6px;
 }
 
 .natural-architecture-bg .section-title {
@@ -1116,4 +1118,32 @@
 .access-bg .map-container {
   height: 600px;
   position: relative;
+}
+
+.social-link {
+  color: #003705;
+  font-size: 13px;
+  text-decoration: none;
+  transition: transform 0.3s ease;
+  display: inline-block;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+  align-items: flex-end;  /* 右寄せ */
+  
+}
+
+.social-link-container {
+  display: flex;
+  align-items: flex-end;  /* 右寄せ */
+  justify-content: flex-end; /* ★これを追加：中身を右寄せにする */
+  gap: 0.5rem;
+  cursor: pointer;
+}
+
+.social-link-container:hover .social-link {
+  transform: translateX(0.5em);
+}
+
+.social-link-container:hover .arrow-icon {
+  transform: translateX(0.5em);
 }
