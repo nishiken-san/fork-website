@@ -16,13 +16,20 @@ const Access = () => {
 
   const [mapError, setMapError] = useState(false);
   const [isMapLoading, setIsMapLoading] = useState(true);
-  const mapInitialized = useRef(false);
+  const mapInstancesRef = useRef<{ pc: google.maps.Map | null; mobile: google.maps.Map | null }>({
+    pc: null,
+    mobile: null
+  });
   
   useSectionSticky(sectionRef, contentRef);
 
   useEffect(() => {
-    // 二重初期化を防ぐ
-    if (mapInitialized.current) return;
+    // 既に初期化済みの場合はスキップ
+    if (mapInstancesRef.current.pc || mapInstancesRef.current.mobile) {
+      return;
+    }
+
+    let isMounted = true;
 
     const initMaps = async () => {
       try {
@@ -31,80 +38,94 @@ const Access = () => {
         // Google Maps APIを読み込み
         await loadGoogleMaps();
         
+        // コンポーネントがアンマウントされていたら中止
+        if (!isMounted) return;
+        
         // 読み込み確認
         if (!isGoogleMapsLoaded()) {
           throw new Error('Google Maps failed to initialize');
         }
 
-        // マップオプション - UIコントロールを全て有効化
+        // マップオプション
         const mapOptions: google.maps.MapOptions = {
           center: FORK_TOYAMA_LOCATION,
           zoom: 17,
           styles: forkToyamaMapStyle,
-          // UI設定
           disableDefaultUI: false,
           zoomControl: true,
-          zoomControlOptions: {
-            position: google.maps.ControlPosition.RIGHT_CENTER
-          },
           mapTypeControl: false,
           streetViewControl: true,
-          streetViewControlOptions: {
-            position: google.maps.ControlPosition.RIGHT_CENTER
-          },
           fullscreenControl: true,
-          fullscreenControlOptions: {
-            position: google.maps.ControlPosition.RIGHT_TOP
-          },
           scaleControl: true,
-          rotateControl: false,
           gestureHandling: 'cooperative'
         };
 
         // PC用マップ
-        if (mapRef.current) {
-          const map = new google.maps.Map(mapRef.current, mapOptions);
-          
-          // マーカー追加
-          new google.maps.Marker({
-            position: FORK_TOYAMA_LOCATION,
-            map: map,
-            title: 'fork toyama'
-          });
+        if (mapRef.current && !mapInstancesRef.current.pc) {
+          try {
+            const map = new google.maps.Map(mapRef.current, mapOptions);
+            mapInstancesRef.current.pc = map;
+            
+            // マーカー追加
+            new google.maps.Marker({
+              position: FORK_TOYAMA_LOCATION,
+              map: map,
+              title: 'fork toyama'
+            });
+          } catch (e) {
+            console.error('PC map creation error:', e);
+          }
         }
 
         // モバイル用マップ
-        if (mobileMapRef.current) {
-          const mobileMap = new google.maps.Map(mobileMapRef.current, {
-            ...mapOptions,
-            gestureHandling: 'greedy' // モバイルではスムーズに操作
-          });
-          
-          new google.maps.Marker({
-            position: FORK_TOYAMA_LOCATION,
-            map: mobileMap,
-            title: 'fork toyama'
-          });
+        if (mobileMapRef.current && !mapInstancesRef.current.mobile) {
+          try {
+            const mobileMap = new google.maps.Map(mobileMapRef.current, {
+              ...mapOptions,
+              gestureHandling: 'greedy'
+            });
+            mapInstancesRef.current.mobile = mobileMap;
+            
+            new google.maps.Marker({
+              position: FORK_TOYAMA_LOCATION,
+              map: mobileMap,
+              title: 'fork toyama'
+            });
+          } catch (e) {
+            console.error('Mobile map creation error:', e);
+          }
         }
 
-        mapInitialized.current = true;
-        setIsMapLoading(false);
+        if (isMounted) {
+          setIsMapLoading(false);
+        }
 
       } catch (error) {
         console.error('Google Maps initialization error:', error);
-        setMapError(true);
-        setIsMapLoading(false);
+        if (isMounted) {
+          setMapError(true);
+          setIsMapLoading(false);
+        }
       }
     };
 
-    initMaps();
+    // 少し遅延させて初期化（DOMが確実に準備されるように）
+    const timer = setTimeout(() => {
+      initMaps();
+    }, 100);
+
+    return () => {
+      isMounted = false;
+      clearTimeout(timer);
+    };
   }, []);
 
-  // フォールバック用iframe URL（グレースケールフィルター付き）
+  // フォールバック用iframe URL
   const iframeSrc = "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d565.4579975939349!2d137.30563961907245!3d36.705422524872!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x5ff797813d97aec1%3A0x51faecf143e2bb08!2sfork%20toyama!5e0!3m2!1sja!2sjp!4v1754876356107!5m2!1sja!2sjp";
 
-  // マップコンテンツをレンダリング
-  const renderMap = (ref: React.RefObject<HTMLDivElement>) => {
+  // マップまたはiframeをレンダリング
+  const renderMapContent = (ref: React.RefObject<HTMLDivElement>, isMobile: boolean = false) => {
+    // エラー時はiframeにフォールバック
     if (mapError) {
       return (
         <iframe 
@@ -113,7 +134,7 @@ const Access = () => {
           height="100%"
           style={{ 
             border: 0,
-            filter: 'grayscale(100%) sepia(30%) hue-rotate(90deg) saturate(50%)'
+            filter: 'grayscale(100%) sepia(100%) hue-rotate(70deg) saturate(50%) brightness(1)'
           }}
           allowFullScreen
           loading="lazy"
@@ -131,12 +152,16 @@ const Access = () => {
           style={{ 
             width: '100%', 
             height: '100%',
-            display: isMapLoading ? 'none' : 'block'
+            opacity: isMapLoading ? 0 : 1,
+            transition: 'opacity 0.3s ease'
           }}
         />
         {isMapLoading && (
           <div 
             style={{ 
+              position: 'absolute',
+              top: 0,
+              left: 0,
               width: '100%', 
               height: '100%', 
               display: 'flex', 
@@ -144,7 +169,8 @@ const Access = () => {
               justifyContent: 'center',
               backgroundColor: '#e7ebe7',
               color: '#003705',
-              fontSize: '14px'
+              fontSize: '14px',
+              zIndex: 5
             }}
           >
             地図を読み込み中...
@@ -180,8 +206,8 @@ const Access = () => {
 
         {/* PC用 - 右カラム（マップ） */}
         <div className="right-column">
-          <div className="map-container">
-            {renderMap(mapRef)}
+          <div className="map-container" style={{ position: 'relative' }}>
+            {renderMapContent(mapRef, false)}
           </div>
         </div>
       </div>
@@ -192,10 +218,10 @@ const Access = () => {
         <div className="section-title">アクセス</div>
       </div>
 
-      {/* モバイル用 - マップ（左右マージンなし） */}
+      {/* モバイル用 - マップ */}
       <div className="mobile-map">
-        <div className="map-container">
-          {renderMap(mobileMapRef)}
+        <div className="map-container" style={{ position: 'relative' }}>
+          {renderMapContent(mobileMapRef, true)}
         </div>
       </div>
 

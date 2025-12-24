@@ -27,7 +27,7 @@ const MemberSection = () => {
     { name: '山口未来子', nickname: 'みっこ', image: IMAGES.members.member5, alt: IMAGE_ALT_TEXTS.members.member5 },
     { name: '吉田ゆかり', nickname: 'よっしー', image: IMAGES.members.member6, alt: IMAGE_ALT_TEXTS.members.member6 },
     { name: '大庭日菜', nickname: 'にわにわ', image: IMAGES.members.member7, alt: IMAGE_ALT_TEXTS.members.member7 },
-    { name: '松野志保', nickname: 'おまつ', image: IMAGES.members.member8, alt: IMAGE_ALT_TEXTS.members.member8 },
+    
     { name: '大石和', nickname: 'やまぴー', image: IMAGES.members.member9, alt: IMAGE_ALT_TEXTS.members.member9 },
     { name: '中村拓海', nickname: 'むーさん', image: IMAGES.members.member11, alt: IMAGE_ALT_TEXTS.members.member11 },
   

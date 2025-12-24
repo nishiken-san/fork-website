@@ -37,12 +37,19 @@ export const forkToyamaMapStyle: google.maps.MapTypeStyle[] = [
       { color: '#dce5dc' }
     ]
   },
-  // 人工地形（グレー寄り）
+  // 人工地形・建物含む（グレー調）
   {
     featureType: 'landscape.man_made',
     elementType: 'geometry.fill',
     stylers: [
-      { color: '#e0e4e0' }
+      { color: '#d0d8d0' }
+    ]
+  },
+  {
+    featureType: 'landscape.man_made',
+    elementType: 'geometry.stroke',
+    stylers: [
+      { color: '#b8c0b8' }
     ]
   },
   
@@ -63,7 +70,7 @@ export const forkToyamaMapStyle: google.maps.MapTypeStyle[] = [
     ]
   },
   
-  // ===== 道路 - 全ての道路を確実に表示 =====
+  // ===== 道路 =====
   // 全ての道路を表示
   {
     featureType: 'road',
@@ -77,8 +84,7 @@ export const forkToyamaMapStyle: google.maps.MapTypeStyle[] = [
     featureType: 'road',
     elementType: 'geometry.fill',
     stylers: [
-      { color: '#8aaa8a' },
-      { visibility: 'on' }
+      { color: '#8aaa8a' }
     ]
   },
   {
@@ -86,17 +92,15 @@ export const forkToyamaMapStyle: google.maps.MapTypeStyle[] = [
     elementType: 'geometry.stroke',
     stylers: [
       { color: '#6a8a6a' },
-      { weight: 1 },
-      { visibility: 'on' }
+      { weight: 1 }
     ]
   },
-  // 地方道・生活道路（より濃く）
+  // 地方道・生活道路
   {
     featureType: 'road.local',
     elementType: 'geometry.fill',
     stylers: [
-      { color: '#9aba9a' },
-      { visibility: 'on' }
+      { color: '#9aba9a' }
     ]
   },
   {
@@ -104,17 +108,15 @@ export const forkToyamaMapStyle: google.maps.MapTypeStyle[] = [
     elementType: 'geometry.stroke',
     stylers: [
       { color: '#7a9a7a' },
-      { weight: 0.8 },
-      { visibility: 'on' }
+      { weight: 0.8 }
     ]
   },
-  // 幹線道路（さらに濃く）
+  // 幹線道路
   {
     featureType: 'road.arterial',
     elementType: 'geometry.fill',
     stylers: [
-      { color: '#7a9a7a' },
-      { visibility: 'on' }
+      { color: '#7a9a7a' }
     ]
   },
   {
@@ -122,17 +124,15 @@ export const forkToyamaMapStyle: google.maps.MapTypeStyle[] = [
     elementType: 'geometry.stroke',
     stylers: [
       { color: '#5a7a5a' },
-      { weight: 1.5 },
-      { visibility: 'on' }
+      { weight: 1.5 }
     ]
   },
-  // 高速道路（最も濃い）
+  // 高速道路
   {
     featureType: 'road.highway',
     elementType: 'geometry.fill',
     stylers: [
-      { color: '#6a8a6a' },
-      { visibility: 'on' }
+      { color: '#6a8a6a' }
     ]
   },
   {
@@ -140,8 +140,7 @@ export const forkToyamaMapStyle: google.maps.MapTypeStyle[] = [
     elementType: 'geometry.stroke',
     stylers: [
       { color: '#4a6a4a' },
-      { weight: 2 },
-      { visibility: 'on' }
+      { weight: 2 }
     ]
   },
   // 道路ラベル
@@ -170,7 +169,6 @@ export const forkToyamaMapStyle: google.maps.MapTypeStyle[] = [
   },
   
   // ===== POI（施設など）=====
-  // 施設の背景（表示を維持、薄い緑）
   {
     featureType: 'poi',
     elementType: 'geometry.fill',
@@ -178,7 +176,6 @@ export const forkToyamaMapStyle: google.maps.MapTypeStyle[] = [
       { color: '#d8e2d8' }
     ]
   },
-  // 施設ラベル
   {
     featureType: 'poi',
     elementType: 'labels.text.fill',
@@ -193,7 +190,7 @@ export const forkToyamaMapStyle: google.maps.MapTypeStyle[] = [
       { color: '#ffffff' }
     ]
   },
-  // アイコンはデフォルトカラーで表示
+  // アイコンはデフォルトカラー
   {
     featureType: 'poi',
     elementType: 'labels.icon',
@@ -203,34 +200,14 @@ export const forkToyamaMapStyle: google.maps.MapTypeStyle[] = [
     ]
   },
   
-  // ===== 建物 =====
-  // 建物（そのまま表示、グレー調）
-  {
-    featureType: 'building',
-    elementType: 'geometry.fill',
-    stylers: [
-      { color: '#d0d8d0' }
-    ]
-  },
-  {
-    featureType: 'building',
-    elementType: 'geometry.stroke',
-    stylers: [
-      { color: '#b8c0b8' }
-    ]
-  },
-  
   // ===== 交通機関 =====
-  // 鉄道
   {
     featureType: 'transit.line',
     elementType: 'geometry.fill',
     stylers: [
-      { color: '#5a7a5a' },
-      { visibility: 'on' }
+      { color: '#5a7a5a' }
     ]
   },
-  // 駅
   {
     featureType: 'transit.station',
     elementType: 'geometry.fill',

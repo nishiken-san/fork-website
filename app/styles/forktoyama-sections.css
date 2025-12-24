@@ -679,6 +679,11 @@
   background-color: #E7EBE7;
 }
 
+.access-bg .map-container .google-map {
+  width: 100%;
+  height: 100%;
+}
+
 .access-bg .map-container iframe {
   position: absolute;
   top: 0;
@@ -686,8 +691,6 @@
   width: 100%;
   height: 100%;
   z-index: 1;
-  /* 青色単色+濃淡の地図 */
-  /* filter: grayscale(100%) sepia(100%) hue-rotate(190deg) saturate(400%) brightness(0.5); */
   filter: grayscale(100%) sepia(100%) hue-rotate(70deg) saturate(50%) brightness(1);
 }
 
@@ -704,8 +707,8 @@
   display: none;
 }
 
-/* モバイル対応 */
-@media (max-width: 768px) {
+/* タブレット対応 */
+@media (max-width: 1024px) {
   .access-bg {
     padding: 0;
     min-height: auto;
@@ -741,8 +744,28 @@
     width: 100%;
   }
   
+  /* 正方形の地図コンテナ */
   .access-bg .mobile-map .map-container {
-    height: 200px;
+    width: 100%;
+    height: 0;
+    padding-bottom: 100%; /* 幅と同じ高さ（正方形） */
+    position: relative;
+  }
+  
+  .access-bg .mobile-map .map-container .google-map {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+  }
+  
+  .access-bg .mobile-map .map-container iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
   }
   
   .access-bg .mobile-info {
@@ -775,22 +798,35 @@
   }
 }
 
+/* モバイル対応 */
+@media (max-width: 768px) {
+  .access-bg .mobile-header {
+    padding: 50px 30px 30px 30px;
+  }
+  
+  /* 正方形維持 */
+  .access-bg .mobile-map .map-container {
+    padding-bottom: 100%;
+  }
+}
+
 /* 小型モバイル対応 */
 @media (max-width: 480px) {
   .access-bg .mobile-header {
-    padding: 40px 20px 20px 20px;
+    padding: 40px 30px 20px 30px;
   }
   
   .access-bg .mobile-header .section-title {
     font-size: 18px;
   }
   
+  /* 正方形維持 */
   .access-bg .mobile-map .map-container {
-    height: 180px;
+    padding-bottom: 100%;
   }
   
   .access-bg .mobile-info {
-    padding: 20px 20px 50px 20px;
+    padding: 20px 30px 50px 30px;
   }
   
   .access-bg .mobile-info .facility-name {

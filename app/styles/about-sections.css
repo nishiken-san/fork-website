@@ -429,7 +429,7 @@
 .private-card {
   background-color: #E7EBE7;
   border-radius: 10px;
-  padding: 1.5rem;
+  padding: 10px;
   height: 100px;
   display: flex;
   flex-direction: column;
@@ -563,7 +563,7 @@
     max-width: 100%;
     height: auto;
     min-height: 120px;
-    padding: 1.5rem;
+    padding: 10px;
   }
   
   .private-card-header {
@@ -681,7 +681,7 @@
   color: #003705;
   font-weight: 700;
   font-size: 13px;
-  padding: 1rem 1.5rem;
+  padding: 1rem 30px;
   vertical-align: top;
   width: 80px;
   white-space: nowrap;
@@ -921,12 +921,12 @@
 
 @media (max-width: 480px) {
   .history-mobile-header {
-    padding: 40px 20px 0 20px;
+    padding: 40px 30px 0 30px;
     margin-bottom: 80px;
   }
   
   .history-mobile-content {
-    padding: 0 20px 60px 20px;
+    padding: 0 30px 60px 30px;
   }
   
   .history-label {
@@ -1181,12 +1181,12 @@
 
 @media (max-width: 480px) {
   .member-mobile-header {
-    padding: 40px 20px 0 20px;
+    padding: 40px 30px 0 30px;
     margin-bottom: 80px;
   }
   
   .member-mobile-content {
-    padding: 0 20px 60px 20px;
+    padding: 0 30px 60px 30px;
   }
   
   .member-label {
