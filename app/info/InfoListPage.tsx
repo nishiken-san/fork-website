@@ -1,8 +1,8 @@
 'use client';
 
-import { useState } from 'react';
+import { useState, useEffect, useMemo } from 'react';
 import Link from 'next/link';
-import '../styles/info-list.css';
+import './../styles/info-list.css';
 
 // 記事の型定義
 interface InfoArticle {
@@ -20,30 +20,77 @@ interface InfoArticle {
 interface Tag {
   id: string;
   label: string;
+  slug?: string;
 }
 
 interface InfoListPageProps {
   articles: InfoArticle[];
   tags?: Tag[];
+  initialTag?: string;  // 初期タグ（URLパラメータから）
 }
 
-const InfoListPage = ({ articles = [], tags = [] }: InfoListPageProps) => {
-  const [activeTag, setActiveTag] = useState('all');
+const InfoListPage = ({ articles = [], tags = [], initialTag = '' }: InfoListPageProps) => {
+  // 初期タグがある場合、それに一致するタグIDを探す
+  const findMatchingTagId = (tagParam: string): string => {
+    if (!tagParam || tagParam === 'all') return 'all';
+    
+    const decodedParam = decodeURIComponent(tagParam);
+    
+    // タグリストから一致するものを探す（ID、ラベル、スラッグで検索）
+    const matchedTag = tags.find(t => 
+      t.id === tagParam || 
+      t.id === decodedParam ||
+      t.label === tagParam || 
+      t.label === decodedParam ||
+      t.slug === tagParam ||
+      t.slug === decodedParam
+    );
+    
+    // マッチしたタグがあればそのIDを返す、なければパラメータをそのまま返す
+    return matchedTag ? matchedTag.id : tagParam;
+  };
+
+  const [activeTag, setActiveTag] = useState(() => findMatchingTagId(initialTag));
+
+  // initialTagが変更されたときにactiveTagを更新
+  useEffect(() => {
+    const newTagId = findMatchingTagId(initialTag);
+    setActiveTag(newTagId);
+  }, [initialTag, tags]);
 
   // タグリスト（「すべての記事」を先頭に追加）
-  const tagList = [
-    { id: 'all', label: 'すべての記事' },
+  const tagList = useMemo(() => [
+    { id: 'all', label: 'すべての記事', slug: 'all' },
     ...tags
-  ];
+  ], [tags]);
 
-  // タグ名でフィルタリング（tagLabelを使用）
-  const filteredArticles = activeTag === 'all' 
-    ? articles 
-    : articles.filter(article => {
-        // タグIDで一致、またはタグ名で一致
-        const selectedTag = tagList.find(t => t.id === activeTag);
-        return article.tag === activeTag || article.tagLabel === selectedTag?.label;
-      });
+  // フィルタリング（複数の条件で一致を確認）
+  const filteredArticles = useMemo(() => {
+    if (activeTag === 'all') {
+      return articles;
+    }
+    
+    // 選択されたタグの情報を取得
+    const selectedTag = tagList.find(t => t.id === activeTag);
+    
+    return articles.filter(article => {
+      // タグIDで一致
+      if (article.tag === activeTag) return true;
+      
+      // タグ名で一致
+      if (selectedTag && article.tagLabel === selectedTag.label) return true;
+      
+      // タグ名が直接一致（日本語タグ名の場合）
+      if (article.tagLabel === activeTag) return true;
+      
+      // デコードしたパラメータと一致
+      const decodedActiveTag = decodeURIComponent(activeTag);
+      if (article.tag === decodedActiveTag) return true;
+      if (article.tagLabel === decodedActiveTag) return true;
+      
+      return false;
+    });
+  }, [articles, activeTag, tagList]);
 
   // 記事がない場合
   if (!articles || articles.length === 0) {
@@ -52,6 +99,7 @@ const InfoListPage = ({ articles = [], tags = [] }: InfoListPageProps) => {
         <div className="info-list-container">
           <div className="info-list-left">
             <div className="info-list-sticky">
+              <div className="info-list-label">news, information</div>
               <h1 className="info-list-title">おしらせ・記録</h1>
               
               <div className="info-list-topics">topics</div>
@@ -102,6 +150,7 @@ const InfoListPage = ({ articles = [], tags = [] }: InfoListPageProps) => {
         {/* PC: 左カラム / モバイル: 右カラム（縦書きタイトル） */}
         <div className="info-list-left">
           <div className="info-list-sticky">
+            <div className="info-list-label">news, information</div>
             <h1 className="info-list-title">おしらせ・記録</h1>
             
             {/* PC用タグ */}

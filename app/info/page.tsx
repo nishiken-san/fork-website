@@ -3,6 +3,12 @@ import { client } from '../../libs/microcms';
 import Header from './../components/Header';
 import Footer from './../components/Footer';
 
+// ISR: 60秒ごとに再検証
+export const revalidate = 60;
+
+// 動的レンダリングを強制（ビルド時のエラーを回避）
+export const dynamic = 'force-dynamic';
+
 // microCMSから記事を取得（エンドポイント: info）
 async function getArticles() {
   try {
@@ -36,13 +42,15 @@ async function getTags() {
   }
 }
 
-export default async function InfoPage() {
-  const [articles, tags] = await Promise.all([getArticles(), getTags()]);
+export default async function InfoPage({
+  searchParams,
+}: {
+  searchParams: Promise<{ [key: string]: string | string[] | undefined }>
+}) {
+  const params = await searchParams;
+  const initialTag = typeof params.tag === 'string' ? params.tag : '';
   
-  // デバッグ用（確認後削除可）
-  if (tags.length > 0) {
-    console.log('Tag structure:', JSON.stringify(tags[0], null, 2));
-  }
+  const [articles, tags] = await Promise.all([getArticles(), getTags()]);
   
   // タグ一覧を整形
   // microCMSの日本語フィールド名「タグ名」と「スラッグ」に対応
@@ -100,7 +108,7 @@ export default async function InfoPage() {
   return (
     <>
       <Header />
-      <InfoListPage articles={formattedArticles} tags={formattedTags} />
+      <InfoListPage articles={formattedArticles} tags={formattedTags} initialTag={initialTag} />
       <Footer />
     </>
   );

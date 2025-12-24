@@ -264,7 +264,7 @@ const Gakudou4 = () => {
               
               <div className="button-section">
                 <a 
-                  href="/training" 
+                  href="/info?tag=work-shop" 
                   className="training-button"
                 >
                   事例をみる
