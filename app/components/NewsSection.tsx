@@ -65,7 +65,7 @@ const NewsSection = () => {
         }
         .section-title {
           position: absolute;
-          right: 50px;
+          right: 40px;
           top: 45px;
           color: #003705;
           font-size: 25px;
@@ -295,7 +295,7 @@ const NewsSection = () => {
             <div className="sticky-header">
               <h2 className="section-title">おしらせ・記録</h2>
               <div className="view-all-container">
-                <a href="/news" className="view-all-link">
+                <a href="/info" className="view-all-link">
                   すべてのおしらせ
                 </a>
                 <img 

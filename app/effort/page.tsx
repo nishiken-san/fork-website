@@ -8,8 +8,6 @@ import Curriculum3 from './components/Curriculum3';
 import Training4 from './components/Training4';
 import Footer from '../components/Footer';
 
-import InfoLinkSection from './components/InfoLinkSection';
-
 export default function EffortPage() {
   return (
     <div className="pt-16">
@@ -20,7 +18,6 @@ export default function EffortPage() {
       <Support2 />
       <Curriculum3 />
       <Training4 />
-      <InfoLinkSection />
       <Footer />
     </div>
   );

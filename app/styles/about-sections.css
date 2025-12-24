@@ -33,28 +33,23 @@
 
 .about-sticky-area {
   position: sticky;
-  
-  padding: 0 30px 100px 30px;
-  margin: 0;
-  padding-top: 50px;
+  top: 80px;
+  padding: 2rem 50px;
   background-color: #003705;
   z-index: 20;
   display: flex;
   align-items: flex-start;
   justify-content: flex-end;
 }
-
-/* Vertical Title */
 .about-vertical-title {
   writing-mode: vertical-rl;
   text-orientation: mixed;
-  color: #FFFFFF;
+  color: white;
   font-size: 25px;
   font-weight: 700;
-  line-height: 1.5;
+  line-height: 1.4;
   letter-spacing: 0.1em;
-  margin: 0;
-  padding: 0px 50px;
+  top: 50px;
 }
 
 /* Content */
@@ -439,7 +434,7 @@
 .private-card-header {
   display: flex;
   align-items: center;
-  padding-bottom: 0.75rem;
+  padding-bottom: 5px;
   border-bottom: 1px solid #003705;
 }
 
@@ -447,7 +442,7 @@
   color: #003705;
   font-size: 20px;
   font-weight: 700;
-  padding-right: 1rem;
+  padding-right: 4px;
   min-width: 3rem;
   display: flex;
   align-items: center;
@@ -459,7 +454,7 @@
   content: '';
   position: absolute;
   right: 0;
-  bottom: -0.75rem;
+  bottom: -5;
   width: 1px;
   height: 40px;
   background-color: #003705;
@@ -1122,7 +1117,7 @@
   }
   
   .member-title {
-    font-size: 20px;
+    font-size: 25px;
   }
   
   .member-grid {
@@ -1136,12 +1131,12 @@
   }
   
   .member-label {
-    font-size: 13px;
+    font-size: 15px;
     margin-bottom: 1rem;
   }
   
   .member-title {
-    font-size: 20px;
+    font-size: 25px;
   }
   
   .member-leader-card {
