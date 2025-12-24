@@ -4,7 +4,7 @@ import Script from 'next/script';
 
 // Google Maps APIキーを環境変数から取得
 // .env.localに NEXT_PUBLIC_GOOGLE_MAPS_API_KEY=あなたのAPIキー を設定してください
-const GOOGLE_MAPS_API_KEY = process.env.GOOGLE_MAPS_API_KEY || '';
+const GOOGLE_MAPS_API_KEY = process.env.NEXT_PUBLIC_GOOGLE_MAPS_API_KEY || '';
 
 const GoogleMapsScript = () => {
   if (!GOOGLE_MAPS_API_KEY) {
