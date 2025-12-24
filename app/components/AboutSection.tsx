@@ -97,12 +97,12 @@ const AboutSection = () => {
           }
           
           .left-column {
-            width: 100%;
+            width: 25%;
             order: 1;
           }
           
           .right-column {
-            width: 100%;
+            width: 75%;
             order: 2;
           }
           

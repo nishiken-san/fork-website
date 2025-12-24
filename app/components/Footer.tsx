@@ -94,7 +94,7 @@ const Footer = () => {
           {/* ナビゲーションリンク */}
           <div className="nav-links">
             <a href="/" className="nav-link">
-              ＞ top
+              ＞ Top
             </a>
             <a href="/about" className="nav-link">
               ＞ わたしたちについて

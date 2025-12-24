@@ -1,6 +1,17 @@
 /* app/styles/effort-section.css */
 /* 取り組みセクション共通スタイル */
 
+
+.sticky-header {
+          position: sticky;
+          top: 80px;
+          padding: 2rem 30px;
+          background-color: #003705;
+          z-index: 20;
+          display: flex;
+          align-items: flex-start;
+          justify-content: flex-end;
+        }
 .effort-section {
     background-color: #E7EBE7;
     height: 100vh;
@@ -161,6 +172,16 @@
       margin-left: 30px;
       padding-top: 50px;
     }
+    .sticky-header {
+        position: sticky;
+        top: 80px;
+        padding: 30px 30px;
+        background-color: #003705;
+        z-index: 20;
+        display: flex;
+        align-items: flex-start;
+        justify-content: flex-end;
+      }
     
     .effort-label {
       font-size: 20px;
@@ -192,8 +213,7 @@
     }
     
     .effort-sticky-header {
-      margin-left: 20px;
-      padding-top: 40px;
+      padding: 40px 30px 0 30px;
     }
     
     .effort-label {
@@ -215,6 +235,6 @@
     }
     
     .effort-description {
-      font-size: 12px;
+      font-size: 15px;
     }
   }

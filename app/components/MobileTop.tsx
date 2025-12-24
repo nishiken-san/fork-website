@@ -226,11 +226,11 @@ const MobileTop: React.FC<MobileTopProps> = ({ isOpen, onClose, logoImage }) => 
               </div>
             </div>
             
-            <a href="/topics" className="menu-link" onClick={onClose}>
+            <a href="/info" className="menu-link" onClick={onClose}>
               ＞ おしらせ・記録
             </a>
             
-            <a href="/contact" className="menu-link" onClick={onClose}>
+            <a href="/https://docs.google.com/forms/d/e/1FAIpQLSeQisLpyoUlh3Bsgt4quyVe3GtiSExoa-WOJyoyv2cRBoeYNA/viewform" className="menu-link" onClick={onClose}>
               ＞ お問い合わせ
             </a>
           </nav>

@@ -81,7 +81,35 @@ const EffortMainSection = () => {
         }
         @media (min-width: 1024px) {
           .vertical-title {
-            font-size: 1.75rem;
+            font-size: 25px;
+          }
+        }
+        @media (max-width: 768px) {
+          .sticky-header {
+            padding: 2rem 30px;
+          }
+          .content-area {
+            padding: 100px 30px 60px 30px;
+          }
+          .vertical-title {
+            font-size: 25px;
+          }
+        }
+        @media (max-width: 480px) {
+          .sticky-header {
+            padding: 1.5rem 30px;
+          }
+          .content-area {
+            padding: 80px 30px 50px 30px;
+          }
+          .vertical-title {
+            font-size: 25px;
+          }
+          .description {
+            font-size: 15px;
+          }
+          .effort-item {
+            font-size: 15px;
           }
         }
       `}</style>
@@ -96,7 +124,7 @@ const EffortMainSection = () => {
                 forkではミッションとして掲げる、子育ての「みん営」化実現のために、学童保育施設の運営をはじめとしたさまざまな事業に取り組んでいます。
               </div>
               <ul className="effort-list">
-                <li className="effort-item" data-number="01.">学童保育・fork toyama</li>
+                <li className="effort-item" data-number="01.">学童保育：fork toyama</li>
                 <li className="effort-item" data-number="02.">カリキュラム・コンテンツ開発</li>
                 <li className="effort-item" data-number="03.">学童運営のサポート</li>
                 <li className="effort-item" data-number="04.">学童人事研修</li>

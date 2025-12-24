@@ -17,7 +17,7 @@
 .about-left-column {
   width: 66.666667%; /* 2/3 */
   background-color: #003705;
-  padding: 50px 50px 100px 50px;
+  padding: 50px 50px 100px 30px;
   display: flex;
   align-items: flex-start;
   justify-content: center;
@@ -140,7 +140,7 @@
 /* Small Mobile */
 @media (max-width: 480px) {
   .about-left-column {
-    padding: 40px 20px 60px 20px;
+    padding: 40px 30px 60px 30px;
   }
   
   .about-sticky-area {
@@ -495,7 +495,7 @@
   }
 
   .private-content-area {
-    padding: 80px 30px 60px 30px;
+    padding: 80px 50px 60px 0px;
   }
 
   .private-title {

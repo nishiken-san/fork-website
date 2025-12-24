@@ -181,10 +181,10 @@ const SupporterSection = () => {
 
             {/* 募集ボタン */}
             <div className="button-group">
-              <a href="/supporter/frenz" className="support-button">
+              <a href="/supporter" className="support-button">
                 みん営フレンズ〈個人サポーター〉はこちら
               </a>
-              <a href="/supporter/partner" className="support-button">
+              <a href="/supportercorp" className="support-button">
                 みん営パートナー〈法人サポーター〉はこちら
               </a>
             </div>
@@ -246,10 +246,10 @@ const SupporterSection = () => {
         <div className="mobile-content">
           {/* 募集ボタン */}
           <div className="button-group">
-            <a href="/supporter/frenz" className="support-button">
+            <a href="/supporter" className="support-button">
               みん営フレンズ〈個人サポーター〉はこちら
             </a>
-            <a href="/supporter/partner" className="support-button">
+            <a href="/supportercorp" className="support-button">
               みん営パートナー〈法人サポーター〉はこちら
             </a>
           </div>
