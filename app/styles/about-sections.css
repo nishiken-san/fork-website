@@ -87,7 +87,7 @@
   }
   
   .about-sticky-area {
-    padding: 0 0 100px 0;
+    padding: 0 50px 100px 0;
     padding-top: 50px;
   }
 }
@@ -95,20 +95,21 @@
 /* Mobile - 3:1 ratio */
 @media (max-width: 768px) {
   .about-section-container {
-    flex-direction: row;
+    display: flex;
   }
   
   .about-left-column {
     width: 75%; /* 3/4 */
-    padding: 50px 30px 60px 30px;
+    padding: 140px 30px 60px 30px;
   }
   
   .about-right-column {
     width: 25%; /* 1/4 */
+    padding: 50px 30px 60px 30px;
   }
   
   .about-sticky-area {
-    position: relative;
+    /* position: relative; */
     padding: 0 0 60px 0;
     margin: 0;
     margin-right: 0;
@@ -135,17 +136,16 @@
 /* Small Mobile */
 @media (max-width: 480px) {
   .about-left-column {
-    padding: 40px 30px 60px 30px;
+    padding: 80px 30px 60px 30px;
   }
   
   .about-sticky-area {
-    padding: 0 0 60px 0;
-    padding-top: 40px;
+    padding-top: 0px;
   }
   
   .about-vertical-title {
     font-size: 25px;
-    padding: 0px 30px 0 0;
+    padding: 0px 0px 0 0;
   }
   
   .about-description {
