@@ -69,6 +69,8 @@ const Parallax2 = () => {
           overflow: hidden;
           background-color: #003705;
           clip-path: inset(0%);
+          border-top: 1px solid #003705;
+          border-bottom: 1px solid #003705;
         }
         
         .parallax-image-wrapper {
