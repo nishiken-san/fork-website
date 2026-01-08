@@ -8,6 +8,7 @@
  * 【セクション】
  * - --header-height: 70px → ヘッダーの高さ
  * - height: calc(100dvh - 70px) → 画面高さからヘッダー分を引く
+ * - max-height: 900px → PC時の最大高さ
  * - min-height: 550px → 最小高さ
  * 
  * 【forkロゴ】
@@ -25,13 +26,14 @@
  * 
  * ============================================ */
 
- .section {
+.section {
   --header-height: 70px; /* 【調整】ヘッダーの高さ */
   
   position: relative;
   width: 100%;
   /* ヘッダー分を引いた高さ */
   height: calc(100dvh - var(--header-height));
+  max-height: 900px; /* 【追加】PC時の最大高さ */
   min-height: 550px;
   overflow: hidden;
   background-color: #003705;
@@ -121,7 +123,7 @@
 @media (min-width: 1400px) and (max-width: 1699px) {
   .illustration {
     width: 380vw;
-    right: 130;
+    right: 130px;
   }
 }
 
@@ -136,13 +138,17 @@
 
 /* タブレット: 769px〜999px */
 @media (min-width: 769px) and (max-width: 999px) {
+  .section {
+    max-height: none; /* タブレットでは制限解除 */
+  }
+  
   .logo {
-    left: 50px;   /* 左マージン */
-  right: 50px;  /* 右マージン */
-  display: block;
-  margin: 0 auto;  /* 中央配置 */
-  width: auto;
-  max-width: 669px;
+    left: 50px;
+    right: 50px;
+    display: block;
+    margin: 0 auto;
+    width: auto;
+    max-width: 669px;
   }
   
   .illustration {
@@ -157,63 +163,94 @@
 @media (max-width: 768px) {
   .section {
     min-height: 500px;
+    max-height: none; /* モバイルでは制限解除 */
+    height: calc(100dvh - var(--header-height));
   }
   
   .logo {
-    top: 60px; /* 【調整】モバイルでの上位置 */
-    left: 30px; /* 【調整】モバイルでの左マージン */
-    right: 30px; /* 【調整】モバイルでの右マージン */
+    top: 60px;
+    left: 30px;
+    right: 30px;
+    min-width: auto; /* 最小幅を解除 */
     max-width: 330px;
   }
   
+  /* イラストを画面内に収める */
   .illustration {
-    top: 60px; /* 【調整】モバイルでの上位置 */
-    right: -20px;
-    width: 80vw;
-    max-width: 460px;
+    top: 80px;
+    right: 0; /* 見切れないように0に */
+    width: 70vw; /* 幅を調整 */
+    max-width: 380px;
+    min-width: auto; /* 最小幅を解除 */
   }
   
   .textContent {
     left: 30px;
-    bottom: 30px; /* 【調整】モバイルでの下位置 */
+    bottom: 30px;
   }
   
   .scrollButton {
     right: 30px;
-    bottom: 30px; /* 【調整】モバイルでの下位置 */
+    bottom: 30px;
   }
 }
 
 /* 小型モバイル: 480px以下 */
 @media (max-width: 480px) {
   .logo {
+    top: 50px;
+    left: 20px;
+    right: 20px;
     max-width: 280px;
   }
   
+  /* イラストを画面内に収める */
   .illustration {
-    width: 90vw;
-    max-width: 400px;
-    right: -40px;
+    top: 70px;
+    right: 0;
+    width: 65vw;
+    max-width: 300px;
   }
   
   .textContent {
     left: 20px;
+    bottom: 25px;
+  }
+  
+  .textLine {
+    font-size: 13px;
+    line-height: 1.7;
   }
   
   .scrollButton {
     right: 20px;
+    bottom: 25px;
+  }
+  
+  .scrollIcon {
+    width: 35px;
+    height: 30px;
   }
 }
 
 /* 超小型モバイル: 390px以下 */
 @media (max-width: 390px) {
   .logo {
-    max-width: 260px;
+    top: 40px;
+    max-width: 240px;
   }
   
+  /* イラストを画面内に収める */
   .illustration {
-    max-width: 350px;
-    right: -50px;
+    top: 60px;
+    right: 0;
+    width: 60vw;
+    max-width: 250px;
+  }
+  
+  .textLine {
+    font-size: 12px;
+    line-height: 1.6;
   }
 }
 
@@ -222,17 +259,21 @@
   .section {
     height: auto;
     min-height: calc(100dvh - var(--header-height));
+    max-height: none;
     padding-bottom: 20px;
   }
   
   .logo {
     top: 10px;
     max-width: 300px;
+    min-width: auto;
   }
   
   .illustration {
     top: 10px;
+    right: 0;
     width: 35vw;
+    min-width: auto;
   }
   
   .textContent {
