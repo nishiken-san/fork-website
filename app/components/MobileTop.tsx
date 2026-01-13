@@ -230,7 +230,11 @@ const MobileTop: React.FC<MobileTopProps> = ({ isOpen, onClose, logoImage }) => 
               ＞ おしらせ・記録
             </a>
             
-            <a href="/https://docs.google.com/forms/d/e/1FAIpQLSeQisLpyoUlh3Bsgt4quyVe3GtiSExoa-WOJyoyv2cRBoeYNA/viewform" className="menu-link" onClick={onClose}>
+            <a 
+              href="https://docs.google.com/forms/d/e/1FAIpQLSeQisLpyoUlh3Bsgt4quyVe3GtiSExoa-WOJyoyv2cRBoeYNA/viewform"
+              className="menu-link"
+              target="_blank"
+              rel="noopener noreferrer">
               ＞ お問い合わせ
             </a>
           </nav>

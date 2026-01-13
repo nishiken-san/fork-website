@@ -1,0 +1,354 @@
+/* styles/section-base.css */
+/* ============================================
+ * セクション共通スタイル
+ * ============================================
+ * 
+ * 各セクションで共通するレイアウトパターンを定義
+ * 個別のセクションでは、これをベースにカスタマイズ
+ * 
+ * ============================================ */
+
+/* ============================================
+ * セクションコンテナ
+ * ============================================ */
+
+/* 基本セクション */
+.section-base {
+  position: relative;
+  width: 100%;
+  overflow: hidden;
+}
+
+/* フルハイトセクション（PC: max-height 900px） */
+.section-full {
+  position: relative;
+  width: 100%;
+  min-height: var(--section-height-min);
+  height: calc(100dvh - var(--header-height));
+  max-height: var(--section-height-max);
+  overflow: hidden;
+}
+
+/* フルハイトセクション（制限なし） */
+.section-full-unlimited {
+  position: relative;
+  width: 100%;
+  min-height: var(--section-height-min);
+  height: calc(100dvh - var(--header-height));
+  overflow: hidden;
+}
+
+/* 自動高さセクション */
+.section-auto {
+  position: relative;
+  width: 100%;
+  padding: var(--space-8) 0;
+}
+
+/* タブレット以下でmax-height解除 */
+@media (max-width: 1024px) {
+  .section-full {
+    max-height: none;
+  }
+}
+
+/* ============================================
+ * 2カラムレイアウト（1:2比率）
+ * - 左: タイトル・ナビゲーション
+ * - 右: コンテンツ
+ * ============================================ */
+
+.section-layout-1-2 {
+  display: flex;
+  width: 100%;
+  height: 100%;
+}
+
+.section-layout-1-2 .section-left {
+  flex: 1;
+  position: relative;
+  padding: 0 var(--container-padding-pc);
+}
+
+.section-layout-1-2 .section-right {
+  flex: 2;
+  position: relative;
+  padding: 0 var(--container-padding-pc);
+}
+
+/* スティッキーコンテンツ（左カラム用） */
+.section-layout-1-2 .section-sticky {
+  position: sticky;
+  top: calc(var(--header-height) + var(--space-6));
+  padding-top: var(--space-6);
+}
+
+@media (max-width: 1024px) {
+  .section-layout-1-2 {
+    flex-direction: column;
+  }
+  
+  .section-layout-1-2 .section-left {
+    padding: var(--space-6) var(--container-padding-tablet);
+  }
+  
+  .section-layout-1-2 .section-right {
+    padding: 0 var(--container-padding-tablet) var(--space-6);
+  }
+  
+  .section-layout-1-2 .section-sticky {
+    position: relative;
+    top: 0;
+    padding-top: 0;
+  }
+}
+
+@media (max-width: 768px) {
+  .section-layout-1-2 .section-left {
+    padding: var(--space-5) var(--container-padding-mobile);
+  }
+  
+  .section-layout-1-2 .section-right {
+    padding: 0 var(--container-padding-mobile) var(--space-5);
+  }
+}
+
+/* ============================================
+ * 2カラムレイアウト（2:1比率）
+ * - 左: コンテンツ
+ * - 右: タイトル（縦書き）
+ * ============================================ */
+
+.section-layout-2-1 {
+  display: flex;
+  width: 100%;
+  height: 100%;
+}
+
+.section-layout-2-1 .section-left {
+  flex: 2;
+  position: relative;
+  padding: 0 var(--container-padding-pc);
+}
+
+.section-layout-2-1 .section-right {
+  flex: 1;
+  position: relative;
+}
+
+/* 縦書きタイトル用スティッキー */
+.section-layout-2-1 .section-sticky-right {
+  position: sticky;
+  top: var(--header-height);
+  padding: var(--space-4) var(--container-padding-pc);
+  display: flex;
+  align-items: flex-start;
+  justify-content: flex-end;
+}
+
+@media (max-width: 1024px) {
+  .section-layout-2-1 {
+    flex-direction: column-reverse;
+  }
+  
+  .section-layout-2-1 .section-left {
+    padding: 0 var(--container-padding-tablet) var(--space-6);
+  }
+  
+  .section-layout-2-1 .section-sticky-right {
+    position: relative;
+    top: 0;
+    padding: var(--space-5) var(--container-padding-tablet);
+    justify-content: flex-start;
+  }
+}
+
+@media (max-width: 768px) {
+  .section-layout-2-1 .section-left {
+    padding: 0 var(--container-padding-mobile) var(--space-5);
+  }
+  
+  .section-layout-2-1 .section-sticky-right {
+    padding: var(--space-4) var(--container-padding-mobile);
+  }
+}
+
+/* ============================================
+ * セクションタイトル共通
+ * ============================================ */
+
+.section-label {
+  font-size: var(--font-size-label);
+  font-weight: var(--font-weight-semibold);
+  color: var(--color-text-muted);
+  margin-bottom: var(--space-1);
+  letter-spacing: var(--letter-spacing-normal);
+  text-decoration: underline;
+  text-underline-offset: 6px;
+}
+
+.section-title {
+  font-size: var(--font-size-h1);
+  font-weight: var(--font-weight-bold);
+  color: var(--color-primary);
+  line-height: var(--line-height-tight);
+  margin: 0 0 var(--space-6) 0;
+}
+
+.section-title-white {
+  font-size: var(--font-size-h1);
+  font-weight: var(--font-weight-bold);
+  color: var(--color-text-white);
+  line-height: var(--line-height-tight);
+  margin: 0 0 var(--space-6) 0;
+}
+
+/* 縦書きタイトル */
+.section-title-vertical {
+  writing-mode: vertical-rl;
+  text-orientation: mixed;
+  font-size: var(--font-size-h1);
+  font-weight: var(--font-weight-bold);
+  line-height: var(--line-height-tight);
+  letter-spacing: var(--letter-spacing-wide);
+}
+
+@media (max-width: 768px) {
+  .section-title {
+    font-size: clamp(18px, 4vw, 20px);
+    margin-bottom: var(--space-4);
+  }
+  
+  .section-title-white {
+    font-size: clamp(18px, 4vw, 20px);
+    margin-bottom: var(--space-4);
+  }
+  
+  .section-title-vertical {
+    font-size: clamp(18px, 4vw, 20px);
+  }
+}
+
+/* ============================================
+ * セクション本文共通
+ * ============================================ */
+
+.section-description {
+  font-size: var(--font-size-base);
+  font-weight: var(--font-weight-bold);
+  color: var(--color-primary);
+  line-height: var(--line-height-relaxed);
+  margin: 0 0 var(--space-8) 0;
+}
+
+.section-description-white {
+  font-size: var(--font-size-base);
+  font-weight: var(--font-weight-normal);
+  color: var(--color-text-white);
+  line-height: var(--line-height-relaxed);
+  margin: 0 0 var(--space-6) 0;
+}
+
+@media (max-width: 768px) {
+  .section-description,
+  .section-description-white {
+    font-size: var(--font-size-sm);
+    margin-bottom: var(--space-5);
+  }
+}
+
+/* ============================================
+ * セクションボタン共通
+ * ============================================ */
+
+.section-button-container {
+  width: 100%;
+}
+
+.section-button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 53px;
+  background-color: var(--color-secondary);
+  border: var(--border-width) solid var(--color-border);
+  color: var(--color-primary);
+  font-size: var(--font-size-base);
+  font-weight: var(--font-weight-bold);
+  text-decoration: none;
+  cursor: pointer;
+  transition: background-color var(--transition-normal);
+  box-shadow: var(--shadow-md);
+}
+
+.section-button:hover {
+  background-color: var(--color-accent);
+}
+
+@media (max-width: 768px) {
+  .section-button {
+    height: 48px;
+    font-size: var(--font-size-sm);
+  }
+}
+
+/* ============================================
+ * 画像コンテナ共通
+ * ============================================ */
+
+.section-image {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+.section-image-cover {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.section-image-contain {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+/* ============================================
+ * 背景色バリエーション
+ * ============================================ */
+
+.section-bg-primary {
+  background-color: var(--color-primary);
+}
+
+.section-bg-secondary {
+  background-color: var(--color-secondary);
+}
+
+.section-bg-white {
+  background-color: var(--color-text-white);
+}
+
+/* ============================================
+ * PC/モバイル切り替え
+ * ============================================ */
+
+.section-pc-only {
+  display: block;
+}
+
+.section-mobile-only {
+  display: none;
+}
+
+@media (max-width: 1024px) {
+  .section-pc-only {
+    display: none;
+  }
+  
+  .section-mobile-only {
+    display: block;
+  }
+}

@@ -1,0 +1,348 @@
+/* components/layout/SectionLayout.module.css */
+/* ============================================
+ * 共通セクションレイアウト
+ * 
+ * 【レイアウトパターン】
+ * - layout12: 1:2（左タイトル / 右コンテンツ）
+ * - layout21: 2:1（左コンテンツ / 右タイトル）
+ * - layout11: 1:1（均等）
+ * - layout31: 3:1（左コンテンツ大 / 右タイトル）
+ * - layoutFull: フル幅
+ * 
+ * ============================================ */
+
+/* ============================================
+ * セクション基本
+ * ============================================ */
+
+.section {
+  position: relative;
+  width: 100%;
+}
+
+/* 高さバリエーション */
+.heightFull {
+  min-height: calc(100dvh - var(--header-height, 70px));
+}
+
+.heightFullLimited {
+  min-height: var(--section-height-min, 500px);
+  height: calc(100dvh - var(--header-height, 70px));
+  max-height: var(--section-height-max, 900px);
+}
+
+@media (max-width: 1024px) {
+  .heightFullLimited {
+    max-height: none;
+  }
+}
+
+/* ============================================
+ * 背景色
+ * ============================================ */
+
+.bgPrimary {
+  background-color: var(--color-primary, #003705);
+}
+
+.bgSecondary {
+  background-color: var(--color-secondary, #E7EBE7);
+}
+
+.bgWhite {
+  background-color: #FFFFFF;
+}
+
+/* ============================================
+ * コンテナ
+ * ============================================ */
+
+.container {
+  display: flex;
+  width: 100%;
+  min-height: inherit;
+}
+
+.containerFull {
+  width: 100%;
+  max-width: var(--max-width-content, 1400px);
+  margin: 0 auto;
+  padding: 0 var(--container-padding, 50px);
+}
+
+/* ============================================
+ * レイアウトバリエーション
+ * ============================================ */
+
+/* 1:2 レイアウト */
+.layout12 .leftColumn {
+  width: 33.333%;
+}
+.layout12 .rightColumn {
+  width: 66.666%;
+}
+
+/* 2:1 レイアウト */
+.layout21 .leftColumn {
+  width: 66.666%;
+}
+.layout21 .rightColumn {
+  width: 33.333%;
+}
+
+/* 1:1 レイアウト */
+.layout11 .leftColumn,
+.layout11 .rightColumn {
+  width: 50%;
+}
+
+/* 3:1 レイアウト */
+.layout31 .leftColumn {
+  width: 75%;
+}
+.layout31 .rightColumn {
+  width: 25%;
+}
+
+/* ============================================
+ * カラム
+ * ============================================ */
+
+.leftColumn {
+  position: relative;
+}
+
+.rightColumn {
+  position: relative;
+}
+
+.headerColumn {
+  /* タイトルカラム用 */
+}
+
+.contentColumn {
+  /* コンテンツカラム用 */
+}
+
+.leftMarginTop {
+  margin-top: 40px;
+}
+
+/* ============================================
+ * ヘッダー（タイトル部分）
+ * ============================================ */
+
+.header {
+  padding-top: var(--header-padding-top-pc, 48px);
+  padding-bottom: var(--header-padding-bottom-pc, 48px);
+  padding-left: var(--container-padding-pc, 50px);
+  padding-right: var(--container-padding-pc, 50px);
+}
+
+.sticky {
+  position: sticky;
+  top: calc(var(--header-height, 70px) + 10px);
+  z-index: var(--z-sticky, 20);
+}
+
+/* ============================================
+ * ラベル
+ * ============================================ */
+
+.label {
+  font-size: var(--font-size-label, 13px);
+  font-weight: var(--font-weight-semibold, 600);
+  margin-bottom: var(--space-2, 16px);
+  text-decoration: underline;
+  text-underline-offset: 6px;
+  letter-spacing: var(--letter-spacing-normal, 0.05em);
+}
+
+.labelMuted {
+  color: var(--color-text-muted, #B4B4B4);
+}
+
+.labelWhite {
+  color: rgba(255, 255, 255, 0.7);
+}
+
+.labelPrimary {
+  color: var(--color-primary, #003705);
+}
+
+/* ============================================
+ * タイトル
+ * ============================================ */
+
+.title {
+  font-size: var(--font-size-h1, 25px);
+  font-weight: var(--font-weight-bold, 700);
+  line-height: var(--line-height-tight, 1.4);
+  margin: 0;
+}
+
+.titlePrimary {
+  color: var(--color-primary, #003705);
+}
+
+.titleWhite {
+  color: #FFFFFF;
+}
+
+.titleVertical {
+  writing-mode: vertical-rl;
+  text-orientation: mixed;
+  letter-spacing: var(--letter-spacing-wide, 0.1em);
+  line-height: 1.8;
+}
+
+/* ============================================
+ * コンテンツエリア
+ * ============================================ */
+
+.content {
+  height: 100%;
+}
+
+.contentDefault {
+  padding-top: var(--content-padding-top-pc, 64px);
+  padding-bottom: var(--content-padding-bottom-pc, 64px);
+  padding-left: var(--container-padding-pc, 50px);
+  padding-right: var(--container-padding-pc, 50px);
+}
+
+.contentNone {
+  padding: 0;
+}
+
+.contentSmall {
+  padding-top: var(--space-4, 32px);
+  padding-bottom: var(--space-4, 32px);
+  padding-left: var(--container-padding-pc, 50px);
+  padding-right: var(--container-padding-pc, 50px);
+}
+
+.contentLarge {
+  padding-top: var(--space-10, 80px);
+  padding-bottom: var(--space-10, 80px);
+  padding-left: var(--container-padding-pc, 50px);
+  padding-right: var(--container-padding-pc, 50px);
+}
+
+/* ============================================
+ * レスポンシブ: タブレット（1024px以下）
+ * ============================================ */
+
+@media (max-width: 1024px) {
+  .container {
+    flex-direction: column;
+  }
+  
+  /* 2-1, 3-1 レイアウトは順序を入れ替え */
+  .layout21,
+  .layout31 {
+    flex-direction: column-reverse;
+  }
+  
+  /* 全レイアウトでフル幅に */
+  .layout12 .leftColumn,
+  .layout12 .rightColumn,
+  .layout21 .leftColumn,
+  .layout21 .rightColumn,
+  .layout11 .leftColumn,
+  .layout11 .rightColumn,
+  .layout31 .leftColumn,
+  .layout31 .rightColumn {
+    width: 100%;
+  }
+  
+  .leftMarginTop {
+    margin-top: 0;
+  }
+  
+  .sticky {
+    position: static;
+    top: auto;
+  }
+  
+  .header {
+    padding-top: var(--header-padding-top-mobile, 40px);
+    padding-bottom: var(--header-padding-bottom-mobile, 24px);
+    padding-left: var(--container-padding-tablet, 40px);
+    padding-right: var(--container-padding-tablet, 40px);
+  }
+  
+  .contentDefault,
+  .contentSmall,
+  .contentLarge {
+    padding-top: 0;
+    padding-bottom: var(--content-padding-bottom-mobile, 48px);
+    padding-left: var(--container-padding-tablet, 40px);
+    padding-right: var(--container-padding-tablet, 40px);
+  }
+  
+  .containerFull {
+    padding: 0 var(--container-padding-tablet, 40px);
+  }
+}
+
+/* ============================================
+ * レスポンシブ: モバイル（768px以下）
+ * ============================================ */
+
+@media (max-width: 768px) {
+  .header {
+    padding-top: var(--header-padding-top-mobile, 40px);
+    padding-bottom: var(--header-padding-bottom-mobile, 24px);
+    padding-left: var(--container-padding-mobile, 30px);
+    padding-right: var(--container-padding-mobile, 30px);
+  }
+  
+  .title {
+    font-size: var(--font-size-h1-mobile, clamp(18px, 5vw, 22px));
+  }
+  
+  .titleVertical {
+    writing-mode: horizontal-tb;
+    text-orientation: mixed;
+  }
+  
+  .contentDefault,
+  .contentSmall,
+  .contentLarge {
+    padding-top: 0;
+    padding-bottom: var(--content-padding-bottom-mobile, 48px);
+    padding-left: var(--container-padding-mobile, 30px);
+    padding-right: var(--container-padding-mobile, 30px);
+  }
+  
+  .containerFull {
+    padding: 0 var(--container-padding-mobile, 30px);
+  }
+}
+
+/* ============================================
+ * レスポンシブ: 小型モバイル（480px以下）
+ * ============================================ */
+
+@media (max-width: 480px) {
+  .header {
+    padding-top: var(--space-4, 32px);
+    padding-bottom: var(--space-2, 16px);
+    padding-left: var(--container-padding-sm, 20px);
+    padding-right: var(--container-padding-sm, 20px);
+  }
+  
+  .contentDefault,
+  .contentSmall,
+  .contentLarge {
+    padding-top: 0;
+    padding-bottom: var(--space-5, 40px);
+    padding-left: var(--container-padding-sm, 20px);
+    padding-right: var(--container-padding-sm, 20px);
+  }
+  
+  .containerFull {
+    padding: 0 var(--container-padding-sm, 20px);
+  }
+}

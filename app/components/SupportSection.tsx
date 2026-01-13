@@ -57,8 +57,10 @@ const SupporterSection = () => {
         .description {
           color: #FFFFFF;
           font-size: 15px;
+          font-weight: 700;
           line-height: 2;
-          margin-bottom: 3rem;
+          padding-top: 20px;
+          margin-bottom: 30px;
           font-weight: 400;
         }
         .button-group {

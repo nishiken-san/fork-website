@@ -13,44 +13,44 @@ const AboutSection = () => {
     <>
       <style jsx>{`
         .about-fork-bg {
-          background-color: #E7E7E7;
+          background-color: #E7EBE7;
         }
         .section-container {
           display: flex;
         }
         .left-column {
           width: 33.333333%;
-          background-color: #E7E7E7;
+          background-color: #E7EBE7;
           position: relative;
           margin-top: 40px;
 
         }
         .right-column {
           width: 66.666667%;
-          background-color: #E7E7E7;
+          background-color: #E7EBE7;
         }
         .sticky-header {
           position: sticky;
           top: 80px;
           padding: 2rem 3rem;
-          background-color: #E7E7E7;
+          background-color: #E7EBE7;
           z-index: 20;
         }
         .section-label {
           color: #999;
           font-size: 0.875rem;
           font-weight: 700;
-          margin-bottom: 1.5rem;
+          margin-bottom: 20px;
         }
         .section-title {
           color: #003705;
-          font-size: 1.25rem;
+          font-size: 25px;
           font-weight: 700;
           line-height: 1.4;
           white-space: nowrap;
         }
         .content-area {
-          padding: 4rem 4rem 4rem 2rem;
+          padding: 4rem 50px 4rem 0;
         }
         .main-description {
           color: #003705;
@@ -61,10 +61,9 @@ const AboutSection = () => {
         }
         .button-container {
           width: 100%;
-          max-width: 853px;
         }
         .detail-button {
-          background-color: #E7E7E7;
+          background-color: #E7EBE7;
           color: #003705;
           height: 53px;
           font-size: 0.875rem;
@@ -86,7 +85,7 @@ const AboutSection = () => {
         /* タブレット対応 */
         @media (max-width: 1024px) {
           .content-area {
-            padding: 4rem 3rem 4rem 2rem;
+            padding: 4rem 50px 4rem 0;
           }
         }
         
@@ -108,7 +107,7 @@ const AboutSection = () => {
           
           .sticky-header {
             position: static;
-            padding: 2rem 1.5rem;
+            padding: 2rem 30px;
             top: auto;
           }
           
@@ -118,7 +117,7 @@ const AboutSection = () => {
           }
           
           .content-area {
-            padding: 2rem 1.5rem;
+            padding: 2rem 30px;
           }
           
           .button-container {

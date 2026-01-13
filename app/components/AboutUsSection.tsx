@@ -44,8 +44,8 @@ const AboutUsSection = () => {
   .sticky-header {
     position: sticky;
     top: 70px;
-    padding-top: 80px;          /* ★ 1枚目：上余白 */
-    padding-left: 50px;         /* ★ 指定通り */
+    padding-top: 80px;
+    padding-left: 40px;
     padding-bottom: 60px;
   }
 
@@ -56,17 +56,17 @@ const AboutUsSection = () => {
     writing-mode: vertical-rl;
     text-orientation: mixed;
     margin: 0;
-    line-height: 1;
+    line-height: 1.8;
+    letter-spacing: 4px;
   }
 
   .content-area {
-    padding-top: 80px;          /* ★ タイトルと揃える */
-    padding-left: 50px;
+    padding-top: 80px;
     padding-right: 50px;
     padding-bottom: 60px;
     display: flex;
     flex-direction: column;
-    gap: 40px;                  /* ★ PC（3枚目） */
+    gap: 40px;
   }
 
   .section-label {
@@ -88,10 +88,37 @@ const AboutUsSection = () => {
     max-width: 853px;
   }
 
+  .illustration {
+    width: 100%;
+    height: auto;
+    object-fit: contain;
+  }
+
   .button-container {
     max-width: 853px;
-    padding-right: 0;           /* ★ 2枚目：右余白を揃える */
+    padding-right: 0;
     padding-bottom: 0;
+  }
+
+  .more-button {
+    background-color: #E7EBE7;
+    color: #003705;
+    width: 100%;
+    height: 53px;
+    font-size: 15px;
+    font-weight: 700;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid #FFFFFF;
+    box-shadow: 3px 3px 0px #FFFFFF;
+  }
+
+  .more-button:hover {
+    background-color: #93A794;
   }
 
   /* ===== Mobile / Tablet ===== */
@@ -100,16 +127,20 @@ const AboutUsSection = () => {
       position: relative;
       top: auto;
       padding-top: 50px;
-      padding-left: 30px;       /* ★ 指定通り */
+      padding-left: 30px;
       padding-bottom: 40px;
+    }
+
+    .section-title {
+      font-size: 25px;
+      letter-spacing: 4px;
     }
 
     .content-area {
       padding-top: 50px;
-      padding-left: 30px;
       padding-right: 30px;
       padding-bottom: 50px;
-      gap: 32px;                /* ★ 4枚目の詰まり感 */
+      gap: 32px;
     }
 
     .content-area .illustration-container,
@@ -122,16 +153,18 @@ const AboutUsSection = () => {
       flex-direction: column;
       align-items: flex-end;
       padding-right: 30px;
-      padding-bottom: 50px;     /* ★ 2枚目：下余白 */
+      padding-bottom: 50px;
       gap: 32px;
     }
 
     .mobile-media-container .illustration {
       width: 330px;
+      max-width: calc(100% - 30px);
     }
 
     .mobile-media-container .more-button {
       width: 332px;
+      max-width: calc(100% - 30px);
       height: 52px;
     }
   }

@@ -1,6 +1,3 @@
-
-
-
 // app/components/Parallax2.tsx
 'use client';
 
@@ -12,12 +9,13 @@ import { IMAGES } from '@/constants/images';
  * ============================================
  * 
  * PARALLAX_SPEED: 視差の強さ（0.1〜0.3推奨）
- * IMAGE_SCALE: 画像の拡大率（パララックス用の余白確保）
+ * 
+ * ※ 画像は width: 100% + height: auto で
+ *    アスペクト比を維持し左右トリミングなし
  * 
  * ============================================ */
 
 const PARALLAX_SPEED = 0.08;
-const IMAGE_SCALE = 1.2;
 
 const ParallaxPhotoSection1 = () => {
   const sectionRef = useRef<HTMLDivElement>(null);
@@ -44,7 +42,7 @@ const ParallaxPhotoSection1 = () => {
 
       // 視差効果を適用（スクロールに完全同期）
       const offset = distanceFromCenter * PARALLAX_SPEED;
-      wrapper.style.transform = `translate(-50%, -50%) translate3d(0, ${offset}px, 0)`;
+      wrapper.style.transform = `translate3d(0, ${offset}px, 0)`;
     };
 
     // 初期化
@@ -66,7 +64,7 @@ const ParallaxPhotoSection1 = () => {
         .parallax-section {
           position: relative;
           width: 100%;
-          height: 56vw;
+          height: 45vw;
           min-height: 200px;
           max-height: 700px;
           overflow: hidden;
@@ -81,21 +79,15 @@ const ParallaxPhotoSection1 = () => {
           top: 50%;
           left: 50%;
           width: 100%;
-          height: 100%;
-          transform: translate(-50%, -50%);
+          transform: translateY(-50%);
           will-change: transform;
           backface-visibility: hidden;
         }
         
         .parallax-image {
-          position: absolute;
-          top: 50%;
-          left: 50%;
+          display: block;
           width: 100%;
-          height: 130%;
-          object-fit: cover;
-          transform: translate(-50%, -50%) scale(${IMAGE_SCALE});
-          transform-origin: center center;
+          height: auto;
         }
         
         .parallax-overlay {
@@ -116,9 +108,17 @@ const ParallaxPhotoSection1 = () => {
         
         @media (max-width: 768px) {
           .parallax-section {
-            height: 75vw;
-            min-height: 300px;
-            max-height: 590px;
+            height: 50vw;
+            min-height: 180px;
+            max-height: 350px;
+          }
+        }
+        
+        @media (max-width: 480px) {
+          .parallax-section {
+            height: 55vw;
+            min-height: 150px;
+            max-height: 280px;
           }
         }
       `}</style>

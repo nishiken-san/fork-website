@@ -131,7 +131,7 @@ const NoteSection = () => {
         }
         
         .scroll-line-right {
-          right: 0;
+          right: 50px; /* padding-right分だけずらす */
         }
         
         .scroll-container {
@@ -288,6 +288,10 @@ const NoteSection = () => {
           
           .scroll-wrapper {
             padding-right: 30px;
+          }
+          
+          .scroll-line-right {
+            right: 30px; /* モバイル時もpadding-right分だけずらす */
           }
           
           .view-all-container {

@@ -2,7 +2,7 @@
 'use client';
 
 import { useState } from 'react';
-import MobileMenu from './MobileMenu';
+import MobileTop from './MobileTop';
 
 interface HeaderProps {
   logoImage?: string;
@@ -65,7 +65,7 @@ const Header: React.FC<HeaderProps> = ({ logoImage, menuLogoImage }) => {
         </div>
       </header>
 
-      <MobileMenu 
+      <MobileTop 
         isOpen={isMenuOpen} 
         onClose={() => setIsMenuOpen(false)} 
         logoImage={menuLogoImage}
