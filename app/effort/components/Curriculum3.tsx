@@ -108,7 +108,7 @@ const Gakudou3 = () => {
           .sticky-header {
             position: relative;
             top: 0;
-            padding: 30px 0 15px 0;
+            padding: 95px 0 15px 0;
             margin: 0 30px;
           }
           .content-area {
@@ -122,14 +122,6 @@ const Gakudou3 = () => {
           }
         }
         
-        @media (max-width: 480px) {
-          .sticky-header {
-            margin: 20px 20px 10px 20px;
-          }
-          .content-area {
-            padding: 10px 20px 40px 20px;
-          }
-        }
       `}</style>
 
       <section ref={sectionRef} id="gakudou3" className="gakudou3-bg relative">

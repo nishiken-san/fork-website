@@ -140,7 +140,7 @@ const ParallaxSection3 = () => {
           .parallax-section {
             height: 75vw;
             min-height: 300px;
-            max-height: 590px;
+            max-height: 600px;
           }
         }
       `}</style>

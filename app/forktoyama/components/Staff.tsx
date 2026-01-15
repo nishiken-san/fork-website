@@ -37,7 +37,7 @@ const Staff = () => {
         .staff-sticky {
           position: sticky;
           top: 80px;
-          padding: 110px 50px 100px 25px;
+          padding: 110px 50px 145px 25px;
           z-index: 20;
         }
         

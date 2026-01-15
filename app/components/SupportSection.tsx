@@ -129,16 +129,17 @@ const SupporterSection = () => {
           
           .mobile-header {
             display: flex;
-            padding: 4rem 0;
+            padding: 50px 0 30px 0;
           }
-          
+
           .mobile-header-left {
-            width: 66.666667%;
+            width: 75%;
             padding-left: 30px;
+            padding-top: 100;
           }
           
           .mobile-header-right {
-            width: 33.333333%;
+            width: 25%;
             padding-right: 30px;
             display: flex;
             justify-content: flex-end;
@@ -160,6 +161,22 @@ const SupporterSection = () => {
           
           .mobile-content .support-button {
             max-width: none;
+          }
+
+          .section-label {
+            color: #FFFFFF;
+            font-size: 15px;
+            font-weight: 400;
+            letter-spacing: 0.05em;
+            opacity: 0.8;
+          }
+
+          .description {
+            padding-top: 0px;
+          }
+
+          .section-label {
+            margin-bottom: 40px;
           }
         }
         

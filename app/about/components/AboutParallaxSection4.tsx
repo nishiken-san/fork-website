@@ -10,8 +10,8 @@ import { IMAGES } from '@/constants/images';
  * 
  * PARALLAX_SPEED: 視差の強さ（0.1〜0.3推奨）
  * 
- * ※ 画像は width: 100% + height: auto で
- *    アスペクト比を維持し左右トリミングなし
+ * PC: 画像を左右100%表示（トリミングなし）
+ * モバイル: 画面いっぱいに表示（左右トリミングあり）
  * 
  * ============================================ */
 
@@ -61,6 +61,7 @@ const ParallaxPhotoSection1 = () => {
   return (
     <>
       <style jsx>{`
+        /* ===== PC ===== */
         .parallax-section {
           position: relative;
           width: 100%;
@@ -76,10 +77,9 @@ const ParallaxPhotoSection1 = () => {
         
         .parallax-image-wrapper {
           position: absolute;
-          top: 50%;
-          left: 50%;
+          top: 0;
+          left: 0;
           width: 100%;
-          transform: translateY(-50%);
           will-change: transform;
           backface-visibility: hidden;
         }
@@ -106,19 +106,39 @@ const ParallaxPhotoSection1 = () => {
           z-index: 1;
         }
         
+        /* ===== モバイル: 画面いっぱいに表示 ===== */
         @media (max-width: 768px) {
           .parallax-section {
-            height: 50vw;
-            min-height: 180px;
-            max-height: 350px;
+            height: 100vw;
+            min-height: 300px;
+            max-height: 600px;
+          }
+          
+          .parallax-image-wrapper {
+            top: 0%;
+            left: 0%;
+            width: 100%;
+            height: 120%;
+            transform: translate(-50%, -50%);
+          }
+          
+          .parallax-image {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            object-position: center center;
           }
         }
         
         @media (max-width: 480px) {
           .parallax-section {
-            height: 55vw;
-            min-height: 150px;
-            max-height: 280px;
+            height: 85vw;
+            min-height: 480px;
+            max-height: 600px;
+          }
+          
+          .parallax-image-wrapper {
+            height: 110%;
           }
         }
       `}</style>

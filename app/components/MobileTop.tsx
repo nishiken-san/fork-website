@@ -220,7 +220,7 @@ const MobileTop: React.FC<MobileTopProps> = ({ isOpen, onClose, logoImage }) => 
                 <a href="/supporter" className="menu-link" onClick={onClose}>
                   ー　みん営フレンズ（個人）
                 </a>
-                <a href="/supporter/supportercorp" className="menu-link" onClick={onClose}>
+                <a href="/supporterCorp" className="menu-link" onClick={onClose}>
                   ー　みん営パートナー（法人・団体）
                 </a>
               </div>
@@ -240,7 +240,7 @@ const MobileTop: React.FC<MobileTopProps> = ({ isOpen, onClose, logoImage }) => 
           </nav>
           
           <div className="menu-bottom">
-            <a href="/fork-toyama" className="menu-bottom-link" onClick={onClose}>
+            <a href="/forktoyama" className="menu-bottom-link" onClick={onClose}>
               <span className="menu-bottom-link-text">学童保育：fork toyama</span>
               <img 
                 src={IMAGES.logo.vecw}

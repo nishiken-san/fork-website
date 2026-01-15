@@ -45,7 +45,7 @@
 .supporter-sticky {
   position: sticky;
   top: 80px;
-  padding: 50px 50px;
+  padding: 50px 45px;
   z-index: 20;
   display: flex;
   align-items: flex-start;
@@ -762,7 +762,7 @@
   .supporter-sticky {
     position: sticky;
     top: 70px;
-    padding: 50px 30px;
+    padding: 45px 30px;
     justify-content: flex-end;
   }
   

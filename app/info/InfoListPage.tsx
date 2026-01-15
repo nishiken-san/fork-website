@@ -99,7 +99,6 @@ const InfoListPage = ({ articles = [], tags = [], initialTag = '' }: InfoListPag
         <div className="info-list-container">
           <div className="info-list-left">
             <div className="info-list-sticky">
-              <div className="info-list-label">news, information</div>
               <h1 className="info-list-title">おしらせ・記録</h1>
               
               <div className="info-list-topics">topics</div>
@@ -150,7 +149,6 @@ const InfoListPage = ({ articles = [], tags = [], initialTag = '' }: InfoListPag
         {/* PC: 左カラム / モバイル: 右カラム（縦書きタイトル） */}
         <div className="info-list-left">
           <div className="info-list-sticky">
-            <div className="info-list-label">news, information</div>
             <h1 className="info-list-title">おしらせ・記録</h1>
             
             {/* PC用タグ */}

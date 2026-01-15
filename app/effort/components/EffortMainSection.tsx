@@ -58,7 +58,7 @@ const EffortMainSection = () => {
         }
         .description {
           font-size: 15px;
-          line-height: 1.8;
+          line-height: 2;
           margin-bottom: 3rem;
         }
         .effort-list {
@@ -89,28 +89,21 @@ const EffortMainSection = () => {
             padding: 2rem 30px;
           }
           .content-area {
-            padding: 100px 30px 60px 30px;
+            padding: 140px 30px 60px 30px;
           }
           .vertical-title {
             font-size: 25px;
+          }
+          .left-column {
+            width: 75% !important;
+            background-color: #003705;
+          }
+          .right-column {
+            width: 25% !important;
+            background-color: #003705;
+            position: relative;
           }
         }
-        @media (max-width: 480px) {
-          .sticky-header {
-            padding: 1.5rem 30px;
-          }
-          .content-area {
-            padding: 80px 30px 50px 30px;
-          }
-          .vertical-title {
-            font-size: 25px;
-          }
-          .description {
-            font-size: 15px;
-          }
-          .effort-item {
-            font-size: 15px;
-          }
         }
       `}</style>
 

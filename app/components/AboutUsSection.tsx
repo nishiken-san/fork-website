@@ -123,11 +123,24 @@ const AboutUsSection = () => {
 
   /* ===== Mobile / Tablet ===== */
   @media (max-width: 768px) {
+
+  .section-container {
+    display: flex;
+  }
+
+  .left-column {
+    width: 25% !important;
+  }
+
+  .right-column {
+    width: 75% !important;
+  }
     .sticky-header {
       position: relative;
       top: auto;
       padding-top: 50px;
-      padding-left: 30px;
+      padding-left: 25px;
+      padding-righrt: 0px;
       padding-bottom: 40px;
     }
 
@@ -137,7 +150,7 @@ const AboutUsSection = () => {
     }
 
     .content-area {
-      padding-top: 50px;
+      padding-top: 145px;
       padding-right: 30px;
       padding-bottom: 50px;
       gap: 32px;
@@ -151,20 +164,19 @@ const AboutUsSection = () => {
     .mobile-media-container {
       display: flex;
       flex-direction: column;
-      align-items: flex-end;
+      align-items: center;
+      padding-left: 30px;
       padding-right: 30px;
       padding-bottom: 50px;
       gap: 32px;
     }
 
     .mobile-media-container .illustration {
-      width: 330px;
-      max-width: calc(100% - 30px);
+      width: 100%;
     }
 
     .mobile-media-container .more-button {
-      width: 332px;
-      max-width: calc(100% - 30px);
+      width: 100%;
       height: 52px;
     }
   }

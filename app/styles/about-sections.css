@@ -17,7 +17,8 @@
 .about-left-column {
   width: 66.666667%; /* 2/3 */
   background-color: #003705;
-  padding: 50px 50px 100px 30px;
+  padding: 100px 50px 100px 30px;
+
   display: flex;
   align-items: flex-start;
   justify-content: center;
@@ -55,6 +56,7 @@
 /* Content */
 .about-content-wrapper {
   width: 100%;
+  padding-bottom: 50px;
 }
 
 .about-content-block {
@@ -83,7 +85,7 @@
 /* Tablet */
 @media (min-width: 769px) and (max-width: 1024px) {
   .about-left-column {
-    padding: 50px 50px 100px 50px;
+    padding: 100px 50px 100px 50px;
   }
   
   .about-sticky-area {
@@ -100,7 +102,7 @@
   
   .about-left-column {
     width: 75%; /* 3/4 */
-    padding: 140px 30px 60px 30px;
+    padding: 140px 30px 100px 30px;
   }
   
   .about-right-column {
@@ -124,12 +126,13 @@
   
   .about-description {
     font-size: 13px;
-    line-height: 1.6;
+    line-height: 2;
   }
   
   .about-section-category {
     font-size: 13px;
     margin-bottom: 1.5rem;
+    padding-top: 100px;
   }
 }
 
@@ -422,7 +425,7 @@
 }
 
 .private-card {
-  background-color: #E7EBE7;
+  background-color: #FFFFFF;
   border-radius: 10px;
   padding: 10px;
   height: 100px;
@@ -494,12 +497,19 @@
   }
 
   .private-title {
-    font-size: 22px;
+    font-size: 15px;
   }
   
   .private-card {
     height: auto;
     min-height: 100px;
+  }
+
+  .private-card-header {
+    display: flex;
+    align-items: center;
+    padding-bottom: 5px;
+    border-bottom: 1px solid #003705;
   }
 }
 
@@ -540,7 +550,7 @@
   }
   
   .private-title {
-    font-size: 20px;
+    font-size: 25px;
     writing-mode: horizontal-tb;
   }
   
@@ -562,27 +572,29 @@
   }
   
   .private-card-header {
-    padding-bottom: 1rem;
-    margin-bottom: 1rem;
+    padding-bottom: 0.7rem;
+    margin-bottom: 0.8rem;
   }
   
   .private-card-number {
-    font-size: 18px;
+    font-size: 20px;
     min-width: 2.5rem;
   }
   
   .private-card-number::after {
-    bottom: -1rem;
+    bottom: -0.7rem;
   }
   
   .private-card-title {
-    font-size: 14px;
+    font-size: 20px;
   }
   
   .private-card-text {
-    font-size: 12px;
+    font-size: 13px;
     padding: 0;
   }
+
+  
 }
 
 /* ============================================
@@ -1046,8 +1058,8 @@
 }
 
 .member-leader-image {
-  width: 200px;
-  height: 200px;
+  width: calc(50% - 1rem);
+  aspect-ratio: 1 / 1;
   object-fit: cover;
   flex-shrink: 0;
 }

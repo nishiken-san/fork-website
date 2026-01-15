@@ -149,7 +149,7 @@ const NewsSection = () => {
           padding-right: 50px;
           display: flex;
           align-items: center;
-          gap: 0.5rem;
+          gap: 5px;
         }
         
         .view-all-link {
@@ -166,7 +166,7 @@ const NewsSection = () => {
         .view-all-link::after {
           content: '';
           position: absolute;
-          bottom: -4px;
+          bottom: 0px;
           left: 0;
           width: 100%;
           height: 1px;
@@ -213,7 +213,7 @@ const NewsSection = () => {
           
           .section-title {
             position: absolute;
-            right: 30px;
+            right: 20px;
             top: 45px;
             font-size: 25px;
             font-weight: 700;

@@ -182,7 +182,7 @@ const Gakudou1 = () => {
           .sticky-header {
             position: relative;
             top: 0;
-            padding: 30px 0 15px 0;
+            padding: 95px 0 15px 0;
             margin: 0;
             margin-left: 30px;
             margin-right: 30px;
@@ -223,43 +223,7 @@ const Gakudou1 = () => {
           }
         }
         
-        @media (max-width: 480px) {
-          .sticky-header {
-            margin-left: 20px;
-            margin-right: 20px;
-            padding: 20px 0 10px 0;
-          }
-          
-          .section-label {
-            font-size: 25px;
-          }
-          
-          .section-subtitle {
-            font-size: 15px;
-          }
-          
-          .section-title {
-            font-size: 25px;
-          }
-          
-          .content-area {
-            padding: 10px 20px 20px 20px;
-          }
-          
-          .main-description {
-            font-size: 13px;
-            margin: 0 0 15px 0;
-            padding: 0 0 0 0;
-          }
-          
-          .fork-logo-section {
-            margin: 0 0 15px 0;
-          }
-          
-          .about-button {
-            height: 40px;
-            font-size: 13px;
-          }
+        
         }
       `}</style>
 
