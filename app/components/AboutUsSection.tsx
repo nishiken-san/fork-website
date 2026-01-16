@@ -85,7 +85,6 @@ const AboutUsSection = () => {
   }
 
   .illustration-container {
-    max-width: 853px;
   }
 
   .illustration {
@@ -95,7 +94,6 @@ const AboutUsSection = () => {
   }
 
   .button-container {
-    max-width: 853px;
     padding-right: 0;
     padding-bottom: 0;
   }

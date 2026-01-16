@@ -229,7 +229,7 @@ const NoteSection = () => {
           font-weight: 700;
           text-decoration: none;
           position: relative;
-          padding-bottom: 2px;
+          padding-bottom: 0px;
           transition: transform 0.3s ease;
           display: inline-block;
         }
@@ -296,6 +296,7 @@ const NoteSection = () => {
           
           .view-all-container {
             padding-right: 30px;
+            padding-top: 20px;
           }
         }
         

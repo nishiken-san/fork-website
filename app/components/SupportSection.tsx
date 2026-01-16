@@ -68,6 +68,7 @@ const SupporterSection = () => {
           flex-direction: column;
           gap: 1rem;
           margin-bottom: 4rem;
+          max-width: 700px;
         }
         .support-button {
           background-color: #E7EBE7;
@@ -105,6 +106,7 @@ const SupporterSection = () => {
           font-size: 13px;
           line-height: 2;
           font-weight: 400;
+          max-width: 700px;
         }
         .note {
           color: #FFFFFF;
