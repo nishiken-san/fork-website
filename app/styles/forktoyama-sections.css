@@ -130,7 +130,7 @@
 
 .forktoyama-category {
   font-size: 14px;
-  font-weight: 600;
+  font-weight: 700;
   margin-bottom: 16px;
   color: var(--forktoyama-primary);
 }
@@ -244,6 +244,7 @@
 
 .button-section {
   width: 100%;
+  padding-top: 50px ;
 }
 
 .about-button {
@@ -414,6 +415,7 @@
   }
 }
 
+
 /* ========================================
    Natural Architecture Section (Structure)
    ======================================== */
@@ -543,7 +545,7 @@
   
   .natural-architecture-bg .mobile-text-section {
     display: block;
-    margin-bottom: 40px;
+    margin-bottom: 30px;
   }
   
   .natural-architecture-bg .mobile-text-section .content-area {
@@ -553,6 +555,7 @@
   
   .natural-architecture-bg .images-container {
     gap: 20px;
+    padding-bottom: 70px;
   }
   
   .natural-architecture-bg .mobile-photos {
@@ -561,36 +564,21 @@
   }
   
   .natural-architecture-bg .section-category {
+    padding-top: 0px;
     font-size: 15px;
   }
   
   .natural-architecture-bg .section-title {
-    font-size: 20px;
+    font-size: 25px;
   }
   
   .natural-architecture-bg .description {
     font-size: 13px;
+    padding: 20px  0 0 0px;
   }
 }
 
-/* 小型モバイル対応 */
-@media (max-width: 480px) {
-  .natural-architecture-bg .right-column {
-    padding: 40px 20px 50px 20px;
-  }
-  
-  .natural-architecture-bg .section-category {
-    font-size: 15px;
-  }
-  
-  .natural-architecture-bg .section-title {
-    font-size: 18px;
-  }
-  
-  .natural-architecture-bg .description {
-    font-size: 12px;
-  }
-}
+
 
 /* ========================================
    Access Section
@@ -598,8 +586,7 @@
 
 .access-bg {
   background-color: #E7EBE7;
-  min-height: 100vh;
-  padding: 64px 0;
+  padding-bottom: 150px;
 }
 
 .access-bg .section-container {
@@ -610,7 +597,7 @@
 .access-bg .left-column {
   flex: 1;
   z-index: 10;
-  padding: 0px 50px 0 50px;
+  padding: 0px 0px 0 50px;
 }
 
 .access-bg .left-column .content-area {
@@ -666,7 +653,7 @@
 .access-bg .right-column {
   flex: 2;
   position: relative;
-  padding: 0px 50px 0 50px;
+  padding: 0px 50px 0 0px;
 }
 
 .access-bg .map-container {
@@ -730,9 +717,9 @@
   }
   
   .access-bg .mobile-header .section-title {
-    font-size: 20px;
+    font-size: 25px;
     color: #003705;
-    font-weight: 600;
+    font-weight: 700;
     margin: 0;
   }
   
@@ -768,18 +755,19 @@
   .access-bg .mobile-info {
     display: block;
     padding: 30px 30px 60px 30px;
+    font-weight: 700;
   }
   
   .access-bg .mobile-info .facility-name {
     font-size: 18px;
-    font-weight: 600;
+    font-weight: 700;
     margin: 0 0 8px 0;
     color: #003705;
   }
   
   .access-bg .mobile-info .address {
     font-size: 13px;
-    margin: 0 0 30px 0;
+    margin: 0 0 80px 0;
     line-height: 1.6;
     color: #003705;
   }
@@ -814,7 +802,7 @@
   }
   
   .access-bg .mobile-header .section-title {
-    font-size: 18px;
+    font-size: 25px;
   }
   
   /* 正方形維持 */
@@ -1037,12 +1025,12 @@
   }
   
   .description-content {
-    padding: 50px 30px 60px 30px;
+    padding: 105px 30px 60px 30px;
   }
   
   .description-category {
     font-size: 13px;
-    padding: 0 0 7px 0;
+    padding: 0 0 0px 0;
     margin: 0 0 12px 0;
   }
   
@@ -1083,7 +1071,7 @@
   .description-section .mobile-image {
     display: block;
     width: 100%;
-    margin: 0 0 40px 0;
+    margin: 0 0 95px 0;
   }
   
   .description-section .mobile-image img {
@@ -1094,53 +1082,6 @@
   }
 }
 
-/* 小型モバイル対応 */
-@media (max-width: 480px) {
-  .description-content {
-    padding: 40px 20px 50px 20px;
-  }
-  
-  .description-category {
-    font-size: 12px;
-  }
-  
-  .description-title {
-    font-size: 18px;
-    margin: 0 0 16px 0;
-  }
-  
-  .description-text {
-    font-size: 12px;
-    margin: 0 0 10px 0;
-  }
-  
-  .description-section-spacing {
-    margin: 0 0 32px 0;
-  }
-  
-  .description-list {
-    margin: 20px 0 0 0;
-  }
-  
-  .description-list-item {
-    padding: 16px;
-    margin: 0 0 10px 0;
-  }
-  
-  .description-list-number {
-    font-size: 14px;
-    min-width: 24px;
-    margin: 0 10px 0 0;
-  }
-  
-  .description-list-text {
-    font-size: 14px;
-  }
-  
-  .description-section .mobile-image {
-    margin: 0 0 32px 0;
-  }
-}
 
 .google-map {
   width: 100%;
@@ -1170,6 +1111,7 @@
   justify-content: flex-end; /* ★これを追加：中身を右寄せにする */
   gap: 0.5rem;
   cursor: pointer;
+  padding-top: 20px;
 }
 
 .social-link-container:hover .social-link {

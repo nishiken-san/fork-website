@@ -47,7 +47,7 @@
   font-size: 25px;
   font-weight: 700;
   line-height: 1.4;
-  margin: 0 0 40px 0;
+  margin: 0 0 40px -5px;
 
 }
 
@@ -71,7 +71,7 @@
   color: #B4B4B4;
   font-size: 10px;
   font-weight: 700;
-  padding: 3px 5px;
+  padding: 0px 4px;
   cursor: pointer;
   transition: all 0.3s ease;
   text-decoration: none;
@@ -147,7 +147,7 @@
   font-size: 10px;
   font-weight: 700;
   margin-bottom: 8px;
-  padding: 2px 4px 2px 4px;
+  padding: 0px 4px 0px 4px;
   border: 1px solid #B4B4B4;
 }
 
@@ -159,117 +159,40 @@
   margin: 0;
 }
 
-/* ========================================
-   タブレット（769px〜1024px）
-   ======================================== */
-@media (min-width: 769px) and (max-width: 1024px) {
-  .info-list-page {
-    padding-top: 60px;
-  }
-  
-  .info-list-container {
-    display: grid;
-    grid-template-columns: 1fr auto;
-    grid-template-rows: auto 1fr;
-    padding: 30px;
-  }
-  
-  .info-list-left {
-    grid-column: 2;
-    grid-row: 1;
-    width: auto;
-    padding: 0 0 80px 0;
-  }
-  
-  .info-list-right {
-    display: contents;
-  }
-  
-  .info-list-sticky {
-    position: relative;
-    top: 0;
-    padding: 0;
-    display: flex;
-    flex-direction: column;
-    align-items: flex-end;
-  }
-  
-  .info-list-label {
-    display: none;
-  }
-  
-  .info-list-title {
-    writing-mode: vertical-rl;
-    text-orientation: mixed;
-    font-size: 25px;
-    margin: 0;
-  }
-  
-  .info-list-topics,
-  .info-list-sticky .info-list-tags {
-    display: none;
-  }
-  
-  .info-list-mobile-tags {
-    display: block;
-    grid-column: 1;
-    grid-row: 1;
-    padding: 0;
-    margin-bottom: 30px;
-  }
-  
-  .info-list-mobile-topics {
-    color: #B4B4B4;
-    font-size: 15px;
-    font-weight: 700;
-    margin: 0 0 40px 0;
-  }
-  
-  .info-list-mobile-tags .info-list-tags {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 10px;
-  }
-  
-  .info-list-content {
-    grid-column: 1 / -1;
-    grid-row: 2;
-    padding: 0;
-  }
-  
-  .info-articles-grid {
-    grid-template-columns: 1fr;
-    gap: 20px;
-  }
-  
-  .info-article-image {
-    aspect-ratio: 16 / 9;
-  }
-  
-  .info-article-title {
-    font-size: 13px;
-  }
-}
+
 
 /* ========================================
    モバイル（768px以下）
    ======================================== */
 @media (max-width: 768px) {
+
+  .info-list-left {
+    width: 50%;
+    background-color: #E7EBE7;
+    position: relative;
+  }
+
+  /* 右カラム（2/3） */
+  .info-list-right {
+    width: 50%;
+    background-color: #E7EBE7;
+  }
   .info-list-page {
     padding-top: 60px;
   }
   
   .info-list-container {
     display: grid;
-    grid-template-columns: 1fr auto;
+    grid-template-columns: 1fr 1fr;
     grid-template-rows: auto 1fr;
-    padding: 30px;
+    padding: 30px 30px 100px 30px;
   }
   
   .info-list-left {
     grid-column: 2;
     grid-row: 1;
-    width: auto;
+    width: 100%;
+    padding-top: 50px;
   }
   
   .info-list-right {
@@ -294,6 +217,7 @@
     text-orientation: mixed;
     font-size: 25px;
     margin: 0;
+    padding-right: -5px;
     color: #003705;
   }
   
@@ -336,6 +260,7 @@
   
   .info-article-card {
     flex-direction: column;
+    padding-top: 40px;
   }
   
   .info-article-image {
@@ -344,31 +269,5 @@
   
   .info-article-title {
     font-size: 13px;
-  }
-}
-
-/* ========================================
-   小さいモバイル（480px以下）
-   ======================================== */
-@media (max-width: 480px) {
-  .info-list-container {
-    padding: 30px;
-  }
-  
-  .info-list-title {
-    font-size: 25px;
-  }
-  
-  .info-list-mobile-tags {
-    margin-bottom: 40px;
-  }
-  
-  .info-list-mobile-topics {
-    margin-bottom: 30px;
-  }
-  
-  .info-tag-button {
-    font-size: 10px;
-    padding: 3px 5px;
   }
 }

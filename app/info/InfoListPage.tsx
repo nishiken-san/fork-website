@@ -196,11 +196,10 @@ const InfoListPage = ({ articles = [], tags = [], initialTag = '' }: InfoListPag
                     className="info-article-card"
                   >
                     <div className="info-article-image">
-                      {article.image ? (
-                        <img src={article.image} alt={article.title} />
-                      ) : (
-                        <span className="no-image">No Image</span>
-                      )}
+                      <img 
+                        src={article.image || '/images/info/default.png'} 
+                        alt={article.title} 
+                      />
                     </div>
                     <div className="info-article-date">{article.date}</div>
                     {article.tagLabel && (

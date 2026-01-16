@@ -32,7 +32,7 @@ const Facility = () => {
         .sticky-header {
           position: sticky;
           top: 80px;
-          padding: 2rem 3rem;
+          padding: 2rem 45px;
           background-color: #003705;
           z-index: 20;
           display: flex;
@@ -69,6 +69,40 @@ const Facility = () => {
             font-size: 1.75rem;
           }
         }
+
+        @media (max-width: 768px) {
+        .section-container {
+          display: flex;
+        }
+
+        .left-column {
+          width: 66.666% !important;
+          padding-left: 30px;
+          padding-right: 0;
+        }
+
+        .right-column {
+          width: 33.333% !important;
+          padding-right: 30px;
+        }
+
+        .content-area {
+          padding: 140px 0px 100px 0;
+        }
+
+        .sticky-header {
+          padding: 45px 0 50px 0;
+        }
+
+        .description-container {
+          flex-direction: column;
+        }
+
+        .what-we-do {
+          padding-bottom: 30px;
+
+        
+      }
       `}</style>
 
       <section ref={sectionRef} id="facility-main" className="facility-bg relative">

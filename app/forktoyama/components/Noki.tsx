@@ -47,7 +47,7 @@ const Noki = () => {
           <div className="mobile-text-section">
             <div className="content-area">
               <div className="section-category">cafe</div>
-              <div className="section-title">Noki</div>
+              <div className="section-title">noki</div>
               <div className="description">
               子どもたちの声を楽しみながら、こだわりのコーヒーとホットサンドやデザートでお迎えするカフェ。収益の一部は学童保育運営に充てられます。
               </div>
@@ -58,7 +58,7 @@ const Noki = () => {
                 target="_blank"
                 rel="noopener noreferrer"
               >
-                Instagram
+                instagram
               </a>
               <img 
                 src={IMAGES.logo.vec}
