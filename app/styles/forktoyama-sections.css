@@ -449,6 +449,7 @@
   width: 66.666667%;
   background-color: #E7EBE7;
   padding: 110px 50px 100px 25px;
+  max-width: 900px;
 }
 
 .natural-architecture-bg .section-category {

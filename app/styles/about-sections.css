@@ -182,6 +182,7 @@
 .childcare-right-column {
   width: 66.666667%;
   background-color: #E7EBE7;
+  max-width: 900px;
 }
 
 .childcare-sticky-header {
@@ -383,6 +384,7 @@
 .private-right-column {
   width: 66.666667%;
   background-color: #003705;
+  max-width: 900px;
 }
 
 .private-sticky-header {
@@ -619,6 +621,7 @@
 .history-right-column {
   width: 66.666667%;
   background-color: #E7EBE7;
+  max-width: 900px;
 }
 
 .history-sticky-header {
@@ -981,6 +984,7 @@
 .member-right-column {
   width: 66.666667%;
   background-color: #E7EBE7;
+  max-width: 900px;
 }
 
 .member-sticky-header {

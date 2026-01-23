@@ -25,6 +25,7 @@ const Gakudou1 = () => {
         .right-column {
           width: 66.666667%;
           background-color: #E7EBE7;
+          max-width: 900px;
         }
         .sticky-header {
           position: sticky;
