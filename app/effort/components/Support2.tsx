@@ -263,7 +263,7 @@ const Gakudou2 = () => {
           <div ref={contentRef} className="right-column">
             <div className="content-area">
               <p className="main-description">
-                開所から2年で定員から50件超上の児童・複数を受け入れてきたfork toyama。各地で子育ての課題解決に取り組む自治体に対する「みん営」の仕組みや運営者育成の改定・運営のサポートにも取り組んでいます。
+                開所以来のべ60件以上の視察・見学を受け入れてきたfork toyama。全国各地で子育ての課題解決に取り組む個人・団体・企業・自治体の方々に対して、「みん営」の仕組み導入や運営ノウハウの共有などさまざまなサポートにも取り組んでいます。
               </p>
               
               <div className="support-list">

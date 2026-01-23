@@ -36,7 +36,7 @@
 }
 
 .forktoyama-content {
-  padding: 110px 50px 50px 50px;
+  padding: 10px 50px 50px 50px;
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
@@ -158,7 +158,7 @@
 .forktoyama-vertical-container {
   display: flex;
   justify-content: flex-end;
-  gap: 16px;
+  gap: 10px;
 }
 
 /* ========================================
@@ -225,7 +225,7 @@
 
 .forktoyama-button {
   background-color: transparent;
-  border: 2px solid var(--forktoyama-primary);
+  border: 1px solid var(--forktoyama-primary);
   color: var(--forktoyama-primary);
   padding: 16px 32px;
   font-size: 16px;

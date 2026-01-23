@@ -37,22 +37,23 @@ const Gakudou3 = () => {
         .section-label {
           color: #003705;
           font-size: 1.5rem;
-          font-weight: 600;
+          font-weight: 700;
           letter-spacing: 0.1em;
           margin-bottom: 0.5rem;
         }
         .section-subtitle {
           color: #B4B4B4;
           font-size: 0.875rem;
-          font-weight: 400;
+          font-weight: 700;
           letter-spacing: 0.1em;
           margin-bottom: 0.5rem;
         }
         .section-title {
           color: #003705;
           font-size: 1.5rem;
-          font-weight: 600;
+          font-weight: 700;
           line-height: 1.4;
+          border-width: 3px
         }
         .content-area {
           padding: 4rem 0 4rem 2rem;
@@ -100,7 +101,7 @@ const Gakudou3 = () => {
           color: #003705;
           padding: 1rem 3rem;
           font-size: 0.875rem;
-          font-weight: 500;
+          font-weight: 700;
           cursor: pointer;
           transition: all 0.3s ease;
           text-decoration: none;

@@ -38,6 +38,9 @@ const Minei5 = () => {
           <div className="minei5-content">
             <div className="minei5-supporters-text">
               {supporters.join(' / ')}
+              <br /><br />
+              （2022〜2025）
+
             </div>
           </div>
         </div>

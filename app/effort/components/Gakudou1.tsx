@@ -240,7 +240,7 @@ const Gakudou1 = () => {
           <div ref={contentRef} className="right-column">
             <div className="content-area">
               <p className="main-description">
-                社会みんなで子育て関わる「みん営」の仕組みで成り立つ学童保育施設。さまざまな人・もの・コトとの出会いを提供することで、子どもたちに人生の選択肢が広がる機会をつくることに挑戦しています。
+                社会みんなで子育てに関わる「みん営」の仕組みを実践する学童保育施設。
               </p>
               
               <div className="fork-logo-section">

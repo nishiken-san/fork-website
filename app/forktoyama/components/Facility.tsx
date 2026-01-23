@@ -49,14 +49,14 @@ const Facility = () => {
           letter-spacing: 0.1em;
         }
         .content-area {
-          padding: 0 50px;
+          padding: 150px 0px 180px 50px;
           color: white;
           width: 100%;
         }
         .what-we-do {
           font-size: 0.875rem;
           margin-bottom: 0.5rem;
-          font-weight: 400;
+          font-weight: 700;
           color: #B4B4B4;
         }
         .description {
@@ -66,7 +66,7 @@ const Facility = () => {
         }
         @media (min-width: 1024px) {
           .vertical-title {
-            font-size: 1.75rem;
+            font-size: 25px;
           }
         }
 

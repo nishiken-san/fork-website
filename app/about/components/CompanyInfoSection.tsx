@@ -118,7 +118,7 @@ const CompanyInformation = () => {
           <div className="left-column">
             <div className="sticky-header">
               <div className="company-label">company</div>
-              <h2 className="horizontal-title">企業情報</h2>
+              <h2 className="horizontal-title">団体情報</h2>
             </div>
           </div>
 

@@ -82,9 +82,7 @@ const NoteSection = () => {
         .sticky-header {
           position: sticky;
           top: 80px;
-          padding: 0;
-          margin-left: 50px;
-          margin-top: 80px;
+          padding: 50px 0 50px 50px;
           background-color: #E7EBE7;
           z-index: 20;
         }
@@ -189,7 +187,7 @@ const NoteSection = () => {
         .card-date {
           color: #B4B4B4;
           font-size: 13px;
-          font-weight: 400;
+          font-weight: 700;
         }
         .card-category {
           background-color: transparent;
@@ -208,7 +206,7 @@ const NoteSection = () => {
         .card-title {
           color: #003705;
           font-size: 0.875rem;
-          font-weight: 600;
+          font-weight: 700;
           line-height: 1.6;
           display: -webkit-box;
           -webkit-line-clamp: 3;

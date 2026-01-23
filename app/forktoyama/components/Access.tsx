@@ -136,13 +136,6 @@ const Access = () => {
           <div className="facility-name">fork toyama</div>
           <div className="address">〒930-0289 富山県中新川郡舟橋村竹内325</div>
           
-          <div className="company-info">
-            <div className="operator">学童保育運営：一般社団法人fork</div>
-            <div className="facility-management">施設運営・企画運用：トゥ株式会社</div>
-            <div className="establishment">設立：2017年7月24日</div>
-            <div className="location">住所：東京都江東区永代2-20-8 河田ビル1階</div>
-            <div className="representative">代表者：代表取締役 岡山史興</div>
-          </div>
         </div>
       </section>
     </>

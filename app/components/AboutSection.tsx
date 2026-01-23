@@ -22,7 +22,6 @@ const AboutSection = () => {
           width: 33.333333%;
           background-color: #E7EBE7;
           position: relative;
-          margin-top: 40px;
 
         }
         .right-column {
@@ -32,7 +31,7 @@ const AboutSection = () => {
         .sticky-header {
           position: sticky;
           top: 80px;
-          padding: 2rem 3rem;
+          padding: 50px 0px 50px 50px;
           background-color: #E7EBE7;
           z-index: 20;
         }
@@ -46,16 +45,14 @@ const AboutSection = () => {
           color: #003705;
           font-size: 25px;
           font-weight: 700;
-          line-height: 1.4;
           white-space: nowrap;
         }
         .content-area {
-          padding: 4rem 50px 4rem 0;
+          padding: 50px 50px 50px 0;
         }
         .main-description {
           color: #003705;
           font-size: 1rem;
-          line-height: 2;
           margin-bottom: 2rem;
           font-weight: 700;
         }
@@ -67,7 +64,7 @@ const AboutSection = () => {
           color: #003705;
           height: 53px;
           font-size: 0.875rem;
-          font-weight: 600;
+          font-weight: 700;
           cursor: pointer;
           transition: background-color 0.3s ease;
           text-decoration: none;
@@ -85,7 +82,7 @@ const AboutSection = () => {
         /* タブレット対応 */
         @media (max-width: 1024px) {
           .content-area {
-            padding: 4rem 50px 4rem 0;
+            padding: 50px 50px 50px 0;
           }
         }
         

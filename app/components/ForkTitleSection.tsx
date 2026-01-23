@@ -88,7 +88,6 @@ const ForkTitleSection: React.FC<ForkTitleSectionProps> = ({
 
       {/* scrollボタン - 右下 */}
       <button
-        onClick={scrollToNext}
         className={styles.scrollButton}
         aria-label="次のセクションへスクロール"
       >

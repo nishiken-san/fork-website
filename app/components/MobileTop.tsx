@@ -59,8 +59,7 @@ const MobileTop: React.FC<MobileTopProps> = ({ isOpen, onClose, logoImage }) => 
         }
         
         .menu-content {
-          padding: 2rem;
-          padding-bottom: 3rem;
+          padding: 40px 50px 30px 50px;
           overflow-y: auto;
           max-height: calc(100vh - 70px);
         }
@@ -190,6 +189,12 @@ const MobileTop: React.FC<MobileTopProps> = ({ isOpen, onClose, logoImage }) => 
         
         .menu-bottom-link:hover .arrow-icon {
           transform: translateX(0.5em);
+        }
+
+        @media (max-width: 768px) {
+          .menu-content {
+            padding: 20px 30px 30px 30px;
+          }
         }
         
       `}</style>

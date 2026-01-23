@@ -116,7 +116,7 @@ const NewsSection = () => {
         .news-date {
           color: #B4B4B4;
           font-size: 13px;
-          font-weight: 400;
+          font-weight: 700;
         }
         
         .news-category {

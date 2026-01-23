@@ -110,7 +110,7 @@ const MemberSection = () => {
                 <div className="member-leader-role">代表理事</div>
                 <div className="member-leader-name">岡山 史興</div>
                 <p className="member-leader-description">
-                  子育てのため2018年に舟橋村へ移住。自らの息子が小学1年生になるタイミングで安心して預けられる学童保育がなくなってしまう危機感からforkの設立を決意。「みん営」の仕組みを発案して実現、運営している。
+                  長崎県出身。2018年に舟橋村へ移住。2021年、村が学童保育の直営を終了することが突然周知され保護者の間で混乱や不安が広がったことを受け、自分たちで学童保育を立ち上げることを決意。「みん営」の仕組みを考案、実践し続けている。
                 </p>
               </div>
             </div>

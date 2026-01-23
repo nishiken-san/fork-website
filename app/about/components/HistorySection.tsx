@@ -27,7 +27,9 @@ const HistorySection = () => {
     { year: '2023年', month: '1月', content: '舟橋会館に一時的に場所を移して運営。' },
     { year: '', month: '4月', content: 'カフェオープン' },
     { year: '', month: '5月', content: '学童保育施設完成、正式オープン（登録児童40名）' },
-    { year: '2024年', month: '4月', content: '一般社団法人forkによる運営開始（登録児童54名）' }
+    { year: '2024年', month: '4月', content: '一般社団法人forkによる運営開始（登録児童54名）' },
+    { year: '2024年', month: '10月', content: 'グッドデザイン賞受賞、ACCクリエイティブアワードファイナリスト受賞' },
+    { year: '2025年', month: '4月', content: '第4期スタート（登録児童45名）' }
   ];
 
   // モバイル表示

@@ -44,9 +44,9 @@ const AboutUsSection = () => {
   .sticky-header {
     position: sticky;
     top: 70px;
-    padding-top: 80px;
+    padding-top: 50px;
     padding-left: 40px;
-    padding-bottom: 60px;
+    padding-bottom: 50px;
   }
 
   .section-title {
@@ -56,14 +56,12 @@ const AboutUsSection = () => {
     writing-mode: vertical-rl;
     text-orientation: mixed;
     margin: 0;
-    line-height: 1.8;
-    letter-spacing: 4px;
   }
 
   .content-area {
-    padding-top: 80px;
+    padding-top: 50px;
     padding-right: 50px;
-    padding-bottom: 60px;
+    padding-bottom: 50px;
     display: flex;
     flex-direction: column;
     gap: 40px;
@@ -144,7 +142,6 @@ const AboutUsSection = () => {
 
     .section-title {
       font-size: 25px;
-      letter-spacing: 4px;
     }
 
     .content-area {

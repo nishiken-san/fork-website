@@ -11,10 +11,10 @@ const Minei2 = () => {
 
   const benefits = [
     '毎月の活動報告レター配信',
-    'noki fork cafeでのドリンク無料クーポン（毎月）',
-    '「みん営」ミーティング（年1回開催）へのご招待',
-    'そのほかfork開催イベントへの先行ご案内',
-    'コワーキングスペースのご利用権'
+    'noki fork cafeでご利用いただけるクーポンご提供',
+    '「みん営総会」のご案内',
+    'そのほかfork開催イベント、プロジェクトのご案内',
+    '視察、見学のご案内'
   ];
 
   return (
@@ -40,7 +40,10 @@ const Minei2 = () => {
                   </li>
                 ))}
               </ul>
-              <div className="minei2-card-title">など</div>
+              <div className="minei2-card-title">など<br /><br />
+
+                ※内容は変更、中止、追加となる場合があります。
+              </div>
             </div>
           </div>
         </div>

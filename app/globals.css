@@ -1050,3 +1050,28 @@ img, video {
   outline: 2px solid #003705;
   outline-offset: 2px;
 }
+
+/* 初期状態：背景色のみ表示、コンテンツは非表示 */
+html {
+  background-color: #003705;
+}
+
+body.page-loading {
+  opacity: 0;
+  visibility: hidden;
+}
+
+/* 読み込み完了後：フェードイン */
+body.page-loaded {
+  opacity: 1;
+  visibility: visible;
+  transition: opacity 0.8s ease-in-out;
+}
+
+/* JavaScript無効時のフォールバック */
+@media (scripting: none) {
+  body.page-loading {
+    opacity: 1;
+    visibility: visible;
+  }
+}

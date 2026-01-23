@@ -53,7 +53,7 @@ const EffortMainSection = () => {
         .what-we-do {
           font-size: 15px;
           margin-bottom: 2rem;
-          font-weight: 400;
+          font-weight: 700;
           color: #B4B4B4;
         }
         .description {
@@ -68,7 +68,7 @@ const EffortMainSection = () => {
         }
         .effort-item {
           font-size: 15px;
-          margin-bottom: 1rem;
+          line-height: 2;
           padding-left: 2rem;
           position: relative;
         }
@@ -77,7 +77,7 @@ const EffortMainSection = () => {
           position: absolute;
           left: 0;
           top: 0;
-          font-weight: 600;
+          font-weight: 700;
         }
         @media (min-width: 1024px) {
           .vertical-title {

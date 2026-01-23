@@ -61,13 +61,13 @@ const ForktoyamaIntro = () => {
           }
           
           .forktoyama-content {
-            padding: 30px 15px 30px 30px;
+            padding: 0px 15px 30px 30px;
           }
           
           .forktoyama-sticky {
             position: relative !important;
             top: 0 !important;
-            padding: 45px 30px 30px 0;
+            padding: 0px 30px 30px 0;
             height: auto !important;
           }
           
@@ -80,7 +80,6 @@ const ForktoyamaIntro = () => {
             writing-mode: vertical-rl !important;
             text-orientation: mixed !important;
             font-size: 30px;
-            line-height: 1.5;
           }
           
           .forktoyama-subtitle {
@@ -120,7 +119,7 @@ const ForktoyamaIntro = () => {
           }
           
           .forktoyama-content {
-            padding: 20px 10px 20px 30px;
+            padding: 0px 10px 20px 30px;
           }
           
           .forktoyama-sticky {

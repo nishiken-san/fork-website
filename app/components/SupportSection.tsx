@@ -49,7 +49,7 @@ const SupporterSection = () => {
         .section-label {
           color: #FFFFFF;
           font-size: 15px;
-          font-weight: 400;
+          font-weight: 700;
           margin-bottom: 2rem;
           letter-spacing: 0.05em;
           opacity: 0.8;
@@ -61,20 +61,19 @@ const SupporterSection = () => {
           line-height: 2;
           padding-top: 20px;
           margin-bottom: 30px;
-          font-weight: 400;
         }
         .button-group {
           display: flex;
           flex-direction: column;
           gap: 1rem;
           margin-bottom: 4rem;
-          max-width: 700px;
+          max-width: 900px;
         }
         .support-button {
           background-color: #E7EBE7;
           color: #003705;
           font-size: 15px;
-          font-weight: 600;
+          font-weight: 700;
           cursor: pointer;
           transition: background-color 0.3s ease;
           text-decoration: none;
@@ -83,7 +82,7 @@ const SupporterSection = () => {
           border: 1px solid #FFFFFF;
           box-shadow: 3px 3px 0px #FFFFFF;
           width: 100%;
-          max-width: 850px;
+          max-width: 900px;
           height: 50px;
           display: flex;
           align-items: center;
@@ -105,8 +104,8 @@ const SupporterSection = () => {
           color: #FFFFFF;
           font-size: 13px;
           line-height: 2;
-          font-weight: 400;
-          max-width: 700px;
+          font-weight: 700;
+          max-width: 900px;
         }
         .note {
           color: #FFFFFF;
@@ -168,13 +167,13 @@ const SupporterSection = () => {
           .section-label {
             color: #FFFFFF;
             font-size: 15px;
-            font-weight: 400;
+            font-weight: 700;
             letter-spacing: 0.05em;
             opacity: 0.8;
           }
 
           .description {
-            padding-top: 0px;
+            padding-top: 10px;
           }
 
           .section-label {
@@ -237,7 +236,7 @@ const SupporterSection = () => {
             </div>
 
             <p className="note">
-              *2022年の支援者を含む的な内容がはいる
+              ※2022年に実施した設立クラウドファンディングへのご支援者を含みます。
             </p>
           </div>
 
@@ -302,7 +301,7 @@ const SupporterSection = () => {
           </div>
 
           <p className="note">
-            *2022年の支援者を含む的な内容がはいる
+            ※2022年に実施した設立クラウドファンディングへのご支援者を含みます。
           </p>
         </div>
       </section>

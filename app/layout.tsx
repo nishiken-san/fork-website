@@ -4,6 +4,7 @@ import type { Metadata } from 'next';
 import { Inter } from 'next/font/google';
 import './globals.css';
 import GoogleMapsScript from './components/GoogleMapsScript';
+import PageTransition from './components/PageTransition';
 
 const inter = Inter({ subsets: ['latin'] });
 
@@ -22,7 +23,8 @@ export default function RootLayout({
 }) {
   return (
     <html lang="ja">
-      <body className={inter.className}>
+      <body className="page-loading">
+        <PageTransition />
         {children}
         <GoogleMapsScript />
       </body>
