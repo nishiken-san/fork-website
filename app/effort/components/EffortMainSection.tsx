@@ -52,7 +52,7 @@ const EffortMainSection = () => {
         }
         .what-we-do {
           font-size: 15px;
-          margin-bottom: 2rem;
+          margin-bottom: 35px;
           font-weight: 700;
           color: #B4B4B4;
         }
