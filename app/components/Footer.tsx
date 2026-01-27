@@ -24,14 +24,26 @@ const Footer = () => {
           color: #FFFFFF;
           font-size: 15px;
           text-decoration: none;
-          display: block;
-          margin-bottom: 0.5rem;
+          display: flex;
+          align-items: center;
+          gap: 0.5rem;
+          margin-bottom: 0.75rem;
           transition: color 0.3s ease;
         }
-        
-        .nav-link:hover {
-          color: #B4B4B4;
+
+        .nav-link-icon {
+          width: 1em;
+          height: 1em;
+          object-fit: contain;
+          flex-shrink: 0;
         }
+
+        .nav-link-icon-sub {
+          width: 0.8em;
+          height: 0.8em;
+          object-fit: contain;
+          flex-shrink: 0;
+}
         
         .social-links {
           display: flex;
@@ -44,7 +56,7 @@ const Footer = () => {
         .social-link-container {
           display: flex;
           align-items: flex-end;  /* 右寄せ */
-          gap: 0.5rem;
+          gap: 10px;
           cursor: pointer;
         }
         
@@ -94,25 +106,25 @@ const Footer = () => {
           {/* ナビゲーションリンク */}
           <div className="nav-links">
             <a href="/" className="nav-link">
-              ＞ Top
+              <img src="/images/main/menu-vec.png" alt="" className="nav-link-icon" /> top
             </a>
             <a href="/about" className="nav-link">
-              ＞ わたしたちについて
+              <img src="/images/main/menu-vec.png" alt="" className="nav-link-icon" /> わたしたちについて
             </a>
             <a href="/effort" className="nav-link">
-              ＞ とりくみ
+              <img src="/images/main/menu-vec.png" alt="" className="nav-link-icon" /> とりくみ
             </a>
             <a href="/supporter" className="nav-link">
-              ＞ みん営フレンズ〈個人サポーター〉
+              <img src="/images/main/menu-vec.png" alt="" className="nav-link-icon" /> みん営フレンズ〈個人サポーター〉
             </a>
             <a href="/supportercorp" className="nav-link">
-              ＞ みん営パートナー〈法人・団体サポーター〉
+              <img src="/images/main/menu-vec.png" alt="" className="nav-link-icon" /> みん営パートナー〈法人・団体サポーター〉
             </a>
             <a href="/info" className="nav-link">
-              ＞ おしらせ
+              <img src="/images/main/menu-vec.png" alt="" className="nav-link-icon" /> おしらせ
             </a>
             <a href="/forktoyama" className="nav-link">
-              ＞ お問い合わせ
+              <img src="/images/main/menu-vec.png" alt="" className="nav-link-icon" /> お問い合わせ
             </a>
           </div>
           

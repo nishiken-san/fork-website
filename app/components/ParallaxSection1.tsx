@@ -2,58 +2,49 @@
 'use client';
 
 import { useEffect, useRef } from 'react';
+import { gsap } from 'gsap';
+import { ScrollTrigger } from 'gsap/dist/ScrollTrigger';
+import styles from './ParallaxSection.module.css';
 
-/* ============================================
- * パララックス設定
- * ============================================
- * 
- * PARALLAX_SPEED: 視差の強さ（0.1〜0.3推奨）
- * VIDEO_SCALE: 動画の拡大率（パララックス用の余白確保）
- * 
- * ============================================ */
-
-const PARALLAX_SPEED = 0.08;
-const VIDEO_SCALE = 1.2;
-
-const ParallaxSection1 = () => {
+const ParallaxSection3 = () => {
   const sectionRef = useRef<HTMLDivElement>(null);
-  const wrapperRef = useRef<HTMLDivElement>(null);
+  const videoWrapperRef = useRef<HTMLDivElement>(null);
   const videoRef = useRef<HTMLVideoElement>(null);
+  const initialized = useRef(false);
 
-  // パララックス効果（シンプルなスクロール同期）
+  // GSAPパララックス
   useEffect(() => {
+    if (initialized.current) return;
+    if (typeof window === 'undefined') return;
+
+    gsap.registerPlugin(ScrollTrigger);
+
     const section = sectionRef.current;
-    const wrapper = wrapperRef.current;
-    
-    if (!section || !wrapper) return;
+    const videoWrapper = videoWrapperRef.current;
 
-    const updateParallax = () => {
-      const rect = section.getBoundingClientRect();
-      const windowHeight = window.innerHeight;
+    if (!section || !videoWrapper) return;
 
-      // 画面外なら処理スキップ
-      if (rect.bottom < 0 || rect.top > windowHeight) return;
+    initialized.current = true;
 
-      // セクションの中心と画面中央の距離
-      const sectionCenter = rect.top + rect.height / 2;
-      const viewportCenter = windowHeight / 2;
-      const distanceFromCenter = sectionCenter - viewportCenter;
-
-      // 視差効果を適用（スクロールに完全同期）
-      const offset = distanceFromCenter * PARALLAX_SPEED;
-      wrapper.style.transform = `translate(-50%, -50%) translate3d(0, ${offset}px, 0)`;
-    };
-
-    // 初期化
-    updateParallax();
-
-    // スクロールイベントで直接更新（パッシブで軽量化）
-    window.addEventListener('scroll', updateParallax, { passive: true });
-    window.addEventListener('resize', updateParallax, { passive: true });
+    const ctx = gsap.context(() => {
+      gsap.fromTo(
+        videoWrapper,
+        { y: '-10%' },
+        {
+          y: '10%',
+          ease: 'none',
+          scrollTrigger: {
+            trigger: section,
+            start: 'top bottom',
+            end: 'bottom top',
+            scrub: true,
+          }
+        }
+      );
+    });
 
     return () => {
-      window.removeEventListener('scroll', updateParallax);
-      window.removeEventListener('resize', updateParallax);
+      ctx.revert();
     };
   }, []);
 
@@ -81,87 +72,22 @@ const ParallaxSection1 = () => {
   }, []);
 
   return (
-    <>
-      <style jsx>{`
-        .parallax-section {
-          position: relative;
-          width: 100%;
-          // height: 56.25vw;
-          height: 56vw;
-          min-height: 200px;
-          max-height: 700px;
-          overflow: hidden;
-          background-color: #003705;
-          clip-path: inset(0%);
-          border-top: 1px solid #003705;
-          border-bottom: 1px solid #003705;
-        }
-        
-        .parallax-video-wrapper {
-          position: absolute;
-          top: 50%;
-          left: 50%;
-          width: 100%;
-          height: 100%;
-          transform: translate(-50%, -50%);
-          will-change: transform;
-          backface-visibility: hidden;
-        }
-        
-        .parallax-video {
-          position: absolute;
-          top: 55%;
-          left: 50%;
-          width: 100%;
-          height: 130%;
-          object-fit: cover;
-          transform: translate(-50%, -50%) scale(${VIDEO_SCALE});
-          transform-origin: center center;
-        }
-        
-        .parallax-overlay {
-          position: absolute;
-          top: 0;
-          left: 0;
-          right: 0;
-          bottom: 0;
-          background: linear-gradient(
-            to bottom,
-            transparent 0%,
-            transparent 70%,
-            rgba(0, 0, 0, 0) 100%
-          );
-          pointer-events: none;
-          z-index: 1;
-        }
-        
-        @media (max-width: 768px) {
-          .parallax-section {
-            height: 75vw;
-            min-height: 300px;
-            max-height: 600px;
-          }
-        }
-      `}</style>
-
-      <div ref={sectionRef} className="parallax-section">
-        <div ref={wrapperRef} className="parallax-video-wrapper">
-          <video
-            ref={videoRef}
-            className="parallax-video"
-            autoPlay
-            loop
-            muted
-            playsInline
-            preload="auto"
-          >
-            <source src="/images/mov/A_fork_webmovie0617_01_0630_1.mp4" type="video/mp4" />
-          </video>
-        </div>
-        <div className="parallax-overlay" />
+    <div ref={sectionRef} className={styles.parallaxSection}>
+      <div ref={videoWrapperRef} className={styles.parallaxVideoWrapper}>
+        <video
+          ref={videoRef}
+          className={styles.parallaxVideo}
+          autoPlay
+          loop
+          muted
+          playsInline
+          preload="auto"
+        >
+          <source src="/images/mov/A_fork_webmovie0617_01_0630_1.mp4" type="video/mp4" />
+        </video>
       </div>
-    </>
+    </div>
   );
 };
 
-export default ParallaxSection1;
+export default ParallaxSection3;

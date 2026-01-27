@@ -15,19 +15,21 @@ const Gakudou3 = () => {
           background-color: #E7EBE7;
         }
         .section-container {
-          display: flex;
-          min-height: 100vh;
-        }
-        .left-column {
-          width: 33.333333%;
-          background-color: #E7EBE7;
-          position: relative;
-        }
-        .right-column {
-          width: 66.666667%;
-          background-color: #E7EBE7;
-          max-width: 900px;
-        }
+    display: flex;
+    justify-content: space-between;
+  }
+  .left-column {
+    flex: 0 0 auto;
+    width: 33.333333%;
+    background-color: #E7EBE7;
+    position: relative;
+  }
+  .right-column {
+    flex: 0 0 auto;
+    width: min(66.666%, 900px);
+    max-width: 900px;
+    background-color: #E7EBE7;
+  }
         .sticky-header {
           position: sticky;
           top: 80px;

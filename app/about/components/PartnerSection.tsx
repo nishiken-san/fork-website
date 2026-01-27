@@ -35,19 +35,23 @@ const PartnerSection = () => {
     <>
       <style jsx>{`
   .single-bg {
-    background-color: #003705;
+    background-color: #E7EBE7;
   }
   .section-container {
     display: flex;
+    justify-content: space-between;
   }
   .left-column {
+    flex: 0 0 auto;
     width: 33.333333%;
-    background-color: #003705;
+    background-color: #E7EBE7;
     position: relative;
   }
   .right-column {
-    width: 66.666667%;
-    background-color: #003705;
+    flex: 0 0 auto;
+    width: min(66.666%, 900px);
+    max-width: 900px;
+    background-color: #E7EBE7;
   }
   .sticky-header {
     position: sticky;
@@ -56,7 +60,7 @@ const PartnerSection = () => {
     margin: 0;
     margin-left: 50px;
     padding-top: 50px;
-    background-color: #003705;
+    background-color: #E7EBE7;
     z-index: 20;
   }
   .section-label {
@@ -68,7 +72,7 @@ const PartnerSection = () => {
     padding: 0;
   }
   .section-title {
-    color: #f8f8f8;
+    color: #003705;
     font-size: 25px;
     font-weight: 700;
     line-height: 1.4;
@@ -107,14 +111,14 @@ const PartnerSection = () => {
     padding: 0;
   }
   .item-title {
-    color: #f8f8f8;
+    color: #003705;
     font-size: 20px;
     font-weight: 700;
     margin: 0;
     padding: 0;
   }
   .item-description {
-    color: #f8f8f8;
+    color: #003705;
     font-size: 13px;
     font-weight: 700;
     line-height: 1.6;

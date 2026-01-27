@@ -11,7 +11,6 @@ import Footer from '../components/Footer';
 export default function EffortPage() {
   return (
     <div className="pt-16">
-      <Header />
       <ParallaxSection />
       <EffortMainSection />
       <Gakudou1 />

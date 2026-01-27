@@ -49,6 +49,8 @@ const nextConfig: NextConfig = (() => {
   // 共通設定
   const commonConfig: NextConfig = {
     reactStrictMode: true,
+
+    transpilePackages: ['gsap'],
     
     // TypeScript/ESLint - ビルド時のエラーを無視
     typescript: {

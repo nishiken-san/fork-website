@@ -3,12 +3,12 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "dev": "next dev --turbopack",
+    "dev": "next dev",
     "build": "next build",
     "start": "next start",
     "lint": "next lint",
     "type-check": "tsc --noEmit",
-    "clean": "rm -rf .next out",
+    "clean": "rimraf .next node_modules/.cache",
     "export": "next build"
   },
   "dependencies": {
@@ -18,7 +18,7 @@
     "date-fns": "^3.6.0",
     "googleapis": "^164.1.0",
     "gray-matter": "^4.0.3",
-    "lenis": "^1.3.15",
+    "gsap": "^3.14.2",
     "marked": "^12.0.0",
     "microcms-js-sdk": "^3.2.0",
     "next": "^15.3.6",
@@ -36,6 +36,7 @@
     "eslint": "^9",
     "eslint-config-next": "15.3.4",
     "raw-loader": "^4.0.2",
+    "rimraf": "^6.1.2",
     "tailwindcss": "^4.1.18",
     "typescript": "^5"
   },

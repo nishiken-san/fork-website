@@ -1,10 +1,10 @@
-
 // app/layout.tsx
 import type { Metadata } from 'next';
 import { Inter } from 'next/font/google';
 import './globals.css';
 import GoogleMapsScript from './components/GoogleMapsScript';
 import PageTransition from './components/PageTransition';
+import HeaderWrapper from './components/HeaderWrapper';
 
 const inter = Inter({ subsets: ['latin'] });
 
@@ -23,10 +23,31 @@ export default function RootLayout({
 }) {
   return (
     <html lang="ja">
-      <body className="page-loading">
-        <PageTransition />
-        {children}
+      <head>
+        {/* CSSが読み込まれる前に非表示にするインラインスタイル */}
+        <style dangerouslySetInnerHTML={{
+          __html: `
+            #main-content.main-content-loading {
+              opacity: 0 !important;
+              visibility: hidden !important;
+              transform: translateY(-30px) !important;
+            }
+          `
+        }} />
+      </head>
+      <body>
+        <HeaderWrapper />
+        
+        <div 
+          id="main-content" 
+          className="main-content-loading"
+          style={{ opacity: 0, visibility: 'hidden' }}
+        >
+          {children}
+        </div>
+        
         <GoogleMapsScript />
+        <PageTransition />
       </body>
     </html>
   );

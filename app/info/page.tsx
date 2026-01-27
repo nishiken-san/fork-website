@@ -107,7 +107,6 @@ export default async function InfoPage({
   
   return (
     <>
-      <Header />
       <InfoListPage articles={formattedArticles} tags={formattedTags} initialTag={initialTag} />
       <Footer />
     </>

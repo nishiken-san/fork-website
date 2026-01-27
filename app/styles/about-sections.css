@@ -171,18 +171,22 @@
 
 .childcare-section-container {
   display: flex;
+  justify-content: space-between;
 }
 
 .childcare-left-column {
+  flex: 0 0 auto;
   width: 33.333333%;
   background-color: #E7EBE7;
   position: relative;
 }
 
 .childcare-right-column {
-  width: 66.666667%;
+  flex: 0 0 auto;
+  width: min(66.666%, 900px);  /* 66%か900pxの小さい方 */
   background-color: #E7EBE7;
   max-width: 900px;
+  justify-content: flex-end;
 }
 
 .childcare-sticky-header {
@@ -373,15 +377,18 @@
 
 .private-section-container {
   display: flex;
+  justify-content: space-between;
 }
 
 .private-left-column {
+  flex: 0 0 auto;
   width: 33.333333%;
   background-color: #003705;
   position: relative;
 }
 
 .private-right-column {
+  flex: 0 0 auto;
   width: 66.666667%;
   background-color: #003705;
   max-width: 900px;
@@ -610,18 +617,21 @@
 
 .history-section-container {
   display: flex;
+  justify-content: space-between;
 }
 
 .history-left-column {
-  width: 33.333333%;
-  background-color: #E7EBE7;
-  position: relative;
+  flex: 0 0 auto;
+    width: 33.333333%;
+    background-color: #E7EBE7;
+    position: relative;
 }
 
 .history-right-column {
-  width: 66.666667%;
-  background-color: #E7EBE7;
-  max-width: 900px;
+  flex: 0 0 auto;
+    width: min(66.666%, 900px);
+    max-width: 900px;
+    background-color: #E7EBE7;
 }
 
 .history-sticky-header {
@@ -973,18 +983,21 @@
 
 .member-section-container {
   display: flex;
+  justify-content: space-between;
 }
 
 .member-left-column {
-  width: 33.333333%;
-  background-color: #E7EBE7;
-  position: relative;
+  flex: 0 0 auto;
+    width: 33.333333%;
+    background-color: #E7EBE7;
+    position: relative;
 }
 
 .member-right-column {
-  width: 66.666667%;
-  background-color: #E7EBE7;
-  max-width: 900px;
+  flex: 0 0 auto;
+    width: min(66.666%, 900px);
+    max-width: 900px;
+    background-color: #E7EBE7;
 }
 
 .member-sticky-header {
@@ -1222,5 +1235,53 @@
   
   .member-nickname {
     font-size: 13px;
+  }
+}
+
+.parallaxSection {
+  position: relative;
+  width: 100%;
+  height: 56vw;
+  min-height: 200px;
+  max-height: 700px;
+  overflow: hidden;
+  background-color: #003705;
+}
+
+.parallaxImageWrapper {
+  position: absolute;
+  top: -10%;
+  left: 0;
+  width: 100%;
+  height: 120%;
+}
+
+.parallaxImage {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center center;
+}
+
+/* モバイル */
+@media (max-width: 768px) {
+  .parallaxSection {
+    height: 75vw;
+    min-height: 300px;
+    max-height: 800px;
+  }
+  
+  .parallaxImageWrapper {
+    top: -5%;
+    height: 110%;
+  }
+}
+
+/* 小型モバイル */
+@media (max-width: 480px) {
+  .parallaxSection {
+    height: 85vw;
+    min-height: 400px;
+    max-height: 600px;
   }
 }

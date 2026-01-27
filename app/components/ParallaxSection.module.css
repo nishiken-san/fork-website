@@ -1,120 +1,52 @@
-/* app/components/ParallaxSection.module.css
-/* セクション高さを動画の高さに連動して自動調整 */
 
-.section {
+
+/* app/components/ParallaxSection1.module.css */
+.parallaxSection {
   position: relative;
   width: 100%;
-  /* 
-   * 16:9動画を横100%表示した場合の高さ = 56.25vw
-   * セクションの高さ = 動画の高さ × 表示比率
-   * 70% = 56.25vw × 0.7 ≈ 39.375vw
-   */
-  height: calc(56.25vw * var(--video-height-ratio, 0.7));
+  height: 56vw;
+  min-height: 200px;
+  max-height: 700px;
   overflow: hidden;
-  background-color: #000;
+  background-color: #003705;
 }
 
-/* パララックス用ラッパー */
-.wrapper {
-  position: absolute;
-  left: 0;
-  width: 100%;
-  top: 50%;
-  transform: translateY(-50%);
-  will-change: transform;
-  backface-visibility: hidden;
-}
-
-/* 動画スタイル - 横100%表示、高さは自動 */
-.video {
-  display: block;
-  width: 100%;
-  height: auto;
-}
-
-/* オーバーレイ */
-.overlay {
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  background: linear-gradient(
-    to bottom,
-    transparent 0%,
-    transparent 80%,
-    rgba(0, 0, 0, 0.08) 100%
-  );
-  pointer-events: none;
-  z-index: 1;
-}
-
-/* アニメーション軽減設定への対応 */
-@media (prefers-reduced-motion: reduce) {
-  .wrapper {
-    transform: translateY(-50%) !important;
-  }
-} */
-
-.section {
-  position: relative;
-  width: 100%;
-  height: 56.25vw; /* 【調整】16:9比率 */
-  min-height: 400px; /* 【調整】最小高さ */
-  max-height: 900px; /* 【調整】最大高さ */
-  overflow: hidden;
-  background-color: #E7EBE7;
-  /* 参考サイトと同じクリッピング */
-  clip-path: inset(0%);
-}
-
-.wrapper {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  width: 100%;
-  height: 100%;
-  transform: translate(-50%, -50%);
-  /* GPU加速 */
-  will-change: transform;
-  backface-visibility: hidden;
-  -webkit-backface-visibility: hidden;
-}
-
-.video {
+.parallaxVideoWrapper {
   position: absolute;
   top: 0%;
-  left: 0%;
-  width: 90%;
-  height: 90%;
-  object-fit: cover;
-  /* 動画を少し拡大してパララックス用の余白を確保 */
-  transform: translate(-50%, -50%) scale(${videoScale});
-  transform-origin: center center;
-}
-
-/* グラデーションオーバーレイ（オプション） */
-.parallax-overlay {
-  position: absolute;
-  top: 0;
   left: 0;
-  right: 0;
-  bottom: 0;
-  background: linear-gradient(
-    to bottom,
-    transparent 0%,
-    transparent 70%,
-    rgba(0, 0, 0, 0.1) 100%
-  );
-  pointer-events: none;
-  z-index: 1;
+  width: 100%;
+  height: 120%;
+  transition: none !important;
 }
 
-/* モバイル対応 */
+.parallaxVideo {
+  width: 110%;
+  height: 110%;
+  object-fit: cover;
+  object-position: center center;
+  transition: none !important;
+}
+
+/* モバイル */
 @media (max-width: 768px) {
-  .parallax-section {
-    height: 75vw; /* 【調整】モバイルでの高さ比率 */
+  .parallaxSection {
+    height: 56vw;
     min-height: 300px;
-    max-height: 500px;
+    max-height: 600px;
+  }
+
+  .parallaxVideoWrapper {
+    top: -5%;
+    height: 110%;
+  }
+}
+
+/* 小型モバイル */
+@media (max-width: 480px) {
+  .parallaxSection {
+    height: 85vw;
+    min-height: 350px;
+    max-height: 600px;
   }
 }

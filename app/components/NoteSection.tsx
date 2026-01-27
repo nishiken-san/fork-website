@@ -1,7 +1,7 @@
 // app/components/NoteSection.tsx
 'use client';
 
-import { useRef } from 'react';
+import { useRef, useEffect, useState } from 'react';
 import { IMAGES } from '@/constants/images';
 
 interface NoteItem {
@@ -16,50 +16,26 @@ interface NoteItem {
 const NoteSection = () => {
   const sectionRef = useRef<HTMLDivElement>(null);
   const scrollContainerRef = useRef<HTMLDivElement>(null);
+  const [noteItems, setNoteItems] = useState<NoteItem[]>([]);
+  const [isLoading, setIsLoading] = useState(true);
 
-  // noteの記事情報（手動で設定）
-  const noteItems: NoteItem[] = [
-    {
-      id: '1',
-      url: 'https://note.com/forktoyama/n/n9c44750f387b',
-      date: '2024.12.10',
-      title: 'ここに記事のタイトルが入ります。',
-      image: '/images/note/note1.jpg',
-      category: 'fork toyama'
-    },
-    {
-      id: '2',
-      url: 'https://note.com/forktoyama',
-      date: '2024.12.10',
-      title: 'ここに記事のタイトルが入ります。',
-      image: '/images/note/note2.jpg',
-      category: 'fork toyama'
-    },
-    {
-      id: '3',
-      url: 'https://note.com/forktoyama',
-      date: '2024.12.10',
-      title: 'ここに記事のタイトルが入ります。',
-      image: '/images/note/note3.jpg',
-      category: 'fork toyama'
-    },
-    {
-      id: '4',
-      url: 'https://note.com/forktoyama',
-      date: '2024.12.10',
-      title: 'ここに記事のタイトルが入ります。',
-      image: '/images/note/note4.jpg',
-      category: 'fork toyama'
-    },
-    {
-      id: '5',
-      url: 'https://note.com/forktoyama',
-      date: '2024.12.10',
-      title: 'ここに記事のタイトルが入ります。',
-      image: '/images/note/note5.jpg',
-      category: 'fork toyama'
-    }
-  ];
+  useEffect(() => {
+    const fetchNoteArticles = async () => {
+      try {
+        const response = await fetch('/api/note');
+        if (response.ok) {
+          const data = await response.json();
+          setNoteItems(data);
+        }
+      } catch (error) {
+        console.error('Error fetching note articles:', error);
+      } finally {
+        setIsLoading(false);
+      }
+    };
+
+    fetchNoteArticles();
+  }, []);
 
   return (
     <>
@@ -69,20 +45,24 @@ const NoteSection = () => {
         }
         .section-container {
           display: flex;
+          justify-content: space-between;
         }
         .left-column {
+          flex: 0 0 auto;
           width: 33.333333%;
           background-color: #E7EBE7;
           position: relative;
         }
         .right-column {
-          width: 66.666667%;
+          flex: 0 0 auto;
+          width: min(66.666%, 900px);
+          max-width: 900px;
           background-color: #E7EBE7;
         }
         .sticky-header {
           position: sticky;
           top: 80px;
-          padding: 50px 0 50px 50px;
+          padding: 80px 0 50px 50px;
           background-color: #E7EBE7;
           z-index: 20;
         }
@@ -100,15 +80,13 @@ const NoteSection = () => {
           line-height: 1.4;
         }
         .content-area {
-          padding: 110px 0 4rem 50px;
+          padding: 80px 0 4rem 0;
           position: relative;
         }
         
-        /* スクロールコンテナと左右の線 */
         .scroll-wrapper {
           position: relative;
           padding-right: 50px;
-          height: 320px;
           display: flex;
           align-items: center;
         }
@@ -117,11 +95,10 @@ const NoteSection = () => {
         .scroll-line-right {
           position: absolute;
           width: 1px;
-          height: 380px;
           background-color: #003705;
           z-index: 10;
-          top: 50%;
-          transform: translateY(-50%);
+          top: -80px;
+          bottom: -80px;
         }
         
         .scroll-line-left {
@@ -129,60 +106,45 @@ const NoteSection = () => {
         }
         
         .scroll-line-right {
-          right: 50px; /* padding-right分だけずらす */
+          right: 50px;
         }
         
         .scroll-container {
           display: flex;
-          gap: 2rem;
+          gap: 25px;
           overflow-x: auto;
           overflow-y: hidden;
           scroll-behavior: smooth;
-          padding-bottom: 0;
-          height: 320px;
-          align-items: center;
-          
-          /* スクロールバーを非表示 */
-          scrollbar-width: none; /* Firefox */
-          -ms-overflow-style: none; /* IE and Edge */
+          padding: 30px 0;
+          align-items: flex-start;
+          scrollbar-width: none;
+          -ms-overflow-style: none;
         }
         
-        /* Webkit (Chrome, Safari) のスクロールバーを非表示 */
         .scroll-container::-webkit-scrollbar {
           display: none;
         }
         
         .note-card {
           flex: 0 0 300px;
+          height: auto;
           background-color: #FFFFFF;
           border: 1px solid #003705;
-          box-shadow: 1px 1px 0px #003705;
+          box-shadow: 3px 3px 0px #003705;
           padding: 1rem;
           cursor: pointer;
-          transition: all 0.3s ease;
+          transition: transform 0.3s ease;
           text-decoration: none;
           display: block;
         }
         .note-card:hover {
           transform: translateY(-4px);
         }
-        .card-image {
-          width: 100%;
-          height: 200px;
-          background-color: #D9D9D9;
-          margin-bottom: 1rem;
-          overflow: hidden;
-        }
-        .card-image img {
-          width: 100%;
-          height: 100%;
-          object-fit: cover;
-        }
         .card-meta {
           display: flex;
           align-items: center;
           gap: 0.75rem;
-          margin-bottom: 1rem;
+          margin-bottom: 20px;
         }
         .card-date {
           color: #B4B4B4;
@@ -194,7 +156,7 @@ const NoteSection = () => {
           color: #B4B4B4;
           border: 1px solid #B4B4B4;
           padding: 0 0.25rem;
-          font-size: 10px;
+          font-size: 13px;
           font-weight: 700;
           height: 16px;
           display: inline-flex;
@@ -256,6 +218,11 @@ const NoteSection = () => {
           transform: translateX(0.5em);
         }
         
+        .loading-text {
+          color: #B4B4B4;
+          font-size: 14px;
+        }
+        
         @media (max-width: 768px) {
           .section-container {
             flex-direction: column;
@@ -271,9 +238,7 @@ const NoteSection = () => {
           
           .sticky-header {
             position: static;
-            padding: 0;
-            margin-left: 30px;
-            margin-top: 50px;
+            padding: 50px 30px 30px 30px;
           }
           
           .section-label {
@@ -281,15 +246,21 @@ const NoteSection = () => {
           }
           
           .content-area {
-            padding: 50px 0 2rem 30px;
+            padding: 0 0 2rem 30px;
           }
           
           .scroll-wrapper {
             padding-right: 30px;
           }
           
+          .scroll-line-left,
           .scroll-line-right {
-            right: 30px; /* モバイル時もpadding-right分だけずらす */
+            top: -30px;
+            bottom: -30px;
+          }
+          
+          .scroll-line-right {
+            right: 30px;
           }
           
           .view-all-container {
@@ -307,7 +278,6 @@ const NoteSection = () => {
 
       <section ref={sectionRef} id="note" className="note-bg relative">
         <div className="section-container">
-          {/* 左側: 固定ヘッダー */}
           <div className="left-column">
             <div className="sticky-header">
               <div className="section-label">note</div>
@@ -315,36 +285,58 @@ const NoteSection = () => {
             </div>
           </div>
 
-          {/* 右側: スクロールコンテンツ */}
           <div className="right-column">
             <div className="content-area">
               <div className="scroll-wrapper">
-                {/* 左右の線 */}
                 <div className="scroll-line-left"></div>
                 <div className="scroll-line-right"></div>
                 
                 <div ref={scrollContainerRef} className="scroll-container">
-                  {noteItems.map((item) => (
-                    <a 
-                      key={item.id} 
-                      href={item.url} 
-                      className="note-card"
-                      target="_blank"
-                      rel="noopener noreferrer"
-                    >
-                      <div className="card-image">
-                        <img 
-                          src={item.image} 
-                          alt={item.title}
-                        />
-                      </div>
-                      <div className="card-meta">
-                        <span className="card-date">{item.date}</span>
-                        <span className="card-category">{item.category}</span>
-                      </div>
-                      <h3 className="card-title">{item.title}</h3>
-                    </a>
-                  ))}
+                  {isLoading ? (
+                    <span className="loading-text">読み込み中...</span>
+                  ) : noteItems.length > 0 ? (
+                    noteItems.map((item) => (
+                      <a 
+                        key={item.id} 
+                        href={item.url} 
+                        className="note-card"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                      >
+                        <div 
+                          style={{
+                            width: '100%',
+                            height: '150px',
+                            backgroundColor: '#D9D9D9',
+                            marginBottom: '1rem',
+                            overflow: 'hidden',
+                          }}
+                        >
+                          <img 
+                            src={item.image} 
+                            alt={item.title}
+                            style={{
+                              width: '100%',
+                              height: '150px',
+                              objectFit: 'cover',
+                              objectPosition: 'center center',
+                              display: 'block',
+                            }}
+                            onError={(e) => {
+                              (e.target as HTMLImageElement).src = '/images/note/default.png';
+                            }}
+                          />
+                        </div>
+                        <div className="card-meta">
+                          <span className="card-date">{item.date}</span>
+                          <span className="card-category">{item.category}</span>
+                        </div>
+                        <h3 className="card-title">{item.title}</h3>
+                      </a>
+                    ))
+                  ) : (
+                    <span className="loading-text">記事が見つかりませんでした</span>
+                  )}
                 </div>
               </div>
               

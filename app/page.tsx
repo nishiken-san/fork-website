@@ -25,7 +25,6 @@ import './globals.css';
 export default function Home() {
   return (
     <div className="pt-16">
-      <HeaderTop />
       {/* <HeroSection /> */}
       <ForkTitleSection />
       <ParallaxSection1 />

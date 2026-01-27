@@ -16,7 +16,6 @@ import '../styles/about-sections.css';
 export default function AboutPage() {
   return (
     <div className="pt-16">
-      <Header />
       <AboutParallaxSection4 />
       <AboutMainSection />
       <ChildcareSection />

@@ -16,16 +16,19 @@ const Gakudou1 = () => {
         }
         .section-container {
           display: flex;
+          justify-content: space-between;
         }
         .left-column {
-          width: 33.333333%;
-          background-color: #E7EBE7;
-          position: relative;
+          flex: 0 0 auto;
+    width: 33.333333%;
+    background-color: #E7EBE7;
+    position: relative;
         }
         .right-column {
-          width: 66.666667%;
-          background-color: #E7EBE7;
-          max-width: 900px;
+          flex: 0 0 auto;
+    width: min(66.666%, 900px);
+    max-width: 900px;
+    background-color: #E7EBE7;
         }
         .sticky-header {
           position: sticky;

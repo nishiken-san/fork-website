@@ -12,7 +12,6 @@ import Footer from '../components/Footer';
 export default function SuppourterPage() {
   return (
     <div className="pt-16">
-      <Header />
       <ParallaxSection />
       <SupporterMainSection />
       <Minei1 />

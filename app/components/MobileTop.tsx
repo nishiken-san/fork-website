@@ -65,16 +65,30 @@ const MobileTop: React.FC<MobileTopProps> = ({ isOpen, onClose, logoImage }) => 
         }
         
         .menu-link {
-          display: block;
-          color: #E7EBE7;
-          font-size: 1rem;
-          margin-bottom: 1.25rem;
+          display: flex;
+          align-items: center;
+          gap: 0.5rem;
+          color: #FFFFFF;
+          font-size: 15px;
+          margin-bottom: 1rem;
           text-decoration: none;
           opacity: 0;
           transform: translateY(-10px);
           transition: color 0.2s cubic-bezier(0.4, 0, 0.2, 1),
                       opacity 0.672s cubic-bezier(0.4, 0, 0.2, 1),
                       transform 0.672s cubic-bezier(0.4, 0, 0.2, 1);
+          font-weight: 700;
+        }
+
+        .menu-link-icon {
+          width: 1em;
+          height: 1em;
+          object-fit: contain;
+        }
+
+        .menu-submenu .menu-link-icon {
+          width: 0.8em;
+          height: 0.8em;
         }
         
         .menu-panel.active .menu-link {
@@ -124,9 +138,13 @@ const MobileTop: React.FC<MobileTopProps> = ({ isOpen, onClose, logoImage }) => 
         }
         
         .menu-submenu-title {
-          color: #E7EBE7;
+          display: flex;
+          align-items: center;
+          gap: 0.5rem;
+          color: #FFFFFF;
           font-size: 1rem;
-          margin-bottom: 0.5rem;
+          margin-bottom: 1rem;
+          font-weight: 700;
         }
         
         .menu-submenu {
@@ -135,7 +153,7 @@ const MobileTop: React.FC<MobileTopProps> = ({ isOpen, onClose, logoImage }) => 
         }
         
         .menu-submenu .menu-link {
-          margin-bottom: 0.75rem;
+          margin-bottom: 1rem;
         }
         
         .menu-panel.active .menu-submenu .menu-link:nth-child(1) {
@@ -163,7 +181,7 @@ const MobileTop: React.FC<MobileTopProps> = ({ isOpen, onClose, logoImage }) => 
         }
         
         .menu-bottom-link {
-          color: #E7EBE7;
+          color: #FFFFFF;
           font-size: 0.875rem;
           display: inline-flex;
           align-items: center;
@@ -208,31 +226,40 @@ const MobileTop: React.FC<MobileTopProps> = ({ isOpen, onClose, logoImage }) => 
         <div className="menu-content">
           <nav>
             <a href="/" className="menu-link" onClick={onClose}>
-              ＞ Top
+              <img src="/images/main/menu-vec.png" alt="" className="menu-link-icon" />
+              top
             </a>
             
             <a href="/about" className="menu-link" onClick={onClose}>
-              ＞ わたしたち について
+              <img src="/images/main/menu-vec.png" alt="" className="menu-link-icon" />
+              わたしたち について
             </a>
             
             <a href="/effort" className="menu-link" onClick={onClose}>
-              ＞ とりくみ
+              <img src="/images/main/menu-vec.png" alt="" className="menu-link-icon" />
+              とりくみ
             </a>
             
             <div className="menu-submenu-container">
-              <div className="menu-submenu-title">＞ サポーターになる</div>
+              <div className="menu-submenu-title">
+                <img src="/images/main/menu-vec.png" alt="" className="menu-link-icon" />
+                サポーターになる
+                </div>
               <div className="menu-submenu">
                 <a href="/supporter" className="menu-link" onClick={onClose}>
-                  ー　みん営フレンズ（個人）
+                  <img src="/images/main/menu-line.png" alt="" className="menu-link-icon" />
+                  みん営フレンズ（個人）
                 </a>
                 <a href="/supporterCorp" className="menu-link" onClick={onClose}>
-                  ー　みん営パートナー（法人・団体）
+                  <img src="/images/main/menu-line.png" alt="" className="menu-link-icon" />
+                  みん営パートナー（法人・団体）
                 </a>
               </div>
             </div>
             
             <a href="/info" className="menu-link" onClick={onClose}>
-              ＞ おしらせ・記録
+              <img src="/images/main/menu-vec.png" alt="" className="menu-link-icon" />
+              おしらせ・記録
             </a>
             
             <a 
@@ -240,7 +267,8 @@ const MobileTop: React.FC<MobileTopProps> = ({ isOpen, onClose, logoImage }) => 
               className="menu-link"
               target="_blank"
               rel="noopener noreferrer">
-              ＞ お問い合わせ
+              <img src="/images/main/menu-vec.png" alt="" className="menu-link-icon" />
+              お問い合わせ
             </a>
           </nav>
           

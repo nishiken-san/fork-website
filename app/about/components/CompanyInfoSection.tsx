@@ -16,6 +16,7 @@ const CompanyInformation = () => {
         }
         .section-container {
           display: flex;
+          justify-content: space-between;
         }
         .left-column {
           width: 33.333333%;
@@ -23,7 +24,9 @@ const CompanyInformation = () => {
           position: relative;
         }
         .right-column {
-          width: 66.666667%;
+          flex: 0 0 auto;
+          width: min(66.666%, 900px);  /* 66%か900pxの小さい方 */
+          max-width: 900px;
           background-color: #E7EBE7;
         }
         .sticky-header {

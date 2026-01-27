@@ -1,26 +1,26 @@
+// app/components/PageTransition.tsx
 'use client';
 
 import { useEffect } from 'react';
 
 const PageTransition = () => {
   useEffect(() => {
-    // DOMContentLoaded後にフェードイン
     const handleLoad = () => {
-      document.body.classList.remove('page-loading');
-      document.body.classList.add('page-loaded');
+      const mainContent = document.getElementById('main-content');
+      if (mainContent) {
+        mainContent.classList.remove('main-content-loading');
+        mainContent.classList.add('main-content-loaded');
+      }
     };
 
-    // 既に読み込み完了している場合
     if (document.readyState === 'complete') {
       handleLoad();
     } else {
       window.addEventListener('load', handleLoad);
     }
 
-    // 少し遅延させて確実にスタイルが適用されてからフェードイン
     const timer = setTimeout(() => {
-      document.body.classList.remove('page-loading');
-      document.body.classList.add('page-loaded');
+      handleLoad();
     }, 100);
 
     return () => {

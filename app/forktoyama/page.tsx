@@ -16,7 +16,6 @@ import Access from './components/Access';
 export default function Page() {
   return (
     <main className="min-h-screen">
-      <Header />
       <Parallax1 />
       <Intro />
       <Description />

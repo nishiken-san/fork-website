@@ -72,7 +72,6 @@ export default async function ArticlePage({
   
   return (
     <>
-      <Header />
       <InfoDetailPage article={formattedArticle} />
       <Footer />
     </>

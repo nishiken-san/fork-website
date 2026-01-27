@@ -75,18 +75,17 @@ const Staff = () => {
           }
           
           .staff-sticky {
-    position: relative;
-    top: 0;
-    padding: 50px 30px 0 30px;
-  }
-  
-  .staff-image {
-    width: 100%;
-    aspect-ratio: 1 / 1;
-    object-fit: cover;
-    object-position: center center;
-  }
-}
+            position: relative;
+            top: 0;
+            padding: 50px 30px 0 30px;
+          }
+          
+          .staff-image {
+            width: 100%;
+            aspect-ratio: 1 / 1;
+            object-fit: cover;
+            object-position: center center;
+          }
         }
         
         @media (max-width: 480px) {

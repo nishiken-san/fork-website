@@ -17,15 +17,18 @@ const AboutSection = () => {
         }
         .section-container {
           display: flex;
+          justify-content: space-between;
         }
         .left-column {
+          flex: 0 0 auto;
           width: 33.333333%;
           background-color: #E7EBE7;
           position: relative;
-
         }
         .right-column {
-          width: 66.666667%;
+          flex: 0 0 auto;
+          width: min(66.666%, 900px);
+          max-width: 900px;
           background-color: #E7EBE7;
         }
         .sticky-header {
