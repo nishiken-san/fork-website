@@ -18,6 +18,11 @@ const NoteSection = () => {
   const scrollContainerRef = useRef<HTMLDivElement>(null);
   const [noteItems, setNoteItems] = useState<NoteItem[]>([]);
   const [isLoading, setIsLoading] = useState(true);
+  
+  // ドラッグスクロール用の状態
+  const [isDragging, setIsDragging] = useState(false);
+  const [startX, setStartX] = useState(0);
+  const [scrollLeft, setScrollLeft] = useState(0);
 
   useEffect(() => {
     const fetchNoteArticles = async () => {
@@ -36,6 +41,84 @@ const NoteSection = () => {
 
     fetchNoteArticles();
   }, []);
+
+  // マウスドラッグ開始
+  const handleMouseDown = (e: React.MouseEvent) => {
+    const container = scrollContainerRef.current;
+    if (!container) return;
+    
+    setIsDragging(true);
+    setStartX(e.pageX - container.offsetLeft);
+    setScrollLeft(container.scrollLeft);
+    container.style.cursor = 'grabbing';
+  };
+
+  // マウスドラッグ中
+  const handleMouseMove = (e: React.MouseEvent) => {
+    if (!isDragging) return;
+    e.preventDefault();
+    
+    const container = scrollContainerRef.current;
+    if (!container) return;
+    
+    const x = e.pageX - container.offsetLeft;
+    const walk = (x - startX) * 1.5;
+    container.scrollLeft = scrollLeft - walk;
+  };
+
+  // マウスドラッグ終了
+  const handleMouseUp = () => {
+    setIsDragging(false);
+    const container = scrollContainerRef.current;
+    if (container) {
+      container.style.cursor = 'grab';
+    }
+  };
+
+  // マウスが要素から離れた時
+  const handleMouseLeave = () => {
+    setIsDragging(false);
+    const container = scrollContainerRef.current;
+    if (container) {
+      container.style.cursor = 'grab';
+    }
+  };
+
+  // タッチドラッグ開始
+  const handleTouchStart = (e: React.TouchEvent) => {
+    const container = scrollContainerRef.current;
+    if (!container) return;
+    
+    setIsDragging(true);
+    setStartX(e.touches[0].pageX - container.offsetLeft);
+    setScrollLeft(container.scrollLeft);
+  };
+
+  // タッチドラッグ中
+  const handleTouchMove = (e: React.TouchEvent) => {
+    if (!isDragging) return;
+    
+    const container = scrollContainerRef.current;
+    if (!container) return;
+    
+    const x = e.touches[0].pageX - container.offsetLeft;
+    const walk = (x - startX) * 1.5;
+    container.scrollLeft = scrollLeft - walk;
+  };
+
+  // タッチドラッグ終了
+  const handleTouchEnd = () => {
+    setIsDragging(false);
+  };
+
+  // カードクリック時（ドラッグ中はリンク遷移を防ぐ）
+  const handleCardClick = (e: React.MouseEvent, url: string) => {
+    if (isDragging) {
+      e.preventDefault();
+      return;
+    }
+    window.open(url, '_blank', 'noopener,noreferrer');
+  };
 
   return (
     <>
@@ -80,7 +163,7 @@ const NoteSection = () => {
           line-height: 1.4;
         }
         .content-area {
-          padding: 80px 0 4rem 0;
+          padding: 80px 0 80px 0;
           position: relative;
         }
         
@@ -97,13 +180,10 @@ const NoteSection = () => {
           width: 1px;
           background-color: #003705;
           z-index: 10;
-          top: -80px;
-          bottom: -80px;
+          top: 0px;
+          bottom: 0px;
         }
         
-        .scroll-line-left {
-          left: 0;
-        }
         
         .scroll-line-right {
           right: 50px;
@@ -114,20 +194,28 @@ const NoteSection = () => {
           gap: 25px;
           overflow-x: auto;
           overflow-y: hidden;
-          scroll-behavior: smooth;
           padding: 30px 0;
-          align-items: flex-start;
+          align-items: stretch;
           scrollbar-width: none;
           -ms-overflow-style: none;
+          cursor: grab;
+          user-select: none;
+          -webkit-user-select: none;
+          -webkit-overflow-scrolling: touch;
         }
         
         .scroll-container::-webkit-scrollbar {
           display: none;
         }
         
+        .scroll-container.dragging {
+          cursor: grabbing;
+          scroll-behavior: auto;
+        }
+        
         .note-card {
-          flex: 0 0 300px;
-          height: auto;
+          flex: 0 0 250px;
+          height: 315px;
           background-color: #FFFFFF;
           border: 1px solid #003705;
           box-shadow: 3px 3px 0px #003705;
@@ -135,46 +223,82 @@ const NoteSection = () => {
           cursor: pointer;
           transition: transform 0.3s ease;
           text-decoration: none;
-          display: block;
+          display: flex;
+          flex-direction: column;
         }
+        
         .note-card:hover {
           transform: translateY(-4px);
         }
+        
+        .note-card.dragging {
+          cursor: grabbing;
+        }
+        
+        .card-image-wrapper {
+          width: 100%;
+          height: 150px;
+          min-height: 120px;
+          max-height: 150px;
+          background-color: #D9D9D9;
+          margin-bottom: 15px;
+          overflow: hidden;
+          flex-shrink: 0;
+        }
+        
+        .card-image {
+          width: 100%;
+          height: 150px;
+          object-fit: cover;
+          object-position: center center;
+          display: block;
+          pointer-events: none;
+        }
+        
         .card-meta {
           display: flex;
           align-items: center;
-          gap: 0.75rem;
-          margin-bottom: 20px;
+          gap: 0.5rem;
+          margin-bottom: 15px;
+          flex-shrink: 0;
         }
+        
         .card-date {
           color: #B4B4B4;
-          font-size: 13px;
+          font-size: 11px;
           font-weight: 700;
         }
+        
         .card-category {
           background-color: transparent;
           color: #B4B4B4;
           border: 1px solid #B4B4B4;
           padding: 0 0.25rem;
-          font-size: 13px;
+          font-size: 10px;
           font-weight: 700;
-          height: 16px;
+          height: 14px;
           display: inline-flex;
           align-items: center;
           justify-content: center;
           border-radius: 0;
           white-space: nowrap;
         }
+        
         .card-title {
           color: #003705;
-          font-size: 0.875rem;
+          font-size: 13px;
           font-weight: 700;
-          line-height: 1.6;
+          line-height: 1.5;
+          height: 54px;
+          min-height: 54px;
+          max-height: 54px;
           display: -webkit-box;
           -webkit-line-clamp: 3;
           -webkit-box-orient: vertical;
           overflow: hidden;
+          flex-grow: 1;
         }
+        
         .view-all-container {
           display: flex;
           justify-content: flex-end;
@@ -183,6 +307,7 @@ const NoteSection = () => {
           padding-right: 50px;
           gap: 0.5rem;
         }
+        
         .view-all-link {
           color: #003705;
           font-size: 13px;
@@ -193,6 +318,7 @@ const NoteSection = () => {
           transition: transform 0.3s ease;
           display: inline-block;
         }
+        
         .view-all-link::after {
           content: '';
           position: absolute;
@@ -246,7 +372,7 @@ const NoteSection = () => {
           }
           
           .content-area {
-            padding: 0 0 2rem 30px;
+            padding: 0 0 50px 30px;
           }
           
           .scroll-wrapper {
@@ -261,6 +387,21 @@ const NoteSection = () => {
           
           .scroll-line-right {
             right: 30px;
+          }
+          
+          .note-card {
+            flex: 0 0 180px;
+            height: 260px;
+          }
+          
+          .card-image-wrapper {
+            height: 100px;
+            min-height: 100px;
+            max-height: 100px;
+          }
+          
+          .card-image {
+            height: 100px;
           }
           
           .view-all-container {
@@ -291,37 +432,32 @@ const NoteSection = () => {
                 <div className="scroll-line-left"></div>
                 <div className="scroll-line-right"></div>
                 
-                <div ref={scrollContainerRef} className="scroll-container">
+                <div 
+                  ref={scrollContainerRef} 
+                  className={`scroll-container ${isDragging ? 'dragging' : ''}`}
+                  onMouseDown={handleMouseDown}
+                  onMouseMove={handleMouseMove}
+                  onMouseUp={handleMouseUp}
+                  onMouseLeave={handleMouseLeave}
+                  onTouchStart={handleTouchStart}
+                  onTouchMove={handleTouchMove}
+                  onTouchEnd={handleTouchEnd}
+                >
                   {isLoading ? (
                     <span className="loading-text">読み込み中...</span>
                   ) : noteItems.length > 0 ? (
-                    noteItems.map((item) => (
-                      <a 
+                    noteItems.slice(0, 4).map((item) => (
+                      <div 
                         key={item.id} 
-                        href={item.url} 
-                        className="note-card"
-                        target="_blank"
-                        rel="noopener noreferrer"
+                        className={`note-card ${isDragging ? 'dragging' : ''}`}
+                        onClick={(e) => handleCardClick(e, item.url)}
                       >
-                        <div 
-                          style={{
-                            width: '100%',
-                            height: '150px',
-                            backgroundColor: '#D9D9D9',
-                            marginBottom: '1rem',
-                            overflow: 'hidden',
-                          }}
-                        >
+                        <div className="card-image-wrapper">
                           <img 
                             src={item.image} 
                             alt={item.title}
-                            style={{
-                              width: '100%',
-                              height: '150px',
-                              objectFit: 'cover',
-                              objectPosition: 'center center',
-                              display: 'block',
-                            }}
+                            className="card-image"
+                            draggable={false}
                             onError={(e) => {
                               (e.target as HTMLImageElement).src = '/images/note/default.png';
                             }}
@@ -332,7 +468,7 @@ const NoteSection = () => {
                           <span className="card-category">{item.category}</span>
                         </div>
                         <h3 className="card-title">{item.title}</h3>
-                      </a>
+                      </div>
                     ))
                   ) : (
                     <span className="loading-text">記事が見つかりませんでした</span>

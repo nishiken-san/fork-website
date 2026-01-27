@@ -30,7 +30,7 @@ const SupporterSection = () => {
         .sticky-header {
           position: sticky;
           top: 80px;
-          padding: 2rem 50px;
+          padding: 50px 50px;
           background-color: #003705;
           z-index: 20;
           display: flex;

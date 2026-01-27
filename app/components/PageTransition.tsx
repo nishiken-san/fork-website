@@ -2,32 +2,35 @@
 'use client';
 
 import { useEffect } from 'react';
+import { usePathname } from 'next/navigation';
 
 const PageTransition = () => {
+  const pathname = usePathname();
+
   useEffect(() => {
-    const handleLoad = () => {
-      const mainContent = document.getElementById('main-content');
-      if (mainContent) {
-        mainContent.classList.remove('main-content-loading');
-        mainContent.classList.add('main-content-loaded');
-      }
-    };
+    const mainContent = document.getElementById('main-content');
+    if (!mainContent) return;
 
-    if (document.readyState === 'complete') {
-      handleLoad();
-    } else {
-      window.addEventListener('load', handleLoad);
-    }
+    // ページ遷移時：一旦loadingに戻してからloadedに
+    mainContent.classList.remove('main-content-loaded');
+    mainContent.classList.add('main-content-loading');
+    
+    // インラインスタイルもリセット
+    mainContent.style.opacity = '0';
+    mainContent.style.visibility = 'hidden';
 
+    // 少し遅延させてからフェードイン
     const timer = setTimeout(() => {
-      handleLoad();
-    }, 100);
+      mainContent.classList.remove('main-content-loading');
+      mainContent.classList.add('main-content-loaded');
+      mainContent.style.opacity = '';
+      mainContent.style.visibility = '';
+    }, 50);
 
     return () => {
-      window.removeEventListener('load', handleLoad);
       clearTimeout(timer);
     };
-  }, []);
+  }, [pathname]); // パスが変わるたびに実行
 
   return null;
 };
