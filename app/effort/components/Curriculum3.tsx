@@ -42,7 +42,6 @@ const Gakudou3 = () => {
           color: #003705;
           font-size: 25px;
           font-weight: 700;
-          letter-spacing: 0.1em;
           margin: 0 0 19px 0;
         }
         .section-subtitle {

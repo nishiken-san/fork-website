@@ -20,7 +20,7 @@ const SupporterSection = () => {
         .left-column {
           width: 66.666667%;
           background-color: #003705;
-          padding: 4rem 50px 4rem 50px;
+          padding: 70px 50px 50px 50px;
         }
         .right-column {
           width: 33.333333%;
@@ -29,8 +29,8 @@ const SupporterSection = () => {
         }
         .sticky-header {
           position: sticky;
-          top: 80px;
-          padding: 50px 50px;
+          
+          padding: 70px 50px;
           background-color: #003705;
           z-index: 20;
           display: flex;
@@ -44,7 +44,6 @@ const SupporterSection = () => {
           line-height: 1.8;
           writing-mode: vertical-rl;
           text-orientation: mixed;
-          letter-spacing: 0.1em;
         }
         .section-label {
           color: #FFFFFF;
