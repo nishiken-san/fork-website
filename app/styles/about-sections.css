@@ -56,7 +56,7 @@
 /* Content */
 .about-content-wrapper {
   width: 100%;
-  padding-bottom: 50px;
+  padding: 50px 30px 100px 30px;
 }
 
 .about-content-block {
@@ -100,21 +100,22 @@
     display: flex;
   }
   
+  
+
   .about-left-column {
-    width: 75%; /* 3/4 */
-    padding: 140px 30px 100px 30px;
-  }
+  width: 75%; /* 2/3 */
+  padding: 0px;
+}
   
   .about-right-column {
     width: 25%; /* 1/4 */
-    padding: 50px 30px 60px 30px;
   }
   
   .about-sticky-area {
     /* position: relative; */
     padding: 0 0 60px 0;
     margin: 0;
-    margin-right: 0;
+    margin-left: 0;
     padding-top: 50px;
     padding-left: 0;
   }
@@ -134,6 +135,9 @@
     margin-bottom: 1.5rem;
     padding-top: 100px;
   }
+  .about-content-wrapper {
+  padding: 50px 0px 100px 30px;
+}
 }
 
 /* Small Mobile */
@@ -297,7 +301,6 @@
     padding: 0 0 60px 0;
     margin: 0;
     margin-left: 30px;
-    padding-top: 50px;
     margin-bottom: 100px;
   }
   
@@ -539,6 +542,7 @@
   .private-left-column {
     width: 100%;
     order: 1;
+    padding: 50px 30px 0px 0px;
   }
   
   .private-right-column {
@@ -564,7 +568,7 @@
   }
   
   .private-content-area {
-    padding: 40px 30px 0 30px;
+    padding: 90px 30px 30px 30px;
     margin: 100px 0 0 0 ;
     display: flex;
     flex-direction: column;

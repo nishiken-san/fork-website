@@ -193,8 +193,8 @@ const NoteSection = () => {
           display: flex;
           gap: 25px;
           overflow-x: auto;
-          overflow-y: hidden;
-          padding: 30px 0;
+          overflow-y: visible;
+          padding: 30px 5px 35px 0;
           align-items: stretch;
           scrollbar-width: none;
           -ms-overflow-style: none;
@@ -364,29 +364,24 @@ const NoteSection = () => {
           
           .sticky-header {
             position: static;
-            padding: 50px 30px 30px 30px;
+            padding: 85px 30px 20px 30px;
           }
           
           .section-label {
-            margin-bottom: 1rem;
+            margin-bottom: 20px;
           }
           
           .content-area {
-            padding: 0 0 50px 30px;
+            padding: 0 0 ;
           }
           
           .scroll-wrapper {
-            padding-right: 30px;
+            padding-bottom: 0px;
           }
           
           .scroll-line-left,
           .scroll-line-right {
-            top: -30px;
-            bottom: -30px;
-          }
-          
-          .scroll-line-right {
-            right: 30px;
+            display: none;
           }
           
           .note-card {
@@ -406,7 +401,8 @@ const NoteSection = () => {
           
           .view-all-container {
             padding-right: 30px;
-            padding-top: 20px;
+            padding-top: 0px;
+            padding-bottom: 50px;
           }
         }
         

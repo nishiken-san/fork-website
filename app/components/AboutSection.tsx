@@ -106,7 +106,7 @@ const AboutSection = () => {
           
           .sticky-header {
             position: static;
-            padding: 2rem 30px;
+            padding: 100px 30px 15px 30px;
             top: auto;
           }
           
@@ -116,7 +116,7 @@ const AboutSection = () => {
           }
           
           .content-area {
-            padding: 2rem 30px;
+            padding: 0px 30px 45px 30px;
           }
           
           .button-container {

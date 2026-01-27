@@ -9,7 +9,7 @@ const EffortMainSection = () => {
   const { isSticky } = useSectionSticky(sectionRef, contentRef);
 
   const effortItems = [
-    "学童保育・fork toyama",
+    "学童保育：fork toyama",
     "カリキュラム・コンテンツ開発",
     "子育て世帯のサポート",
     "学童従事研修"

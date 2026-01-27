@@ -60,6 +60,7 @@ const AboutUsSection = () => {
     writing-mode: vertical-rl;
     text-orientation: mixed;
     margin: 0;
+    letter-spacing: 0.1em;
   }
 
   .content-area {
@@ -139,8 +140,8 @@ const AboutUsSection = () => {
       position: relative;
       top: auto;
       padding-top: 50px;
-      padding-left: 25px;
-      padding-righrt: 0px;
+      padding-left: 20px;
+      padding-right: 0px;
       padding-bottom: 40px;
     }
 

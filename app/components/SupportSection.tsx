@@ -44,6 +44,7 @@ const SupporterSection = () => {
           line-height: 1.8;
           writing-mode: vertical-rl;
           text-orientation: mixed;
+          letter-spacing: 0.1em;
         }
         .section-label {
           color: #FFFFFF;
@@ -135,7 +136,7 @@ const SupporterSection = () => {
           .mobile-header-left {
             width: 75%;
             padding-left: 30px;
-            padding-top: 100;
+            padding-top: 100px;
           }
           
           .mobile-header-right {
@@ -152,8 +153,12 @@ const SupporterSection = () => {
           
           .mobile-content {
             display: block;
-            padding: 0 30px 4rem 30px;
+            padding: 0 30px 0px 30px;
           }
+
+          .button-group {
+          margin-bottom: 110px;
+        }
           
           .mobile-content .button-group {
             max-width: none;
@@ -172,12 +177,22 @@ const SupporterSection = () => {
           }
 
           .description {
-            padding-top: 10px;
+            padding-top: 0px;
           }
 
           .section-label {
-            margin-bottom: 40px;
+            margin-bottom: 35px;
           }
+
+          .list-title {
+          margin-bottom: 45px;
+        }
+          .supporters-list {
+          margin-bottom: 110px;
+        }
+          .note {
+          margin-bottom: 10px;
+        }
         }
         
         @media (min-width: 1024px) {
