@@ -48,7 +48,6 @@ const AboutSection = () => {
           color: #003705;
           font-size: 25px;
           font-weight: 700;
-          white-space: nowrap;
         }
         .content-area {
           padding: 50px 50px 50px 0;
