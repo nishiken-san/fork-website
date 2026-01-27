@@ -44,7 +44,7 @@ const SupporterSection = () => {
           line-height: 1.8;
           writing-mode: vertical-rl;
           text-orientation: mixed;
-          letter-spacing: 0.3em;
+          letter-spacing: 0.1em;
         }
         .section-label {
           color: #FFFFFF;

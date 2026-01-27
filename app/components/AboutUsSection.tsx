@@ -60,6 +60,7 @@ const AboutUsSection = () => {
     writing-mode: vertical-rl;
     text-orientation: mixed;
     margin: 0;
+    letter-spacing: 0.1em;
   }
 
   .content-area {

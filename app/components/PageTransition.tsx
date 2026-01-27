@@ -8,29 +8,31 @@ const PageTransition = () => {
   const pathname = usePathname();
 
   useEffect(() => {
-    const mainContent = document.getElementById('main-content');
-    if (!mainContent) return;
+    // ▼ 対象IDを 'page-wrapper' に変更
+    const wrapper = document.getElementById('page-wrapper');
+    if (!wrapper) return;
 
-    // ページ遷移時：一旦loadingに戻してからloadedに
-    mainContent.classList.remove('main-content-loaded');
-    mainContent.classList.add('main-content-loading');
+    // ページ遷移時：一旦loadingに戻す
+    wrapper.classList.remove('page-loaded');
+    wrapper.classList.add('page-loading');
     
-    // インラインスタイルもリセット
-    mainContent.style.opacity = '0';
-    mainContent.style.visibility = 'hidden';
+    // インラインスタイルもリセット（念の為）
+    wrapper.style.opacity = '0';
+    wrapper.style.visibility = 'hidden';
 
     // 少し遅延させてからフェードイン
+    // 画像読み込みの時間を稼ぐため 100ms 程度確保するのがおすすめです
     const timer = setTimeout(() => {
-      mainContent.classList.remove('main-content-loading');
-      mainContent.classList.add('main-content-loaded');
-      mainContent.style.opacity = '';
-      mainContent.style.visibility = '';
-    }, 50);
+      wrapper.classList.remove('page-loading');
+      wrapper.classList.add('page-loaded');
+      wrapper.style.opacity = '';
+      wrapper.style.visibility = '';
+    }, 100);
 
     return () => {
       clearTimeout(timer);
     };
-  }, [pathname]); // パスが変わるたびに実行
+  }, [pathname]);
 
   return null;
 };

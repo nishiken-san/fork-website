@@ -73,6 +73,7 @@ const NewsSection = () => {
           line-height: 1.8;
           writing-mode: vertical-rl;
           text-orientation: mixed;
+          letter-spacing: 0.1em;
         }
         .content-area {
           position: relative;

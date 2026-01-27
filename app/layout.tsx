@@ -24,26 +24,33 @@ export default function RootLayout({
   return (
     <html lang="ja">
       <head>
-        {/* CSSが読み込まれる前に非表示にするインラインスタイル */}
+        {/* CSS読み込み前にチラつきを防ぐためのスタイル */}
+        {/* IDを page-wrapper に変更し、対象を広げます */}
         <style dangerouslySetInnerHTML={{
           __html: `
-            #main-content.main-content-loading {
+            #page-wrapper.page-loading {
               opacity: 0 !important;
               visibility: hidden !important;
-              transform: translateY(-30px) !important;
+              transform: translateY(10px) !important;
             }
           `
         }} />
       </head>
       <body>
-        <HeaderWrapper />
-        
+        {/* ▼変更点: 
+          1. IDを 'page-wrapper' に変更
+          2. HeaderWrapper をこの div の「中」に移動
+        */}
         <div 
-          id="main-content" 
-          className="main-content-loading"
+          id="page-wrapper" 
+          className="page-loading"
           style={{ opacity: 0, visibility: 'hidden' }}
         >
-          {children}
+          <HeaderWrapper />
+          
+          <main>
+            {children}
+          </main>
         </div>
         
         <GoogleMapsScript />
