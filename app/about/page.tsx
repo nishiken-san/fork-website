@@ -2,7 +2,7 @@
 
 import Header from '../components/Header';
 import Footer from '../components/Footer';
-import AboutParallaxSection4 from './components/AboutParallaxSection4';
+import AboutParallaxSection1 from './components/AboutParallaxSection1';
 import AboutMainSection from './components/AboutMainSection';
 import ChildcareSection from './components/ChildcareSection';
 import PrivateSection from './components/PrivateSection';
@@ -16,7 +16,7 @@ import '../styles/about-sections.css';
 export default function AboutPage() {
   return (
     <div className="pt-16">
-      <AboutParallaxSection4 />
+      <AboutParallaxSection1 />
       <AboutMainSection />
       <ChildcareSection />
       <PrivateSection />

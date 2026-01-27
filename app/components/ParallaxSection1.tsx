@@ -6,7 +6,7 @@ import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/dist/ScrollTrigger';
 import styles from './ParallaxSection.module.css';
 
-const ParallaxSection3 = () => {
+const ParallaxSection1 = () => {
   const sectionRef = useRef<HTMLDivElement>(null);
   const videoWrapperRef = useRef<HTMLDivElement>(null);
   const videoRef = useRef<HTMLVideoElement>(null);
@@ -90,4 +90,4 @@ const ParallaxSection3 = () => {
   );
 };
 
-export default ParallaxSection3;
+export default ParallaxSection1;

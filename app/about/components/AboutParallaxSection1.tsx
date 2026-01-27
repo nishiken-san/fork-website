@@ -52,7 +52,7 @@ const Parallax2 = () => {
     <div ref={sectionRef} className={styles.parallaxSection}>
       <div ref={imageWrapperRef} className={styles.parallaxImageWrapper}>
         <img
-          src={IMAGES.parallax.effort1}
+          src={IMAGES.parallax.about1}
           alt="fork toyama"
           className={styles.parallaxImage}
         />

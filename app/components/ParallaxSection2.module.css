@@ -1,6 +1,4 @@
-
-
-/* app/components/ParallaxSection1.module.css */
+/* app/components/Parallax2.module.css */
 .parallaxSection {
   position: relative;
   width: 100%;
@@ -11,16 +9,16 @@
   background-color: #003705;
 }
 
-.parallaxVideoWrapper {
+.parallaxImageWrapper {
   position: absolute;
-  top: 0%;
+  top: -10%;
   left: 0;
   width: 100%;
-  height: 120%;
+  height: 110%;
   transition: none !important;
 }
 
-.parallaxVideo {
+.parallaxImage {
   width: 100%;
   height: 100%;
   object-fit: cover;
@@ -31,12 +29,12 @@
 /* モバイル */
 @media (max-width: 768px) {
   .parallaxSection {
-    height: 56vw;
+    height: 75vw;
     min-height: 300px;
     max-height: 600px;
   }
 
-  .parallaxVideoWrapper {
+  .parallaxImageWrapper {
     top: -5%;
     height: 110%;
   }
