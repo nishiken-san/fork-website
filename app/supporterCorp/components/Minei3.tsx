@@ -72,15 +72,15 @@ const Minei3 = () => {
             </div>
 
             <div className="minei1-link-container">
-                          <a href="/supporter" className="view-corp-link">
-                            <span className="menu-bottom-link-text">タイアップ事例一覧</span>
-                          </a>
-                          <img 
-                            src={IMAGES.logo.vec}
-                            alt="arrow"
-                            className="arrow-icon"
-                          />
-                        </div>
+              <a href="/info?tag=tie-up" className="view-corp-link">
+                <span className="menu-bottom-link-text">タイアップ事例一覧</span>
+              </a>
+              <img 
+                src={IMAGES.logo.vec}
+                alt="arrow"
+                className="arrow-icon"
+              />
+            </div>
           </div>
         </div>
       </div>
