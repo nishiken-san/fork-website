@@ -20,7 +20,7 @@ const SupporterSection = () => {
         .left-column {
           width: 66.666667%;
           background-color: #003705;
-          padding: 70px 50px 50px 50px;
+          padding: 50px 50px 100px 50px;
         }
         .right-column {
           width: 33.333333%;
@@ -29,8 +29,8 @@ const SupporterSection = () => {
         }
         .sticky-header {
           position: sticky;
-          
-          padding: 70px 50px;
+          top: 50px;
+          padding: 50px 50px 100px 50px;
           background-color: #003705;
           z-index: 20;
           display: flex;
@@ -39,7 +39,7 @@ const SupporterSection = () => {
         }
         .section-title {
           color: #FFFFFF;
-          font-size: 1.5rem;
+          font-size: 25px;
           font-weight: 700;
           line-height: 1.8;
           writing-mode: vertical-rl;
@@ -47,12 +47,11 @@ const SupporterSection = () => {
           letter-spacing: 0.1em;
         }
         .section-label {
-          color: #FFFFFF;
+          color: #B4B4B4;
           font-size: 15px;
           font-weight: 700;
           margin-bottom: 2rem;
           letter-spacing: 0.05em;
-          opacity: 0.8;
         }
         .description {
           color: #FFFFFF;
@@ -77,16 +76,14 @@ const SupporterSection = () => {
           cursor: pointer;
           transition: background-color 0.3s ease;
           text-decoration: none;
-          display: block;
-          text-align: center;
+          display: flex;
+          align-items: center;
+          justify-content: center;
           border: 1px solid #FFFFFF;
           box-shadow: 3px 3px 0px #FFFFFF;
           width: 100%;
           max-width: 900px;
           height: 50px;
-          display: flex;
-          align-items: center;
-          justify-content: center;
         }
         .support-button:hover {
           background-color: #93A794;
@@ -130,13 +127,12 @@ const SupporterSection = () => {
           
           .mobile-header {
             display: flex;
-            padding: 50px 0 30px 0;
+            padding: 90px 0 0 0;
           }
 
           .mobile-header-left {
             width: 75%;
             padding-left: 30px;
-            padding-top: 100px;
           }
           
           .mobile-header-right {
@@ -153,12 +149,12 @@ const SupporterSection = () => {
           
           .mobile-content {
             display: block;
-            padding: 0 30px 0px 30px;
+            padding: 90px 30px 100px 30px;
           }
 
           .button-group {
-          margin-bottom: 110px;
-        }
+            margin-bottom: 90px;
+          }
           
           .mobile-content .button-group {
             max-width: none;
@@ -169,35 +165,34 @@ const SupporterSection = () => {
           }
 
           .section-label {
-            color: #FFFFFF;
-            font-size: 15px;
+            color: #B4B4B4;
+            font-size: 13px;
             font-weight: 700;
             letter-spacing: 0.05em;
-            opacity: 0.8;
+            margin-bottom: 1rem;
           }
 
           .description {
             padding-top: 0px;
-          }
-
-          .section-label {
-            margin-bottom: 35px;
+            font-size: 13px;
           }
 
           .list-title {
-          margin-bottom: 45px;
-        }
+            margin-bottom: 45px;
+          }
+          
           .supporters-list {
-          margin-bottom: 110px;
-        }
+            margin-bottom: 90px;
+          }
+          
           .note {
-          margin-bottom: 10px;
-        }
+            margin-bottom: 0;
+          }
         }
         
         @media (min-width: 1024px) {
           .section-title {
-            font-size: 1.75rem;
+            font-size: 25px;
           }
         }
       `}</style>
@@ -263,7 +258,6 @@ const SupporterSection = () => {
         </div>
 
         {/* モバイル表示 */}
-        {/* ヘッダー部分（2カラム） */}
         <div className="mobile-header">
           <div className="mobile-header-left">
             <div className="section-label">supporter</div>
@@ -276,9 +270,7 @@ const SupporterSection = () => {
           </div>
         </div>
 
-        {/* コンテンツ部分（全幅） */}
         <div className="mobile-content">
-          {/* 募集ボタン */}
           <div className="button-group">
             <a href="/supporter" className="support-button">
               みん営フレンズ〈個人サポーター〉はこちら
@@ -288,7 +280,6 @@ const SupporterSection = () => {
             </a>
           </div>
 
-          {/* みん営フレンズ */}
           <div className="supporters-list">
             <h3 className="list-title">みん営フレンズのみなさま</h3>
             <div className="supporter-names">
@@ -301,7 +292,6 @@ const SupporterSection = () => {
             </div>
           </div>
 
-          {/* みん営パートナー */}
           <div className="supporters-list">
             <h3 className="list-title">みん営パートナーのみなさま</h3>
             <div className="supporter-names">

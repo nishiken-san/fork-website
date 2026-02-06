@@ -265,7 +265,7 @@ const Gakudou1 = () => {
               
               <div className="button-section">
                 <a 
-                  href="/about" 
+                  href="/forktoyama" 
                   className="about-button"
                 >
                   fork toyamaについて

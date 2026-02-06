@@ -9,6 +9,8 @@
   max-height: 700px;
   overflow: hidden;
   background-color: #003705;
+  border-top: 1px solid #003705;
+  border-bottom: 1px solid #003705;
 }
 
 .parallaxVideoWrapper {

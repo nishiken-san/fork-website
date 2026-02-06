@@ -41,7 +41,7 @@ const Minei4 = () => {
                 <span className="minei4-price-amount">¥1,000 〜</span>
               </div>
               
-              <a href="https://docs.google.com/forms/d/e/1FAIpQLSeQisLpyoUlh3Bsgt4quyVe3GtiSExoa-WOJyoyv2cRBoeYNA/viewform" className="minei4-button">
+              <a href="https://docs.google.com/forms/d/e/1FAIpQLSeQisLpyoUlh3Bsgt4quyVe3GtiSExoa-WOJyoyv2cRBoeYNA/viewform" className="minei4-button" target="_blank" rel="noopener noreferrer">
                 申し込みはこちら
               </a>
               

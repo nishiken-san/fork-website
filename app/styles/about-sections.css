@@ -492,6 +492,8 @@
   margin: 0;
   font-weight: 700;
   padding-top: 0.5rem;
+  padding-left: 15px;
+  padding-right: 15px;
 }
 
 /* タブレット（769px〜1024px） */
@@ -605,6 +607,8 @@
   .private-card-text {
     font-size: 13px;
     padding: 0;
+    padding-left: 15px;
+  padding-right: 15px;
   }
 
   

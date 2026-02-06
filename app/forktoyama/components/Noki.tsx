@@ -24,7 +24,7 @@ const Noki = () => {
             </div>
             <div className="social-link-container">
               <a 
-                href="https://www.instagram.com/forktoyama/" 
+                href="https://www.instagram.com/fork_toyama/" 
                 className="social-link"
                 target="_blank"
                 rel="noopener noreferrer"

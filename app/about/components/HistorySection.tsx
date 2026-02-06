@@ -121,7 +121,7 @@ const HistorySection = () => {
                 保育村ゼロ"みんな"学童の2年間とこれから。
               </p>
               <div className="history-link-container">
-              <a href="https://note.com/forktoyama/" className="view-corp-link">
+              <a href="https://note.com/forktoyama/" className="view-corp-link" target="_blank" rel="noopener noreferrer">
                 <span className="menu-bottom-link-text">noteをみる</span>
               </a>
               <img 

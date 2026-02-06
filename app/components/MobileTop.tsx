@@ -250,7 +250,7 @@ const MobileTop: React.FC<MobileTopProps> = ({ isOpen, onClose, logoImage }) => 
                   <img src="/images/main/menu-line.png" alt="" className="menu-link-icon" />
                   みん営フレンズ（個人）
                 </a>
-                <a href="/supporterCorp" className="menu-link" onClick={onClose}>
+                <a href="/supportercorp" className="menu-link" onClick={onClose}>
                   <img src="/images/main/menu-line.png" alt="" className="menu-link-icon" />
                   みん営パートナー（法人・団体）
                 </a>

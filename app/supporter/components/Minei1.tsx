@@ -30,7 +30,7 @@ const Minei1 = () => {
             </p>
 
             <div className="minei1-button-container">
-              <a href="https://docs.google.com/forms/d/e/1FAIpQLSeQisLpyoUlh3Bsgt4quyVe3GtiSExoa-WOJyoyv2cRBoeYNA/viewform" className="minei1-button">
+              <a href="https://docs.google.com/forms/d/e/1FAIpQLSeQisLpyoUlh3Bsgt4quyVe3GtiSExoa-WOJyoyv2cRBoeYNA/viewform" className="minei1-button" target="_blank" rel="noopener noreferrer">
                 申し込みはこちら
               </a>
             </div>

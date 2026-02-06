@@ -299,8 +299,10 @@ const Gakudou2 = () => {
                   事例をみる
                 </a>
                 <a 
-                  href="/study" 
+                  href="https://docs.google.com/forms/d/e/1FAIpQLSeQisLpyoUlh3Bsgt4quyVe3GtiSExoa-WOJyoyv2cRBoeYNA/viewform"
                   className="support-button"
+                  target="_blank"
+                  rel="noopener noreferrer"
                 >
                   見学のご相談はこちら
                 </a>
