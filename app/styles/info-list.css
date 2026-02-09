@@ -166,12 +166,6 @@
    ======================================== */
 @media (max-width: 768px) {
 
-  .info-list-left {
-    width: 50%;
-    background-color: #E7EBE7;
-    position: relative;
-  }
-
   /* 右カラム（2/3） */
   .info-list-right {
     width: 50%;
@@ -189,6 +183,9 @@
   }
   
   .info-list-left {
+    width: 50%;
+    background-color: #E7EBE7;
+    position: relative;
     grid-column: 2;
     grid-row: 1;
     width: 100%;

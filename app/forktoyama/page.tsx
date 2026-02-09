@@ -25,7 +25,7 @@ export default function Page() {
       <Structure />
       <Noki />
       <Collaboration />
-      <Coworking />
+      {/* <Coworking /> */}
       <Access />
       <Footer />
     </main>

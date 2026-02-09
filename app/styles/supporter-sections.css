@@ -156,7 +156,7 @@
 .minei1-subtitle {
   color: #B4B4B4;
   font-size: 15px;
-  margin-bottom: 1.5rem;
+  margin-bottom: 10px;
   /* font-weight削除 - globals.cssの700を継承 */
 }
 
@@ -170,7 +170,7 @@
 
 .minei1-subtitle-text {
   color: #003705;
-  font-size: 1.25rem;
+  font-size: 15px;
   line-height: 1.4;
   /* font-weight削除 - globals.cssの700を継承 */
 }
@@ -299,14 +299,14 @@
 .minei2-sticky {
   position: sticky;
   top: 80px;
-  padding: 50px 50px;
+  padding: 50px 40px;
   z-index: 20;
 }
 
 .minei2-subtitle {
   color: #B4B4B4;
   font-size: 15px;
-  margin-bottom: 1.5rem;
+  margin-bottom: 10px;
   letter-spacing: 0.05em;
 }
 
@@ -369,7 +369,7 @@
   
   .minei2-sticky {
     position: static;
-    padding: 0px 0px 43px 30px;
+    padding: 0px 0px 40px 30px;
   }
   
   .minei2-content {
@@ -419,7 +419,7 @@
 .minei3-subtitle {
   color: #B4B4B4;
   font-size: 15px;
-  margin-bottom: 1.5rem;
+  margin-bottom: 10px;
   letter-spacing: 0.05em;
 }
 
@@ -490,7 +490,7 @@
   
   .minei3-sticky {
     position: static;
-    padding: 0px 0px 43px 30px;
+    padding: 0px 0px 40px 30px;
   }
   
   .minei3-content {
@@ -544,7 +544,7 @@
 .minei4-subtitle {
   color: #B4B4B4;
   font-size: 15px;
-  margin-bottom: 1.5rem;
+  margin-bottom: 10px;
   letter-spacing: 0.05em;
 }
 
@@ -633,7 +633,7 @@
   
   .minei4-sticky {
     position: static;
-    padding: 0px 0px 43px 30px;
+    padding: 0px 0px 40px 30px;
   }
   
   .minei4-content {
@@ -676,14 +676,14 @@
 .minei5-sticky {
   position: sticky;
   top: 80px;
-  padding: 50px 50px;
+  padding: 50px 50px 40px 50px;
   z-index: 20;
 }
 
 .minei5-subtitle {
   color: #B4B4B4;
   font-size: 15px;
-  margin-bottom: 1.5rem;
+  margin-bottom: 10px;
   letter-spacing: 0.05em;
 }
 
@@ -728,7 +728,7 @@
   
   .minei5-sticky {
     position: static;
-    padding: 0px 0px 43px 30px;
+    padding: 0px 0px 30px 30px;
   }
   
   .minei5-content {
@@ -818,33 +818,11 @@
   
   .minei1-sticky {
     position: static;
-    padding: 2rem;
+    padding: 100px 30px 20px 30px;
   }
   
   .minei1-content {
-    padding: 30px;
+    padding: 0 30px;
   }
 }
 
-/* 小さいモバイル用 */
-@media (max-width: 480px) {
-  .supporter-content {
-    padding: 138px 20px 40px 20px;
-  }
-  
-  .supporter-sticky {
-    padding: 40px 15px;
-  }
-  
-  .supporter-vertical-text {
-    font-size: 18px;
-  }
-  
-  .supporter-subtitle {
-    font-size: 12px;
-  }
-  
-  .supporter-description {
-    font-size: 12px;
-  }
-}

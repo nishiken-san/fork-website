@@ -71,13 +71,13 @@ const Staff = () => {
           }
           
           .staff-content {
-            padding: 30px 30px 50px 30px;
+            padding: 10px 30px 50px 30px;
           }
           
           .staff-sticky {
             position: relative;
             top: 0;
-            padding: 50px 30px 0 30px;
+            padding: 0px 30px 0 30px;
           }
           
           .staff-image {
@@ -88,20 +88,7 @@ const Staff = () => {
           }
         }
         
-        @media (max-width: 480px) {
-          .staff-content {
-            padding: 20px 20px 40px 20px;
-          }
-          
-          .staff-sticky {
-            padding: 40px 20px 0 20px;
-          }
-          
-          .staff-text {
-            font-size: 13px;
-            text-align: center;
-          }
-        }
+        
       `}</style>
 
       <section ref={sectionRef} className="staff-section">

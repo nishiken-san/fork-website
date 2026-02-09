@@ -17,7 +17,7 @@
 .about-left-column {
   width: 66.666667%; /* 2/3 */
   background-color: #003705;
-  padding: 100px 50px 100px 30px;
+  padding: 100px 50px 0px 30px;
 
   display: flex;
   align-items: flex-start;
@@ -34,8 +34,8 @@
 
 .about-sticky-area {
   position: sticky;
-  top: 80px;
-  padding: 2rem 50px;
+  top: 50px;
+  padding: 50px 50px 50px 50px;
   background-color: #003705;
   z-index: 20;
   display: flex;
@@ -83,16 +83,7 @@
 }
 
 /* Tablet */
-@media (min-width: 769px) and (max-width: 1024px) {
-  .about-left-column {
-    padding: 100px 50px 100px 50px;
-  }
-  
-  .about-sticky-area {
-    padding: 0 50px 100px 0;
-    padding-top: 50px;
-  }
-}
+
 
 /* Mobile - 3:1 ratio */
 @media (max-width: 768px) {
@@ -140,29 +131,7 @@
 }
 }
 
-/* Small Mobile */
-@media (max-width: 480px) {
-  .about-left-column {
-    padding: 80px 30px 60px 30px;
-  }
-  
-  .about-sticky-area {
-    padding-top: 0px;
-  }
-  
-  .about-vertical-title {
-    font-size: 25px;
-    padding: 0px 0px 0 0;
-  }
-  
-  .about-description {
-    font-size: 15px;
-  }
-  
-  .about-section-category {
-    font-size: 15px;
-  }
-}
+
 
 /* ============================================
    Childcare Section
@@ -339,34 +308,7 @@
   }
 }
 
-@media (max-width: 480px) {
-  .childcare-sticky-header {
-    padding: 0 0 60px 0;
-    margin-left: 20px;
-    padding-top: 40px;
-    margin-bottom: 80px;
-  }
-  
-  .minei-label {
-    font-size: 12px;
-  }
-  
-  .childcare-title {
-    font-size: 18px;
-  }
-  
-  .childcare-content-area {
-    padding: 0 30px 60px 30px;
-  }
-  
-  .childcare-paragraph {
-    font-size: 12px;
-  }
-  
-  .childcare-image-mobile {
-    
-  }
-}
+
 
 
 /* ============================================
@@ -544,7 +486,7 @@
   .private-left-column {
     width: 100%;
     order: 1;
-    padding: 50px 30px 0px 0px;
+    padding: 30px 30px 0px 0px;
   }
   
   .private-right-column {
@@ -667,7 +609,7 @@
 }
 
 .history-mobile-header {
-  padding: 50px 30px 0 30px;
+  padding: 80px 30px 0 30px;
   margin-bottom: 100px;
   background-color: #E7EBE7;
 }

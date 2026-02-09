@@ -40,7 +40,7 @@ const AboutSection = () => {
         }
         .section-label {
           color: #999;
-          font-size: 0.875rem;
+          font-size: 15px;
           font-weight: 700;
           margin-bottom: 20px;
         }
@@ -54,7 +54,7 @@ const AboutSection = () => {
         }
         .main-description {
           color: #003705;
-          font-size: 1rem;
+          font-size: 15px;
           margin-bottom: 2rem;
           font-weight: 700;
         }
@@ -106,7 +106,7 @@ const AboutSection = () => {
           
           .sticky-header {
             position: static;
-            padding: 100px 30px 15px 30px;
+            padding: 50px 30px 15px 30px;
             top: auto;
           }
           
@@ -124,14 +124,7 @@ const AboutSection = () => {
           }
         }
         
-        @media (min-width: 1024px) {
-          .section-title {
-            font-size: 1.5rem;
-          }
-          .main-description {
-            font-size: 1.125rem;
-          }
-        }
+        
       `}</style>
 
       <section ref={sectionRef} id="about-fork-toyama" className="about-fork-bg relative">

@@ -36,8 +36,8 @@ const EffortMainSection = () => {
         }
         .sticky-header {
           position: sticky;
-          top: 80px;
-          padding: 2rem 3rem;
+          top: 50px;
+          padding: 50px 3rem;
           background-color: #003705;
           z-index: 20;
           display: flex;

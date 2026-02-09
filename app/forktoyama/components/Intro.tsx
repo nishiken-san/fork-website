@@ -67,7 +67,7 @@ const ForktoyamaIntro = () => {
           .forktoyama-sticky {
             position: relative !important;
             top: 0 !important;
-            padding: 0px 30px 30px 0;
+            padding: 50px 25px 30px 0;
             height: auto !important;
           }
           
@@ -109,40 +109,7 @@ const ForktoyamaIntro = () => {
           }
         }
         
-        @media (max-width: 480px) {
-          .forktoyama-two-column-left {
-            width: 55% !important;
-          }
-          
-          .forktoyama-two-column-right {
-            width: 45% !important;
-          }
-          
-          .forktoyama-content {
-            padding: 0px 10px 20px 30px;
-          }
-          
-          .forktoyama-sticky {
-            padding: 20px 20px 20px 0;
-          }
-          
-          .forktoyama-subtitle {
-            font-size: 15px;
-          }
-          
-          .forktoyama-description {
-            font-size: 15px;
-            line-height: 2;
-          }
-          
-          .forktoyama-vertical-text {
-            font-size: 30px;
-          }
-          
-          .mobile-logo-container {
-            padding: 45px 30px 20px 30px;
-          }
-        }
+        
       `}</style>
 
       <section ref={sectionRef} className="forktoyama-section forktoyama-bg-green">

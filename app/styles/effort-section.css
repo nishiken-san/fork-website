@@ -3,15 +3,15 @@
 
 
 .sticky-header {
-          position: sticky;
-          top: 80px;
-          padding: 2rem 30px;
-          background-color: #003705;
-          z-index: 20;
-          display: flex;
-          align-items: flex-start;
-          justify-content: flex-end;
-        }
+    position: sticky;
+    top: 80px;
+    padding: 80px 30px;
+    background-color: #003705;
+    z-index: 20;
+    display: flex;
+    align-items: flex-start;
+    justify-content: flex-end;
+  }
 .effort-section {
     background-color: #E7EBE7;
     height: 100vh;
@@ -175,8 +175,7 @@
     }
     .sticky-header {
         position: sticky;
-        top: 80px;
-        padding: 30px 30px;
+        padding: 80px 30px 100px 30px;
         background-color: #003705;
         z-index: 20;
         display: flex;
@@ -207,35 +206,4 @@
     }
   }
   
-  @media (max-width: 480px) {
-    .effort-section {
-      height: 100vh;
-      min-height: 480px;
-    }
-    
-    .effort-sticky-header {
-      padding: 40px 30px 0 30px;
-    }
-    
-    .effort-label {
-      font-size: 18px;
-      margin: 0 0 47px 0;
-    }
-    
-    .effort-subtitle {
-      font-size: 12px;
-      margin: 0 0 38px 0;
-    }
-    
-    .effort-title {
-      font-size: 18px;
-    }
-    
-    .effort-content-area {
-      padding: 0 20px 60px 20px;
-    }
-    
-    .effort-description {
-      font-size: 15px;
-    }
-  }
+ 

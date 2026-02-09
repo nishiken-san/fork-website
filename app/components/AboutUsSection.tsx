@@ -69,7 +69,6 @@ const AboutUsSection = () => {
     padding-bottom: 50px;
     display: flex;
     flex-direction: column;
-    gap: 40px;
   }
 
   .section-label {
@@ -77,6 +76,7 @@ const AboutUsSection = () => {
     font-size: 15px;
     font-weight: 700;
     margin: 0;
+    padding-bottom: 40px;
   }
 
   .main-text {
@@ -85,6 +85,7 @@ const AboutUsSection = () => {
     font-weight: 700;
     line-height: 2;
     margin: 0;
+    padding-bottom: 75px;
   }
 
   .illustration-container {
@@ -94,6 +95,7 @@ const AboutUsSection = () => {
     width: 100%;
     height: auto;
     object-fit: contain;
+    padding-bottom: 30px;
   }
 
   .button-container {
@@ -196,7 +198,7 @@ const AboutUsSection = () => {
               <div className="section-label">about us</div>
 
               <p className="main-text">
-                forkとは「選択肢」のこと。
+                forkとは「選択肢」のこと。<br />
                 社会全体で子育てする仕組みづくりを通じて、
                 大人も子どもも自分らしい生き方を選べる世の中をつくります。
               </p>

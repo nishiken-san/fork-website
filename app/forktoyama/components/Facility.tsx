@@ -54,13 +54,13 @@ const Facility = () => {
           width: 100%;
         }
         .what-we-do {
-          font-size: 0.875rem;
-          margin-bottom: 0.5rem;
+          font-size: 15px;
+          margin-bottom: 20px;
           font-weight: 700;
           color: #B4B4B4;
         }
         .description {
-          font-size: 0.875rem;
+          font-size: 15px;
           line-height: 1.8;
           margin: 0;
         }
@@ -98,8 +98,6 @@ const Facility = () => {
           flex-direction: column;
         }
 
-        .what-we-do {
-          padding-bottom: 30px;
 
         
       }

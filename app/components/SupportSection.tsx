@@ -127,12 +127,13 @@ const SupporterSection = () => {
           
           .mobile-header {
             display: flex;
-            padding: 90px 0 0 0;
+            padding: 50px 0 0 0;
           }
 
           .mobile-header-left {
             width: 75%;
             padding-left: 30px;
+            padding-top: 105px;
           }
           
           .mobile-header-right {
@@ -149,7 +150,7 @@ const SupporterSection = () => {
           
           .mobile-content {
             display: block;
-            padding: 90px 30px 100px 30px;
+            padding: 10px 30px 100px 30px;
           }
 
           .button-group {

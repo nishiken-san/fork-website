@@ -28,8 +28,8 @@ const EffortMainSection = () => {
         }
         .sticky-header {
           position: sticky;
-          top: 80px;
-          padding: 2rem 50px;
+          top: 50px;
+          padding: 50px 50px;
           background-color: #003705;
           z-index: 20;
           display: flex;
@@ -86,10 +86,10 @@ const EffortMainSection = () => {
         }
         @media (max-width: 768px) {
           .sticky-header {
-            padding: 2rem 30px;
+            padding: 50px 25px 100px 30px;
           }
           .content-area {
-            padding: 140px 30px 60px 30px;
+            padding: 140px 30px 100px 30px;
           }
           .vertical-title {
             font-size: 25px;
