@@ -30,7 +30,7 @@ const MobileTop: React.FC<MobileTopProps> = ({ isOpen, onClose, logoImage }) => 
           position: fixed;
           inset: 0;
           z-index: 40;
-          background-color: rgba(0, 0, 0, 0.3);
+          background-color: #003705;
           opacity: 0;
           visibility: hidden;
           transition: opacity 0.672s cubic-bezier(0.4, 0, 0.2, 1),

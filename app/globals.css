@@ -31,7 +31,7 @@ strong, b, .font-bold {
 
 @media (prefers-color-scheme: dark) {
   :root {
-    --background: #0a0a0a;
+    --background: #003705;
     --foreground: #ededed;
   }
 }
@@ -349,18 +349,7 @@ footer .border-green-800 {
   }
 }
 
-@media (max-width: 480px) {
-  .very-small-screen {
-    font-size: 14px;
-    padding: 20px 10px;
-  }
-  
-  .button-mobile {
-    width: 100%;
-    padding: 12px 20px;
-    font-size: 14px;
-  }
-}
+
 
 .lazy-image {
   loading: lazy;
@@ -1037,6 +1026,10 @@ html {
 body {
   opacity: 1;
   visibility: visible;
+}
+
+html, body {
+  /* overscroll-behavior: none;  オーバースクロール時の挙動を制御 */
 }
 
 #main-content {

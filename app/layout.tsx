@@ -14,6 +14,7 @@ export const metadata: Metadata = {
   keywords: '',
   authors: [{ name: 'Fork Company' }],
   viewport: 'width=device-width, initial-scale=1',
+  themeColor: '#003705',
 };
 
 export default function RootLayout({
