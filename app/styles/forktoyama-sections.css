@@ -427,8 +427,8 @@
 
 .natural-architecture-bg .section-container {
   display: flex;
-  justify-content: space-between; /* 左右に配置、中央は空白 */
-  padding: 0 50px; /* 左右50px */
+  justify-content: space-between;
+  padding: 0 50px;
 }
 
 .natural-architecture-bg .left-column {
@@ -441,7 +441,7 @@
 .natural-architecture-bg .left-column .content-area {
   position: sticky;
   top: 80px;
-  padding: 110px 25px 100px 0; /* 左は0（コンテナで確保済み） */
+  padding: 110px 25px 100px 0;
   z-index: 20;
   display: flex;
   flex-direction: column;
@@ -449,11 +449,11 @@
 }
 
 .natural-architecture-bg .right-column {
-  width: min(66.666667%, 900px); /* 66.666%か900pxの小さい方 */
+  width: min(66.666667%, 900px); /* min() を使用 */
   max-width: 900px;
   flex-shrink: 0;
   background-color: #E7EBE7;
-  padding: 110px 0 100px 0; /* 左右0（コンテナで確保済み） */
+  padding: 110px 0 100px 25px; /* 左に25px追加（他セクションと統一） */
 }
 
 /* 画像コンテナ */
@@ -529,11 +529,11 @@
 /* タブレット対応 */
 @media (min-width: 769px) and (max-width: 1024px) {
   .natural-architecture-bg .left-column .content-area {
-    padding: 110px 20px 100px 0;
+    padding: 90px 20px 90px 0;
   }
   
   .natural-architecture-bg .right-column {
-    padding: 110px 0 100px 0;
+    padding: 90px 0 90px 20px;
   }
 }
 
@@ -541,7 +541,7 @@
 @media (max-width: 768px) {
   .natural-architecture-bg .section-container {
     flex-direction: column;
-    padding: 0; /* モバイルではリセット */
+    padding: 0;
   }
   
   .natural-architecture-bg .left-column {
@@ -588,7 +588,6 @@
     padding: 20px 0 0 0px;
   }
 }
-
 
 /* ========================================
    Access Section
@@ -973,6 +972,11 @@
 }
 
 /* セクション間隔 */
+.description-section-top-spacing {
+  margin: 0px 0 0px 0;
+  padding: 0;
+}
+
 .description-section-spacing {
   margin: 90px 0 0px 0;
   padding: 0;
