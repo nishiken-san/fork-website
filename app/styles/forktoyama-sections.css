@@ -907,7 +907,7 @@
 .description-sticky {
   position: sticky;
   top: 80px;
-  padding: 110px 0 100px 25px; /* 右は0（コンテナで確保済み） */
+  padding: 110px 0 90px 25px; /* 右は0（コンテナで確保済み） */
   z-index: 20;
   overflow: hidden;
 }
@@ -974,7 +974,7 @@
 
 /* セクション間隔 */
 .description-section-spacing {
-  margin: 0 0 110px 0;
+  margin: 90px 0 0px 0;
   padding: 0;
 }
 

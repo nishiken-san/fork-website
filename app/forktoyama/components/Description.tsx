@@ -39,7 +39,7 @@ const Description = () => {
         <div ref={contentRef} className="description-left">
           <div className="description-content">
             
-            <div className="description-section-spacing">
+            <div className=".description-section-top-spacing">
               <div className="description-category">保育理念</div>
               <h2 className="description-title">子どもは「らしさ」の原石</h2>
               <p className="description-text">
