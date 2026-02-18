@@ -15,10 +15,46 @@ const Access = () => {
   return (
     <>
       <style jsx>{`
+        .access-container {
+          display: flex;
+          padding-right: 50px; /* 右端から常に50px */
+        }
+        
+        .access-left {
+          flex: 1; /* 残りのスペースを占める（可変） */
+          min-width: 33.333333%;
+          background-color: #E7EBE7;
+          position: relative;
+        }
+        
+        .access-right {
+          flex: 0 0 auto;
+          width: min(66.666667%, 900px); /* 66.666%か900pxの小さい方 */
+          max-width: 900px;
+          background-color: #E7EBE7;
+        }
+        
+        .access-content {
+          position: sticky;
+          top: 80px;
+          padding: 110px 25px 100px 50px;
+          z-index: 20;
+          display: flex;
+          flex-direction: column;
+          justify-content: flex-start;
+        }
+        
+        .access-map-sticky {
+          position: sticky;
+          top: 80px;
+          padding: 110px 0 100px 25px; /* 右は0（コンテナで確保済み） */
+          z-index: 20;
+        }
+        
         .map-wrapper {
           position: relative;
           width: 100%;
-          height: 100%;
+          padding-bottom: 75%; /* 4:3のアスペクト比 */
           overflow: hidden;
         }
         
@@ -29,6 +65,7 @@ const Access = () => {
           width: 100%;
           height: 100%;
           border: 0;
+          filter: grayscale(100%) sepia(15%) hue-rotate(120deg) saturate(50%) brightness(1);
         }
         
         .map-overlay {
@@ -43,52 +80,96 @@ const Access = () => {
           z-index: 10;
         }
         
+        .section-category {
+          font-size: 15px;
+          color: #B4B4B4;
+          margin: 0 0 16px 0;
+          font-weight: 700;
+        }
+        
+        .section-title {
+          font-size: 25px;
+          font-weight: 700;
+          color: #003705;
+          margin: 0 0 24px 0;
+          line-height: 1.4;
+        }
+        
+        .facility-name {
+          font-size: 20px;
+          font-weight: 700;
+          margin: 0 0 8px 0;
+          color: #003705;
+        }
+        
+        .address {
+          font-size: 13px;
+          font-weight: 700;
+          margin: 0;
+          line-height: 1.6;
+          color: #003705;
+        }
+        
+        /* モバイル用要素（デスクトップでは非表示） */
+        .mobile-header {
+          display: none;
+        }
+        
+        .mobile-map {
+          display: none;
+        }
+        
+        .mobile-info {
+          display: none;
+        }
+        
         @media (max-width: 768px) {
-          .map-wrapper {
-            width: 100%;
-            aspect-ratio: 1 / 1;
-            height: auto;
-            min-height: unset;
+          .access-container {
+            display: none;
           }
           
-          .map-wrapper iframe {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
+          .mobile-header {
+            display: block;
+            padding: 90px 30px 0 30px;
           }
           
-          .map-overlay {
-            position: absolute;
-            top: 0;
-            left: 0;
+          .mobile-map {
+            display: block;
             width: 100%;
-            height: 100%;
+            padding: 90px 30px 0 30px;
+          }
+          
+          .mobile-map .map-wrapper {
+            width: 100%;
+            padding-bottom: 100%; /* モバイルは正方形 */
+          }
+          
+          .mobile-info {
+            display: block;
+            padding: 30px 30px 100px 30px;
           }
         }
       `}</style>
 
       <section ref={sectionRef} id="access-main" className="access-bg">
-        <div className="section-container">
+        {/* PC用 */}
+        <div className="access-container">
           {/* PC用 - 左カラム */}
-          <div ref={contentRef} className="left-column">
-            <div className="content-area">
+          <div ref={contentRef} className="access-left">
+            <div className="access-content">
               <div className="section-category">access</div>
               <div className="section-title">アクセス</div>
               
               <div className="access-info">
                 <div className="facility-name">fork toyama</div>
                 <div className="address">〒930-0289 富山県中新川郡舟橋村竹内325</div>
-                
-                
               </div>
             </div>
           </div>
 
           {/* PC用 - 右カラム（マップ） */}
-          <div className="right-column">
-            <div className="map-container">
+          <div className="access-right">
+            <div className="access-map-sticky">
               <div className="map-wrapper">
                 <iframe 
                   src={iframeSrc}
@@ -111,17 +192,15 @@ const Access = () => {
 
         {/* モバイル用 - マップ */}
         <div className="mobile-map">
-          <div className="map-container">
-            <div className="map-wrapper">
-              <iframe 
-                src={iframeSrc}
-                allowFullScreen
-                loading="lazy"
-                referrerPolicy="no-referrer-when-downgrade"
-                title="fork toyama location"
-              />
-              <div className="map-overlay"></div>
-            </div>
+          <div className="map-wrapper">
+            <iframe 
+              src={iframeSrc}
+              allowFullScreen
+              loading="lazy"
+              referrerPolicy="no-referrer-when-downgrade"
+              title="fork toyama location"
+            />
+            <div className="map-overlay"></div>
           </div>
         </div>
 
@@ -129,7 +208,6 @@ const Access = () => {
         <div className="mobile-info">
           <div className="facility-name">fork toyama</div>
           <div className="address">〒930-0289 富山県中新川郡舟橋村竹内325</div>
-          
         </div>
       </section>
     </>

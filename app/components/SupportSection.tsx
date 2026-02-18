@@ -20,7 +20,7 @@ const SupporterSection = () => {
         .left-column {
           width: 66.666667%;
           background-color: #003705;
-          padding: 50px 50px 100px 50px;
+          padding: 90px 50px 100px 50px;
         }
         .right-column {
           width: 33.333333%;
@@ -30,7 +30,7 @@ const SupporterSection = () => {
         .sticky-header {
           position: sticky;
           top: 50px;
-          padding: 50px 50px 100px 50px;
+          padding: 90px 50px 35px 50px;
           background-color: #003705;
           z-index: 20;
           display: flex;
@@ -50,7 +50,7 @@ const SupporterSection = () => {
           color: #B4B4B4;
           font-size: 15px;
           font-weight: 700;
-          margin-bottom: 2rem;
+          padding-bottom: 35px;
           letter-spacing: 0.05em;
         }
         .description {
@@ -58,7 +58,6 @@ const SupporterSection = () => {
           font-size: 15px;
           font-weight: 700;
           line-height: 2;
-          padding-top: 20px;
           margin-bottom: 30px;
         }
         .button-group {

@@ -67,7 +67,7 @@ const Footer = () => {
           transition: transform 0.3s ease;
           display: inline-block;
           text-decoration: underline;
-          text-underline-offset: 3px;
+          text-underline-offset: 5px;
         }
         
         .arrow-icon {

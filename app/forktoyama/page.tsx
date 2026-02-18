@@ -19,7 +19,7 @@ export default function Page() {
       <Parallax1 />
       <Intro />
       <Description />
-      <Staff />
+      {/* <Staff /> */}
       <Parallax2 />
       <Facility />
       <Structure />

@@ -145,7 +145,7 @@ const NoteSection = () => {
         .sticky-header {
           position: sticky;
           top: 80px;
-          padding: 80px 0 50px 50px;
+          padding: 90px 0 50px 50px;
           background-color: #E7EBE7;
           z-index: 20;
         }
@@ -163,7 +163,7 @@ const NoteSection = () => {
           line-height: 1.4;
         }
         .content-area {
-          padding: 80px 0 80px 0;
+          padding: 90px 0 80px 0;
           position: relative;
         }
         

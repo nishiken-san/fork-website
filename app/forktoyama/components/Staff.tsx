@@ -18,15 +18,19 @@ const Staff = () => {
         
         .staff-container {
           display: flex;
+          padding-right: 50px; /* 右端から常に50px */
         }
         
         .staff-left {
-          width: 33.333333%;
+          flex: 1; /* 残りのスペースを占める（可変） */
+          min-width: 33.333333%;
           background-color: #E7EBE7;
         }
         
         .staff-right {
-          width: 66.666667%;
+          flex: 0 0 auto;
+          width: min(66.666667%, 900px); /* 66.666%か900pxの小さい方 */
+          max-width: 900px;
           background-color: #E7EBE7;
         }
         
@@ -37,7 +41,7 @@ const Staff = () => {
         .staff-sticky {
           position: sticky;
           top: 80px;
-          padding: 110px 50px 145px 25px;
+          padding: 110px 0 145px 25px; /* 右は0（コンテナで確保済み） */
           z-index: 20;
         }
         
@@ -58,15 +62,18 @@ const Staff = () => {
         @media (max-width: 768px) {
           .staff-container {
             flex-direction: column;
+            padding-right: 0; /* モバイルではリセット */
           }
           
           .staff-left {
             width: 100%;
+            min-width: 100%;
             order: 2;
           }
           
           .staff-right {
             width: 100%;
+            max-width: none;
             order: 1;
           }
           
@@ -87,8 +94,6 @@ const Staff = () => {
             object-position: center center;
           }
         }
-        
-        
       `}</style>
 
       <section ref={sectionRef} className="staff-section">

@@ -34,7 +34,7 @@ const AboutSection = () => {
         .sticky-header {
           position: sticky;
           top: 80px;
-          padding: 50px 0px 50px 50px;
+          padding: 90px 0px 21px 50px;
           background-color: #E7EBE7;
           z-index: 20;
         }
@@ -50,7 +50,7 @@ const AboutSection = () => {
           font-weight: 700;
         }
         .content-area {
-          padding: 50px 50px 50px 0;
+          padding: 90px 50px 50px 0;
         }
         .main-description {
           color: #003705;
