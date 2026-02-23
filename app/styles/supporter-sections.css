@@ -219,40 +219,42 @@
 .minei1-link-container {
   display: flex;
   justify-content: flex-end;
-  padding: 25px 0 0 0 ;
+  padding: 25px 0 0 0;
   align-items: center;
 }
 
-.minei1-link {
-  color: #003705;
-  font-size: 13px;
-  text-decoration: none;
+.minei1-link-wrapper {
   display: inline-flex;
   align-items: center;
-  gap: 0.5rem;
-  /* font-weight削除 - globals.cssの700を継承 */
+  gap: 5px;
+  width: fit-content;
+  cursor: pointer;
 }
 
-
-
-.view-corp-link{
+.view-corp-link {
   color: #003705;
   font-size: 13px;
   font-weight: 700;
-  text-decoration: underline;
-  text-underline-offset: 3px;
-  padding: 0 3px 0 0px;
+  text-decoration: none;
+  position: relative;
+  padding-bottom: 2px;
   transition: transform 0.3s ease;
   display: inline-block;
 }
 
-.view-corp-link:hover,
-.minei1-link-container:has(.arrow-icon:hover) .view-corp-link {
-  transform: translateX(0.5em);
+.view-corp-link::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 1px;
+  background-color: #003705;
 }
 
-.arrow-icon:hover,
-.minei1-link-container:has(.view-corp-link:hover) .arrow-icon {
+/* ホバー効果 - ラッパーにホバーで両方動く */
+.minei1-link-wrapper:hover .view-corp-link,
+.minei1-link-wrapper:hover .arrow-icon {
   transform: translateX(0.5em);
 }
 

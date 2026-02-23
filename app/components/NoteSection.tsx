@@ -299,13 +299,22 @@ const NoteSection = () => {
           flex-grow: 1;
         }
         
+        // view-all-container 関連のCSS部分を修正
+
         .view-all-container {
           display: flex;
           justify-content: flex-end;
           align-items: center;
           margin-top: 2rem;
           padding-right: 50px;
-          gap: 0.5rem;
+        }
+        
+        .view-all-link-wrapper {
+          display: inline-flex;
+          align-items: center;
+          gap: 5px;
+          width: fit-content;
+          cursor: pointer;
         }
         
         .view-all-link {
@@ -314,7 +323,7 @@ const NoteSection = () => {
           font-weight: 700;
           text-decoration: none;
           position: relative;
-          padding-bottom: 0px;
+          padding-bottom: 2px;
           transition: transform 0.3s ease;
           display: inline-block;
         }
@@ -322,7 +331,7 @@ const NoteSection = () => {
         .view-all-link::after {
           content: '';
           position: absolute;
-          bottom: -0.5px;
+          bottom: 0;
           left: 0;
           width: 100%;
           height: 1px;
@@ -336,11 +345,13 @@ const NoteSection = () => {
           transition: transform 0.3s ease;
         }
         
-        .view-all-container:hover .view-all-link {
+        .view-all-link:hover,
+        .view-all-link-wrapper:has(.arrow-icon:hover) .view-all-link {
           transform: translateX(0.5em);
         }
         
-        .view-all-container:hover .arrow-icon {
+        .view-all-link-wrapper:has(.view-all-link:hover) .arrow-icon,
+        .view-all-link-wrapper .arrow-icon:hover {
           transform: translateX(0.5em);
         }
         
@@ -473,19 +484,21 @@ const NoteSection = () => {
               </div>
               
               <div className="view-all-container">
-                <a 
-                  href="https://note.com/forktoyama" 
-                  className="view-all-link"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  noteをみる
-                </a>
-                <img 
-                  src={IMAGES.logo.vec}
-                  alt="arrow"
-                  className="arrow-icon"
-                />
+                <div className="view-all-link-wrapper">
+                  <a 
+                    href="https://note.com/forktoyama" 
+                    className="view-all-link"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    noteをみる
+                  </a>
+                  <img 
+                    src={IMAGES.logo.vec}
+                    alt="arrow"
+                    className="arrow-icon"
+                  />
+                </div>
               </div>
             </div>
           </div>

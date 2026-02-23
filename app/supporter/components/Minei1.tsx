@@ -36,14 +36,14 @@ const Minei1 = () => {
             </div>
             
             <div className="minei1-link-container">
-              <a href="/supportercorp" className="view-corp-link">
-                <span className="menu-bottom-link-text">法人の方はこちら</span>
+              <a href="/supportercorp" className="minei1-link-wrapper">
+                <span className="view-corp-link">法人の方はこちら</span>
+                <img 
+                  src={IMAGES.logo.vec}
+                  alt="arrow"
+                  className="arrow-icon"
+                />
               </a>
-              <img 
-                src={IMAGES.logo.vec}
-                alt="arrow"
-                className="arrow-icon"
-              />
             </div>
           </div>
         </div>

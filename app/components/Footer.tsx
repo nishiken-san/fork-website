@@ -24,11 +24,17 @@ const Footer = () => {
           color: #FFFFFF;
           font-size: 15px;
           text-decoration: none;
-          display: flex;
+          display: inline-flex; /* flex → inline-flex */
           align-items: center;
           gap: 0.5rem;
           margin-bottom: 0.75rem;
           transition: color 0.3s ease;
+          width: fit-content; /* 文字幅に合わせる */
+        }
+        
+        /* ブロック要素として改行させる */
+        .nav-link-wrapper {
+          display: block;
         }
 
         .nav-link-icon {
@@ -43,7 +49,7 @@ const Footer = () => {
           height: 0.8em;
           object-fit: contain;
           flex-shrink: 0;
-}
+        }
         
         .social-links {
           display: flex;
@@ -54,10 +60,11 @@ const Footer = () => {
         }
         
         .social-link-container {
-          display: flex;
-          align-items: flex-end;  /* 右寄せ */
-          gap: 10px;
+          display: inline-flex; /* flex → inline-flex */
+          align-items: center; /* flex-end → center */
+          gap: 5px;
           cursor: pointer;
+          width: fit-content; /* 文字幅に合わせる */
         }
         
         .social-link {
@@ -66,8 +73,19 @@ const Footer = () => {
           text-decoration: none;
           transition: transform 0.3s ease;
           display: inline-block;
-          text-decoration: underline;
-          text-underline-offset: 5px;
+          position: relative;
+          padding-bottom: 2px; /* 下線用のスペース */
+        }
+        
+        /* 下線を疑似要素で実装 */
+        .social-link::after {
+          content: '';
+          position: absolute;
+          bottom: 0;
+          left: 0;
+          width: 100%;
+          height: 1px;
+          background-color: #FFFFFF;
         }
         
         .arrow-icon {
@@ -77,11 +95,13 @@ const Footer = () => {
           transition: transform 0.3s ease;
         }
         
-        .social-link-container:hover .social-link {
+        .social-link:hover,
+        .social-link-container:has(.arrow-icon:hover) .social-link {
           transform: translateX(0.5em);
         }
         
-        .social-link-container:hover .arrow-icon {
+        .social-link-container:has(.social-link:hover) .arrow-icon,
+        .arrow-icon:hover {
           transform: translateX(0.5em);
         }
         
@@ -105,27 +125,41 @@ const Footer = () => {
         <div className="footer-container">
           {/* ナビゲーションリンク */}
           <div className="nav-links">
-            <a href="/" className="nav-link">
-              <img src="/images/main/menu-vec.png" alt="" className="nav-link-icon" /> top
-            </a>
-            <a href="/about" className="nav-link">
-              <img src="/images/main/menu-vec.png" alt="" className="nav-link-icon" /> わたしたちについて
-            </a>
-            <a href="/effort" className="nav-link">
-              <img src="/images/main/menu-vec.png" alt="" className="nav-link-icon" /> とりくみ
-            </a>
-            <a href="/supporter" className="nav-link">
-              <img src="/images/main/menu-vec.png" alt="" className="nav-link-icon" /> みん営フレンズ〈個人サポーター〉
-            </a>
-            <a href="/supportercorp" className="nav-link">
-              <img src="/images/main/menu-vec.png" alt="" className="nav-link-icon" /> みん営パートナー〈法人・団体サポーター〉
-            </a>
-            <a href="/info" className="nav-link">
-              <img src="/images/main/menu-vec.png" alt="" className="nav-link-icon" /> おしらせ
-            </a>
-            <a href="/forktoyama" className="nav-link">
-              <img src="/images/main/menu-vec.png" alt="" className="nav-link-icon" /> お問い合わせ
-            </a>
+            <div className="nav-link-wrapper">
+              <a href="/" className="nav-link">
+                <img src="/images/main/menu-vec.png" alt="" className="nav-link-icon" /> top
+              </a>
+            </div>
+            <div className="nav-link-wrapper">
+              <a href="/about" className="nav-link">
+                <img src="/images/main/menu-vec.png" alt="" className="nav-link-icon" /> わたしたちについて
+              </a>
+            </div>
+            <div className="nav-link-wrapper">
+              <a href="/effort" className="nav-link">
+                <img src="/images/main/menu-vec.png" alt="" className="nav-link-icon" /> とりくみ
+              </a>
+            </div>
+            <div className="nav-link-wrapper">
+              <a href="/supporter" className="nav-link">
+                <img src="/images/main/menu-vec.png" alt="" className="nav-link-icon" /> みん営フレンズ〈個人サポーター〉
+              </a>
+            </div>
+            <div className="nav-link-wrapper">
+              <a href="/supportercorp" className="nav-link">
+                <img src="/images/main/menu-vec.png" alt="" className="nav-link-icon" /> みん営パートナー〈法人・団体サポーター〉
+              </a>
+            </div>
+            <div className="nav-link-wrapper">
+              <a href="/info" className="nav-link">
+                <img src="/images/main/menu-vec.png" alt="" className="nav-link-icon" /> おしらせ
+              </a>
+            </div>
+            <div className="nav-link-wrapper">
+              <a href="/forktoyama" className="nav-link">
+                <img src="/images/main/menu-vec.png" alt="" className="nav-link-icon" /> お問い合わせ
+              </a>
+            </div>
           </div>
           
           {/* ソーシャルリンク */}
