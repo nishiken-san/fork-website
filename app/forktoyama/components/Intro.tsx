@@ -29,7 +29,7 @@ const ForktoyamaIntro = () => {
           display: flex;
           justify-content: flex-end;
           align-items: flex-start;
-          padding-top: 50px;
+          padding-top: 90px;
           padding-right: 50px;
         }
         
@@ -61,7 +61,7 @@ const ForktoyamaIntro = () => {
           .forktoyama-sticky {
             position: relative !important;
             top: 0 !important;
-            padding: 50px 25px 30px 0;
+            padding: 50px 25px 50px 0;
             height: auto !important;
           }
           
@@ -81,7 +81,6 @@ const ForktoyamaIntro = () => {
             padding-right: 0;
             margin-bottom: 0;
             font-size: 15px;
-            line-height: 2.8;
           }
           
           .forktoyama-logo-container {
