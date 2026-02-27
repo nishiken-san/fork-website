@@ -9,7 +9,7 @@ const Footer = () => {
       <style jsx>{`
         .footer-bg {
           background-color: #003705;
-          padding: 3rem 0;
+          padding: 100px 0;
         }
         
         .footer-container {

@@ -130,13 +130,13 @@ const Access = () => {
           
           .mobile-header {
             display: block;
-            padding: 90px 30px 0 30px;
+            padding: 65px 30px 0 30px;
           }
           
           .mobile-map {
             display: block;
             width: 100%;
-            padding: 90px 30px 0 30px;
+            padding: 30px 30px 0 30px;
           }
           
           .mobile-map .map-wrapper {
@@ -146,7 +146,7 @@ const Access = () => {
           
           .mobile-info {
             display: block;
-            padding: 30px 30px 100px 30px;
+            padding: 30px 30px 40px 30px;
           }
         }
       `}</style>

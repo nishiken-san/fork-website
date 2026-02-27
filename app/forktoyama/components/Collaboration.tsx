@@ -1,5 +1,3 @@
-
-
 'use client';
 
 import { useRef } from 'react';
@@ -20,7 +18,20 @@ const Collaboration = () => {
             <div className="section-category">コラボレーション</div>
             <div className="section-title">多様な才能と出会える場</div>
             <div className="description">
-            forkには、いろんな体験を手土産に多様な大人が訪れます。企業から個人まで、デジタルからアナログまで。子どもたちの関心や才能に出会える機会をみんなでつくっています。
+              forkには、いろんな体験を手土産に多様な大人が訪れます。企業から個人まで、デジタルからアナログまで。子どもたちの関心や才能に出会える機会をみんなでつくっています。
+            </div>
+            <div className="social-link-container">
+              <a 
+                href="/info?tag=work-shop" 
+                className="social-link"
+              >
+                事例をみる
+              </a>
+              <img 
+                src={IMAGES.logo.vec}
+                alt="arrow"
+                className="arrow-icon"
+              />
             </div>
           </div>
         </div>
@@ -34,7 +45,20 @@ const Collaboration = () => {
               <div className="section-category">コラボレーション</div>
               <div className="section-title">多様な才能と出会える場</div>
               <div className="description">
-              forkには、いろんな体験を手土産に多様な大人が訪れます。企業から個人まで、デジタルからアナログまで。子どもたちの関心や才能に出会える機会をみんなでつくっています。
+                forkには、いろんな体験を手土産に多様な大人が訪れます。企業から個人まで、デジタルからアナログまで。子どもたちの関心や才能に出会える機会をみんなでつくっています。
+              </div>
+              <div className="social-link-container">
+                <a 
+                  href="/info?tag=tie-up" 
+                  className="social-link"
+                >
+                  事例をみる
+                </a>
+                <img 
+                  src={IMAGES.logo.vec}
+                  alt="arrow"
+                  className="arrow-icon"
+                />
               </div>
             </div>
           </div>
