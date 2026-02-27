@@ -163,7 +163,7 @@ const NoteSection = () => {
           line-height: 1.4;
         }
         .content-area {
-          padding: 90px 0 80px 0;
+          padding: 90px 0 50px 0;
           position: relative;
         }
         
@@ -305,7 +305,7 @@ const NoteSection = () => {
           display: flex;
           justify-content: flex-end;
           align-items: center;
-          margin-top: 2rem;
+          margin-top: 30px;
           padding-right: 50px;
         }
         

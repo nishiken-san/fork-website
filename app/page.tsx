@@ -2,6 +2,7 @@
 'use client';
 
 import { useState } from 'react';
+
 import Image from 'next/image';
 import HeaderTop from './components/HeaderTop';
 import HeroSection from './components/HeroSection';
@@ -21,6 +22,42 @@ import ParallaxSection3 from './components/ParallaxSection3';
 
 import Footer from './components/Footer';
 import './globals.css';
+
+// microCMSから最新記事を取得する関数
+async function getLatestNews() {
+  try {
+    // microCMSクライアントが設定されていない場合
+    if (!client) {
+      return [];
+    }
+
+    const data = await client.get({
+      endpoint: 'info',
+      queries: {
+        limit: 2,
+        orders: '-publishedAt', // 公開日の新しい順
+        fields: 'id,title,publishedAt,tag',
+      },
+    });
+
+    // データを整形
+    return data.contents.map((item: any) => ({
+      id: item.id,
+      title: item.title,
+      date: item.publishedAt 
+        ? new Date(item.publishedAt).toLocaleDateString('ja-JP', {
+            year: 'numeric',
+            month: '2-digit',
+            day: '2-digit'
+          }).replace(/\//g, '.')
+        : '',
+      tagLabel: item.tag?.タグ名 || item.tag?.label || '',
+    }));
+  } catch (error) {
+    console.error('Error fetching news:', error);
+    return [];
+  }
+}
 
 export default function Home() {
   return (

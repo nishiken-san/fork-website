@@ -1,7 +1,7 @@
 // app/components/NewsSection.tsx
 'use client';
 
-import { useRef } from 'react';
+import { useRef, useState, useEffect } from 'react';
 import { useSectionSticky } from '../hooks/useSectionSticky';
 import { IMAGES } from '@/constants/images';
 
@@ -9,32 +9,35 @@ interface NewsItem {
   id: string;
   date: string;
   title: string;
-  content: string;
-  category: string;
+  tagLabel?: string;
 }
 
 const NewsSection = () => {
   const sectionRef = useRef<HTMLDivElement>(null);
   const contentRef = useRef<HTMLDivElement>(null);
   const { isSticky } = useSectionSticky(sectionRef, contentRef);
+  
+  const [newsItems, setNewsItems] = useState<NewsItem[]>([]);
+  const [isLoading, setIsLoading] = useState(true);
 
-  // サンプルデータ
-  const newsItems: NewsItem[] = [
-    {
-      id: '1',
-      date: '2024.01.01',
-      title: 'WEBサイトがリニューアルしました。',
-      content: '',
-      category: 'fork toyama'
-    },
-    {
-      id: '2',
-      date: '2024.01.01',
-      title: '令和7年度の学童募集を開始しました。',
-      content: '',
-      category: 'fork toyama'
-    }
-  ];
+  // APIから最新ニュースを取得
+  useEffect(() => {
+    const fetchLatestNews = async () => {
+      try {
+        const response = await fetch('/api/news/latest');
+        if (response.ok) {
+          const data = await response.json();
+          setNewsItems(data);
+        }
+      } catch (error) {
+        console.error('Error fetching latest news:', error);
+      } finally {
+        setIsLoading(false);
+      }
+    };
+
+    fetchLatestNews();
+  }, []);
 
   return (
     <>
@@ -94,15 +97,23 @@ const NewsSection = () => {
           height: 100%;
         }
         
-        .news-item-1 {
+        .news-item {
           position: absolute;
           left: 50px;
+          text-decoration: none;
+          display: block;
+          transition: opacity 0.3s ease;
+        }
+        
+        .news-item:hover {
+          opacity: 0.7;
+        }
+        
+        .news-item-1 {
           top: 145px;
         }
         
         .news-item-2 {
-          position: absolute;
-          left: 50px;
           top: 216px;
         }
         
@@ -147,9 +158,11 @@ const NewsSection = () => {
           right: 0;
           bottom: 81px;
           padding-right: 50px;
-          display: flex;
+          display: inline-flex;
           align-items: center;
           gap: 5px;
+          width: fit-content;
+          cursor: pointer;
         }
         
         .view-all-link {
@@ -180,12 +193,18 @@ const NewsSection = () => {
           transition: transform 0.3s ease;
         }
         
-        .view-all-container:hover .view-all-link {
+        .view-all-container:hover .view-all-link,
+        .view-all-container:hover .arrow-icon {
           transform: translateX(0.5em);
         }
         
-        .view-all-container:hover .arrow-icon {
-          transform: translateX(0.5em);
+        .no-articles {
+          position: absolute;
+          left: 50px;
+          top: 145px;
+          color: #B4B4B4;
+          font-size: 13px;
+          font-weight: 700;
         }
         
         /* モバイル対応 */
@@ -225,13 +244,15 @@ const NewsSection = () => {
             top: 100px;
           }
           
-          .news-item-1 {
+          .news-item {
             left: 30px;
+          }
+          
+          .news-item-1 {
             top: 145px;
           }
           
           .news-item-2 {
-            left: 30px;
             top: 216px;
           }
           
@@ -258,6 +279,10 @@ const NewsSection = () => {
           .view-all-link {
             writing-mode: horizontal-tb;
           }
+          
+          .no-articles {
+            left: 30px;
+          }
         }
       `}</style>
 
@@ -269,23 +294,45 @@ const NewsSection = () => {
               <div className="section-header">news, records</div>
               
               <div className="news-list">
-                {/* 1個目のニュース */}
-                <article className="news-item-1">
-                  <div className="news-meta">
-                    <span className="news-date">{newsItems[0].date}</span>
-                    <span className="news-category">{newsItems[0].category}</span>
-                  </div>
-                  <h3 className="news-title">{newsItems[0].title}</h3>
-                </article>
-                
-                {/* 2個目のニュース */}
-                <article className="news-item-2">
-                  <div className="news-meta">
-                    <span className="news-date">{newsItems[1].date}</span>
-                    <span className="news-category">{newsItems[1].category}</span>
-                  </div>
-                  <h3 className="news-title">{newsItems[1].title}</h3>
-                </article>
+                {isLoading ? (
+                  <p className="no-articles">読み込み中...</p>
+                ) : newsItems.length > 0 ? (
+                  <>
+                    {/* 1個目のニュース */}
+                    {newsItems[0] && (
+                      <a 
+                        href={`/info/${newsItems[0].id}`}
+                        className="news-item news-item-1"
+                      >
+                        <div className="news-meta">
+                          <span className="news-date">{newsItems[0].date}</span>
+                          {newsItems[0].tagLabel && (
+                            <span className="news-category">{newsItems[0].tagLabel}</span>
+                          )}
+                        </div>
+                        <h3 className="news-title">{newsItems[0].title}</h3>
+                      </a>
+                    )}
+                    
+                    {/* 2個目のニュース */}
+                    {newsItems[1] && (
+                      <a 
+                        href={`/info/${newsItems[1].id}`}
+                        className="news-item news-item-2"
+                      >
+                        <div className="news-meta">
+                          <span className="news-date">{newsItems[1].date}</span>
+                          {newsItems[1].tagLabel && (
+                            <span className="news-category">{newsItems[1].tagLabel}</span>
+                          )}
+                        </div>
+                        <h3 className="news-title">{newsItems[1].title}</h3>
+                      </a>
+                    )}
+                  </>
+                ) : (
+                  <p className="no-articles">記事がありません</p>
+                )}
               </div>
             </div>
           </div>

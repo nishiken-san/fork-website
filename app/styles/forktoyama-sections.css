@@ -36,21 +36,22 @@
 }
 
 .forktoyama-content {
-  padding: 10px 50px 50px 50px;
+  padding: 150px 50px 50px 50px;
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
+  font-size: 15px;
 }
 
 .forktoyama-sticky {
   position: sticky;
-  top: 80px;
-  padding: 50px 0;
+  top: 90px;
+  padding: 90px 0 30px 0;
   z-index: 20;
   display: flex;
   align-items: flex-start;
   justify-content: flex-start;
-  padding-top: 64px;
+  padding-top: 90px;
 }
 
 /* ========================================
@@ -105,10 +106,9 @@
    ======================================== */
 
 .forktoyama-subtitle {
-  margin-top: 142px;
   font-size: 15px;
   font-weight: 700;
-  margin-bottom: 18px;
+  margin-bottom: 30px;
   opacity: 0.8;
 }
 
@@ -122,7 +122,7 @@
 .forktoyama-description {
   font-size: 15px;
   line-height: 1.8;
-  margin-bottom: 67px;
+  margin-bottom: 70px;
   width: 100%;
   max-width: none;
   padding-right: 32px;
@@ -440,8 +440,8 @@
 
 .natural-architecture-bg .left-column .content-area {
   position: sticky;
-  top: 80px;
-  padding: 110px 25px 100px 0;
+  top: 90px;
+  padding: 90px 25px 100px 0;
   z-index: 20;
   display: flex;
   flex-direction: column;
@@ -482,7 +482,7 @@
   font-size: 25px;
   font-weight: 700;
   line-height: 1.4;
-  margin: 0 0 24px 0;
+  margin-bottom: 50px;
 }
 
 .natural-architecture-bg .description {
@@ -490,7 +490,6 @@
   font-size: 13px;
   font-weight: 700;
   line-height: 1.9;
-  padding-bottom: 25px;
   margin: 0;
 }
 
@@ -523,7 +522,6 @@
   display: flex;
   flex-direction: column;
   gap: 30px;
-  margin-top: 30px;
 }
 
 /* タブレット対応 */
@@ -903,13 +901,13 @@
 }
 
 .description-content {
-  padding: 110px 25px 100px 0; /* 左は0（コンテナで確保済み） */
+  padding: 90px 25px 90px 0; /* 左は0（コンテナで確保済み） */
 }
 
 .description-sticky {
   position: sticky;
-  top: 80px;
-  padding: 110px 0 90px 25px; /* 右は0（コンテナで確保済み） */
+  top: 90px;
+  padding: 90px 0 90px 25px; /* 右は0（コンテナで確保済み） */
   z-index: 20;
   overflow: hidden;
 }
@@ -1033,16 +1031,6 @@
   display: none;
 }
 
-/* タブレット対応 */
-@media (min-width: 769px) and (max-width: 1024px) {
-  .description-content {
-    padding: 110px 20px 100px 0;
-  }
-  
-  .description-sticky {
-    padding: 110px 0 100px 20px;
-  }
-}
 
 /* モバイル対応 */
 @media (max-width: 768px) {

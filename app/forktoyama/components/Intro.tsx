@@ -32,9 +32,6 @@ const ForktoyamaIntro = () => {
           padding-top: 50px;
           padding-right: 50px;
         }
-        .forktoyama-content {
-          padding-bottom: 2rem;
-        }
         
         /* モバイル用ロゴ（デスクトップでは非表示） */
         .mobile-logo-container {
@@ -60,9 +57,6 @@ const ForktoyamaIntro = () => {
             align-items: flex-start;
           }
           
-          .forktoyama-content {
-            padding: 0px 15px 30px 30px;
-          }
           
           .forktoyama-sticky {
             position: relative !important;
@@ -82,10 +76,6 @@ const ForktoyamaIntro = () => {
             font-size: 30px;
           }
           
-          .forktoyama-subtitle {
-            font-size: 15px;
-            margin-bottom: 19px;
-          }
           
           .forktoyama-description {
             padding-right: 0;

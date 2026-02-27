@@ -195,7 +195,7 @@ const PartnerSection = () => {
             display: block !important;
             position: relative !important;
             font-size: 13px;
-            margin: 0 0 16px 0 !important;
+            margin: 0 0 20px 0 !important;
             padding: 0 !important;
             height: auto !important;
           }

@@ -36,8 +36,8 @@ const Access = () => {
         
         .access-content {
           position: sticky;
-          top: 80px;
-          padding: 110px 25px 100px 50px;
+          top: 90px;
+          padding: 90px 25px 150px 50px;
           z-index: 20;
           display: flex;
           flex-direction: column;
@@ -46,8 +46,8 @@ const Access = () => {
         
         .access-map-sticky {
           position: sticky;
-          top: 80px;
-          padding: 110px 0 100px 25px; /* 右は0（コンテナで確保済み） */
+          top: 90px;
+          padding: 90px 0 150px 25px; /* 右は0（コンテナで確保済み） */
           z-index: 20;
         }
         
@@ -83,7 +83,7 @@ const Access = () => {
         .section-category {
           font-size: 15px;
           color: #B4B4B4;
-          margin: 0 0 16px 0;
+          margin: 0 0 20px 0;
           font-weight: 700;
         }
         
@@ -91,7 +91,7 @@ const Access = () => {
           font-size: 25px;
           font-weight: 700;
           color: #003705;
-          margin: 0 0 24px 0;
+          margin: 0 0 100px 0;
           line-height: 1.4;
         }
         

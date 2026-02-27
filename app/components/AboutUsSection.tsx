@@ -48,7 +48,7 @@ const AboutUsSection = () => {
   .sticky-header {
     position: sticky;
     top: 70px;
-    padding-top: 50px;
+    padding-top: 90px;
     padding-left: 40px;
     padding-bottom: 50px;
   }
@@ -64,9 +64,9 @@ const AboutUsSection = () => {
   }
 
   .content-area {
-    padding-top: 50px;
+    padding-top: 90px;
     padding-right: 50px;
-    padding-bottom: 50px;
+    padding-bottom: 55px;
     display: flex;
     flex-direction: column;
   }

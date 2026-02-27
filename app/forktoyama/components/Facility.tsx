@@ -31,8 +31,8 @@ const Facility = () => {
         }
         .sticky-header {
           position: sticky;
-          top: 80px;
-          padding: 2rem 45px;
+          top: 90px;
+          padding: 90px 45px;
           background-color: #003705;
           z-index: 20;
           display: flex;
@@ -49,7 +49,7 @@ const Facility = () => {
           letter-spacing: 0.1em;
         }
         .content-area {
-          padding: 150px 0px 180px 50px;
+          padding: 160px 0px 190px 50px;
           color: white;
           width: 100%;
         }

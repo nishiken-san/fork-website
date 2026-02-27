@@ -29,7 +29,7 @@ const Parallax2 = () => {
     const ctx = gsap.context(() => {
       gsap.fromTo(
         imageWrapper,
-        { y: '-10%' },
+        { y: '-15%' },
         {
           y: '10%',
           ease: 'none',

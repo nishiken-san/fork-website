@@ -17,7 +17,7 @@ const Footer = () => {
         }
         
         .nav-links {
-          margin-bottom: 2rem;
+          margin-bottom: 20px;
         }
         
         .nav-link {
@@ -54,9 +54,9 @@ const Footer = () => {
         .social-links {
           display: flex;
           flex-direction: column;
-          gap: 0.5rem;
+          gap: 15px;
           align-items: flex-end;
-          margin-bottom: 2rem;
+          margin-bottom: 25px;
         }
         
         .social-link-container {

@@ -31,7 +31,7 @@ const ParallaxSection1 = () => {
     const ctx = gsap.context(() => {
       gsap.fromTo(
         videoWrapper,
-        { y: '-10%' },
+        { y: '-15%' },
         {
           y: '10%',
           ease: 'none',
