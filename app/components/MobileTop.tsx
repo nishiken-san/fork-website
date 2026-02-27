@@ -13,12 +13,18 @@ interface MobileTopProps {
 const MobileTop: React.FC<MobileTopProps> = ({ isOpen, onClose, logoImage }) => {
   useEffect(() => {
     if (isOpen) {
+      // スクロールバーの幅を計算
+      const scrollbarWidth = window.innerWidth - document.documentElement.clientWidth;
+      // スクロールバーの幅分のパディングを追加してレイアウトシフトを防止
+      document.body.style.paddingRight = `${scrollbarWidth}px`;
       document.body.style.overflow = 'hidden';
     } else {
+      document.body.style.paddingRight = '';
       document.body.style.overflow = 'unset';
     }
 
     return () => {
+      document.body.style.paddingRight = '';
       document.body.style.overflow = 'unset';
     };
   }, [isOpen]);
@@ -30,7 +36,7 @@ const MobileTop: React.FC<MobileTopProps> = ({ isOpen, onClose, logoImage }) => 
           position: fixed;
           inset: 0;
           z-index: 40;
-          background-color: #003705;
+          background-color: rgba(256, 256, 256, 0.5);
           opacity: 0;
           visibility: hidden;
           transition: opacity 0.672s cubic-bezier(0.4, 0, 0.2, 1),
@@ -48,7 +54,7 @@ const MobileTop: React.FC<MobileTopProps> = ({ isOpen, onClose, logoImage }) => 
           right: 0;
           top: 70px;
           background-color: #003705;
-          z-index: 50;
+          z-index: 45;
           overflow: hidden;
           max-height: 0;
           transition: max-height 0.84s cubic-bezier(0.4, 0, 0.2, 1);
@@ -65,7 +71,7 @@ const MobileTop: React.FC<MobileTopProps> = ({ isOpen, onClose, logoImage }) => 
         }
         
         .menu-link {
-          display: flex;
+          display: inline-flex;
           align-items: center;
           gap: 0.5rem;
           color: #FFFFFF;
@@ -78,6 +84,11 @@ const MobileTop: React.FC<MobileTopProps> = ({ isOpen, onClose, logoImage }) => 
                       opacity 0.672s cubic-bezier(0.4, 0, 0.2, 1),
                       transform 0.672s cubic-bezier(0.4, 0, 0.2, 1);
           font-weight: 700;
+          width: fit-content;
+        }
+        
+        .menu-link-wrapper {
+          display: block;
         }
 
         .menu-link-icon {
@@ -180,18 +191,32 @@ const MobileTop: React.FC<MobileTopProps> = ({ isOpen, onClose, logoImage }) => 
           transition-delay: 0.672s;
         }
         
-        .menu-bottom-link {
-          color: #FFFFFF;
-          font-size: 0.875rem;
+        .menu-bottom-link-wrapper {
           display: inline-flex;
           align-items: center;
           gap: 3px;
-          text-decoration: none;
-          transition: transform 0.3s ease;
+          width: fit-content;
+          cursor: pointer;
         }
         
         .menu-bottom-link-text {
+          color: #FFFFFF;
+          font-size: 0.875rem;
+          text-decoration: none;
+          position: relative;
+          padding-bottom: 2px;
           transition: transform 0.3s ease;
+          display: inline-block;
+        }
+        
+        .menu-bottom-link-text::after {
+          content: '';
+          position: absolute;
+          bottom: 0;
+          left: 0;
+          width: 100%;
+          height: 1px;
+          background-color: #FFFFFF;
         }
         
         .arrow-icon {
@@ -201,11 +226,8 @@ const MobileTop: React.FC<MobileTopProps> = ({ isOpen, onClose, logoImage }) => 
           transition: transform 0.3s ease;
         }
         
-        .menu-bottom-link:hover .menu-bottom-link-text {
-          transform: translateX(0.5em);
-        }
-        
-        .menu-bottom-link:hover .arrow-icon {
+        .menu-bottom-link-wrapper:hover .menu-bottom-link-text,
+        .menu-bottom-link-wrapper:hover .arrow-icon {
           transform: translateX(0.5em);
         }
 
@@ -214,7 +236,6 @@ const MobileTop: React.FC<MobileTopProps> = ({ isOpen, onClose, logoImage }) => 
             padding: 20px 30px 30px 30px;
           }
         }
-        
       `}</style>
 
       <div 
@@ -225,55 +246,69 @@ const MobileTop: React.FC<MobileTopProps> = ({ isOpen, onClose, logoImage }) => 
       <div className={`menu-panel ${isOpen ? 'active' : ''}`}>
         <div className="menu-content">
           <nav>
-            <a href="/" className="menu-link" onClick={onClose}>
-              <img src="/images/main/menu-vec.png" alt="" className="menu-link-icon" />
-              top
-            </a>
+            <div className="menu-link-wrapper">
+              <a href="/" className="menu-link" onClick={onClose}>
+                <img src="/images/main/menu-vec.png" alt="" className="menu-link-icon" />
+                top
+              </a>
+            </div>
             
-            <a href="/about" className="menu-link" onClick={onClose}>
-              <img src="/images/main/menu-vec.png" alt="" className="menu-link-icon" />
-              わたしたち について
-            </a>
+            <div className="menu-link-wrapper">
+              <a href="/about" className="menu-link" onClick={onClose}>
+                <img src="/images/main/menu-vec.png" alt="" className="menu-link-icon" />
+                わたしたち について
+              </a>
+            </div>
             
-            <a href="/effort" className="menu-link" onClick={onClose}>
-              <img src="/images/main/menu-vec.png" alt="" className="menu-link-icon" />
-              とりくみ
-            </a>
+            <div className="menu-link-wrapper">
+              <a href="/effort" className="menu-link" onClick={onClose}>
+                <img src="/images/main/menu-vec.png" alt="" className="menu-link-icon" />
+                とりくみ
+              </a>
+            </div>
             
             <div className="menu-submenu-container">
               <div className="menu-submenu-title">
                 <img src="/images/main/menu-vec.png" alt="" className="menu-link-icon" />
                 サポーターになる
-                </div>
+              </div>
               <div className="menu-submenu">
-                <a href="/supporter" className="menu-link" onClick={onClose}>
-                  <img src="/images/main/menu-line.png" alt="" className="menu-link-icon" />
-                  みん営フレンズ（個人）
-                </a>
-                <a href="/supportercorp" className="menu-link" onClick={onClose}>
-                  <img src="/images/main/menu-line.png" alt="" className="menu-link-icon" />
-                  みん営パートナー（法人・団体）
-                </a>
+                <div className="menu-link-wrapper">
+                  <a href="/supporter" className="menu-link" onClick={onClose}>
+                    <img src="/images/main/menu-line.png" alt="" className="menu-link-icon" />
+                    みん営フレンズ（個人）
+                  </a>
+                </div>
+                <div className="menu-link-wrapper">
+                  <a href="/supportercorp" className="menu-link" onClick={onClose}>
+                    <img src="/images/main/menu-line.png" alt="" className="menu-link-icon" />
+                    みん営パートナー（法人・団体）
+                  </a>
+                </div>
               </div>
             </div>
             
-            <a href="/info" className="menu-link" onClick={onClose}>
-              <img src="/images/main/menu-vec.png" alt="" className="menu-link-icon" />
-              おしらせ・記録
-            </a>
+            <div className="menu-link-wrapper">
+              <a href="/info" className="menu-link" onClick={onClose}>
+                <img src="/images/main/menu-vec.png" alt="" className="menu-link-icon" />
+                おしらせ・記録
+              </a>
+            </div>
             
-            <a 
-              href="https://docs.google.com/forms/d/e/1FAIpQLSeQisLpyoUlh3Bsgt4quyVe3GtiSExoa-WOJyoyv2cRBoeYNA/viewform"
-              className="menu-link"
-              target="_blank"
-              rel="noopener noreferrer">
-              <img src="/images/main/menu-vec.png" alt="" className="menu-link-icon" />
-              お問い合わせ
-            </a>
+            <div className="menu-link-wrapper">
+              <a 
+                href="https://docs.google.com/forms/d/e/1FAIpQLSeQisLpyoUlh3Bsgt4quyVe3GtiSExoa-WOJyoyv2cRBoeYNA/viewform"
+                className="menu-link"
+                target="_blank"
+                rel="noopener noreferrer">
+                <img src="/images/main/menu-vec.png" alt="" className="menu-link-icon" />
+                お問い合わせ
+              </a>
+            </div>
           </nav>
           
           <div className="menu-bottom">
-            <a href="/forktoyama" className="menu-bottom-link" onClick={onClose}>
+            <a href="/forktoyama" className="menu-bottom-link-wrapper" onClick={onClose}>
               <span className="menu-bottom-link-text">学童保育：fork toyama</span>
               <img 
                 src={IMAGES.logo.vecw}

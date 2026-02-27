@@ -551,11 +551,12 @@
   .natural-architecture-bg .right-column {
     width: 100%;
     max-width: none;
-    padding: 50px 30px 60px 30px;
+    padding: 0px 30px 30px 30px;
   }
   
   .natural-architecture-bg .mobile-text-section {
     display: block;
+    margin-top: 65px;
     margin-bottom: 30px;
   }
   
@@ -581,11 +582,12 @@
   
   .natural-architecture-bg .section-title {
     font-size: 25px;
+    margin: 0 0 50px 0;
   }
   
   .natural-architecture-bg .description {
     font-size: 13px;
-    padding: 20px 0 0 0px;
+    padding: 0px 0 0 0px;
   }
 }
 
@@ -1061,13 +1063,13 @@
   }
   
   .description-category {
-    font-size: 13px;
+    font-size: 15px;
     padding: 0 0 0px 0;
     margin: 0 0 12px 0;
   }
   
   .description-title {
-    font-size: 20px;
+    font-size: 25px;
     margin: 0 0 20px 0;
   }
   
@@ -1085,7 +1087,7 @@
   }
   
   .description-list-item {
-    padding: 20px;
+    padding: 15px 20px;
     margin: 0 0 12px 0;
   }
   
@@ -1096,7 +1098,7 @@
   }
   
   .description-list-text {
-    font-size: 16px;
+    font-size: 18px;
   }
   
   /* モバイル用静止画像を表示 */

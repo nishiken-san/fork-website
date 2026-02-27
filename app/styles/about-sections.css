@@ -69,8 +69,7 @@
   font-size: 15px;
   font-weight: 700;
   letter-spacing: 0;
-  margin: 0 0 2rem 0;
-  padding: 0;
+  padding-bottom: 35px;
 }
 
 .about-description {
@@ -123,7 +122,7 @@
   
   .about-section-category {
     font-size: 13px;
-    margin-bottom: 1.5rem;
+    padding-bottom: 35px;
     padding-top: 100px;
   }
   .about-content-wrapper {
@@ -137,6 +136,14 @@
    Childcare Section
    ============================================ */
 
+/* ----------------------------------------
+   PC Layout
+   上部余白: 110px
+   下部余白: 100px
+   左右余白: 50px
+   左右カラム間: 25px
+   ---------------------------------------- */
+
 .childcare-main-bg {
   background-color: #E7EBE7;
   position: relative;
@@ -145,6 +152,7 @@
 .childcare-section-container {
   display: flex;
   justify-content: space-between;
+  padding: 0 50px; /* 左右50px */
 }
 
 .childcare-left-column {
@@ -156,19 +164,16 @@
 
 .childcare-right-column {
   flex: 0 0 auto;
-  width: min(66.666%, 900px);  /* 66%か900pxの小さい方 */
-  background-color: #E7EBE7;
+  width: min(66.666%, 900px);
   max-width: 900px;
-  justify-content: flex-end;
+  background-color: #E7EBE7;
 }
 
+/* 左カラム: Sticky Header */
 .childcare-sticky-header {
   position: sticky;
   top: 80px;
-  padding: 0 0 60px 0;
-  margin: 0;
-  margin-left: 50px;
-  padding-top: 80px;
+  padding: 110px 25px 100px 0; /* 上110px 右25px 下100px 左0（コンテナで確保済み） */
   background-color: #E7EBE7;
   z-index: 20;
   display: flex;
@@ -182,7 +187,7 @@
   font-size: 15px;
   font-weight: 700;
   letter-spacing: 0;
-  margin: 0 0 1.5rem 0;
+  margin: 0 0 16px 0; /* ラベルとタイトルの間: 16px */
   padding: 0;
 }
 
@@ -195,12 +200,13 @@
   padding: 0;
 }
 
+/* 右カラム: コンテンツエリア */
 .childcare-content-area {
-  padding: 80px 50px 60px 50px;
+  padding: 110px 0 100px 25px; /* 上110px 右0（コンテナで確保済み） 下100px 左25px */
 }
 
 .childcare-text-block {
-  margin-bottom: 3rem;
+  margin: 0; /* 不要なmarginを削除 */
 }
 
 .childcare-paragraph {
@@ -208,14 +214,18 @@
   font-size: 13px;
   font-weight: 700;
   line-height: 2;
-  margin: 0 0 1.5rem 0;
+  margin: 0 0 24px 0; /* 段落間: 24px */
   padding: 0;
+}
+
+.childcare-paragraph:last-child {
+  margin-bottom: 0; /* 最後の段落のmarginを削除 */
 }
 
 .childcare-image-container {
   display: flex;
   justify-content: center;
-  margin-top: 4rem;
+  margin-top: 60px; /* テキストと画像の間: 60px */
 }
 
 .childcare-image {
@@ -228,72 +238,114 @@
   display: none;
 }
 
+/* ----------------------------------------
+   Tablet (769px - 1024px)
+   ---------------------------------------- */
 @media (min-width: 769px) and (max-width: 1024px) {
   .childcare-sticky-header {
-    padding: 0 0 60px 0;
-    margin-left: 50px;
-    padding-top: 80px;
+    padding: 110px 20px 100px 0; /* 右20px */
   }
   
   .childcare-content-area {
-    padding: 80px 50px 60px 50px;
+    padding: 110px 0 100px 20px; /* 左20px */
   }
   
   .childcare-title {
     font-size: 22px;
   }
-  
-  .childcare-paragraph {
-    font-size: 14px;
-  }
 }
 
+/* ----------------------------------------
+   Mobile (768px以下)
+   ---------------------------------------- */
 @media (max-width: 768px) {
   .childcare-main-bg {
-    padding-bottom: 60px;
+    margin: 0 !important;
+    padding: 0 !important;
   }
   
   .childcare-section-container {
     flex-direction: column;
+    padding: 0 !important;
+    margin: 0 !important;
   }
   
   .childcare-left-column {
     width: 100%;
+    margin: 0 !important;
+    padding: 0 !important;
+    display: block !important;
+    height: auto !important;
+    min-height: auto !important;
+    overflow: visible !important;
+    flex: none !important; /* flexの影響を無効化 */
   }
   
   .childcare-right-column {
     width: 100%;
+    max-width: none;
+    margin: 0 !important;
+    padding: 0 !important;
+    display: block !important;
+    height: auto !important;
+    flex: none !important;
   }
   
+  /* モバイル: Sticky Header */
   .childcare-sticky-header {
-    position: relative;
-    padding: 0 0 60px 0;
-    margin: 0;
-    margin-left: 30px;
-    margin-bottom: 100px;
+    position: relative !important;
+    display: block !important;
+    height: auto !important;
+    min-height: auto !important;
+    padding: 90px 30px 0 30px;
+    margin: 0 !important;
+    top: auto !important; /* sticky の top をリセット */
   }
   
-  .minei-label {
+  .childcare-sticky-header .minei-label {
+    display: block !important;
+    position: relative !important;
     font-size: 13px;
-    margin: 0 0 1rem 0;
+    margin: 0 0 16px 0 !important;
+    padding: 0 !important;
+    height: auto !important;
   }
   
-  .childcare-title {
+  .childcare-sticky-header .childcare-title {
+    display: block !important;
+    position: relative !important;
     font-size: 20px;
     writing-mode: horizontal-tb;
+    margin: 0 !important;
+    padding: 0 !important;
+    height: auto !important;
   }
   
+  /* モバイル: コンテンツエリア */
   .childcare-content-area {
-    padding: 0 30px 60px 30px;
+    padding: 90px 30px 100px 30px;
+    margin: 0 !important;
+  }
+  
+  .childcare-text-block {
+    margin: 0 !important;
+    padding: 0 !important;
   }
   
   .childcare-paragraph {
     font-size: 13px;
     line-height: 1.8;
+    margin: 0 0 40px 0 !important;
+    padding: 0 !important;
+  }
+  
+  .childcare-paragraph:last-child {
+    margin-bottom: 0 !important;
   }
   
   .childcare-image-container {
-    margin-top: 2rem;
+    margin: 40px 0 0 0 !important;
+    padding: 0 !important;
   }
   
   .childcare-image {
@@ -304,10 +356,10 @@
     display: block;
     width: 100%;
     height: auto;
-    margin: 0 30px 0 30px;
+    margin: 0 !important;
+    padding: 0 !important;
   }
 }
-
 
 
 
@@ -832,13 +884,18 @@
 }
 
 @media (max-width: 768px) {
+  .history-mobile-header {
+    padding: 100px 30px 0 30px;
+    margin-bottom: 100px;
+  }
+
   .history-main-bg {
     padding-bottom: 60px;
   }
   
   .history-label {
     font-size: 13px;
-    margin-bottom: 1rem;
+    margin-bottom: 15px;
   }
   
   .history-title {
@@ -886,13 +943,17 @@
     width: 20px;
     height: 10px;
   }
+
+  .history-year-cell,
+  .history-month-cell,
+  .history-content-cell {
+    font-size: 13px;
+    padding: 13px 10px 13px 0px;
+  }
 }
 
-@media (max-width: 480px) {
-  .history-mobile-header {
-    padding: 40px 30px 0 30px;
-    margin-bottom: 80px;
-  }
+/* @media (max-width: 480px) {
+  
   
   .history-mobile-content {
     padding: 0 30px 60px 30px;
@@ -920,7 +981,7 @@
   .history-note-link {
     font-size: 11px;
   }
-}
+} */
 
 /* ============================================
    Member Section
@@ -1003,7 +1064,7 @@
   font-size: 15px;
   font-weight: 700;
   letter-spacing: 0;
-  margin: 0 0 1.5rem 0;
+  margin: 0 0 15px 0;
   padding: 0;
 }
 
@@ -1038,14 +1099,14 @@
   color: #B4B4B4;
   font-size: 13px;
   font-weight: 700;
-  margin-bottom: 0.5rem;
+  margin-bottom: 15px;
 }
 
 .member-leader-name {
   color: #003705;
   font-size: 20px;
   font-weight: 700;
-  margin-bottom: 1rem;
+  margin-bottom: 15px;
 }
 
 .member-leader-description {
@@ -1079,7 +1140,7 @@
   font-weight: 700;
 }
 
-@media (min-width: 769px) and (max-width: 1024px) {
+@media (max-width: 768px){
   .member-main-bg {
     padding-bottom: 60px;
   }
@@ -1101,9 +1162,40 @@
   .member-grid {
     grid-template-columns: repeat(3, 1fr);
   }
-}
 
-@media (max-width: 768px) {
+
+  .member-mobile-header {
+    padding: 40px 30px 0 30px;
+    margin-bottom: 100px;
+  }
+  
+  .member-mobile-content {
+    padding: 0 30px 60px 30px;
+  }
+  
+  .member-label {
+    font-size: 13px;
+  }
+  
+  .member-title {
+    font-size: 20px;
+  }
+  
+  .member-grid-mobile {
+    gap: 30px;
+  }
+  
+  .member-leader-description {
+    font-size: 13px;
+  }
+  
+  .member-name {
+    font-size: 20px;
+  }
+  
+  .member-nickname {
+    font-size: 13px;
+  }
   .member-main-bg {
     padding-bottom: 60px;
   }
@@ -1120,8 +1212,7 @@
   .member-leader-card {
     flex-direction: column;
     gap: 1.5rem;
-    margin-bottom: 2rem;
-    padding-bottom: 2rem;
+    padding-bottom: 100px;
   }
   
   .member-leader-image {
@@ -1136,6 +1227,7 @@
   
   .member-leader-name {
     font-size: 20px;
+    margin-bottom: 25px;
   }
   
   .member-leader-description {
@@ -1152,7 +1244,7 @@
   }
 }
 
-@media (max-width: 480px) {
+/* @media (max-width: 480px) {
   .member-mobile-header {
     padding: 40px 30px 0 30px;
     margin-bottom: 80px;
@@ -1186,7 +1278,7 @@
   .member-nickname {
     font-size: 13px;
   }
-}
+} */
 
 .parallaxSection {
   position: relative;

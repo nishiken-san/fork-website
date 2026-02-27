@@ -154,8 +154,7 @@ const AboutUsSection = () => {
     .content-area {
       padding-top: 145px;
       padding-right: 30px;
-      padding-bottom: 50px;
-      gap: 32px;
+      padding-bottom: 0px;
     }
 
     .content-area .illustration-container,
@@ -163,14 +162,22 @@ const AboutUsSection = () => {
       display: none;
     }
 
+    .section-label {
+    padding-bottom: 35px;
+  }
+
+  .main-text {
+    padding-bottom: 0px;
+  }
+
     .mobile-media-container {
       display: flex;
       flex-direction: column;
       align-items: center;
+      padding-top: 80px;
       padding-left: 30px;
       padding-right: 30px;
-      padding-bottom: 50px;
-      gap: 32px;
+      padding-bottom: 70px;
     }
 
     .mobile-media-container .illustration {

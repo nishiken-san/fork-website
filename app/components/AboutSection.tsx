@@ -55,7 +55,7 @@ const AboutSection = () => {
         .main-description {
           color: #003705;
           font-size: 15px;
-          margin-bottom: 2rem;
+          margin-bottom: 40px;
           font-weight: 700;
         }
         .button-container {
@@ -103,10 +103,10 @@ const AboutSection = () => {
             width: 75%;
             order: 2;
           }
-          
+
           .sticky-header {
             position: static;
-            padding: 50px 30px 15px 30px;
+            padding: 100px 30px 20px 30px;
             top: auto;
           }
           
@@ -114,9 +114,16 @@ const AboutSection = () => {
             white-space: normal;
             font-size: 1.75rem;
           }
+
+          .section-label {
+            color: #999;
+            font-size: 15px;
+            font-weight: 700;
+            margin-bottom: 20px;
+          }
           
           .content-area {
-            padding: 0px 30px 45px 30px;
+            padding: 0px 30px 50px 30px;
           }
           
           .button-container {

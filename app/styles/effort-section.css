@@ -1,4 +1,4 @@
-/* app/styles/effort-section.css */
+app/styles/effort-section.css
 /* 取り組みセクション共通スタイル */
 
 
@@ -175,7 +175,7 @@
     }
     .sticky-header {
         position: sticky;
-        padding: 80px 30px 100px 30px;
+        padding: 90px 25px 100px 25px;
         background-color: #003705;
         z-index: 20;
         display: flex;
@@ -206,4 +206,346 @@
     }
   }
   
- 
+ /* ============================================
+   Effort Section 共通スタイル
+   
+   【PC】
+   - セクション上部余白: 100px (sticky-header の padding-top)
+   - セクション下部余白: 100px (padding-bottom)
+   - 左右余白: 50px (section-container の padding)
+   - カラム間: 25px + 25px = 50px
+   
+   【モバイル】
+   - タイトル上: 90px (sticky-header の padding-top)
+   - タイトルとコンテンツ間: 90px (content-area の padding-top)
+   - コンテンツ下: 100px (content-area の padding-bottom)
+   - 左右: 30px
+   ============================================ */
+
+/* ----------------------------------------
+   PC 共通スタイル
+   ---------------------------------------- */
+
+.gakudou-bg,
+.gakudou2-bg,
+.gakudou3-bg,
+.gakudou4-bg {
+  background-color: #E7EBE7;
+  margin: 0;
+  padding: 0;
+}
+
+.gakudou-bg .section-container,
+.gakudou2-bg .section-container,
+.gakudou3-bg .section-container,
+.gakudou4-bg .section-container {
+  display: flex;
+  justify-content: space-between;
+  padding: 0 50px;
+  margin: 0;
+}
+
+.gakudou-bg .left-column,
+.gakudou2-bg .left-column,
+.gakudou3-bg .left-column,
+.gakudou4-bg .left-column {
+  flex: 0 0 auto;
+  width: 33.333333%;
+  background-color: #E7EBE7;
+  position: relative;
+  margin: 0;
+  padding: 0;
+}
+
+.gakudou-bg .right-column,
+.gakudou2-bg .right-column,
+.gakudou3-bg .right-column,
+.gakudou4-bg .right-column {
+  flex: 0 0 auto;
+  width: min(66.666%, 900px);
+  max-width: 900px;
+  background-color: #E7EBE7;
+  margin: 0;
+  padding: 0;
+}
+
+.gakudou-bg .sticky-header,
+.gakudou2-bg .sticky-header,
+.gakudou3-bg .sticky-header,
+.gakudou4-bg .sticky-header {
+  position: sticky;
+  top: 80px;
+  padding: 100px 25px 100px 0;
+  margin: 0;
+  background-color: #E7EBE7;
+  z-index: 20;
+}
+
+.gakudou-bg .section-label,
+.gakudou2-bg .section-label,
+.gakudou3-bg .section-label,
+.gakudou4-bg .section-label {
+  color: #003705;
+  font-size: 25px;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  margin: 0 0 19px 0;
+  padding: 0;
+}
+
+.gakudou-bg .section-subtitle,
+.gakudou2-bg .section-subtitle,
+.gakudou3-bg .section-subtitle,
+.gakudou4-bg .section-subtitle {
+  color: #B4B4B4;
+  font-size: 15px;
+  font-weight: 700;
+  letter-spacing: 0;
+  margin: 0 0 12px 0;
+  padding: 0;
+}
+
+.gakudou-bg .section-title,
+.gakudou2-bg .section-title,
+.gakudou3-bg .section-title,
+.gakudou4-bg .section-title {
+  color: #003705;
+  font-size: 25px;
+  font-weight: 700;
+  line-height: 1.4;
+  margin: 0;
+  padding: 0;
+}
+
+.gakudou-bg .content-area,
+.gakudou2-bg .content-area,
+.gakudou3-bg .content-area,
+.gakudou4-bg .content-area {
+  padding: 100px 0 100px 25px;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
+}
+
+.gakudou-bg .main-description,
+.gakudou2-bg .main-description,
+.gakudou3-bg .main-description,
+.gakudou4-bg .main-description {
+  color: #003705;
+  font-size: 13px;
+  font-weight: 700;
+  line-height: 1.8;
+  margin: 0 0 32px 0;
+  padding: 0;
+  text-align: left;
+}
+
+/* ボタン共通 */
+.gakudou-bg .button-section,
+.gakudou2-bg .button-section,
+.gakudou3-bg .button-section,
+.gakudou4-bg .button-section {
+  width: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+.gakudou-bg .about-button,
+.gakudou2-bg .support-button,
+.gakudou3-bg .curriculum-button,
+.gakudou4-bg .training-button {
+  background-color: #E7EBE7;
+  border: 1px solid #003705;
+  color: #003705;
+  padding: 0;
+  font-size: 15px;
+  font-weight: 700;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  text-decoration: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 53px;
+  text-align: center;
+  position: relative;
+  box-shadow: 3px 3px 0px #003705;
+}
+
+.gakudou-bg .about-button:hover,
+.gakudou2-bg .support-button:hover,
+.gakudou3-bg .curriculum-button:hover,
+.gakudou4-bg .training-button:hover {
+  background-color: #93A794;
+}
+
+/* ----------------------------------------
+   Mobile (768px以下)
+   ---------------------------------------- */
+@media (max-width: 768px) {
+  .gakudou-bg,
+  .gakudou2-bg,
+  .gakudou3-bg,
+  .gakudou4-bg {
+    margin: 0 !important;
+    padding: 0 !important;
+  }
+  
+  .gakudou-bg .section-container,
+  .gakudou2-bg .section-container,
+  .gakudou3-bg .section-container,
+  .gakudou4-bg .section-container {
+    flex-direction: column;
+    padding: 0 !important;
+    margin: 0 !important;
+  }
+  
+  .gakudou-bg .left-column,
+  .gakudou2-bg .left-column,
+  .gakudou3-bg .left-column,
+  .gakudou4-bg .left-column {
+    width: 100%;
+    margin: 0 !important;
+    padding: 0 !important;
+    display: block !important;
+    height: auto !important;
+    min-height: auto !important;
+    overflow: visible !important;
+    flex: none !important;
+  }
+  
+  .gakudou-bg .right-column,
+  .gakudou2-bg .right-column,
+  .gakudou3-bg .right-column,
+  .gakudou4-bg .right-column {
+    width: 100%;
+    max-width: none;
+    margin: 0 !important;
+    padding: 0 !important;
+    display: block !important;
+    height: auto !important;
+    flex: none !important;
+  }
+  
+  .gakudou-bg .sticky-header,
+  .gakudou2-bg .sticky-header,
+  .gakudou3-bg .sticky-header,
+  .gakudou4-bg .sticky-header {
+    position: relative !important;
+    display: block !important;
+    height: auto !important;
+    min-height: auto !important;
+    padding: 100px 30px 0 30px !important;
+    margin: 0 !important;
+    top: auto !important;
+  }
+  
+  .gakudou-bg .section-label,
+  .gakudou2-bg .section-label,
+  .gakudou3-bg .section-label,
+  .gakudou4-bg .section-label {
+    display: block !important;
+    position: relative !important;
+    font-size: 25px;
+    margin: 0 0 30px 0 !important;
+    padding: 0 !important;
+    height: auto !important;
+  }
+  
+  .gakudou-bg .section-subtitle,
+  .gakudou2-bg .section-subtitle,
+  .gakudou3-bg .section-subtitle,
+  .gakudou4-bg .section-subtitle {
+    display: block !important;
+    position: relative !important;
+    font-size: 15px;
+    margin: 0 0 15px 0 !important;
+    padding: 0 !important;
+    height: auto !important;
+  }
+  
+  .gakudou-bg .section-title,
+  .gakudou2-bg .section-title,
+  .gakudou3-bg .section-title,
+  .gakudou4-bg .section-title {
+    display: block !important;
+    position: relative !important;
+    font-size: 25px;
+    margin: 0 !important;
+    padding: 0 !important;
+    height: auto !important;
+  }
+  
+  .gakudou-bg .content-area,
+  .gakudou2-bg .content-area,
+  .gakudou3-bg .content-area,
+  .gakudou4-bg .content-area {
+    padding: 40px 30px 40px 30px !important;
+    margin: 0 !important;
+  }
+  
+  .gakudou-bg .main-description,
+  .gakudou2-bg .main-description,
+  .gakudou3-bg .main-description,
+  .gakudou4-bg .main-description {
+    font-size: 13px;
+    line-height: 1.6;
+    margin: 0 0 20px 0 !important;
+    padding: 0 !important;
+  }
+  
+  /* Gakudou1 固有 */
+  .gakudou-bg .fork-logo-section {
+    margin: 0 0 20px 0 !important;
+    padding: 0 !important;
+  }
+  
+  .gakudou-bg .about-button {
+    height: 45px;
+    font-size: 14px;
+  }
+  
+  /* Gakudou2 固有 */
+  .gakudou2-bg .support-list {
+    margin: 0 0 15px 0 !important;
+    padding: 0 !important;
+  }
+  
+  .gakudou2-bg .support-item {
+    font-size: 13px;
+    margin: 0 0 8px 0 !important;
+    padding: 0 !important;
+  }
+  
+  .gakudou2-bg .map-section {
+    margin: 0 0 20px 0 !important;
+    padding: 0 !important;
+  }
+  
+  .gakudou2-bg .button-section {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+  }
+  
+  .gakudou2-bg .support-button {
+    height: 45px;
+    font-size: 14px;
+  }
+  
+  /* Gakudou3, Gakudou4 固有 */
+  .gakudou3-bg .image-section,
+  .gakudou4-bg .image-section {
+    margin: 0 0 24px 0 !important;
+    padding: 0 !important;
+  }
+  
+  .gakudou3-bg .curriculum-button,
+  .gakudou4-bg .training-button {
+    height: 45px;
+    font-size: 14px;
+  }
+}

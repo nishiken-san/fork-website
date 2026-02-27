@@ -91,14 +91,16 @@ const Facility = () => {
         }
 
         .sticky-header {
-          padding: 45px 0 50px 0;
+          padding: 50px 0 100px 0;
         }
 
         .description-container {
           flex-direction: column;
         }
 
-
+        .what-we-do {
+          margin-bottom: 30px;
+        }
         
       }
       `}</style>

@@ -59,7 +59,7 @@ const EffortMainSection = () => {
         .description {
           font-size: 15px;
           line-height: 2;
-          margin-bottom: 3rem;
+          margin-bottom: 50px;
         }
         .effort-list {
           list-style: none;

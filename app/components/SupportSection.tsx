@@ -58,13 +58,13 @@ const SupporterSection = () => {
           font-size: 15px;
           font-weight: 700;
           line-height: 2;
-          margin-bottom: 30px;
+          padding-bottom: 30px;
         }
         .button-group {
           display: flex;
           flex-direction: column;
-          gap: 1rem;
-          margin-bottom: 4rem;
+          gap: 20px;
+          padding-bottom: 65px;
           max-width: 900px;
         }
         .support-button {
@@ -88,13 +88,13 @@ const SupporterSection = () => {
           background-color: #93A794;
         }
         .supporters-list {
-          margin-bottom: 3rem;
+          padding-bottom: 3rem;
         }
         .list-title {
           color: #FFFFFF;
           font-size: 20px;
           font-weight: 700;
-          margin-bottom: 1.5rem;
+          padding-bottom: 1.5rem;
         }
         .supporter-names {
           color: #FFFFFF;
@@ -153,7 +153,11 @@ const SupporterSection = () => {
           }
 
           .button-group {
-            margin-bottom: 90px;
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+            padding-bottom: 105px;
+            max-width: 900px;
           }
           
           .mobile-content .button-group {
@@ -166,27 +170,28 @@ const SupporterSection = () => {
 
           .section-label {
             color: #B4B4B4;
-            font-size: 13px;
+            font-size: 15px;
             font-weight: 700;
             letter-spacing: 0.05em;
-            margin-bottom: 1rem;
+            padding-bottom: 30px;
           }
 
           .description {
             padding-top: 0px;
-            font-size: 13px;
+            font-size: 15px;
+            padding-bottom: 50px;
           }
 
           .list-title {
-            margin-bottom: 45px;
+            padding-bottom: 50px;
           }
           
           .supporters-list {
-            margin-bottom: 90px;
+            padding-bottom: 90px;
           }
           
           .note {
-            margin-bottom: 0;
+            padding-bottom: 0;
           }
         }
         

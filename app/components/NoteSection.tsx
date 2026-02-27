@@ -375,7 +375,7 @@ const NoteSection = () => {
           
           .sticky-header {
             position: static;
-            padding: 50px 30px 20px 30px;
+            padding: 85px 30px 55px 30px;
           }
           
           .section-label {
