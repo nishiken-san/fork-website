@@ -165,18 +165,18 @@
   
   .logo {
     top: 60px;
-    left: 30px;
-    right: 30px;
+    left: 0px;
+    right: 0px;
     min-width: auto; /* 最小幅を解除 */
-    max-width: 330px;
+    max-width: 380px;
   }
   
   /* イラストを画面内に収める */
   .illustration {
     top: 80px;
-    right: 0; /* 見切れないように0に */
+    right: 10px; /* 見切れないように0に */
     width: 70vw; /* 幅を調整 */
-    max-width: 380px;
+    max-width: 480px;
     min-width: auto; /* 最小幅を解除 */
   }
   
@@ -195,9 +195,9 @@
 @media (max-width: 480px) {
   .logo {
     top: 50px;
-    left: 30px;
-    right: 20px;
-    max-width: 280px;
+    left: 0px;
+    right: 0px;
+    max-width: 380px;
   }
   
   /* イラストを画面内に収める */

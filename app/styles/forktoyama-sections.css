@@ -149,7 +149,7 @@
   text-orientation: mixed;
   color: white;
   font-size: 25px;
-  font-weight: 600;
+  font-weight: 700;
   line-height: 1.4;
   letter-spacing: 0.1em;
 }
@@ -157,7 +157,6 @@
 .forktoyama-vertical-container {
   display: flex;
   justify-content: flex-end;
-  gap: 10px;
 }
 
 /* ========================================
@@ -1125,7 +1124,7 @@
   
 }
 
-.social-link-container {
+.social-link-containers {
   display: inline-flex;
   align-items: center;
   justify-content: flex-end;
@@ -1156,18 +1155,18 @@
   background-color: #003705;
 }
 
-.social-link-container .arrow-icon {
+.social-link-containers .arrow-icon {
   transition: transform 0.3s ease;
 }
 
 /* ホバー効果 - 文字か矢印にホバーで両方動く */
-.social-link-container:hover .social-link,
-.social-link-container:hover .arrow-icon {
+.social-link-containers:hover .social-link,
+.social-link-containers:hover .arrow-icon {
   transform: translateX(0.5em);
 }
 
 @media (max-width: 768px) {
-  .social-link-container {
+  .social-link-containers {
     width: 100%; /* 親要素の幅いっぱいに */
     display: flex;
     justify-content: flex-end; /* 中身を右寄せ */

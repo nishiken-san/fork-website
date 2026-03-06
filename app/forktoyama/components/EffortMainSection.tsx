@@ -49,7 +49,7 @@ const EffortMainSection = () => {
           writing-mode: vertical-rl;
           text-orientation: mixed;
           color: white;
-          font-size: 1.5rem;
+          font-size: 25px;
           font-weight: 600;
           line-height: 1.4;
           letter-spacing: 0.1em;
@@ -93,7 +93,7 @@ const EffortMainSection = () => {
             padding: 4rem 4rem;
           }
           .vertical-title {
-            font-size: 1.75rem;
+            font-size: 25px;
           }
         }
       `}</style>

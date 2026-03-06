@@ -1029,7 +1029,14 @@ body {
 }
 
 html, body {
-  /* overscroll-behavior: none;  オーバースクロール時の挙動を制御 */
+  overscroll-behavior: none;
+  overscroll-behavior-y: none;
+}
+
+html.allow-bounce,
+html.allow-bounce body {
+  overscroll-behavior: auto;
+  overscroll-behavior-y: auto;
 }
 
 #main-content {

@@ -30,7 +30,7 @@ const SupporterSection = () => {
         .sticky-header {
           position: sticky;
           top: 50px;
-          padding: 90px 50px 70px 50px;
+          padding: 80px 50px 70px 50px;
           background-color: #003705;
           z-index: 20;
           display: flex;
@@ -136,7 +136,7 @@ const SupporterSection = () => {
           
           .mobile-header-right {
             width: 25%;
-            padding-right: 30px;
+            padding-right: 25px;
             display: flex;
             justify-content: flex-end;
           }

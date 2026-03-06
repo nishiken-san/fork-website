@@ -57,6 +57,7 @@ const AboutSection = () => {
           font-size: 15px;
           margin-bottom: 50px;
           font-weight: 700;
+          line-height: 2;
         }
         .button-container {
           width: 100%;
@@ -107,7 +108,7 @@ const AboutSection = () => {
           
           .section-title {
             white-space: normal;
-            font-size: 1.75rem;
+            font-size: 25px;
           }
 
           .section-label {

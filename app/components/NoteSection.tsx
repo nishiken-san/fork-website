@@ -23,6 +23,7 @@ const NoteSection = () => {
   const [isDragging, setIsDragging] = useState(false);
   const [startX, setStartX] = useState(0);
   const [scrollLeft, setScrollLeft] = useState(0);
+  const [hasMoved, setHasMoved] = useState(false);
 
   useEffect(() => {
     const fetchNoteArticles = async () => {
@@ -42,15 +43,54 @@ const NoteSection = () => {
     fetchNoteArticles();
   }, []);
 
+  // スムーズスナップ関数
+  const smoothSnapToCenter = () => {
+    const container = scrollContainerRef.current;
+    if (!container) return;
+    
+    const cards = container.querySelectorAll('.note-card');
+    if (cards.length === 0) return;
+    
+    const containerWidth = container.offsetWidth;
+    const scrollLeftPos = container.scrollLeft;
+    const containerCenter = scrollLeftPos + containerWidth / 2;
+    
+    let closestCard: Element | null = null;
+    let closestDistance = Infinity;
+    
+    cards.forEach((card) => {
+      const cardElement = card as HTMLElement;
+      const cardCenter = cardElement.offsetLeft + cardElement.offsetWidth / 2;
+      const distance = Math.abs(containerCenter - cardCenter);
+      
+      if (distance < closestDistance) {
+        closestDistance = distance;
+        closestCard = card;
+      }
+    });
+    
+    if (closestCard) {
+      const cardElement = closestCard as HTMLElement;
+      const targetScroll = cardElement.offsetLeft - (containerWidth - cardElement.offsetWidth) / 2;
+      
+      container.scrollTo({
+        left: targetScroll,
+        behavior: 'smooth'
+      });
+    }
+  };
+
   // マウスドラッグ開始
   const handleMouseDown = (e: React.MouseEvent) => {
     const container = scrollContainerRef.current;
     if (!container) return;
     
     setIsDragging(true);
+    setHasMoved(false);
     setStartX(e.pageX - container.offsetLeft);
     setScrollLeft(container.scrollLeft);
     container.style.cursor = 'grabbing';
+    container.style.scrollSnapType = 'none'; // ドラッグ中はスナップ無効
   };
 
   // マウスドラッグ中
@@ -63,24 +103,44 @@ const NoteSection = () => {
     
     const x = e.pageX - container.offsetLeft;
     const walk = (x - startX) * 1.5;
+    
+    if (Math.abs(walk) > 5) {
+      setHasMoved(true);
+    }
+    
     container.scrollLeft = scrollLeft - walk;
   };
 
   // マウスドラッグ終了
   const handleMouseUp = () => {
-    setIsDragging(false);
     const container = scrollContainerRef.current;
     if (container) {
       container.style.cursor = 'grab';
+      container.style.scrollSnapType = ''; // スナップを再有効化
     }
+    
+    setIsDragging(false);
+    
+    // スムーズにスナップ
+    setTimeout(() => {
+      smoothSnapToCenter();
+    }, 10);
   };
 
   // マウスが要素から離れた時
   const handleMouseLeave = () => {
-    setIsDragging(false);
-    const container = scrollContainerRef.current;
-    if (container) {
-      container.style.cursor = 'grab';
+    if (isDragging) {
+      const container = scrollContainerRef.current;
+      if (container) {
+        container.style.cursor = 'grab';
+        container.style.scrollSnapType = '';
+      }
+      
+      setIsDragging(false);
+      
+      setTimeout(() => {
+        smoothSnapToCenter();
+      }, 10);
     }
   };
 
@@ -90,8 +150,10 @@ const NoteSection = () => {
     if (!container) return;
     
     setIsDragging(true);
+    setHasMoved(false);
     setStartX(e.touches[0].pageX - container.offsetLeft);
     setScrollLeft(container.scrollLeft);
+    container.style.scrollSnapType = 'none';
   };
 
   // タッチドラッグ中
@@ -103,17 +165,31 @@ const NoteSection = () => {
     
     const x = e.touches[0].pageX - container.offsetLeft;
     const walk = (x - startX) * 1.5;
+    
+    if (Math.abs(walk) > 5) {
+      setHasMoved(true);
+    }
+    
     container.scrollLeft = scrollLeft - walk;
   };
 
   // タッチドラッグ終了
   const handleTouchEnd = () => {
+    const container = scrollContainerRef.current;
+    if (container) {
+      container.style.scrollSnapType = '';
+    }
+    
     setIsDragging(false);
+    
+    setTimeout(() => {
+      smoothSnapToCenter();
+    }, 10);
   };
 
   // カードクリック時（ドラッグ中はリンク遷移を防ぐ）
   const handleCardClick = (e: React.MouseEvent, url: string) => {
-    if (isDragging) {
+    if (hasMoved) {
       e.preventDefault();
       return;
     }
@@ -184,7 +260,6 @@ const NoteSection = () => {
           bottom: 0px;
         }
         
-        
         .scroll-line-right {
           right: 50px;
         }
@@ -210,7 +285,6 @@ const NoteSection = () => {
         
         .scroll-container.dragging {
           cursor: grabbing;
-          scroll-behavior: auto;
         }
         
         .note-card {
@@ -221,7 +295,7 @@ const NoteSection = () => {
           box-shadow: 3px 3px 0px #003705;
           padding: 1rem;
           cursor: pointer;
-          transition: transform 0.3s ease;
+          transition: transform 0.3s ease, opacity 0.3s ease;
           text-decoration: none;
           display: flex;
           flex-direction: column;
@@ -299,8 +373,6 @@ const NoteSection = () => {
           flex-grow: 1;
         }
         
-        // view-all-container 関連のCSS部分を修正
-
         .view-all-container {
           display: flex;
           justify-content: flex-end;
@@ -345,13 +417,8 @@ const NoteSection = () => {
           transition: transform 0.3s ease;
         }
         
-        .view-all-link:hover,
-        .view-all-link-wrapper:has(.arrow-icon:hover) .view-all-link {
-          transform: translateX(0.5em);
-        }
-        
-        .view-all-link-wrapper:has(.view-all-link:hover) .arrow-icon,
-        .view-all-link-wrapper .arrow-icon:hover {
+        .view-all-link-wrapper:hover .view-all-link,
+        .view-all-link-wrapper:hover .arrow-icon {
           transform: translateX(0.5em);
         }
         
@@ -371,6 +438,7 @@ const NoteSection = () => {
           
           .right-column {
             width: 100%;
+            max-width: 100%;
           }
           
           .sticky-header {
@@ -383,11 +451,11 @@ const NoteSection = () => {
           }
           
           .content-area {
-            padding: 0 0 ;
+            padding: 0;
           }
           
           .scroll-wrapper {
-            padding-bottom: 0px;
+            padding: 0;
           }
           
           .scroll-line-left,
@@ -395,25 +463,57 @@ const NoteSection = () => {
             display: none;
           }
           
+          .scroll-container {
+            display: flex;
+            gap: 20px;
+            overflow-x: auto;
+            padding: 30px calc((100vw - 250px) / 2) 35px;
+            -webkit-overflow-scrolling: touch;
+          }
+          
           .note-card {
-            flex: 0 0 180px;
-            height: 260px;
+            flex: 0 0 250px;
+            min-width: 250px;
+            height: 315px;
           }
           
           .card-image-wrapper {
-            height: 100px;
-            min-height: 100px;
-            max-height: 100px;
+            height: 150px;
+            min-height: 150px;
+            max-height: 150px;
           }
           
           .card-image {
-            height: 100px;
+            height: 150px;
           }
           
           .view-all-container {
             padding-right: 30px;
             padding-top: 0px;
             padding-bottom: 50px;
+          }
+        }
+        
+        @media (max-width: 375px) {
+          .scroll-container {
+            gap: 16px;
+            padding: 30px calc((100vw - 220px) / 2) 35px;
+          }
+          
+          .note-card {
+            flex: 0 0 220px;
+            min-width: 220px;
+            height: 300px;
+          }
+          
+          .card-image-wrapper {
+            height: 130px;
+            min-height: 130px;
+            max-height: 130px;
+          }
+          
+          .card-image {
+            height: 130px;
           }
         }
         

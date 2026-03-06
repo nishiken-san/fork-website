@@ -20,7 +20,7 @@ const Collaboration = () => {
             <div className="description">
               forkには、いろんな体験を手土産に多様な大人が訪れます。企業から個人まで、デジタルからアナログまで。子どもたちの関心や才能に出会える機会をみんなでつくっています。
             </div>
-            <div className="social-link-container">
+            <div className="social-link-containers">
               <a 
                 href="/info?tag=work-shop" 
                 className="social-link"
@@ -47,7 +47,7 @@ const Collaboration = () => {
               <div className="description">
                 forkには、いろんな体験を手土産に多様な大人が訪れます。企業から個人まで、デジタルからアナログまで。子どもたちの関心や才能に出会える機会をみんなでつくっています。
               </div>
-              <div className="social-link-container">
+              <div className="social-link-containers">
                 <a 
                   href="/info?tag=tie-up" 
                   className="social-link"

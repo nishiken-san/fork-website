@@ -336,7 +336,7 @@ app/styles/effort-section.css
   font-size: 13px;
   font-weight: 700;
   line-height: 1.8;
-  margin: 0 0 32px 0;
+  margin: 0 0 40px 0;
   padding: 0;
   text-align: left;
 }
@@ -348,7 +348,10 @@ app/styles/effort-section.css
 .gakudou4-bg .button-section {
   width: 100%;
   margin: 0;
-  padding: 0;
+  padding-top: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px; /* ボタン間隔: 20px */
 }
 
 .gakudou-bg .about-button,
@@ -504,7 +507,7 @@ app/styles/effort-section.css
   
   .gakudou-bg .about-button {
     height: 45px;
-    font-size: 14px;
+    font-size: 13px;
   }
   
   /* Gakudou2 固有 */
@@ -523,28 +526,114 @@ app/styles/effort-section.css
     margin: 0 0 20px 0 !important;
     padding: 0 !important;
   }
+
+  .gakudou2-bg .support-checkbox {
+    font-size: 13px;
+  }
   
   .gakudou2-bg .button-section {
     display: flex;
     flex-direction: column;
-    gap: 12px;
+    gap: 20px;
   }
   
   .gakudou2-bg .support-button {
     height: 45px;
-    font-size: 14px;
+    font-size: 13px;
   }
   
   /* Gakudou3, Gakudou4 固有 */
   .gakudou3-bg .image-section,
   .gakudou4-bg .image-section {
-    margin: 0 0 24px 0 !important;
+    margin: 0 0 0px 0 !important;
     padding: 0 !important;
   }
   
   .gakudou3-bg .curriculum-button,
   .gakudou4-bg .training-button {
     height: 45px;
-    font-size: 14px;
+    font-size: 13px;
+  }
+}
+
+/* サポートリスト */
+.support-list {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  margin: 0 0 40px 0;
+  padding: 0;
+}
+
+.support-item {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  color: #003705;
+  font-size: 13px; /* 13pxに変更 */
+  font-weight: 700;
+  line-height: 1.6;
+  margin: 0;
+  padding: 0;
+}
+
+.support-checkbox {
+  width: 10px;
+  height: 10px;
+  min-width: 10px;
+  border: 1px solid #003705;
+  background-color: transparent;
+  flex-shrink: 0;
+}
+
+/* ボタンセクション */
+.button-section {
+  display: flex;
+  flex-direction: column;
+  gap: 20px; /* ボタン間隔: 20px */
+  margin: 40px 0 0 0;
+  padding: 0;
+}
+
+.support-button {
+  display: block;
+  width: 100%;
+  padding: 12px 0;
+  background-color: #003705;
+  border: 1px solid #003705;
+  color: #FFFFFF;
+  font-size: 13px;
+  font-weight: 700;
+  text-align: center;
+  text-decoration: none;
+  cursor: pointer;
+  box-shadow: 3px 3px 0px #b4b4b4;
+  transition: all 0.3s ease;
+}
+
+.support-button:hover {
+  background-color: #93A794;
+  border: 1px solid #003705;
+  color: #003705;
+  box-shadow: 3px 3px 0px #003705;
+}
+
+/* ========================================
+   モバイル対応
+   ======================================== */
+
+@media (max-width: 768px) {
+  .support-item {
+    font-size: 13px;
+  }
+  
+  .button-section {
+    gap: 20px;
+    margin: 40px 0 0 0;
+  }
+  
+  .support-button {
+    padding: 12px 0;
+    font-size: 13px;
   }
 }

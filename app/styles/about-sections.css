@@ -63,8 +63,8 @@
 
 .about-sticky-area {
   position: sticky;
-  top: 80px;
-  padding: 90px 50px 100px 25px; /* 上90px 右50px 下100px 左25px */
+  top: 50px;
+  padding: 50px 50px 100px 25px; /* 上90px 右50px 下100px 左25px */
   margin: 0;
   background-color: var(--about-bg-green);
   z-index: 20;

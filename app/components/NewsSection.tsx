@@ -120,8 +120,9 @@ const NewsSection = () => {
         .news-meta {
           display: flex;
           align-items: center;
-          gap: 0.75rem;
+          gap: 0.5rem 0.75rem; /* 行間0.5rem、列間0.75rem */
           margin-bottom: 0.5rem;
+          flex-wrap: wrap; /* 折り返しを許可 */
         }
         
         .news-date {
@@ -143,6 +144,7 @@ const NewsSection = () => {
           justify-content: center;
           border-radius: 0;
           white-space: nowrap;
+          flex-wrap: wrap;
         }
         
         .news-title {
@@ -282,6 +284,21 @@ const NewsSection = () => {
           
           .no-articles {
             left: 30px;
+          }
+
+          .news-meta {
+            max-width: 180px; /* タイトルと同じ幅に制限 */
+          }
+          
+          .news-title {
+            font-size: 13px;
+            font-weight: 700;
+            max-width: 180px;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            display: -webkit-box;
+            -webkit-line-clamp: 2;
+            -webkit-box-orient: vertical;
           }
         }
       `}</style>
