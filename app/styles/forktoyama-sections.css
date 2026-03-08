@@ -572,7 +572,7 @@
   
   .natural-architecture-bg .section-category {
     padding: 0px 0 0px 0;
-    margin-bottom: 20px;
+    margin-bottom: 12px;
     font-size: 13px;
   }
   
@@ -618,7 +618,7 @@
   color: #B4B4B4; 
   margin-bottom: 8px;
   letter-spacing: 0.05em;
-  font-weight: 600;
+  font-weight: 700;
 }
 
 .access-bg .section-title {
@@ -719,7 +719,7 @@
   .access-bg .mobile-header .section-category {
     font-size: 13px;
     color: #B4B4B4;
-    margin: 0 0 15px 0;
+    margin: 0 0 12px 0;
     text-underline-offset: 6px;
   }
   

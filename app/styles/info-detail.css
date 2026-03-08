@@ -4,7 +4,7 @@
 
 .info-detail-page {
   background-color: #E7EBE7;
-  padding-top: 80px;
+  padding-top: 70px;
 }
 
 .info-detail-container {
@@ -60,7 +60,7 @@
 /* 記事タイトル */
 .info-detail-article-title {
   color: #003705;
-  font-size: 22px;
+  font-size: 25px;
   font-weight: 700;
   line-height: 1.6;
   margin: 0;
@@ -68,44 +68,73 @@
 }
 
 /* 戻るリンク */
-.info-back-link-container {
+.info-back-link-container,
+.info-back-link-mobile {
   display: flex;
-  justify-content: flex-start;
   align-items: center;
-  gap: 8px;
-  margin-top: auto;
-  padding-top: 40px;
-}
-
-.info-back-link {
-  display: inline-flex;
-  align-items: center;
-  color: #003705;
-  font-size: 13px;
-  font-weight: 700;
-  text-decoration: underline;
-  text-underline-offset: 3px;
-  transition: transform 0.3s ease;
+  gap: 5px;
+  cursor: pointer;
+  width: fit-content;
 }
 
 .info-back-arrow {
   width: 24px;
   height: 12px;
   object-fit: contain;
+  transform: rotate(180deg); /* 矢印を左向きに */
   transition: transform 0.3s ease;
-  transform: rotate(180deg);
+}
+
+.info-back-link {
+  text-decoration: none;
+}
+
+.info-back-link-container {
+  display: flex;
+  margin-top: 40px;
+}
+
+/* PC: モバイル用リンクを非表示 */
+.info-back-link-mobile {
+  display: none !important;
 }
 
 .info-back-link-text {
+  color: #003705;
+  font-size: 13px;
+  font-weight: 700;
+  position: relative;
+  padding-bottom: 2px;
   transition: transform 0.3s ease;
+  display: inline-block;
+}
+
+.info-back-link-text::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 1px;
+  background-color: #003705;
+}
+
+/* ホバー効果 - 左に動く */
+.info-back-link-container:hover .info-back-link-text,
+.info-back-link-container:hover .info-back-arrow {
+  transform: rotate(180deg) translateX(0.5em);
 }
 
 .info-back-link-container:hover .info-back-link-text {
   transform: translateX(-0.5em);
 }
 
-.info-back-link-container:hover .info-back-arrow {
+.info-back-link-mobile:hover .info-back-arrow {
   transform: rotate(180deg) translateX(0.5em);
+}
+
+.info-back-link-mobile:hover .info-back-link-text {
+  transform: translateX(-0.5em);
 }
 
 /* サムネイル画像 */
@@ -176,60 +205,16 @@
 }
 
 /* ========================================
-   タブレット（769px〜1024px）
-   ======================================== */
-@media (min-width: 769px) and (max-width: 1024px) {
-  .info-detail-container {
-    flex-direction: column;
-    padding: 30px;
-  }
-  
-  .info-detail-left {
-    width: 100%;
-  }
-  
-  .info-detail-right {
-    width: 100%;
-    padding: 30px 0 60px 0;
-  }
-  
-  .info-detail-sticky {
-    position: relative;
-    top: 0;
-    padding: 0 0 20px 0;
-    min-height: auto;
-  }
-  
-  .info-detail-article-title {
-    font-size: 20px;
-    margin-bottom: 20px;
-    flex-grow: 0;
-  }
-  
-  .info-back-link-container {
-    display: none;
-  }
-  
-  .info-back-link-mobile {
-    display: flex;
-    justify-content: flex-start;
-    align-items: center;
-    gap: 8px;
-    margin-top: 40px;
-  }
-}
-
-/* ========================================
    モバイル（768px以下）
    ======================================== */
 @media (max-width: 768px) {
   .info-detail-page {
-    padding-top: 60px;
+    padding-top: 70px;
   }
   
   .info-detail-container {
     flex-direction: column;
-    padding: 30px;
+    padding: 80px 30px 0 30px;
   }
   
   .info-detail-left {
@@ -249,7 +234,7 @@
   }
   
   .info-detail-article-title {
-    font-size: 18px;
+    font-size: 25px;
     margin-bottom: 20px;
     flex-grow: 0;
   }
@@ -264,39 +249,20 @@
   
   /* PC用の戻るリンクを非表示 */
   .info-back-link-container {
-    display: none;
+    display: none !important;
   }
   
-  /* モバイル用の戻るリンク */
+  /* モバイル: 本文下のリンクを表示 */
   .info-back-link-mobile {
-    display: flex;
-    justify-content: flex-start;
+    display: flex !important;
     align-items: center;
-    gap: 8px;
-    margin-top: 40px;
+    gap: 5px;
+    margin-top: 60px;
+    padding-bottom: 40px;
+    cursor: pointer;
+    width: fit-content;
   }
 }
 
-/* ========================================
-   小さいモバイル（480px以下）
-   ======================================== */
-@media (max-width: 480px) {
-  .info-detail-container {
-    padding: 30px;
-  }
-  
-  .info-detail-article-title {
-    font-size: 16px;
-  }
-  
-  .info-detail-body {
-    font-size: 12px;
-  }
-}
 
-/* PC時のモバイル用リンクを非表示 */
-@media (min-width: 1025px) {
-  .info-back-link-mobile {
-    display: none;
-  }
-}
+

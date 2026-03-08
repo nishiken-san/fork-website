@@ -83,7 +83,7 @@ const Access = () => {
         .section-category {
           font-size: 15px;
           color: #B4B4B4;
-          margin: 0 0 20px 0;
+          margin: 0 0 12px 0;
           font-weight: 700;
         }
         

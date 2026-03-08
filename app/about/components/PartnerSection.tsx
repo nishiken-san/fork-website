@@ -88,7 +88,7 @@ const PartnerSection = () => {
           font-size: 15px;
           font-weight: 700;
           letter-spacing: 0;
-          margin: 0 0 16px 0;
+          margin: 0 0 12px 0;
           padding: 0;
         }
         
@@ -195,7 +195,7 @@ const PartnerSection = () => {
             display: block !important;
             position: relative !important;
             font-size: 13px;
-            margin: 0 0 20px 0 !important;
+            margin: 0 0 12px 0 !important;
             padding: 0 !important;
             height: auto !important;
           }
@@ -216,7 +216,7 @@ const PartnerSection = () => {
           }
           
           .single-item {
-            margin: 0 0 40px 0 !important;
+            margin: 0 0 35px 0 !important;
             padding: 0 !important;
           }
           
@@ -230,13 +230,13 @@ const PartnerSection = () => {
           }
           
           .item-number {
-            font-size: 12px;
+            font-size: 13px;
             margin: 0 !important;
             padding: 0 !important;
           }
           
           .item-title {
-            font-size: 18px;
+            font-size: 13px;
             margin: 0 !important;
             padding: 0 !important;
           }

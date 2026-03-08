@@ -26,14 +26,15 @@
  * 
  * ============================================ */
 
+/* app/components/ForkTitleSection.module.css */
+
 .section {
-  --header-height: 70px; /* 【調整】ヘッダーの高さ */
+  --header-height: 70px;
   
   position: relative;
   width: 100%;
-  /* ヘッダー分を引いた高さ */
   height: calc(100dvh - var(--header-height));
-  max-height: 900px; /* 【追加】PC時の最大高さ */
+  max-height: 900px;
   min-height: 550px;
   overflow: hidden;
   background-color: #003705;
@@ -42,9 +43,9 @@
 /* forkロゴ - 左右マージンを揃えて中央配置 */
 .logo {
   position: absolute;
-  top: 20px; /* 【調整】上からの距離 */
-  left: 50px; /* 【調整】左マージン */
-  right: 50px; /* 【調整】右マージン */
+  top: 20px;
+  left: 50px;
+  right: 50px;
   z-index: 10;
   display: block;
   margin: 0 auto;
@@ -57,7 +58,7 @@
 /* 五本線イラスト - 右側 */
 .illustration {
   position: absolute;
-  top: 8vh; /* 【調整】上からの距離 */
+  top: 8vh;
   right: 0;
   z-index: 15;
   width: 40vw;
@@ -70,7 +71,7 @@
 .textContent {
   position: absolute;
   left: 50px;
-  bottom: 40px; /* 【調整】下からの距離（固定値） */
+  bottom: 40px;
   color: #FFFFFF;
   z-index: 20;
 }
@@ -87,7 +88,7 @@
 .scrollButton {
   position: absolute;
   right: 50px;
-  bottom: 40px; /* 【調整】下からの距離（固定値） */
+  bottom: 40px;
   background: none;
   border: none;
   z-index: 30;
@@ -95,7 +96,6 @@
   outline: none;
   transition: opacity 0.3s ease;
 }
-
 
 .scrollIcon {
   width: 41px;
@@ -135,7 +135,7 @@
 /* タブレット: 769px〜999px */
 @media (min-width: 769px) and (max-width: 999px) {
   .section {
-    max-height: none; /* タブレットでは制限解除 */
+    max-height: none;
   }
   
   .logo {
@@ -159,63 +159,76 @@
 @media (max-width: 768px) {
   .section {
     min-height: 500px;
-    max-height: none; /* モバイルでは制限解除 */
+    max-height: none;
     height: calc(100dvh - var(--header-height));
   }
   
+  /* forkロゴ - 左右30px余白で最大幅 */
   .logo {
-    top: 60px;
-    left: 0px;
-    right: 0px;
-    min-width: auto; /* 最小幅を解除 */
-    max-width: 380px;
+    top: 30px;
+    left: 30px;
+    right: 30px;
+    min-width: auto;
+    max-width: none; /* 制限解除 */
+    width: calc(100% - 60px); /* 左右30pxの余白 */
   }
   
-  /* イラストを画面内に収める */
+  /* イラストを画面中央〜下に配置し、テキストと重なるように */
   .illustration {
-    top: 80px;
-    right: 10px; /* 見切れないように0に */
-    width: 70vw; /* 幅を調整 */
-    max-width: 480px;
-    min-width: auto; /* 最小幅を解除 */
+    top: 5%;
+    bottom: auto; /* 下から配置 */
+    right: -5%;
+    width: 85vw;
+    max-width: none;
+    min-width: auto;
+    z-index: 15;
   }
   
+  /* テキストをイラストの上に重ねる */
   .textContent {
     left: 30px;
-    bottom: 30px;
+    bottom: 105px;
+    z-index: 25; /* イラストより上 */
+  }
+  
+  .textLine {
+    font-size: 13px;
+    line-height: 1.7;
+    /* テキストの視認性を確保（必要に応じて） */
+    text-shadow: 0 0 10px rgba(0, 55, 5, 0.5);
   }
   
   .scrollButton {
     right: 30px;
     bottom: 30px;
+    z-index: 30;
   }
 }
 
 /* 小型モバイル: 480px以下 */
 @media (max-width: 480px) {
   .logo {
-    top: 50px;
-    left: 0px;
-    right: 0px;
-    max-width: 380px;
+    top: 25px;
+    left: 30px;
+    right: 30px;
+    width: calc(100% - 60px); /* 左右30pxの余白を確保 */
+    max-width: none;
   }
   
-  /* イラストを画面内に収める */
   .illustration {
-    top: 70px;
-    right: 0;
-    width: 65vw;
-    max-width: 300px;
+    bottom: 8%;
+    right: 0%;
+    width: 90vw;
   }
   
   .textContent {
     left: 20px;
-    bottom: 25px;
+    bottom: 105px;
   }
   
   .textLine {
-    font-size: 13px;
-    line-height: 1.7;
+    font-size: 15px;
+    line-height: 1.6;
   }
   
   .scrollButton {
@@ -232,21 +245,21 @@
 /* 超小型モバイル: 390px以下 */
 @media (max-width: 390px) {
   .logo {
-    top: 40px;
-    max-width: 240px;
+    top: 20px;
+    left: 30px;
+    right: 30px;
+    width: calc(100% - 60px);
   }
   
-  /* イラストを画面内に収める */
   .illustration {
-    top: 60px;
-    right: 0;
-    width: 60vw;
-    max-width: 250px;
+    bottom: 15%;
+    right: -15%;
+    width: 95vw;
   }
   
   .textLine {
-    font-size: 12px;
-    line-height: 1.6;
+    font-size: 15px;
+    line-height: 1.5;
   }
 }
 
@@ -261,12 +274,16 @@
   
   .logo {
     top: 10px;
-    max-width: 300px;
+    left: 30px;
+    right: 30px;
+    width: calc(100% - 60px);
+    max-width: 400px;
     min-width: auto;
   }
   
   .illustration {
     top: 10px;
+    bottom: auto;
     right: 0;
     width: 35vw;
     min-width: auto;

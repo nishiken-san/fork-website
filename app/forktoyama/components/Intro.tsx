@@ -73,7 +73,7 @@ const ForktoyamaIntro = () => {
           .forktoyama-vertical-text {
             writing-mode: vertical-rl !important;
             text-orientation: mixed !important;
-            font-size: 30px;
+            font-size: 25px;
           }
           
           

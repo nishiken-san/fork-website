@@ -230,13 +230,12 @@ const NoteSection = () => {
           font-size: 15px;
           font-weight: 700;
           letter-spacing: 0.05em;
-          margin-bottom: 1rem;
+          margin-bottom: 12px;
         }
         .section-title {
           color: #003705;
           font-size: 25px;
           font-weight: 700;
-          line-height: 1.4;
         }
         .content-area {
           padding: 90px 0 50px 0;
@@ -447,7 +446,7 @@ const NoteSection = () => {
           }
           
           .section-label {
-            margin-bottom: 20px;
+            margin-bottom: 12px;
           }
           
           .content-area {

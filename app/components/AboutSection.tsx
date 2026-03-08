@@ -42,7 +42,7 @@ const AboutSection = () => {
           color: #999;
           font-size: 15px;
           font-weight: 700;
-          margin-bottom: 20px;
+          margin-bottom: 12px;
         }
         .section-title {
           color: #003705;
@@ -115,7 +115,7 @@ const AboutSection = () => {
             color: #999;
             font-size: 15px;
             font-weight: 700;
-            margin-bottom: 20px;
+            margin-bottom: 12px;
           }
           
           .content-area {

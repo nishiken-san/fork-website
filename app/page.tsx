@@ -2,6 +2,7 @@
 'use client';
 
 import { useState } from 'react';
+import { useEffect } from 'react';
 
 import Image from 'next/image';
 import HeaderTop from './components/HeaderTop';
@@ -60,6 +61,17 @@ async function getLatestNews() {
 }
 
 export default function Home() {
+  useEffect(() => {
+    // クラスを追加
+    document.documentElement.classList.add('allow-bounce');
+    document.body.classList.add('allow-bounce');
+    
+    return () => {
+      // クリーンアップ時にクラスを削除
+      document.documentElement.classList.remove('allow-bounce');
+      document.body.classList.remove('allow-bounce');
+    };
+  }, []);
   return (
     <div className="pt-16">
       {/* <HeroSection /> */}

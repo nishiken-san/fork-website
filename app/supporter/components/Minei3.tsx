@@ -72,15 +72,24 @@ const Minei3 = () => {
             <div className="minei3-voices-list">
               {voices.map((voice) => (
                 <div key={voice.id} className="minei3-voice-card">
-                  <div className="minei3-voice-header">
-                    <div className="minei3-voice-name">{voice.name}</div>
-                    <div className="minei3-voice-info">
-                      {voice.occupation} [{voice.location}]
-                    </div>
-                  </div>
-                  <div className="minei3-voice-divider"></div>
-                  <p className="minei3-voice-text">{voice.message}</p>
+    <div className="minei3-voice-header">
+      {voice.name && (
+        <span className="minei3-voice-name">{voice.name}</span>
+      )}
+      {(voice.location || voice.occupation) && (
+        <span className="minei3-voice-info">
+          {voice.location && voice.occupation 
+            ? `${voice.location}／${voice.occupation}`
+            : voice.location || voice.occupation
+          }
+        </span>
+                  )}
                 </div>
+                <div className="minei3-voice-divider" />
+                {voice.message && (
+                  <p className="minei3-voice-text">{voice.message}</p>
+                )}
+              </div>
               ))}
             </div>
           </div>

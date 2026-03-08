@@ -69,7 +69,7 @@ const CompanyInformation = () => {
           font-size: 15px;
           font-weight: 700;
           letter-spacing: 0;
-          margin: 0 0 20px 0;
+          margin: 0 0 12px 0;
           padding: 0;
         }
         
@@ -161,7 +161,7 @@ const CompanyInformation = () => {
             position: relative !important;
             font-size: 13px;
             font-weight: 700;
-            margin: 0 0 15px 0 !important;
+            margin: 0 0 12px 0 !important;
             padding: 0 !important;
             height: auto !important;
           }

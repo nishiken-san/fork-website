@@ -1028,11 +1028,17 @@ body {
   visibility: visible;
 }
 
-html, body {
+html {
   overscroll-behavior: none;
   overscroll-behavior-y: none;
 }
 
+body {
+  overscroll-behavior: none;
+  overscroll-behavior-y: none;
+}
+
+/* TOPページのみバウンスを許可 */
 html.allow-bounce,
 html.allow-bounce body {
   overscroll-behavior: auto;
