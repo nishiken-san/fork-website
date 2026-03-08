@@ -28,10 +28,10 @@ const InfoDetailPage = ({ article }: InfoDetailPageProps) => {
             {/* 更新日時 */}
             <div className="info-detail-date">{article.date}</div>
             
-            {/* タグ */}
-            {article.tag && (
-              <span className="info-detail-tag">{article.tag}</span>
-            )}
+            {/* タグ - 常に表示（タグがない場合は「タグ分類なし」） */}
+            <span className="info-detail-tag">
+              {article.tag && article.tag.trim() !== '' ? article.tag : 'タグ分類なし'}
+            </span>
             
             {/* 記事タイトル */}
             <h1 className="info-detail-article-title">{article.title}</h1>

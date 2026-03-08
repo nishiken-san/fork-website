@@ -48,13 +48,18 @@
 
 /* タグ */
 .info-detail-tag {
-  display: inline-block;
+  background-color: transparent;
   color: #B4B4B4;
+  border: 1px solid #B4B4B4;
+  padding: 0 4px;
   font-size: 10px;
   font-weight: 700;
-  padding: 3px 5px;
-  border: 1px solid #B4B4B4;
-  margin-bottom: 20px;
+  height: 16px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 0;
+  white-space: nowrap;
 }
 
 /* 記事タイトル */
@@ -65,6 +70,7 @@
   line-height: 1.6;
   margin: 0;
   flex-grow: 1;
+  padding-top: 45px;
 }
 
 /* 戻るリンク */
@@ -204,6 +210,8 @@
   margin-bottom: 0.5rem;
 }
 
+
+
 /* ========================================
    モバイル（768px以下）
    ======================================== */
@@ -262,6 +270,12 @@
     cursor: pointer;
     width: fit-content;
   }
+
+  .info-detail-tag {
+    margin-top: 10px;
+    margin-bottom: 14px;
+  }
+
 }
 
 
