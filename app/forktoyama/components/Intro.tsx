@@ -30,7 +30,7 @@ const ForktoyamaIntro = () => {
           justify-content: flex-end;
           align-items: flex-start;
           padding-top: 45px;
-          padding-right: 50px;
+          padding-right: 45px;
         }
         
         /* モバイル用ロゴ（デスクトップでは非表示） */

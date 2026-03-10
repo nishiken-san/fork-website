@@ -45,8 +45,6 @@ const Facility = () => {
           color: white;
           font-size: 25px;
           font-weight: 700;
-          line-height: 1.4;
-          letter-spacing: 0.1em;
         }
         .content-area {
           padding: 160px 0px 190px 50px;
