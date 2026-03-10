@@ -335,7 +335,7 @@ app/styles/effort-section.css
   color: #003705;
   font-size: 13px;
   font-weight: 700;
-  line-height: 1.8;
+  line-height: 2;
   margin: 0 0 40px 0;
   padding: 0;
   text-align: left;
@@ -494,7 +494,7 @@ app/styles/effort-section.css
   .gakudou3-bg .main-description,
   .gakudou4-bg .main-description {
     font-size: 13px;
-    line-height: 1.6;
+    line-height: 2;
     margin: 0 0 20px 0 !important;
     padding: 0 !important;
   }
@@ -560,7 +560,7 @@ app/styles/effort-section.css
 .support-list {
   display: flex;
   flex-direction: column;
-  gap: 12px;
+  gap: 0px;
   margin: 0 0 40px 0;
   padding: 0;
 }
