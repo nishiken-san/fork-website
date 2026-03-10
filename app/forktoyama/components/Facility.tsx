@@ -31,8 +31,8 @@ const Facility = () => {
         }
         .sticky-header {
           position: sticky;
-          top: 90px;
-          padding: 90px 45px;
+          top: 45px;
+          padding: 45px 45px 90px 0px;
           background-color: #003705;
           z-index: 20;
           display: flex;

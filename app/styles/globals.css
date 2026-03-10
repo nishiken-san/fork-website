@@ -1,22 +1,39 @@
 @import "tailwindcss";
 
 * {
-  font-family: "游ゴシック体", "Yu Gothic", YuGothic, "游ゴシック", "Yu Gothic Medium", "ヒラギノ角ゴ ProN", "Hiragino Kaku Gothic ProN", "メイリオ", Meiryo, "MS Pゴシック", "MS PGothic", sans-serif;
-  font-weight: 700; /* 游ゴシックBold */
+  font-family: var(--font-primary);
+  font-weight: 700; /* Bold統一 */
+}
+
+html {
+  font-family: var(--font-primary);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
 
 body {
-  font-family: "游ゴシック体", "Yu Gothic", YuGothic, "游ゴシック", "Yu Gothic Medium", "ヒラギノ角ゴ ProN", "Hiragino Kaku Gothic ProN", "メイリオ", Meiryo, "MS Pゴシック", "MS PGothic", sans-serif;
-  font-weight: 700; /* 游ゴシックBold */
+  font-family: var(--font-primary);
+  font-weight: 700;
 }
 
 /* より太字の場合（オプション） */
 strong, b, .font-bold {
   font-weight: 900; /* より太く */
 }
-
 :root {
-  --background: #ffffff;
+  --background: #003705;
+  --foreground: #003705;
+  --font-primary: 
+    "游ゴシック体",
+    "Yu Gothic",
+    YuGothic,
+    var(--font-zen-kaku),
+    "Zen Kaku Gothic New",
+    "Hiragino Kaku Gothic ProN",
+    "Hiragino Sans",
+    "メイリオ",
+    Meiryo,
+    sans-serif;
 }
 
 @theme inline {

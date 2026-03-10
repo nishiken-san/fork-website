@@ -20,7 +20,6 @@ const NewsSection = () => {
   const [newsItems, setNewsItems] = useState<NewsItem[]>([]);
   const [isLoading, setIsLoading] = useState(true);
 
-  // APIから最新ニュースを取得
   useEffect(() => {
     const fetchLatestNews = async () => {
       try {
@@ -120,9 +119,9 @@ const NewsSection = () => {
         .news-meta {
           display: flex;
           align-items: center;
-          gap: 0.5rem 0.75rem; /* 行間0.5rem、列間0.75rem */
+          gap: 0.5rem 0.75rem;
           margin-bottom: 0.5rem;
-          flex-wrap: wrap; /* 折り返しを許可 */
+          flex-wrap: wrap;
         }
         
         .news-date {
@@ -144,7 +143,6 @@ const NewsSection = () => {
           justify-content: center;
           border-radius: 0;
           white-space: nowrap;
-          flex-wrap: wrap;
         }
         
         .news-title {
@@ -212,11 +210,14 @@ const NewsSection = () => {
         /* モバイル対応 */
         @media (max-width: 768px) {
           .news-bg {
-            height: 400px;
+            height: auto;
+            min-height: 400px;
+            padding-bottom: 30px;
           }
           
           .section-container {
-            height: 400px;
+            height: auto;
+            min-height: 400px;
           }
           
           .left-column {
@@ -230,6 +231,7 @@ const NewsSection = () => {
           .sticky-header {
             position: relative;
             height: 100%;
+            min-height: 400px;
           }
           
           .section-title {
@@ -246,22 +248,37 @@ const NewsSection = () => {
             top: 100px;
           }
           
+          .news-list {
+            position: relative;
+            height: auto;
+            padding-top: 145px;
+            padding-bottom: 80px;
+            padding-left: 30px;
+            padding-right: 10px;
+          }
+          
           .news-item {
-            left: 30px;
+            position: relative !important;
+            left: auto !important;
+            top: auto !important;
+            display: block;
+            margin-bottom: 20px;
           }
           
-          .news-item-1 {
-            top: 145px;
-          }
-          
+          .news-item-1,
           .news-item-2 {
-            top: 216px;
+            position: relative !important;
+            top: auto !important;
+          }
+          
+          .news-meta {
+            max-width: 100%;
           }
           
           .news-title {
             font-size: 13px;
             font-weight: 700;
-            max-width: 180px;
+            max-width: 100%;
             overflow: hidden;
             text-overflow: ellipsis;
             display: -webkit-box;
@@ -272,7 +289,7 @@ const NewsSection = () => {
           .view-all-container {
             position: absolute;
             right: 0;
-            bottom: 50px;
+            bottom: 30px;
             left: auto;
             padding-right: 30px;
             flex-direction: row;
@@ -283,29 +300,17 @@ const NewsSection = () => {
           }
           
           .no-articles {
-            left: 30px;
-          }
-
-          .news-meta {
-            max-width: 180px; /* タイトルと同じ幅に制限 */
-          }
-          
-          .news-title {
-            font-size: 13px;
-            font-weight: 700;
-            max-width: 180px;
-            overflow: hidden;
-            text-overflow: ellipsis;
-            display: -webkit-box;
-            -webkit-line-clamp: 2;
-            -webkit-box-orient: vertical;
+            position: relative;
+            left: auto;
+            top: auto;
+            padding-top: 145px;
+            padding-left: 30px;
           }
         }
       `}</style>
 
       <section ref={sectionRef} id="news" className="news-bg relative">
         <div className="section-container">
-          {/* 左側: ニュース記事エリア */}
           <div ref={contentRef} className="left-column">
             <div className="content-area">
               <div className="section-header">news, records</div>
@@ -315,7 +320,6 @@ const NewsSection = () => {
                   <p className="no-articles">読み込み中...</p>
                 ) : newsItems.length > 0 ? (
                   <>
-                    {/* 1個目のニュース */}
                     {newsItems[0] && (
                       <a 
                         href={`/info/${newsItems[0].id}`}
@@ -331,7 +335,6 @@ const NewsSection = () => {
                       </a>
                     )}
                     
-                    {/* 2個目のニュース */}
                     {newsItems[1] && (
                       <a 
                         href={`/info/${newsItems[1].id}`}
@@ -354,7 +357,6 @@ const NewsSection = () => {
             </div>
           </div>
 
-          {/* 右側: 固定ヘッダー */}
           <div className="right-column">
             <div className="sticky-header">
               <h2 className="section-title">おしらせ・記録</h2>

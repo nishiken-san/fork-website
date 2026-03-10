@@ -34,7 +34,7 @@
 .info-list-sticky {
   position: sticky;
   top: 80px;
-  padding: 50px 25px 100px 0;
+  padding: 45px 25px 100px 0;
   margin: 0;
   background-color: #E7EBE7;
   z-index: 20;

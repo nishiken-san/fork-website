@@ -33,8 +33,8 @@ const AboutSection = () => {
         }
         .sticky-header {
           position: sticky;
-          top: 80px;
-          padding: 90px 0px 55px 50px;
+          top: 45px;
+          padding: 45px 0px 55px 50px;
           background-color: #E7EBE7;
           z-index: 20;
         }

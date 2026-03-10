@@ -29,7 +29,7 @@ const ForktoyamaIntro = () => {
           display: flex;
           justify-content: flex-end;
           align-items: flex-start;
-          padding-top: 90px;
+          padding-top: 45px;
           padding-right: 50px;
         }
         
@@ -67,7 +67,6 @@ const ForktoyamaIntro = () => {
           
           .forktoyama-vertical-container {
             display: flex;
-            gap: 0.5rem;
           }
           
           .forktoyama-vertical-text {
