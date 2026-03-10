@@ -89,14 +89,9 @@
   color: #B4B4B4;
 }
 
-.supporter-title {
-  font-size: 1.5rem;
-  line-height: 1.4;
-}
-
 .supporter-description { 
   font-size: 15px;
-  line-height: 1.8;
+  line-height: 2;
 }
 
 /* ========================================
@@ -597,7 +592,7 @@
   
   .supporter-description {
     font-size: 15px;
-    line-height: 1.8;
+    line-height: 2;
   }
 }
 

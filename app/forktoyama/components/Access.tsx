@@ -106,7 +106,7 @@ const Access = () => {
           font-size: 13px;
           font-weight: 700;
           margin: 0;
-          line-height: 1.6;
+          line-height: 2;
           color: #003705;
         }
         

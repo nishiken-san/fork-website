@@ -116,12 +116,12 @@
   font-size: 15px;
   font-weight: 600;
   margin-bottom: 24px;
-  line-height: 1.4;
+  line-height: 2;
 }
 
 .forktoyama-description {
   font-size: 15px;
-  line-height: 1.8;
+  line-height: 2;
   margin-bottom: 70px;
   width: 100%;
   max-width: none;
@@ -136,7 +136,7 @@
 
 .forktoyama-text {
   font-size: 14px;
-  line-height: 1.8;
+  line-height: 2;
   margin-bottom: 16px;
 }
 
@@ -204,7 +204,7 @@
 
 .forktoyama-list-text {
   font-size: 14px;
-  line-height: 1.6;
+  line-height: 2;
 }
 
 .forktoyama-section-spacing {
@@ -396,7 +396,7 @@
 
 .facility-bg .description {
   font-size: 14px;
-  line-height: 1.8;
+  line-height: 2;
   margin: 0;
 }
 
@@ -484,7 +484,7 @@
   color: #003705;
   font-size: 13px;
   font-weight: 700;
-  line-height: 1.9;
+  line-height: 2;
   margin: 0;
 }
 
@@ -641,13 +641,13 @@
 .access-bg .address {
   font-size: 13px;
   margin-bottom: 95px;
-  line-height: 1.6;
+  line-height: 2;
   color: #003705;
 }
 
 .access-bg .company-info {
   font-size: 13px;
-  line-height: 1.8;
+  line-height: 2;
   color: #003705;
 }
 
@@ -773,13 +773,13 @@
   .access-bg .mobile-info .address {
     font-size: 13px;
     margin: 0 0 80px 0;
-    line-height: 1.6;
+    line-height: 2;
     color: #003705;
   }
   
   .access-bg .mobile-info .company-info {
     font-size: 13px;
-    line-height: 1.8;
+    line-height: 2;
     color: #003705;
   }
   
@@ -962,7 +962,7 @@
   color: #003705;
   font-size: 13px;
   font-weight: 700;
-  line-height: 1.8;
+  line-height: 2;
   margin: 0 0 16px 0;
   padding: 0;
 }

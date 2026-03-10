@@ -149,7 +149,7 @@ const NewsSection = () => {
           color: #003705;
           font-size: 13px;
           font-weight: 700;
-          line-height: 1.6;
+          line-height: 2;
           max-width: 600px;
         }
         
