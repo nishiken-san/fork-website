@@ -125,7 +125,7 @@ const SupporterSection = () => {
           
           .mobile-header {
             display: flex;
-            padding: 50px 0 0 0;
+            padding: 45px 0 0 0;
           }
 
           .mobile-header-left {

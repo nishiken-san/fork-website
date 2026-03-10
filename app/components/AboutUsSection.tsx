@@ -141,7 +141,7 @@ const AboutUsSection = () => {
     .sticky-header {
       position: relative;
       top: auto;
-      padding-top: 50px;
+      padding-top: 45px;
       padding-left: 20px;
       padding-right: 0px;
       padding-bottom: 40px;

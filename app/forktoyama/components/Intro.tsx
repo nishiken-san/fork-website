@@ -61,7 +61,7 @@ const ForktoyamaIntro = () => {
           .forktoyama-sticky {
             position: relative !important;
             top: 0 !important;
-            padding: 50px 25px 50px 0;
+            padding: 45px 25px 50px 0;
             height: auto !important;
           }
           

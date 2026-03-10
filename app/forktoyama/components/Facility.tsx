@@ -91,7 +91,7 @@ const Facility = () => {
         }
 
         .sticky-header {
-          padding: 50px 0 100px 0;
+          padding: 45px 0 100px 0;
         }
 
         .description-container {
