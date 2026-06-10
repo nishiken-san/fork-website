@@ -16,7 +16,7 @@ export default function SuppourterPage() {
       <SupporterMainSection />
       <Minei1 />
       <Minei2 />
-      <Minei3 />
+      {/* <Minei3 /> */}
       <Minei4 />
       <Minei5 />
       <Footer />
