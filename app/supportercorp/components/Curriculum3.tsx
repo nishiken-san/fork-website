@@ -119,10 +119,10 @@ const Gakudou3 = () => {
         }
         @media (min-width: 1024px) {
           .section-title {
-            font-size: 1.75rem;
+            font-size: 25px;
           }
           .section-label {
-            font-size: 1.75rem;
+            font-size: 25px;
           }
           .content-area {
             padding: 4rem 0 4rem 4rem;
