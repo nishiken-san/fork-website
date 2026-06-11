@@ -14,10 +14,11 @@ const zenKaku = Zen_Kaku_Gothic_New({
   display: 'swap',
   preload: true,
 });
+const siteDescription = '“はたらく”と“そだてる”をもっと自由にする。';
 
 export const metadata: Metadata = {
   title: 'Fork',
-  description: '',
+  description: siteDescription,
   keywords: '',
   authors: [{ name: 'Fork Company' }],
   viewport: 'width=device-width, initial-scale=1',
