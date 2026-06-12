@@ -14,7 +14,7 @@ const zenKaku = Zen_Kaku_Gothic_New({
   display: 'swap',
   preload: true,
 });
-const siteDescription = '“はたらく”と“そだてる”をもっと自由にする。';
+const siteDescription = '"はたらく"と"そだてる"をもっと自由にする。みんなで営む、あたらしい学童保育。';
 
 export const metadata: Metadata = {
   title: 'Fork',
